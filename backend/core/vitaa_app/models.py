@@ -7,7 +7,7 @@ class Food(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
     # Macronutrients
-    caloric_value = models.FloatField(null=True, blank=True)  # Calories
+    caloric_value = models.FloatField(null=True, blank=True) 
     fat = models.FloatField(null=True, blank=True)
     saturated_fats = models.FloatField(null=True, blank=True)
     monounsaturated_fats = models.FloatField(null=True, blank=True)
