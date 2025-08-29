@@ -23,11 +23,9 @@ class Food(models.Model):
     # Extra
     nutrition_density = models.FloatField(null=True, blank=True)
 
-
     #New fields
     veg_class = models.CharField(max_length=255, null=False, blank=True) # veterinary class
     allergen = models.CharField(max_length=255, null=True, blank=True)  # allergen description
 
     def __str__(self):
         return f"{self.food_id} - {self.name} ({self.vet_class})"
-
