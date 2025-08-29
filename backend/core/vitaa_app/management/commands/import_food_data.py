@@ -38,6 +38,8 @@ class Command(BaseCommand):
                             "sodium": to_float(row.get("Sodium")),
                             "water": to_float(row.get("Water")),
                             "nutrition_density": to_float(row.get("Nutrition Density")),
+                            "veg_class": row.get("veg_class"),   
+                            "allergen": row.get("allergen"), 
                         },
                     )
                     count += 1
