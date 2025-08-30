@@ -1,0 +1,185 @@
+{
+  "brand": "Vitaa",
+  "nav": {
+    "home": "Home",
+    "plan": "Health Plan",
+    "analysis": "Health Analysis",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "Prevent Tomorrow's <strong>Health Challenges</strong> Today",
+    "heroSubtitle": "Personalized meals + workouts, with real-time health insights for a stronger, healthier you.",
+    "ctaGenerate": "Generate My Health Plan",
+    "ctaSample": "Sample Plan",
+    "malaysiaReality": "The Malaysian Health Reality",
+    "malaysiaSubtitle": "Understanding the urgent need for preventive healthcare in Malaysia",
+    "stat1": "73% of deaths in Malaysia are from NCDs",
+    "stat1sub": "Non-communicable diseases are the leading cause of mortality",
+    "stat2": "3.9M Malaysian adults (18+) have diabetes",
+    "stat2sub": "≈18.3% of adults",
+    "stat3": "80% of premature heart disease & strokes are preventable",
+    "stat3sub": "Through lifestyle changes & early detection",
+    "preventionTitle": "Prevention is Better Than Cure",
+    "preventionText": "Vitaa helps Malaysian adults prevent diabetes, hypertension, and stroke with personalized, culturally relevant health solutions.",
+    "ctaAnalysis": "Want to know your <highlight>health risks?</highlight>",
+    "ctaAnalysisBtn": "Start Analysis",
+    "whyTitle": "Why Vitaa?",
+    "whyAi": "AI Preventive Health Analytics",
+    "whyPersonalised": "Personalised recommendations for diet and exercise"
+  },
+  "plan": {
+    "breadcrumbs": {
+      "home": "Home",
+      "plan": "Health Plan"
+    },
+    "title": "Personalized Health Plan",
+    "subtitle": "Get a tailored diet and exercise plan designed to fit your lifestyle and goals.",
+    "stepper": {
+      "one": "1",
+      "two": "2"
+    },
+    "assessmentTitle": "Health Plan Assessment",
+    "fields": {
+      "age": {
+        "label": "Age",
+        "placeholder": "Enter your age"
+      },
+      "sex": {
+        "label": "Sex",
+        "male": "Male",
+        "female": "Female"
+      },
+      "height": {
+        "label": "Height (cm)",
+        "placeholder": "Enter your height"
+      },
+      "weight": {
+        "label": "Weight (kg)",
+        "placeholder": "Enter your weight"
+      },
+      "waist": {
+        "label": "Waist Circumference (cm)",
+        "placeholder": "Enter your waist circumference"
+      },
+      "activity": {
+        "label": "Activity Frequency",
+        "sedentary": "Sedentary",
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High"
+      },
+      "goal": {
+        "label": "Fitness Goal",
+        "loss": "Weight Loss",
+        "muscle": "Muscle Gain",
+        "maintain": "Maintain Health"
+      },
+      "allergies": {
+        "label": "Allergies",
+        "help": "Select all that apply to you",
+        "milk": "Milk",
+        "eggs": "Eggs",
+        "peanuts": "Peanuts",
+        "treeNuts": "Tree nuts",
+        "soy": "Soy",
+        "wheat": "Wheat",
+        "fish": "Fish",
+        "shellfish": "Shellfish",
+        "sesame": "Sesame"
+      },
+      "diet": {
+        "label": "Diet Preference",
+        "none": "No Preference",
+        "vegan": "Vegan",
+        "vegetarian": "Vegetarian",
+        "includeEggs": "Include eggs?"
+      }
+    },
+    "common": {
+      "yes": "Yes",
+      "no": "No"
+    },
+    "submit": "Generate Health Plan"
+  },
+  "analysis": {
+    "breadcrumbs": {
+      "home": "Home",
+      "analysis": "Health Analysis"
+    },
+    "title": "Health Analysis Form",
+    "subtitle": "Get clear, AI-powered insights to detect early risks for diabetes, hypertension, and stroke—so you can take action sooner.",
+    "assessmentTitle": "Health Risk Assessment",
+    "fields": {
+      "age": {
+        "label": "Age",
+        "placeholder": "Enter your age"
+      },
+      "sex": {
+        "label": "Sex",
+        "male": "Male",
+        "female": "Female"
+      },
+      "height": {
+        "label": "Height (cm)",
+        "placeholder": "Enter your height"
+      },
+      "weight": {
+        "label": "Weight (kg)",
+        "placeholder": "Enter your weight"
+      },
+      "waist": {
+        "label": "Waist Circumference (cm)",
+        "placeholder": "Enter your waist circumference"
+      },
+      "bpSystolic": {
+        "label": "Systolic BP",
+        "placeholder": "Enter your systolic blood pressure",
+        "help": "Most health apps or smartwatches measure systolic blood pressure, which is essential for accurate hypertension risk assessment."
+      },
+      "activity": {
+        "label": "Activity Frequency",
+        "sedentary": "Sedentary",
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High"
+      },
+      "alcohol": {
+        "label": "Alcohol Consumption",
+        "none": "None",
+        "occasional": "Occasional",
+        "frequent": "Frequent"
+      },
+      "smoking": {
+        "label": "Smoking Status",
+        "smoker": "Smoker",
+        "nonSmoker": "Non-smoker"
+      },
+      "family": {
+        "label": "Family history",
+        "diabetes": "Diabetes",
+        "hypertension": "Hypertension",
+        "stroke": "Stroke",
+        "none": "None"
+      }
+    },
+    "submit": "Generate Health Analysis"
+  },
+  "consent": {
+    "title": "We value your privacy",
+    "body": "We don’t store your personal data on our servers. Cookies are used only to power essential features and to run analysis/calculations for your health results. Your inputs are processed for calculation and saved only in your browser as cookies (not sent to us). You can accept or reject.",
+    "lines": {
+      "essential": "Essential Cookies: Required for the site to function and to remember things like consent and language.",
+      "analytics": "Analysis/Calculation Cookies: Used to perform on-page analysis and calculations for your health results; data stays in your browser.",
+      "personalization": "Personalization Cookies: Save your preferences (e.g., units, selections) to tailor diet and exercise suggestions; not shared with our servers."
+    },
+    "accept": "ACCEPT ALL",
+    "reject": "REJECT ALL"
+  },
+  "lang": {
+    "english": "English",
+    "malay": "Malay",
+    "chinese": "Chinese",
+    "vietnamese": "Vietnamese",
+    "switch": "Switch Language"
+  }
+}

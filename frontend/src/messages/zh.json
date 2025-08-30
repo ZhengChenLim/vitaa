@@ -1,0 +1,158 @@
+{
+  "brand": "Vitaa",
+  "nav": {
+    "home": "首页",
+    "plan": "健康计划",
+    "analysis": "健康分析",
+    "contact": "联系我们"
+  },
+  "home": {
+    "heroTitle": "今天就预防明天的<strong>健康挑战</strong>",
+    "heroSubtitle": "个性化饮食与运动方案，结合实时健康洞察，助你更强壮、更健康。",
+    "ctaGenerate": "生成我的健康计划",
+    "ctaSample": "示例计划",
+    "malaysiaReality": "马来西亚的健康现状",
+    "malaysiaSubtitle": "了解在马来西亚开展预防性医疗的迫切需求",
+    "stat1": "马来西亚73%的死亡源于慢性非传染性疾病（NCD）",
+    "stat1sub": "非传染性疾病是导致死亡的主要原因",
+    "stat2": "390万名马来西亚成年人（18+）患有糖尿病",
+    "stat2sub": "≈18.3%的成年人",
+    "stat3": "80%的早发心脏病和中风可以预防",
+    "stat3sub": "通过生活方式改变与早期筛查",
+    "preventionTitle": "预防胜于治疗",
+    "preventionText": "Vitaa 通过个性化、符合文化的健康方案，帮助马来西亚成年人预防糖尿病、高血压和中风。",
+    "ctaAnalysis": "想了解你的<highlight>健康风险</highlight>吗？",
+    "ctaAnalysisBtn": "开始分析",
+    "whyTitle": "为什么选择 Vitaa？",
+    "whyAi": "AI 预防性健康分析",
+    "whyPersonalised": "个性化的饮食与运动建议"
+  },
+  "plan": {
+    "breadcrumbs": {
+      "home": "首页",
+      "plan": "健康计划"
+    },
+    "title": "个性化健康计划",
+    "subtitle": "为你的生活方式与目标量身打造饮食与运动方案。",
+    "stepper": {
+      "one": "1",
+      "two": "2"
+    },
+    "assessmentTitle": "健康计划评估",
+    "fields": {
+      "age": {
+        "label": "年龄",
+        "placeholder": "请输入你的年龄"
+      },
+      "sex": {
+        "label": "性别",
+        "male": "男",
+        "female": "女"
+      },
+      "height": {
+        "label": "身高（厘米）",
+        "placeholder": "请输入身高"
+      },
+      "weight": {
+        "label": "体重（公斤）",
+        "placeholder": "请输入体重"
+      },
+      "waist": {
+        "label": "腰围（厘米）",
+        "placeholder": "请输入腰围"
+      },
+      "activity": {
+        "label": "活动频率",
+        "sedentary": "久坐",
+        "low": "低",
+        "medium": "中",
+        "high": "高"
+      },
+      "goal": {
+        "label": "健身目标",
+        "loss": "减重",
+        "muscle": "增肌",
+        "maintain": "维持健康"
+      },
+      "allergies": {
+        "label": "过敏",
+        "help": "选择所有适用项",
+        "milk": "牛奶",
+        "eggs": "鸡蛋",
+        "peanuts": "花生",
+        "treeNuts": "树坚果",
+        "soy": "大豆",
+        "wheat": "小麦",
+        "fish": "鱼类",
+        "shellfish": "贝类",
+        "sesame": "芝麻"
+      },
+      "diet": {
+        "label": "饮食偏好",
+        "none": "无偏好",
+        "vegan": "纯素",
+        "vegetarian": "素食",
+        "includeEggs": "包含鸡蛋？"
+      }
+    },
+    "common": {
+      "yes": "是",
+      "no": "否"
+    },
+    "submit": "生成健康计划"
+  },
+  "analysis": {
+    "breadcrumbs": {
+      "home": "首页",
+      "analysis": "健康分析"
+    },
+    "title": "健康分析表单",
+    "subtitle": "借助 AI 提供的清晰洞察，及早发现糖尿病、高血压和中风等风险，从而更早采取行动。",
+    "assessmentTitle": "健康风险评估",
+    "fields": {
+      "age": { "label": "年龄", "placeholder": "请输入你的年龄" },
+      "sex": { "label": "性别", "male": "男", "female": "女" },
+      "height": { "label": "身高（厘米）", "placeholder": "请输入身高" },
+      "weight": { "label": "体重（公斤）", "placeholder": "请输入体重" },
+      "waist": { "label": "腰围（厘米）", "placeholder": "请输入腰围" },
+      "bpSystolic": {
+        "label": "收缩压",
+        "placeholder": "请输入你的收缩压",
+        "help": "大多数健康应用或智能手表都能测量收缩压，这对准确评估高血压风险非常重要。"
+      },
+      "activity": {
+        "label": "活动频率",
+        "sedentary": "久坐",
+        "low": "低",
+        "medium": "中",
+        "high": "高"
+      },
+      "alcohol": {
+        "label": "饮酒情况",
+        "none": "无",
+        "occasional": "偶尔",
+        "frequent": "频繁"
+      },
+      "smoking": {
+        "label": "吸烟状况",
+        "smoker": "吸烟者",
+        "nonSmoker": "不吸烟者"
+      },
+      "family": {
+        "label": "家族史",
+        "diabetes": "糖尿病",
+        "hypertension": "高血压",
+        "stroke": "中风",
+        "none": "无"
+      }
+    },
+    "submit": "生成健康分析"
+  },
+  "lang": {
+    "english": "English",
+    "malay": "Malay",
+    "chinese": "中文",
+    "vietnamese": "Tiếng Việt",
+    "switch": "切换语言"
+  }
+}

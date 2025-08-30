@@ -1,0 +1,158 @@
+{
+  "brand": "Vitaa",
+  "nav": {
+    "home": "Laman Utama",
+    "plan": "Pelan Kesihatan",
+    "analysis": "Analisis Kesihatan",
+    "contact": "Hubungi"
+  },
+  "home": {
+    "heroTitle": "Cegah <strong>Cabaran Kesihatan</strong> Hari Esok, Hari Ini",
+    "heroSubtitle": "Pemakanan diperibadikan + senaman, dengan cerapan kesihatan masa nyata untuk diri yang lebih kuat dan sihat.",
+    "ctaGenerate": "Jana Pelan Kesihatan Saya",
+    "ctaSample": "Pelan Contoh",
+    "malaysiaReality": "Realiti Kesihatan Malaysia",
+    "malaysiaSubtitle": "Memahami keperluan mendesak untuk penjagaan kesihatan pencegahan di Malaysia",
+    "stat1": "73% kematian di Malaysia adalah daripada PTB (NCD)",
+    "stat1sub": "Penyakit tidak berjangkit ialah punca utama kematian",
+    "stat2": "3.9 juta dewasa Malaysia (18+) menghidap diabetes",
+    "stat2sub": "≈18.3% orang dewasa",
+    "stat3": "80% penyakit jantung pramatang & strok boleh dicegah",
+    "stat3sub": "Melalui perubahan gaya hidup & pengesanan awal",
+    "preventionTitle": "Mencegah Lebih Baik Daripada Merawat",
+    "preventionText": "Vitaa membantu orang dewasa Malaysia mencegah diabetes, hipertensi dan strok dengan penyelesaian kesihatan yang diperibadikan serta relevan secara budaya.",
+    "ctaAnalysis": "Mahukah anda mengetahui <highlight>risiko kesihatan</highlight> anda?",
+    "ctaAnalysisBtn": "Mulakan Analisis",
+    "whyTitle": "Mengapa Vitaa?",
+    "whyAi": "Analitik AI untuk Kesihatan Pencegahan",
+    "whyPersonalised": "Cadangan pemakanan dan senaman yang diperibadikan"
+  },
+  "plan": {
+    "breadcrumbs": {
+      "home": "Laman Utama",
+      "plan": "Pelan Kesihatan"
+    },
+    "title": "Pelan Kesihatan Peribadi",
+    "subtitle": "Dapatkan pelan diet dan senaman tersuai yang direka agar sesuai dengan gaya hidup dan matlamat anda.",
+    "stepper": {
+      "one": "1",
+      "two": "2"
+    },
+    "assessmentTitle": "Penilaian Pelan Kesihatan",
+    "fields": {
+      "age": {
+        "label": "Umur",
+        "placeholder": "Masukkan umur anda"
+      },
+      "sex": {
+        "label": "Jantina",
+        "male": "Lelaki",
+        "female": "Perempuan"
+      },
+      "height": {
+        "label": "Tinggi (cm)",
+        "placeholder": "Masukkan tinggi anda"
+      },
+      "weight": {
+        "label": "Berat (kg)",
+        "placeholder": "Masukkan berat anda"
+      },
+      "waist": {
+        "label": "Ukurlilit Pinggang (cm)",
+        "placeholder": "Masukkan ukurlilit pinggang anda"
+      },
+      "activity": {
+        "label": "Kekerapan Aktiviti",
+        "sedentary": "Sedentari",
+        "low": "Rendah",
+        "medium": "Sederhana",
+        "high": "Tinggi"
+      },
+      "goal": {
+        "label": "Matlamat Kecergasan",
+        "loss": "Penurunan Berat Badan",
+        "muscle": "Pertambahan Otot",
+        "maintain": "Kekalkan Kesihatan"
+      },
+      "allergies": {
+        "label": "Alergi",
+        "help": "Pilih semua yang berkaitan",
+        "milk": "Susu",
+        "eggs": "Telur",
+        "peanuts": "Kacang tanah",
+        "treeNuts": "Kacang pokok",
+        "soy": "Kacang soya",
+        "wheat": "Gandum",
+        "fish": "Ikan",
+        "shellfish": "Kerang-kerangan",
+        "sesame": "Bijan"
+      },
+      "diet": {
+        "label": "Pilihan Diet",
+        "none": "Tiada Keutamaan",
+        "vegan": "Vegan",
+        "vegetarian": "Vegetarian",
+        "includeEggs": "Termasuk telur?"
+      }
+    },
+    "common": {
+      "yes": "Ya",
+      "no": "Tidak"
+    },
+    "submit": "Jana Pelan Kesihatan"
+  },
+  "analysis": {
+    "breadcrumbs": {
+      "home": "Laman Utama",
+      "analysis": "Analisis Kesihatan"
+    },
+    "title": "Borang Analisis Kesihatan",
+    "subtitle": "Dapatkan cerapan jelas berkuasa AI untuk mengesan awal risiko diabetes, hipertensi dan strok — supaya anda boleh bertindak lebih awal.",
+    "assessmentTitle": "Penilaian Risiko Kesihatan",
+    "fields": {
+      "age": { "label": "Umur", "placeholder": "Masukkan umur anda" },
+      "sex": { "label": "Jantina", "male": "Lelaki", "female": "Perempuan" },
+      "height": { "label": "Tinggi (cm)", "placeholder": "Masukkan tinggi anda" },
+      "weight": { "label": "Berat (kg)", "placeholder": "Masukkan berat anda" },
+      "waist": { "label": "Ukurlilit Pinggang (cm)", "placeholder": "Masukkan ukurlilit pinggang anda" },
+      "bpSystolic": {
+        "label": "Tekanan Sistolik",
+        "placeholder": "Masukkan tekanan darah sistolik anda",
+        "help": "Kebanyakan aplikasi kesihatan atau jam pintar mengukur tekanan sistolik, yang penting untuk penilaian tepat risiko hipertensi."
+      },
+      "activity": {
+        "label": "Kekerapan Aktiviti",
+        "sedentary": "Sedentari",
+        "low": "Rendah",
+        "medium": "Sederhana",
+        "high": "Tinggi"
+      },
+      "alcohol": {
+        "label": "Pengambilan Alkohol",
+        "none": "Tiada",
+        "occasional": "Sekali-sekala",
+        "frequent": "Kerap"
+      },
+      "smoking": {
+        "label": "Status Merokok",
+        "smoker": "Perokok",
+        "nonSmoker": "Bukan perokok"
+      },
+      "family": {
+        "label": "Sejarah keluarga",
+        "diabetes": "Diabetes",
+        "hypertension": "Hipertensi",
+        "stroke": "Strok",
+        "none": "Tiada"
+      }
+    },
+    "submit": "Jana Analisis Kesihatan"
+  },
+  "lang": {
+    "english": "English",
+    "malay": "Malay",
+    "chinese": "中文",
+    "vietnamese": "Tiếng Việt",
+    "switch": "Tukar Bahasa"
+  }
+}
