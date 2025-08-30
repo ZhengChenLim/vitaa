@@ -5,7 +5,7 @@ from vitaa_app.models import Dish, Allergen, AllergenDish
 
 
 class Command(BaseCommand):
-    help = 'Import dishes from the updated MM-Food-100K CSV file'
+    help = 'Import dishes from the CSV file'
 
     def add_arguments(self, parser):
         parser.add_argument('csv_file', type=str, help='Path to the updated CSV file')
@@ -58,4 +58,3 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS(
             f"Successfully imported {imported_count} dishes. Skipped {skipped_count} rows."
         ))
-
