@@ -34,7 +34,7 @@ BEVERAGE_WORDS = {
 DESSERT_SWEET_WORDS = {
     "sugar","honey","syrup","candy","dessert","ice cream","gelato","chocolate",
     "cake","cupcake","cookie","biscuit","pastry","donut","doughnut","sweet","caramel",
-    "jam","jelly","marshmallow","sweetened","toffee"
+    "jam","jelly","marshmallow","sweetened","toffee", "gummy bears"
 }
 BANNED_NAME_KEYWORDS = ALCOHOL_WORDS | BEVERAGE_WORDS | DESSERT_SWEET_WORDS
 

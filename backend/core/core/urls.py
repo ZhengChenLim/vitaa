@@ -26,4 +26,7 @@ urlpatterns = [
     
     # Meal Planner API
     path("api/mealplan/", views.meal_plan_view, name="meal_plan"),
+
+    # Health Plan Meals API
+    path("api/plan/health/", views.health_plan_meal, name="health_plan_meal"),
 ]
