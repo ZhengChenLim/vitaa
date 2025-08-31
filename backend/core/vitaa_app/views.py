@@ -141,4 +141,3 @@ def health_plan_meal(request):
         return JsonResponse({"error": str(ve)}, status=400)
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=400)
-    
