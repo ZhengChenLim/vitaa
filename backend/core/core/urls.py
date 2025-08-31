@@ -29,4 +29,7 @@ urlpatterns = [
 
     # Health Plan Meals API
     path("api/plan/health/", views.health_plan_meal, name="health_plan_meal"),
+
+    #n8n Health Analysis API
+    path("api/webhooks/user-profile/", views.n8n_health_analysis_view, name="n8n_health_analysis"),
 ]
