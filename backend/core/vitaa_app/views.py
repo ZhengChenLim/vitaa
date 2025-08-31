@@ -2,9 +2,37 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+from requests import RequestException, HTTPError
 
 from vitaa_app.utils import calc_targets
 from vitaa_app.meal_planner_service import generate_meal_plan
+from vitaa_app.health_analysis import n8n_health_analysis
+
+@csrf_exempt
+def n8n_health_analysis_view(request):
+    """
+    Proxy endpoint: accepts user profile JSON and forwards it to n8n after normalization.
+    """
+    if request.method != "POST":
+        return JsonResponse({"error": "POST required"}, status=405)
+
+    try:
+        data = json.loads(request.body.decode("utf-8"))
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON body"}, status=400)
+
+    try:
+        result = n8n_health_analysis(data)
+        return JsonResponse({"forwarded": True, "webhook_response": result}, status=200)
+    except HTTPError as e:
+        return JsonResponse(
+            {"error": "Webhook returned error", "details": str(e), "body": getattr(e.response, "text", "")},
+            status=502,
+        )
+    except RequestException as e:
+        return JsonResponse({"error": "Webhook unreachable", "details": str(e)}, status=504)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=400)
 
 @csrf_exempt
 def meal_plan_view(request):
@@ -113,3 +141,4 @@ def health_plan_meal(request):
         return JsonResponse({"error": str(ve)}, status=400)
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=400)
+    
