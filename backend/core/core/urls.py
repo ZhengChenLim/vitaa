@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from vitaa_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # Nutrition API
+    path("api/nutrition/targets/", views.nutrition_targets, name="nutrition_targets"),
+    
+    # Meal Planner API
+    path("api/mealplan/", views.meal_plan_view, name="meal_plan"),
 ]
