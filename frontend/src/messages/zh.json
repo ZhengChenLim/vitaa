@@ -28,6 +28,9 @@
     "whyPersonalised": "个性化的饮食与运动建议"
   },
   "plan": {
+    "profile": {
+      "none": "无"
+    },
     "breadcrumbs": {
       "home": "首页",
       "plan": "健康计划"
@@ -107,6 +110,7 @@
       "home": "首页",
       "analysis": "健康分析"
     },
+    "loading": "加载中...",
     "title": "健康分析表单",
     "subtitle": "借助 AI 提供的清晰洞察，及早发现糖尿病、高血压和中风等风险，从而更早采取行动。",
     "assessmentTitle": "健康风险评估",
@@ -197,6 +201,7 @@
     },
     "overview": {
       "title": "你的健康计划",
+      "macroTitle": "三大营养素分布",
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "每日热量",
@@ -261,6 +266,81 @@
       "title": "准备好改善健康了吗？",
       "subtitle": "获取你的个性化营养与运动计划，今天就开始更健康的旅程！",
       "download": "下载完整计划"
+    }
+  },
+  "analysisResult": {
+    "breadcrumbs": { "home": "主页", "result": "结果" },
+    "loading": "加载中...",
+    "title": "健康分析结果",
+    "profile": {
+      "title": "健康档案",
+      "update": "更新结果",
+      "none": "无",
+      "fields": {
+        "age": "年龄",
+        "sex": "性别",
+        "height": "身高（厘米）",
+        "weight": "体重（千克）",
+        "waist": "腰围（厘米）",
+        "activity": "活动频率",
+        "sbp": "收缩压",
+        "sbpHelp": "大多数健康应用或智能手表都能测量收缩压，这对准确评估高血压风险非常重要。",
+        "alcohol": "饮酒情况",
+        "smoking": "吸烟状态",
+        "family": {
+          "label": "家族病史",
+          "diabetes": "糖尿病",
+          "hypertension": "高血压",
+          "stroke": "中风",
+          "none": "无"
+        }
+      }
+    },
+    "result": {
+      "title": "分析结果",
+      "disclaimerLabel": "免责声明：",
+      "disclaimer": "本风险评估仅用于健康管理，并非医学诊断。“高风险”结果并不意味着一定会患病。若需个性化建议，请咨询医生。"
+    },
+    "enums": {
+      "sex": { "male": "男性", "female": "女性" },
+      "activity": { "sedentary": "久坐/不活动", "low": "低", "medium": "中等", "high": "高" },
+      "alcohol": { "none": "无", "occasional": "偶尔", "frequent": "频繁" },
+      "smoking": { "smoker": "吸烟者", "nonSmoker": "不吸烟者" }
+    },
+    "bmi": {
+      "title": "BMI",
+      "myResult": "我的结果：",
+      "desc": "BMI（身体质量指数）用于衡量体重相对于身高的情况。",
+      "bands": {
+        "na": "—",
+        "underweight": "体重过低",
+        "normal": "正常",
+        "overweight": "超重",
+        "obese": "肥胖"
+      }
+    },
+    "bri": {
+      "title": "BRI",
+      "myResult": "我的结果：",
+      "desc": "体型圆润指数（BRI）根据身高与腰围估算腹部脂肪；数值越高通常与中心性肥胖和代谢风险升高有关。",
+      "bands": {
+        "na": "—",
+        "poor": "圆度低（脂肪少）",
+        "desirable": "理想",
+        "excessive": "过多",
+        "elevated": "显著升高"
+      }
+    },
+    "risk": {
+      "title": "健康风险评估",
+      "learnMore": "了解更多",
+      "level": { "high": "高风险", "moderate": "中等风险", "low": "低风险", "unknown": "未知" },
+      "conditions": { "diabetes": "糖尿病", "hypertension": "高血压", "stroke": "中风" },
+      "desc": {
+        "diabetes": "糖尿病的特点是长期血糖偏高。高风险人群应特别注意饮食、运动和体重管理。",
+        "hypertension": "高血压是一种长期血压升高的慢性疾病。当前风险较低。建议保持健康的生活方式并做好预防。",
+        "stroke": "中风是由于脑部血流阻塞或出血引起的急性疾病。当前风险较低。保持健康习惯有助于降低未来风险。"
+      }
     }
   },
   "lang": {

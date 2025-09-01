@@ -28,6 +28,9 @@
     "whyPersonalised": "Khuyến nghị ăn uống và luyện tập cá nhân hóa"
   },
   "plan": {
+    "profile": {
+      "none": "Không"
+    },
     "breadcrumbs": {
       "home": "Trang chủ",
       "plan": "Kế hoạch Sức khỏe"
@@ -107,6 +110,7 @@
       "home": "Trang chủ",
       "analysis": "Phân tích Sức khỏe"
     },
+    "loading": "đang tải...",
     "title": "Mẫu Phân tích Sức khỏe",
     "subtitle": "Nhận thông tin chi tiết do AI hỗ trợ để phát hiện sớm nguy cơ tiểu đường, tăng huyết áp và đột quỵ — giúp bạn hành động sớm hơn.",
     "assessmentTitle": "Đánh giá Nguy cơ Sức khỏe",
@@ -197,6 +201,7 @@
     },
     "overview": {
       "title": "Kế hoạch Sức khỏe của bạn",
+      "macroTitle": "Phân bổ Đạm - Béo - Tinh bột",
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "Calo mỗi ngày",
@@ -261,6 +266,81 @@
       "title": "Sẵn sàng thay đổi sức khỏe của bạn?",
       "subtitle": "Nhận kế hoạch dinh dưỡng và tập luyện cá nhân hóa và bắt đầu hành trình sống khỏe hôm nay!",
       "download": "Tải xuống kế hoạch đầy đủ"
+    }
+  },
+  "analysisResult": {
+    "breadcrumbs": { "home": "Trang chủ", "result": "Kết quả" },
+    "loading": "đang tải...",
+    "title": "Kết quả phân tích sức khỏe",
+    "profile": {
+      "title": "Hồ sơ sức khỏe",
+      "update": "Cập nhật kết quả",
+      "none": "Không có",
+      "fields": {
+        "age": "Tuổi",
+        "sex": "Giới tính",
+        "height": "Chiều cao (cm)",
+        "weight": "Cân nặng (kg)",
+        "waist": "Vòng eo (cm)",
+        "activity": "Mức độ hoạt động",
+        "sbp": "Huyết áp tâm thu",
+        "sbpHelp": "Hầu hết ứng dụng sức khỏe hoặc đồng hồ thông minh đều đo được huyết áp tâm thu, điều này rất quan trọng để đánh giá chính xác nguy cơ tăng huyết áp.",
+        "alcohol": "Mức tiêu thụ rượu/bia",
+        "smoking": "Tình trạng hút thuốc",
+        "family": {
+          "label": "Tiền sử gia đình",
+          "diabetes": "Đái tháo đường",
+          "hypertension": "Tăng huyết áp",
+          "stroke": "Đột quỵ",
+          "none": "Không có"
+        }
+      }
+    },
+    "result": {
+      "title": "Kết quả phân tích",
+      "disclaimerLabel": "Lưu ý:",
+      "disclaimer": "Đánh giá rủi ro này chỉ nhằm mục đích quản lý sức khỏe, không phải chẩn đoán y khoa. Kết quả \"Nguy cơ cao\" không có nghĩa là bạn chắc chắn sẽ mắc bệnh. Hãy tham khảo bác sĩ để được tư vấn cá nhân."
+    },
+    "enums": {
+      "sex": { "male": "Nam", "female": "Nữ" },
+      "activity": { "sedentary": "Ít vận động", "low": "Thấp", "medium": "Trung bình", "high": "Cao" },
+      "alcohol": { "none": "Không", "occasional": "Thỉnh thoảng", "frequent": "Thường xuyên" },
+      "smoking": { "smoker": "Người hút thuốc", "nonSmoker": "Không hút thuốc" }
+    },
+    "bmi": {
+      "title": "BMI",
+      "myResult": "Kết quả của tôi:",
+      "desc": "BMI (Chỉ số khối cơ thể) là chỉ số phản ánh cân nặng theo chiều cao.",
+      "bands": {
+        "na": "—",
+        "underweight": "Thiếu cân",
+        "normal": "Bình thường",
+        "overweight": "Thừa cân",
+        "obese": "Béo phì"
+      }
+    },
+    "bri": {
+      "title": "BRI",
+      "myResult": "Kết quả của tôi:",
+      "desc": "Chỉ số Độ tròn Cơ thể (BRI) ước tính mỡ bụng từ chiều cao và vòng eo; giá trị cao liên quan đến béo bụng và nguy cơ chuyển hóa.",
+      "bands": {
+        "na": "—",
+        "poor": "Độ tròn thấp (ít mỡ)",
+        "desirable": "Tối ưu",
+        "excessive": "Quá mức",
+        "elevated": "Tăng đáng kể"
+      }
+    },
+    "risk": {
+      "title": "Đánh giá rủi ro sức khỏe",
+      "learnMore": "Tìm hiểu thêm",
+      "level": { "high": "Nguy cơ cao", "moderate": "Nguy cơ trung bình", "low": "Nguy cơ thấp", "unknown": "Chưa rõ" },
+      "conditions": { "diabetes": "Đái tháo đường", "hypertension": "Tăng huyết áp", "stroke": "Đột quỵ" },
+      "desc": {
+        "diabetes": "Đái tháo đường là tình trạng đường huyết tăng cao mạn tính. Người có nguy cơ cao nên chú ý chế độ ăn, luyện tập và quản lý cân nặng.",
+        "hypertension": "Tăng huyết áp là tình trạng mạn tính với huyết áp tăng kéo dài. Nguy cơ hiện thấp. Nên duy trì lối sống lành mạnh để phòng ngừa.",
+        "stroke": "Đột quỵ là bệnh lý cấp tính do tắc mạch hoặc chảy máu não. Nguy cơ hiện thấp. Duy trì thói quen lành mạnh giúp giảm rủi ro trong tương lai."
+      }
     }
   },
   "lang": {

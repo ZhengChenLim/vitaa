@@ -42,7 +42,7 @@ export default function Header() {
           <NavLink href="/">{t('nav.home')}</NavLink>
           <NavLink href="/planform">{t('nav.plan')}</NavLink>
           <NavLink href="/analysisform">{t('nav.analysis')}</NavLink>
-          <NavLink href="/contact">{t('nav.contact')}</NavLink>
+          {/* <NavLink href="/contact">{t('nav.contact')}</NavLink> */}
         </nav>
 
         <div className="flex items-center gap-3">
@@ -71,9 +71,9 @@ export default function Header() {
             <Link href="/analysisform" className="rounded-lg px-3 py-2 text-sm font-semibold hover:bg-gray-100" onClick={() => setOpen(false)}>
               {t('nav.analysis')}
             </Link>
-            <Link href="/contact" className="rounded-lg px-3 py-2 text-sm font-semibold hover:bg-gray-100" onClick={() => setOpen(false)}>
+            {/* <Link href="/contact" className="rounded-lg px-3 py-2 text-sm font-semibold hover:bg-gray-100" onClick={() => setOpen(false)}>
               {t('nav.contact')}
-            </Link>
+            </Link> */}
           </div>
         </div>
       )}
