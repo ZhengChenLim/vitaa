@@ -175,6 +175,7 @@
     "accept": "ACCEPT ALL",
     "reject": "REJECT ALL"
   },
+<<<<<<< HEAD
   "planResult": {
     "breadcrumbs": {
       "home": "Home",
@@ -286,6 +287,8 @@
   },
 
 
+=======
+>>>>>>> c75560e6f7fbf8801da33c5a75b4732c97214705
   "lang": {
     "english": "English",
     "malay": "Malay",

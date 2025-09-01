@@ -148,6 +148,7 @@
     },
     "submit": "Tạo Phân tích Sức khỏe"
   },
+<<<<<<< HEAD
   "consent": {
     "title": "Chúng tôi coi trọng quyền riêng tư của bạn",
     "body": "Chúng tôi không lưu trữ dữ liệu cá nhân của bạn trên máy chủ. Cookie chỉ được dùng cho các chức năng thiết yếu và để chạy phân tích/tính toán cho kết quả sức khỏe của bạn. Dữ liệu bạn nhập chỉ được xử lý để tính toán và lưu trong trình duyệt của bạn dưới dạng cookie (không gửi cho chúng tôi). Bạn có thể chấp nhận hoặc từ chối.",
@@ -261,6 +262,8 @@
       "download": "Tải xuống kế hoạch đầy đủ"
     }
   },
+=======
+>>>>>>> c75560e6f7fbf8801da33c5a75b4732c97214705
   "lang": {
     "english": "English",
     "malay": "Malay",
