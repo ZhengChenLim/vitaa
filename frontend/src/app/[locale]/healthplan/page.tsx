@@ -744,6 +744,7 @@ function MetricCard({ label, value, colorClass = 'text-green-700' }: { label: st
   );
 }
 
+<<<<<<< HEAD
 /* -------------------- Diet Carousel -------------------- */
 function DietCarousel({ meals }: { meals: Meal[] }) {
   const [api, setApi] = useState<CarouselApi | null>(null);
@@ -892,3 +893,61 @@ function MealCard({ img, title, kcal, carbs, protein, fat, fiber }: Meal) {
     </Card>
   );
 }
+=======
+
+function MealCard({ img, title, kcal, carbs, protein, fat, fiber }: Meal) {
+    const t = useTranslations('planResult.meal');
+
+    return (
+        <Card className="shadow-md transition-shadow duration-300">
+            <div className="relative h-56 sm:h-60 md:h-64 lg:h-72 w-full">
+                <Image 
+                    src={img} 
+                    alt={title} 
+                    fill 
+                    className="object-cover transition-transform duration-300 hover:scale-105 " 
+                    sizes="(max-width: 640px) 85vw, (max-width: 768px) 65vw, (max-width: 1024px) 42vw, 38vw"
+                    onError={(e) => {
+                        // Fallback to placeholder if image fails to load
+                        e.currentTarget.src = '/food-placeholder.jpg';
+                    }}
+                  priority
+                  style={{ objectPosition: 'top' }}
+                />
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" /> */}
+            </div>
+            <CardContent className="p-5">
+                <div className="text-base font-bold text-slate-800 mb-3 leading-tight">{title}</div>
+
+                {/* stacked macros */}
+                <dl className="divide-y divide-slate-100 text-sm">
+                    <div className="flex items-center justify-between py-2">
+                        <dt className="text-slate-600 font-medium">{t('labels.calories')}</dt>
+                        <dd className="font-bold text-green-700">
+                            {kcal} {t('labels.kcal')}
+                        </dd>
+                    </div>
+                    <div className="flex items-center justify-between py-2">
+                        <dt className="text-slate-600">{t('labels.carbs')}</dt>
+                        <dd className="font-semibold text-slate-800">{carbs}</dd>
+                    </div>
+                    <div className="flex items-center justify-between py-2">
+                        <dt className="text-slate-600">{t('labels.protein')}</dt>
+                        <dd className="font-semibold text-slate-800">{protein}</dd>
+                    </div>
+                    <div className="flex items-center justify-between py-2">
+                        <dt className="text-slate-600">{t('labels.fat')}</dt>
+                        <dd className="font-semibold text-slate-800">{fat}</dd>
+                    </div>
+                    {fiber && (
+                        <div className="flex items-center justify-between py-2">
+                            <dt className="text-slate-600">{t('labels.fiber')}</dt>
+                            <dd className="font-semibold text-slate-800">{fiber}</dd>
+                        </div>
+                    )}
+                </dl>
+            </CardContent>
+        </Card>
+    );
+}
+>>>>>>> 6445cadbb11e3116d755cd4543ed5744aba58f15
