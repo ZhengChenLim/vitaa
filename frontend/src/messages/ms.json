@@ -202,7 +202,6 @@
     "overview": {
       "title": "Pelan Kesihatan Anda",
       "macroTitle": "Pengagihan Makro",
-
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "Kalori Harian",
@@ -225,7 +224,10 @@
         "fruitBowl": "Mangkuk Buah & Bijirin",
         "avocadoSalad": "Mangkuk Salad Avokado",
         "yogurtBowl": "Mangkuk Yogurt Buah"
-      }
+      },
+      "breakfast": "Sarapan",
+      "lunch": "Makan Tengahari",
+      "dinner": "Makan Malam"
     },
     "meal": {
      "labels": {
@@ -344,7 +346,6 @@
       }
     }
   },
-
   "lang": {
     "english": "English",
     "malay": "Malay",

@@ -219,9 +219,7 @@
 
     "overview": {
       "title": "Your Health Plan",
-
       "macroTitle": "Macro Distribution",
-
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "Daily Calories",
@@ -245,7 +243,10 @@
         "fruitBowl": "Fruit & Grain Bowl",
         "avocadoSalad": "Avocado Salad Bowl",
         "yogurtBowl": "Fruit Yogurt Bowl"
-      }
+      },
+      "breakfast": "Breakfast",
+      "lunch": "Lunch",
+      "dinner": "Dinner"
     },
 
     "meal": {
@@ -368,7 +369,6 @@
       }
     }
   },
-
   "lang": {
     "english": "English",
     "malay": "Malay",

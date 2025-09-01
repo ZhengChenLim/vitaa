@@ -202,7 +202,6 @@
     "overview": {
       "title": "Kế hoạch Sức khỏe của bạn",
       "macroTitle": "Phân bổ Đạm - Béo - Tinh bột",
-
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "Calo mỗi ngày",
@@ -225,7 +224,10 @@
         "fruitBowl": "Tô trái cây & ngũ cốc",
         "avocadoSalad": "Tô salad bơ",
         "yogurtBowl": "Tô sữa chua trái cây"
-      }
+      },
+      "breakfast": "Bữa sáng",
+      "lunch": "Bữa trưa",
+      "dinner": "Bữa tối"
     },
     "meal": {
       "labels": {

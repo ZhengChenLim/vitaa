@@ -224,7 +224,10 @@
         "fruitBowl": "水果谷物碗",
         "avocadoSalad": "牛油果沙拉碗",
         "yogurtBowl": "水果酸奶碗"
-      }
+      },
+      "breakfast": "早餐",
+      "lunch": "午餐",
+      "dinner": "晚餐"
     },
     "meal": {
       "labels": {
