@@ -18,9 +18,10 @@ export default async function HomePage() {
             </h1>
             <p className="mt-4 text-gray-600">{t('heroSubtitle')}</p>
             <div className="mt-6 flex gap-4">
-              <Button className="bg-gradient-to-r from-[#13D298] to-[#2CD30D] text-white font-semibold shadow-md hover:opacity-90">
+              <Button className="bg-gradient-to-r from-[#13D298] to-[#2CD30D] text-white font-semibold shadow-md hover:opacity-90"
+                size={"lg"}>
                 <Link href="/planform">{t('ctaGenerate')}</Link></Button>
-              <Button variant="outline">{t('ctaSample')}</Button>
+              {/* <Button variant="outline">{t('ctaSample')}</Button> */}
             </div>
           </div>
 
@@ -113,11 +114,12 @@ export default async function HomePage() {
               })}
             </h3>
 
-            <button
+            <Button
               className="mt-6 inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold text-white shadow-md transition hover:opacity-90 bg-gradient-to-r from-[#13D298] to-[#2CD30D]"
+              size={"lg"}
             >
               <Link href={"/analysisform"}>{t('ctaAnalysisBtn')}</Link>
-            </button>
+            </Button>
           </div>
         </div>
       </section>

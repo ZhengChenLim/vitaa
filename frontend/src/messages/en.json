@@ -28,6 +28,9 @@
     "whyPersonalised": "Personalised recommendations for diet and exercise"
   },
   "plan": {
+    "profile": {
+      "none": "None"
+    }, 
     "breadcrumbs": {
       "home": "Home",
       "plan": "Health Plan"
@@ -107,6 +110,7 @@
       "home": "Home",
       "analysis": "Health Analysis"
     },
+    "loading": "loading...",
     "title": "Health Analysis Form",
     "subtitle": "Get clear, AI-powered insights to detect early risks for diabetes, hypertension, and stroke—so you can take action sooner.",
     "assessmentTitle": "Health Risk Assessment",
@@ -215,6 +219,9 @@
 
     "overview": {
       "title": "Your Health Plan",
+
+      "macroTitle": "Macro Distribution",
+
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "Daily Calories",
@@ -286,7 +293,81 @@
       "download": "Download complete plan"
     }
   },
-
+  "analysisResult": {
+    "breadcrumbs": { "home": "Home", "result": "Result" },
+    "loading": "loading...",
+    "title": "Health Analysis Result",
+    "profile": {
+      "title": "Health Profile",
+      "update": "Update result",
+      "none": "None",
+      "fields": {
+        "age": "Age",
+        "sex": "Sex",
+        "height": "Height (cm)",
+        "weight": "Weight (kg)",
+        "waist": "Waist Circumference (cm)",
+        "activity": "Activity Frequency",
+        "sbp": "Systolic BP",
+        "sbpHelp": "Most health apps or smartwatches measure systolic blood pressure, which is essential for accurate hypertension risk assessment.",
+        "alcohol": "Alcohol Consumption",
+        "smoking": "Smoking Status",
+        "family": {
+          "label": "Family history",
+          "diabetes": "Diabetes",
+          "hypertension": "Hypertension",
+          "stroke": "Stroke",
+          "none": "None"
+        }
+      }
+    },
+    "result": {
+      "title": "Analysis Result",
+      "disclaimerLabel": "Disclaimer:",
+      "disclaimer": "This risk assessment is for health management only, not a medical diagnosis. A \"high risk\" result does not mean you will develop the disease. For personal advice, consult a doctor."
+    },
+    "enums": {
+      "sex": { "male": "Male", "female": "Female" },
+      "activity": { "sedentary": "Sedentary", "low": "Low", "medium": "Medium", "high": "High" },
+      "alcohol": { "none": "None", "occasional": "Occasional", "frequent": "Frequent" },
+      "smoking": { "smoker": "Smoker", "nonSmoker": "Non-smoker" }
+    },
+    "bmi": {
+      "title": "BMI",
+      "myResult": "My Result:",
+      "desc": "BMI (Body Mass Index) is an indicator of weight relative to height.",
+      "bands": {
+        "na": "—",
+        "underweight": "Underweight",
+        "normal": "Normal",
+        "overweight": "Overweight",
+        "obese": "Obese"
+      }
+    },
+    "bri": {
+      "title": "BRI",
+      "myResult": "My Result:",
+      "desc": "The Body Roundness Index (BRI) estimates abdominal fat from height and waist circumference, linking higher values to central obesity and metabolic risk.",
+      "bands": {
+        "na": "—",
+        "poor": "Poor roundness (low fat)",
+        "desirable": "Desirable",
+        "excessive": "Excessive",
+        "elevated": "Significantly elevated"
+      }
+    },
+    "risk": {
+      "title": "Health Risk Assessment",
+      "learnMore": "Learn More",
+      "level": { "high": "High Risk", "moderate": "Moderate Risk", "low": "Low Risk", "unknown": "Unknown" },
+      "conditions": { "diabetes": "Diabetes", "hypertension": "Hypertension", "stroke": "Stroke" },
+      "desc": {
+        "diabetes": "Diabetes is a condition characterized by chronically high blood sugar levels. Those at high risk should pay special attention to diet, exercise, and weight management.",
+        "hypertension": "Hypertension is a chronic condition characterized by long-term elevated blood pressure. The risk is low. Maintaining a healthy lifestyle and preventing it are recommended.",
+        "stroke": "A stroke is an acute illness caused by blocked blood flow or bleeding in the brain. The risk is low. Maintaining healthy habits is recommended to reduce future risk."
+      }
+    }
+  },
 
   "lang": {
     "english": "English",

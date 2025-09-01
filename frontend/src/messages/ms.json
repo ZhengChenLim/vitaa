@@ -28,6 +28,9 @@
     "whyPersonalised": "Cadangan pemakanan dan senaman yang diperibadikan"
   },
   "plan": {
+    "profile": {
+      "none": "Tiada"
+    },
     "breadcrumbs": {
       "home": "Laman Utama",
       "plan": "Pelan Kesihatan"
@@ -107,6 +110,7 @@
       "home": "Laman Utama",
       "analysis": "Analisis Kesihatan"
     },
+    "loading": "memuatkan...",
     "title": "Borang Analisis Kesihatan",
     "subtitle": "Dapatkan cerapan jelas berkuasa AI untuk mengesan awal risiko diabetes, hipertensi dan strok — supaya anda boleh bertindak lebih awal.",
     "assessmentTitle": "Penilaian Risiko Kesihatan",
@@ -197,6 +201,8 @@
     },
     "overview": {
       "title": "Pelan Kesihatan Anda",
+      "macroTitle": "Pengagihan Makro",
+
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "Kalori Harian",
@@ -263,6 +269,82 @@
       "download": "Muat turun pelan lengkap"
     }
   },
+  "analysisResult": {
+    "breadcrumbs": { "home": "Laman Utama", "result": "Keputusan" },
+    "loading": "memuatkan...",
+    "title": "Keputusan Analisis Kesihatan",
+    "profile": {
+      "title": "Profil Kesihatan",
+      "update": "Kemas kini keputusan",
+      "none": "Tiada",
+      "fields": {
+        "age": "Umur",
+        "sex": "Jantina",
+        "height": "Tinggi (cm)",
+        "weight": "Berat (kg)",
+        "waist": "Ukur lilit pinggang (cm)",
+        "activity": "Kekerapan aktiviti",
+        "sbp": "Tekanan darah sistolik",
+        "sbpHelp": "Kebanyakan aplikasi kesihatan atau jam pintar mengukur tekanan sistolik, yang penting untuk penilaian tepat risiko hipertensi.",
+        "alcohol": "Pengambilan alkohol",
+        "smoking": "Status merokok",
+        "family": {
+          "label": "Sejarah keluarga",
+          "diabetes": "Diabetes",
+          "hypertension": "Hipertensi",
+          "stroke": "Strok",
+          "none": "Tiada"
+        }
+      }
+    },
+    "result": {
+      "title": "Keputusan Analisis",
+      "disclaimerLabel": "Penafian:",
+      "disclaimer": "Penilaian risiko ini adalah untuk pengurusan kesihatan sahaja, bukan diagnosis perubatan. Keputusan \"Risiko tinggi\" tidak bermakna anda pasti akan mendapat penyakit. Untuk nasihat peribadi, sila berunding dengan doktor."
+    },
+    "enums": {
+      "sex": { "male": "Lelaki", "female": "Perempuan" },
+      "activity": { "sedentary": "Tidak aktif", "low": "Rendah", "medium": "Sederhana", "high": "Tinggi" },
+      "alcohol": { "none": "Tiada", "occasional": "Sekali-sekala", "frequent": "Kerap" },
+      "smoking": { "smoker": "Perokok", "nonSmoker": "Bukan perokok" }
+    },
+    "bmi": {
+      "title": "BMI",
+      "myResult": "Keputusan saya:",
+      "desc": "BMI (Indeks Jisim Badan) ialah penunjuk berat badan relatif kepada ketinggian.",
+      "bands": {
+        "na": "—",
+        "underweight": "Kurang berat badan",
+        "normal": "Normal",
+        "overweight": "Berat badan berlebihan",
+        "obese": "Obes"
+      }
+    },
+    "bri": {
+      "title": "BRI",
+      "myResult": "Keputusan saya:",
+      "desc": "Indeks Kebulatan Badan (BRI) menganggar lemak abdomen berdasarkan ketinggian dan ukur lilit pinggang; nilai yang lebih tinggi dikaitkan dengan obesiti pusat dan risiko metabolik.",
+      "bands": {
+        "na": "—",
+        "poor": "Kebulatan rendah (lemak rendah)",
+        "desirable": "Diingini",
+        "excessive": "Berlebihan",
+        "elevated": "Meningkat dengan ketara"
+      }
+    },
+    "risk": {
+      "title": "Penilaian Risiko Kesihatan",
+      "learnMore": "Ketahui Lagi",
+      "level": { "high": "Risiko Tinggi", "moderate": "Risiko Sederhana", "low": "Risiko Rendah", "unknown": "Tidak diketahui" },
+      "conditions": { "diabetes": "Diabetes", "hypertension": "Hipertensi", "stroke": "Strok" },
+      "desc": {
+        "diabetes": "Diabetes ialah keadaan yang dicirikan oleh paras gula darah yang tinggi secara kronik. Mereka yang berisiko tinggi perlu memberi perhatian kepada pemakanan, senaman dan pengurusan berat badan.",
+        "hypertension": "Hipertensi ialah keadaan kronik dengan tekanan darah tinggi berpanjangan. Risiko adalah rendah. Mengekalkan gaya hidup sihat dan pencegahan adalah digalakkan.",
+        "stroke": "Strok ialah penyakit akut akibat aliran darah ke otak tersekat atau pendarahan. Risiko adalah rendah. Mengekalkan tabiat sihat disyorkan untuk mengurangkan risiko masa depan."
+      }
+    }
+  },
+
   "lang": {
     "english": "English",
     "malay": "Malay",
