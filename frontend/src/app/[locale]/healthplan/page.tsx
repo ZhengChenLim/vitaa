@@ -1,46 +1,48 @@
 'use client';
 
+
 import { useTranslations, useLocale } from 'next-intl';
 import { Home, ClipboardList, Download, Loader2 } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 
 import {
-    Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink,
-    BreadcrumbSeparator, BreadcrumbPage
+  Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink,
+  BreadcrumbSeparator, BreadcrumbPage
 } from '@/components/ui/breadcrumb';
 import {
-    Accordion, AccordionItem, AccordionTrigger, AccordionContent
+  Accordion, AccordionItem, AccordionTrigger, AccordionContent
+
 } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-    type CarouselApi
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi
 } from '@/components/ui/carousel';
 import { useEffect, useState, useMemo } from 'react';
 
 /* -------------------- Types -------------------- */
 type Meal = {
-    img: string;
-    title: string;
-    kcal: number;
-    carbs: string;
-    protein: string;
-    fat: string;
-    fiber?: string;
+  img: string;
+  title: string;
+  kcal: number;
+  carbs: string;
+  protein: string;
+  fat: string;
+  fiber?: string;
 };
 
 type ApiDish = {
-    Dish: string;
-    Calories: number;
-    Protein_g: number;
-    Fat_g: number;
-    Carbs_g: number;
+  Dish: string;
+  Calories: number;
+  Protein_g: number;
+  Fat_g: number;
+  Carbs_g: number;
 };
 
 type ApiDishName = {
@@ -63,19 +65,19 @@ type ApiMeal = {
 };
 
 type ApiResult = {
-    targets: {
-        calories_kcal: number;
-        protein_g: number;
-        fat_g: number;
-        carbs_g: number;
-        fiber_g: number;
-        macro_split_pct: {
-            protein: number;
-            fat: number;
-            carbs: number;
-        };
+  targets: {
+    calories_kcal: number;
+    protein_g: number;
+    fat_g: number;
+    carbs_g: number;
+    fiber_g: number;
+    macro_split_pct: {
+      protein: number;
+      fat: number;
+      carbs: number;
     };
-    plan: ApiMeal[];
+  };
+  plan: ApiMeal[];
 };
 
 type UserProfile = {
@@ -104,6 +106,7 @@ function setCookie(name: string, value: string, days = 7) {
     if (typeof document === 'undefined') return;
     const maxAge = days * 24 * 60 * 60;
     document.cookie = `${name}=${value}; Max-Age=${maxAge}; Path=/; SameSite=Lax`;
+
 }
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8000';
@@ -376,39 +379,63 @@ export default function HealthPlanPage() {
             </main>
         );
     }
+  };
 
     /* -------------------- Render -------------------- */
     return (
-        <main className="min-h-screen w-full bg-green-50/40 pb-24">
-            {/* Breadcrumbs */}
-            <Breadcrumb className="mx-auto max-w-6xl px-4 pt-6">
-                <BreadcrumbList>
-                    <BreadcrumbItem>
-                        <BreadcrumbLink asChild>
-                            <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700">
-                                <Home className="h-4 w-4" />
-                                <span>{t('breadcrumbs.home')}</span>
-                            </Link>
-                        </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                        <BreadcrumbPage className="text-sm text-gray-700">
-                            {t('breadcrumbs.plan')}
-                        </BreadcrumbPage>
-                    </BreadcrumbItem>
-                </BreadcrumbList>
-            </Breadcrumb>
+      <main className="min-h-screen w-full bg-green-50/40 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">{tf('loading') ?? 'Loading your health plan...'}</p>
+        </div>
+      </main>
+    );
+  }
 
-            {/* Title + stepper */}
-            <section className="mx-auto max-w-6xl px-4 pt-3 text-center">
-                <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-                    {t('title')}
-                </h1>
-                <div className="mt-6 flex items-center justify-center gap-4">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-gray-300 text-gray-400 font-bold">1</div>
-                    <div className="h-[2px] w-16 bg-gray-300" />
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-white font-bold">2</div>
+  /* -------------------- Render -------------------- */
+  return (
+    <main className="min-h-screen w-full bg-green-50/40 pb-24">
+      {/* Breadcrumbs */}
+      <Breadcrumb className="mx-auto max-w-6xl px-4 pt-6">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700">
+                <Home className="h-4 w-4" />
+                <span>{t('breadcrumbs.home')}</span>
+              </Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage className="text-sm text-gray-700">
+              {t('breadcrumbs.plan')}
+            </BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      {/* Title + stepper */}
+      <section className="mx-auto max-w-6xl px-4 pt-3 text-center">
+        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+          {t('title')}
+        </h1>
+        <div className="mt-6 flex items-center justify-center gap-4">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-gray-300 text-gray-400 font-bold">1</div>
+          <div className="h-[2px] w-16 bg-gray-300" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-white font-bold">2</div>
+        </div>
+      </section>
+
+      {/* Accordion: Editable Health Profile (no redirect) */}
+      <section className="mx-auto mt-6 max-w-6xl px-4">
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="profile" className="border-0">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+              <AccordionTrigger className="px-4 py-4 md:px-6 md:py-5 text-left">
+                <div className="inline-flex items-center gap-2">
+                  <ClipboardList className="h-5 w-5 text-green-600" />
+                  <span className="text-lg font-semibold">{t('profile.title')}</span>
                 </div>
             </section>
 
@@ -648,14 +675,31 @@ export default function HealthPlanPage() {
                         <h5 className="text-xl font-semibold text-slate-700 mb-4 text-center">{t('diet.breakfast')}</h5>
                         <DietCarousel meals={mealsByType.breakfast} />
                     </div>
-                )}
 
                 {mealsByType.lunch.length > 0 && (
                     <div className="mb-8">
                         <h5 className="text-xl font-semibold text-slate-700 mb-4 text-center">{t('diet.lunch')}</h5>
                         <DietCarousel meals={mealsByType.lunch} />
                     </div>
-                )}
+                  </div>
+                </form>
+              </AccordionContent>
+            </div>
+          </AccordionItem>
+        </Accordion>
+      </section>
+
+      {/* Overview */}
+      <section className="mx-auto mt-8 max-w-6xl px-4">
+        <div className="mb-4 flex items-center justify-between">
+          <h3 className="mb-3 text-3xl text-center font-semibold text-slate-700">{t('overview.title')}</h3>
+          <div className="relative h-0 w-0 md:h-0 md:w-0" />
+        </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 mt-6">
+          <MetricCard label={t('overview.metrics.bmi')} value={bmi ? bmi.toFixed(1) : 'N/A'} colorClass={statusColorClass} />
+          <MetricCard label={t('overview.metrics.dailyCalories')} value={apiData?.targets?.calories_kcal ? Math.round(apiData.targets.calories_kcal).toString() : 'N/A'} />
+          <MetricCard label={t('overview.metrics.weightStatus')} value={weightStatus} colorClass={statusColorClass} />
+        </div>
 
                 {mealsByType.dinner.length > 0 && (
                     <div className="mb-8">
