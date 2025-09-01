@@ -148,6 +148,119 @@
     },
     "submit": "Tạo Phân tích Sức khỏe"
   },
+  "consent": {
+    "title": "Chúng tôi coi trọng quyền riêng tư của bạn",
+    "body": "Chúng tôi không lưu trữ dữ liệu cá nhân của bạn trên máy chủ. Cookie chỉ được dùng cho các chức năng thiết yếu và để chạy phân tích/tính toán cho kết quả sức khỏe của bạn. Dữ liệu bạn nhập chỉ được xử lý để tính toán và lưu trong trình duyệt của bạn dưới dạng cookie (không gửi cho chúng tôi). Bạn có thể chấp nhận hoặc từ chối.",
+    "lines": {
+      "essential": "Cookie thiết yếu: Cần thiết để trang web hoạt động và ghi nhớ các thiết lập như đồng ý và ngôn ngữ.",
+      "analytics": "Cookie phân tích/tính toán: Dùng để thực hiện phân tích và tính toán trên trang cho kết quả sức khỏe của bạn; dữ liệu luôn nằm trong trình duyệt.",
+      "personalization": "Cookie cá nhân hóa: Lưu tùy chọn của bạn (ví dụ: đơn vị, lựa chọn) để điều chỉnh gợi ý ăn uống và tập luyện; không chia sẻ với máy chủ của chúng tôi."
+    },
+    "accept": "CHẤP NHẬN TẤT CẢ",
+    "reject": "TỪ CHỐI TẤT CẢ"
+  },
+  "planResult": {
+    "breadcrumbs": {
+      "home": "Trang chủ",
+      "plan": "Kế hoạch Sức khỏe"
+    },
+    "title": "Kế hoạch Sức khỏe Cá nhân hóa",
+    "profile": {
+      "title": "Hồ sơ Sức khỏe",
+      "update": "Cập nhật kết quả",
+      "fields": {
+        "age": "Tuổi",
+        "sex": "Giới tính",
+        "height": "Chiều cao",
+        "weight": "Cân nặng",
+        "waist": "Vòng eo",
+        "activity": "Tần suất hoạt động",
+        "goal": "Mục tiêu luyện tập",
+        "diet": "Chế độ ăn",
+        "allergies": "Dị ứng"
+      },
+      "values": {
+        "male": "Nam",
+        "female": "Nữ",
+        "sedentary": "Ít vận động",
+        "low": "Thấp",
+        "medium": "Trung bình",
+        "high": "Cao",
+        "loss": "Giảm cân",
+        "muscle": "Tăng cơ",
+        "maintain": "Duy trì sức khỏe",
+        "none": "Không ưu tiên",
+        "vegan": "Thuần chay",
+        "vegetarian": "Ăn chay"
+      }
+    },
+    "overview": {
+      "title": "Kế hoạch Sức khỏe của bạn",
+      "metrics": {
+        "bmi": "BMI",
+        "dailyCalories": "Calo mỗi ngày",
+        "weightStatus": "Tình trạng cân nặng"
+      },
+      "status": {
+        "under": "Thiếu cân",
+        "normal": "Bình thường",
+        "over": "Thừa cân",
+        "obese": "Béo phì"
+      }
+    },
+    "diet": {
+      "title": "Kế hoạch Dinh dưỡng Cá nhân hóa",
+      "meals": {
+        "fruitGrain": "Salad trái cây & ngũ cốc",
+        "veggieEggSalad": "Salad rau & trứng",
+        "eggsPancakes": "Trứng và bánh kếp",
+        "fruitBowl": "Tô trái cây & ngũ cốc",
+        "avocadoSalad": "Tô salad bơ",
+        "yogurtBowl": "Tô sữa chua trái cây"
+      }
+    },
+    "meal": {
+      "labels": {
+        "calories": "Năng lượng",
+        "kcal": "kcal",
+        "carbs": "Carb",
+        "protein": "Protein",
+        "fat": "Chất béo",
+        "fiber": "Chất xơ"
+      }
+    },
+    "considerations": {
+      "title": "Lưu ý về chế độ ăn",
+      "allergies": "Dị ứng cần tránh: {list}"
+    },
+    "exercise": {
+      "title": "Khuyến nghị Tập luyện",
+      "scheduleTitle": "Lịch tập 7 ngày",
+      "days": {
+        "mon": "Thứ Hai",
+        "tue": "Thứ Ba",
+        "wed": "Thứ Tư",
+        "thu": "Thứ Năm",
+        "fri": "Thứ Sáu",
+        "sat": "Thứ Bảy",
+        "sun": "Chủ Nhật"
+      },
+      "items": {
+        "mon": "Đi bộ nhẹ 20 phút",
+        "tue": "Chuỗi giãn cơ cơ bản",
+        "wed": "Bài tập trọng lượng cơ thể nhẹ",
+        "thu": "Đi bộ 20 phút ở công viên",
+        "fri": "Yoga cho người mới bắt đầu",
+        "sat": "Việc nhà nhẹ",
+        "sun": "Nghỉ ngơi với giãn cơ nhẹ"
+      }
+    },
+    "cta": {
+      "title": "Sẵn sàng thay đổi sức khỏe của bạn?",
+      "subtitle": "Nhận kế hoạch dinh dưỡng và tập luyện cá nhân hóa và bắt đầu hành trình sống khỏe hôm nay!",
+      "download": "Tải xuống kế hoạch đầy đủ"
+    }
+  },
   "lang": {
     "english": "English",
     "malay": "Malay",

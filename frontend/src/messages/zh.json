@@ -148,6 +148,119 @@
     },
     "submit": "生成健康分析"
   },
+   "consent": {
+    "title": "我们重视您的隐私",
+    "body": "我们不会在服务器上存储您的个人数据。Cookie 仅用于提供必要功能，以及为您的健康结果进行分析/计算。您的输入仅用于计算，并仅以 Cookie 的形式保存在您的浏览器中（不会发送给我们）。您可以选择接受或拒绝。",
+    "lines": {
+      "essential": "必要 Cookie：用于保证网站正常运行，并记住同意与语言等设置。",
+      "analytics": "分析/计算 Cookie：用于在页面上执行分析与计算以生成健康结果；数据仅保留在您的浏览器中。",
+      "personalization": "个性化 Cookie：保存您的偏好（如单位、选择），以便提供更贴合的饮食与运动建议；不会与我们的服务器共享。"
+    },
+    "accept": "全部接受",
+    "reject": "全部拒绝"
+  },
+   "planResult": {
+    "breadcrumbs": {
+      "home": "首页",
+      "plan": "健康计划"
+    },
+    "title": "个性化健康计划",
+    "profile": {
+      "title": "健康档案",
+      "update": "更新结果",
+      "fields": {
+        "age": "年龄",
+        "sex": "性别",
+        "height": "身高",
+        "weight": "体重",
+        "waist": "腰围",
+        "activity": "活动频率",
+        "goal": "健身目标",
+        "diet": "饮食偏好",
+        "allergies": "过敏"
+      },
+      "values": {
+        "male": "男",
+        "female": "女",
+        "sedentary": "久坐",
+        "low": "低",
+        "medium": "中",
+        "high": "高",
+        "loss": "减重",
+        "muscle": "增肌",
+        "maintain": "维持健康",
+        "none": "无偏好",
+        "vegan": "纯素",
+        "vegetarian": "素食"
+      }
+    },
+    "overview": {
+      "title": "你的健康计划",
+      "metrics": {
+        "bmi": "BMI",
+        "dailyCalories": "每日热量",
+        "weightStatus": "体重状态"
+      },
+      "status": {
+        "under": "体重过低",
+        "normal": "正常体重",
+        "over": "超重",
+        "obese": "肥胖"
+      }
+    },
+    "diet": {
+      "title": "个性化饮食计划",
+      "meals": {
+        "fruitGrain": "水果谷物沙拉",
+        "veggieEggSalad": "蔬菜鸡蛋沙拉",
+        "eggsPancakes": "鸡蛋配煎饼",
+        "fruitBowl": "水果谷物碗",
+        "avocadoSalad": "牛油果沙拉碗",
+        "yogurtBowl": "水果酸奶碗"
+      }
+    },
+    "meal": {
+      "labels": {
+        "calories": "热量",
+        "kcal": "千卡",
+        "carbs": "碳水",
+        "protein": "蛋白质",
+        "fat": "脂肪",
+        "fiber": "膳食纤维"
+      }
+    },
+    "considerations": {
+      "title": "饮食注意事项",
+      "allergies": "需避免的过敏原：{list}"
+    },
+    "exercise": {
+      "title": "运动建议",
+      "scheduleTitle": "7 天运动安排",
+      "days": {
+        "mon": "周一",
+        "tue": "周二",
+        "wed": "周三",
+        "thu": "周四",
+        "fri": "周五",
+        "sat": "周六",
+        "sun": "周日"
+      },
+      "items": {
+        "mon": "20 分钟轻松步行",
+        "tue": "基础拉伸训练",
+        "wed": "轻量徒手训练",
+        "thu": "在公园步行 20 分钟",
+        "fri": "初学者瑜伽",
+        "sat": "轻度家务活动",
+        "sun": "休息日（轻柔拉伸）"
+      }
+    },
+    "cta": {
+      "title": "准备好改善健康了吗？",
+      "subtitle": "获取你的个性化营养与运动计划，今天就开始更健康的旅程！",
+      "download": "下载完整计划"
+    }
+  },
   "lang": {
     "english": "English",
     "malay": "Malay",

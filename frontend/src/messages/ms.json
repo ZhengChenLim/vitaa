@@ -148,6 +148,119 @@
     },
     "submit": "Jana Analisis Kesihatan"
   },
+  "consent": {
+    "title": "Kami menghargai privasi anda",
+    "body": "Kami tidak menyimpan data peribadi anda pada pelayan kami. Kuki digunakan hanya untuk menggerakkan ciri penting dan menjalankan analisis/pengiraan bagi keputusan kesihatan anda. Input anda diproses untuk pengiraan dan disimpan hanya dalam pelayar anda sebagai kuki (tidak dihantar kepada kami). Anda boleh menerima atau menolak.",
+    "lines": {
+      "essential": "Kuki Asas: Diperlukan untuk laman berfungsi dan mengingati perkara seperti persetujuan dan bahasa.",
+      "analytics": "Kuki Analisis/Pengiraan: Digunakan untuk melaksanakan analisis dan pengiraan pada halaman bagi keputusan kesihatan anda; data kekal dalam pelayar anda.",
+      "personalization": "Kuki Pemperibadian: Menyimpan keutamaan anda (cth. unit, pilihan) untuk menyesuaikan cadangan diet dan senaman; tidak dikongsi dengan pelayan kami."
+    },
+    "accept": "TERIMA SEMUA",
+    "reject": "TOLAK SEMUA"
+  },
+  "planResult": {
+    "breadcrumbs": {
+      "home": "Laman Utama",
+      "plan": "Pelan Kesihatan"
+    },
+    "title": "Pelan Kesihatan Peribadi",
+    "profile": {
+      "title": "Profil Kesihatan",
+      "update": "Kemas kini keputusan",
+      "fields": {
+        "age": "Umur",
+        "sex": "Jantina",
+        "height": "Tinggi",
+        "weight": "Berat",
+        "waist": "Ukurlilit Pinggang",
+        "activity": "Kekerapan Aktiviti",
+        "goal": "Matlamat Kecergasan",
+        "diet": "Pilihan Diet",
+        "allergies": "Alergi"
+      },
+      "values": {
+        "male": "Lelaki",
+        "female": "Perempuan",
+        "sedentary": "Sedentari",
+        "low": "Rendah",
+        "medium": "Sederhana",
+        "high": "Tinggi",
+        "loss": "Penurunan Berat Badan",
+        "muscle": "Pertambahan Otot",
+        "maintain": "Kekalkan Kesihatan",
+        "none": "Tiada Keutamaan",
+        "vegan": "Vegan",
+        "vegetarian": "Vegetarian"
+      }
+    },
+    "overview": {
+      "title": "Pelan Kesihatan Anda",
+      "metrics": {
+        "bmi": "BMI",
+        "dailyCalories": "Kalori Harian",
+        "weightStatus": "Status Berat Badan"
+      },
+      "status": {
+        "under": "Kurang berat",
+        "normal": "Berat normal",
+        "over": "Berlebihan berat badan",
+        "obese": "Obes"
+      }
+    },
+    "diet": {
+      "title": "Pelan Diet Peribadi",
+      "meals": {
+        "fruitGrain": "Salad Buah & Bijirin",
+        "veggieEggSalad": "Salad Sayur & Telur",
+        "eggsPancakes": "Telur dan Pancake",
+        "fruitBowl": "Mangkuk Buah & Bijirin",
+        "avocadoSalad": "Mangkuk Salad Avokado",
+        "yogurtBowl": "Mangkuk Yogurt Buah"
+      }
+    },
+    "meal": {
+     "labels": {
+        "calories": "Kalori",
+        "kcal": "kcal",
+        "carbs": "Karbohidrat",
+        "protein": "Protein",
+        "fat": "Lemak",
+        "fiber": "Serat"
+      }
+    },
+    "considerations": {
+      "title": "Pertimbangan Diet",
+      "allergies": "Alergi untuk dielakkan: {list}"
+    },
+    "exercise": {
+      "title": "Cadangan Senaman",
+      "scheduleTitle": "Jadual Senaman 7 Hari",
+      "days": {
+        "mon": "Isnin",
+        "tue": "Selasa",
+        "wed": "Rabu",
+        "thu": "Khamis",
+        "fri": "Jumaat",
+        "sat": "Sabtu",
+        "sun": "Ahad"
+      },
+      "items": {
+        "mon": "Berjalan santai 20 minit",
+        "tue": "Rutin regangan asas",
+        "wed": "Senaman berat badan ringan",
+        "thu": "Berjalan 20 minit di taman",
+        "fri": "Yoga untuk pemula",
+        "sat": "Aktiviti rumah ringan",
+        "sun": "Hari rehat dengan regangan lembut"
+      }
+    },
+    "cta": {
+      "title": "Sedia Mengubah Kesihatan Anda?",
+      "subtitle": "Dapatkan pelan pemakanan dan senaman peribadi dan mulakan perjalanan ke arah kesihatan yang lebih baik hari ini!",
+      "download": "Muat turun pelan lengkap"
+    }
+  },
   "lang": {
     "english": "English",
     "malay": "Malay",

@@ -16,7 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from vitaa_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # Nutrition API
+    path("api/nutrition/targets/", views.nutrition_targets, name="nutrition_targets"),
+    
+    # Meal Planner API
+    path("api/mealplan/", views.meal_plan_view, name="meal_plan"),
+
+    # Health Plan Meals API
+    path("api/plan/health/", views.health_plan_meal, name="health_plan_meal"),
+
+    #n8n Health Analysis API
+    path("api/webhooks/user-profile/", views.n8n_health_analysis_view, name="n8n_health_analysis"),
 ]
