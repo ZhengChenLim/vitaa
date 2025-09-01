@@ -224,7 +224,10 @@
         "fruitBowl": "Tô trái cây & ngũ cốc",
         "avocadoSalad": "Tô salad bơ",
         "yogurtBowl": "Tô sữa chua trái cây"
-      }
+      },
+      "breakfast": "Bữa sáng",
+      "lunch": "Bữa trưa",
+      "dinner": "Bữa tối"
     },
     "meal": {
       "labels": {
