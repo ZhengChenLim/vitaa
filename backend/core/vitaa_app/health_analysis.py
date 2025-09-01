@@ -4,7 +4,7 @@ import requests
 import json
 
 # Your n8n webhook URL
-WEBHOOK_URL = "https://n8n.tm06.me/webhook-test/health_analysis_openai"
+WEBHOOK_URL = "https://n8n.tm06.me/webhook/health_analysis_openai"
 
 # Optional: map UI activity levels to a canonical internal set
 _ACTIVITY_MAP = {

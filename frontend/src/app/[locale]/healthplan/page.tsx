@@ -1,6 +1,10 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2ffa4294b935a985fd86c5dbfa0597ce9fdeac2c
 import { Home, ClipboardList, Download, Loader2 } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 
@@ -10,6 +14,10 @@ import {
 } from '@/components/ui/breadcrumb';
 import {
   Accordion, AccordionItem, AccordionTrigger, AccordionContent
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2ffa4294b935a985fd86c5dbfa0597ce9fdeac2c
 } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -731,6 +739,10 @@ function Field({ label, value }: { label: string; value: string }) {
       </div>
     </div>
   );
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2ffa4294b935a985fd86c5dbfa0597ce9fdeac2c
 }
 
 function MetricCard({ label, value, colorClass = 'text-green-700' }: { label: string; value: string; colorClass?: string }) {
@@ -745,6 +757,9 @@ function MetricCard({ label, value, colorClass = 'text-green-700' }: { label: st
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2ffa4294b935a985fd86c5dbfa0597ce9fdeac2c
 /* -------------------- Diet Carousel -------------------- */
 function DietCarousel({ meals }: { meals: Meal[] }) {
   const [api, setApi] = useState<CarouselApi | null>(null);
@@ -893,6 +908,7 @@ function MealCard({ img, title, kcal, carbs, protein, fat, fiber }: Meal) {
     </Card>
   );
 }
+<<<<<<< HEAD
 =======
 
 function MealCard({ img, title, kcal, carbs, protein, fat, fiber }: Meal) {
@@ -951,3 +967,6 @@ function MealCard({ img, title, kcal, carbs, protein, fat, fiber }: Meal) {
     );
 }
 >>>>>>> 6445cadbb11e3116d755cd4543ed5744aba58f15
+=======
+
+>>>>>>> 2ffa4294b935a985fd86c5dbfa0597ce9fdeac2c
