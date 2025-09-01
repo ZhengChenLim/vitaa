@@ -178,20 +178,30 @@ def choose_meal(main_df, side_df, kcal_target, weight_loss, used_names, randomne
     }
 
 
+def _sum_macros(rows_df: pd.DataFrame) -> Dict[str, float]:
+    """Sum macros for a set of dish rows, rounded to 1 dp."""
+    if rows_df.empty:
+        return {"calories": 0.0, "Protein_g": 0.0, "Fat_g": 0.0, "Carbs_g": 0.0}
+    return {
+        "calories": round(float(rows_df["calories_kcal"].sum()), 1),
+        "Protein_g": round(float(rows_df["protein_g"].sum()), 1),
+        "Fat_g": round(float(rows_df["fat_g"].sum()), 1),
+        "Carbs_g": round(float(rows_df["carbohydrate_g"].sum()), 1),
+    }
+
+
 # ---------- DATA LOAD ----------
 def _load_dishes_from_db() -> pd.DataFrame:
     """
     Pulls dishes + allergens from the DB and returns a DataFrame
     aligned to the old CSV shape.
     """
-    # 1) Pull dishes; primary key is dish_id (NOT id)
     base = list(Dish.objects.values(
         "dish_id", "dish_name", "veg_class", "ingredients",
         "calories_kcal", "protein_g", "fat_g", "carbohydrate_g",
         "image_url",
     ))
 
-    # 2) Build allergen list per dish_id
     ad = (AllergenDish.objects
           .select_related("allergen", "dish")
           .values("dish_id", "allergen__allergen_name"))
@@ -201,11 +211,9 @@ def _load_dishes_from_db() -> pd.DataFrame:
         d = row["dish_id"]
         allergen_map.setdefault(d, []).append((row["allergen__allergen_name"] or "").strip().lower())
 
-    # 3) Shape records like the CSV the planner expects
     def _parse_ingredients(raw):
         if not raw:
             return []
-        # try JSON list first
         try:
             temp = json.loads(raw)
             if isinstance(temp, list):
@@ -214,7 +222,6 @@ def _load_dishes_from_db() -> pd.DataFrame:
                 return [s.strip() for s in temp.split(",") if s.strip()]
         except Exception:
             pass
-        # fallback: comma-separated string
         return [s.strip() for s in str(raw).split(",") if s.strip()]
 
     records = []
@@ -224,8 +231,8 @@ def _load_dishes_from_db() -> pd.DataFrame:
 
         records.append({
             "dish_name": r["dish_name"],
-            "diet_class": r["veg_class"],             # CSV used diet_class; DB has veg_class
-            "ingredients": json.dumps(ingredients_list),  # keep same cell type as CSV
+            "diet_class": r["veg_class"],
+            "ingredients": json.dumps(ingredients_list),
             "allergens": allergens,
             "calories_kcal": r["calories_kcal"],
             "protein_g": r["protein_g"],
@@ -242,6 +249,10 @@ def _load_dishes_from_db() -> pd.DataFrame:
     df = df.dropna(subset=["calories_kcal", "protein_g", "fat_g", "carbohydrate_g"])
     df = df[df["calories_kcal"] > 0]
     df["ingredients_list"] = df["ingredients"].apply(parse_list_cell)
+
+    # --- CRITICAL: deduplicate by dish_name so each name maps to exactly one row ---
+    df = df.drop_duplicates(subset=["dish_name"], keep="first").reset_index(drop=True)
+
     return df
 
 
@@ -276,7 +287,7 @@ def generate_meal_plan(goals: Dict) -> List[Dict]:
     allergies = {a.lower().strip() for a in diet.get("allergies", [])}
     weight_loss = (fitness_goal == "weight loss")
 
-    # Dietary filters (use veg_class mapped as diet_class)
+    # Dietary filters
     if diet_pref == "vegan":
         df = df[df["diet_class"].eq("vegan")]
     elif diet_pref == "vegetarian":
@@ -308,22 +319,56 @@ def generate_meal_plan(goals: Dict) -> List[Dict]:
     plan = []
 
     for meal, kcal_t in meal_targets.items():
-        names, totals = choose_meal(mains, sides, kcal_t, weight_loss, used_names)
-        used_names.update(names)
+        names, _unused_totals = choose_meal(mains, sides, kcal_t, weight_loss, used_names)
 
-        dish_rows = df[df["dish_name"].isin(names)]
-        ing_map = {row["dish_name"]: row["ingredients_list"] for _, row in dish_rows.iterrows()}
-        img_map = {row["dish_name"]: row.get("image_url") for _, row in dish_rows.iterrows()}
+        # Only track the ones we actually output to enforce uniqueness across the day
+        selected_names = names[:MAX_ITEMS_PER_MEAL]
+        used_names.update(selected_names)
+
+        # Build ordered rows by fetching EXACTLY one row per name
+        ordered_rows_list = []
+        ing_map = {}
+        img_map = {}
+        per_dish = []
+
+        for dish_name in selected_names:
+            # fetch first match for this name (we deduped, so this should be 1 row)
+            row = df.loc[df["dish_name"] == dish_name].head(1)
+            if row.empty:
+                continue
+            r = row.iloc[0]
+            ordered_rows_list.append(r)
+
+            # maps
+            ing_map[dish_name] = r["ingredients_list"]
+            img_map[dish_name] = r.get("image_url")
+
+            # per-dish macros
+            per_dish.append({
+                "Dish": dish_name,
+                "Calories": round(float(r["calories_kcal"]), 1),
+                "Protein_g": round(float(r["protein_g"]), 1),
+                "Fat_g": round(float(r["fat_g"]), 1),
+                "Carbs_g": round(float(r["carbohydrate_g"]), 1),
+            })
+
+        # Totals for the selected dishes
+        if ordered_rows_list:
+            ordered_rows = pd.DataFrame(ordered_rows_list)
+            meal_totals = _sum_macros(ordered_rows)
+        else:
+            meal_totals = {"calories": 0.0, "Protein_g": 0.0, "Fat_g": 0.0, "Carbs_g": 0.0}
 
         plan.append({
             "Meal": meal,
-            "Dishes": names[:MAX_ITEMS_PER_MEAL],
+            "Dishes": selected_names,
             "Ingredients": ing_map,
             "Images": img_map,
-            "Calories": totals["calories"],
-            "Protein_g": totals["Protein_g"],
-            "Fat_g": totals["Fat_g"],
-            "Carbs_g": totals["Carbs_g"],
+            "PerDish": per_dish,  # per-dish macros in order
+            "Calories": meal_totals["calories"],
+            "Protein_g": meal_totals["Protein_g"],
+            "Fat_g": meal_totals["Fat_g"],
+            "Carbs_g": meal_totals["Carbs_g"],
         })
 
     return plan

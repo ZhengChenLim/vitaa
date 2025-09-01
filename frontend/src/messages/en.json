@@ -32,6 +32,7 @@
       "home": "Home",
       "plan": "Health Plan"
     },
+    "loading": "loading...",
     "title": "Personalized Health Plan",
     "subtitle": "Get a tailored diet and exercise plan designed to fit your lifestyle and goals.",
     "stepper": {
@@ -175,7 +176,6 @@
     "accept": "ACCEPT ALL",
     "reject": "REJECT ALL"
   },
-<<<<<<< HEAD
   "planResult": {
     "breadcrumbs": {
       "home": "Home",
@@ -224,7 +224,8 @@
         "under": "Underweight",
         "normal": "Normal Weight",
         "over": "Overweight",
-        "obese": "Obese"
+        "obese": "Obese",
+        "unknown": "Unknown"
       }
     },
 
@@ -287,8 +288,6 @@
   },
 
 
-=======
->>>>>>> c75560e6f7fbf8801da33c5a75b4732c97214705
   "lang": {
     "english": "English",
     "malay": "Malay",

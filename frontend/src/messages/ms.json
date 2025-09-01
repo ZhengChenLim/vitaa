@@ -32,6 +32,7 @@
       "home": "Laman Utama",
       "plan": "Pelan Kesihatan"
     },
+    "loading": "memuatkan...",
     "title": "Pelan Kesihatan Peribadi",
     "subtitle": "Dapatkan pelan diet dan senaman tersuai yang direka agar sesuai dengan gaya hidup dan matlamat anda.",
     "stepper": {
@@ -148,7 +149,6 @@
     },
     "submit": "Jana Analisis Kesihatan"
   },
-<<<<<<< HEAD
   "consent": {
     "title": "Kami menghargai privasi anda",
     "body": "Kami tidak menyimpan data peribadi anda pada pelayan kami. Kuki digunakan hanya untuk menggerakkan ciri penting dan menjalankan analisis/pengiraan bagi keputusan kesihatan anda. Input anda diproses untuk pengiraan dan disimpan hanya dalam pelayar anda sebagai kuki (tidak dihantar kepada kami). Anda boleh menerima atau menolak.",
@@ -206,7 +206,8 @@
         "under": "Kurang berat",
         "normal": "Berat normal",
         "over": "Berlebihan berat badan",
-        "obese": "Obes"
+        "obese": "Obes",
+        "unknown": "Tidak diketahui"
       }
     },
     "diet": {
@@ -262,8 +263,6 @@
       "download": "Muat turun pelan lengkap"
     }
   },
-=======
->>>>>>> c75560e6f7fbf8801da33c5a75b4732c97214705
   "lang": {
     "english": "English",
     "malay": "Malay",
