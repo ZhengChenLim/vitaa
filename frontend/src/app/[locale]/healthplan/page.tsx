@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+
 import { Home, ClipboardList, Download, Loader2 } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 
@@ -10,6 +11,7 @@ import {
 } from '@/components/ui/breadcrumb';
 import {
   Accordion, AccordionItem, AccordionTrigger, AccordionContent
+
 } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -731,6 +733,7 @@ function Field({ label, value }: { label: string; value: string }) {
       </div>
     </div>
   );
+
 }
 
 function MetricCard({ label, value, colorClass = 'text-green-700' }: { label: string; value: string; colorClass?: string }) {
@@ -892,3 +895,4 @@ function MealCard({ img, title, kcal, carbs, protein, fat, fiber }: Meal) {
     </Card>
   );
 }
+

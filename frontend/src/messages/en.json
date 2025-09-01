@@ -219,7 +219,9 @@
 
     "overview": {
       "title": "Your Health Plan",
+
       "macroTitle": "Macro Distribution",
+
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "Daily Calories",
@@ -366,6 +368,7 @@
       }
     }
   },
+
   "lang": {
     "english": "English",
     "malay": "Malay",

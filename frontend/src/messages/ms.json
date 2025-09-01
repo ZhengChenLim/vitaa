@@ -202,6 +202,7 @@
     "overview": {
       "title": "Pelan Kesihatan Anda",
       "macroTitle": "Pengagihan Makro",
+
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "Kalori Harian",
@@ -343,6 +344,7 @@
       }
     }
   },
+
   "lang": {
     "english": "English",
     "malay": "Malay",
