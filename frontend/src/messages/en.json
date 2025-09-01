@@ -32,6 +32,7 @@
       "home": "Home",
       "plan": "Health Plan"
     },
+    "loading": "loading...",
     "title": "Personalized Health Plan",
     "subtitle": "Get a tailored diet and exercise plan designed to fit your lifestyle and goals.",
     "stepper": {
@@ -175,6 +176,118 @@
     "accept": "ACCEPT ALL",
     "reject": "REJECT ALL"
   },
+  "planResult": {
+    "breadcrumbs": {
+      "home": "Home",
+      "plan": "Health Plan"
+    },
+    "title": "Personalized Health Plan",
+
+    "profile": {
+      "title": "Health Profile",
+      "update": "Update result",
+      "fields": {
+        "age": "Age",
+        "sex": "Sex",
+        "height": "Height",
+        "weight": "Weight",
+        "waist": "Waist Circumference",
+        "activity": "Activity Frequency",
+        "goal": "Fitness Goal",
+        "diet": "Diet Preference",
+        "allergies": "Allergies"
+      },
+      "values": {
+        "male": "Male",
+        "female": "Female",
+        "sedentary": "Sedentary",
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "loss": "Weight Loss",
+        "muscle": "Muscle Gain",
+        "maintain": "Maintain Health",
+        "none": "No Preference",
+        "vegan": "Vegan",
+        "vegetarian": "Vegetarian"
+      }
+    },
+
+    "overview": {
+      "title": "Your Health Plan",
+      "metrics": {
+        "bmi": "BMI",
+        "dailyCalories": "Daily Calories",
+        "weightStatus": "Weight Status"
+      },
+      "status": {
+        "under": "Underweight",
+        "normal": "Normal Weight",
+        "over": "Overweight",
+        "obese": "Obese",
+        "unknown": "Unknown"
+      }
+    },
+
+    "diet": {
+      "title": "Personalized Diet Plan",
+      "meals": {
+        "fruitGrain": "Fruit & Grain Salad",
+        "veggieEggSalad": "Vegetable & Egg Salad",
+        "eggsPancakes": "Eggs and Pancakes",
+        "fruitBowl": "Fruit & Grain Bowl",
+        "avocadoSalad": "Avocado Salad Bowl",
+        "yogurtBowl": "Fruit Yogurt Bowl"
+      }
+    },
+
+    "meal": {
+      "labels": {
+        "calories": "Calories",
+        "kcal": "kcal",
+        "carbs": "Carbs",
+        "protein": "Protein",
+        "fat": "Fat",
+        "fiber": "Fiber"
+      }
+    },
+
+    "considerations": {
+      "title": "Dietary Considerations",
+      "allergies": "Allergies to avoid: {list}"
+    },
+
+    "exercise": {
+      "title": "Exercise Recommendations",
+      "scheduleTitle": "7-Day Exercise Schedule",
+      "days": {
+        "mon": "Monday",
+        "tue": "Tuesday",
+        "wed": "Wednesday",
+        "thu": "Thursday",
+        "fri": "Friday",
+        "sat": "Saturday",
+        "sun": "Sunday"
+      },
+      "items": {
+        "mon": "20-minute gentle walk",
+        "tue": "Basic stretching routine",
+        "wed": "Light body-weight exercises",
+        "thu": "20-minute walk in park",
+        "fri": "Yoga for beginners",
+        "sat": "Light household activities",
+        "sun": "Rest day with gentle stretching"
+      }
+    },
+
+    "cta": {
+      "title": "Ready to Transform Your Health?",
+      "subtitle": "Get your personalized nutrition and exercise plan and start your journey to better health today!",
+      "download": "Download complete plan"
+    }
+  },
+
+
   "lang": {
     "english": "English",
     "malay": "Malay",
