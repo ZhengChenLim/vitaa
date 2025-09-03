@@ -3,7 +3,12 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from requests import RequestException, HTTPError
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import PhysicalActivity
+from serializers import PlanRequestSerializer
+from activity_planner_service import make_week_plan_from_queryset
 from vitaa_app.utils import calc_targets
 from vitaa_app.meal_planner_service import generate_meal_plan
 from vitaa_app.health_analysis import n8n_health_analysis
@@ -141,3 +146,36 @@ def health_plan_meal(request):
         return JsonResponse({"error": str(ve)}, status=400)
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=400)
+
+
+class GenerateActivityPlanView(APIView):
+    """
+    POST /api/activity-plan/
+    Body:
+    {
+      "Age": 25, "Sex": "Male", "WeightKg": 120, "HeightCm": 180,
+      "WaistCircumferenceCm": 100, "ActivityLevel": "Low",
+      "FavoriteActivities": ["cycling","walking"],  // optional
+      "goal": "weight loss",                        // "muscle gain" | "maintain health"
+      "seed": 33                                    // optional
+    }
+    """
+    def post(self, request):
+        s = PlanRequestSerializer(data=request.data)
+        s.is_valid(raise_exception=True)
+        data = s.validated_data
+
+        # Pull from DB (ORM hits the physical_activity table)
+        qs = PhysicalActivity.objects.values(
+            "activity_description", "major_heading", "met_value"
+        )
+        activities = list(qs)
+
+        plan = make_week_plan_from_queryset(
+            activities=activities,
+            goal=data["goal"],
+            favorites=data.get("FavoriteActivities", []),
+            seed=data.get("seed")
+        )
+        # Return exactly the array of 7 items (day, recommendation, duration)
+        return Response(plan, status=status.HTTP_200_OK)

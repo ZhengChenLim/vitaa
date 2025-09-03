@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from vitaa_app import views
+from vitaa_app.views import GenerateActivityPlanView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +33,7 @@ urlpatterns = [
 
     #n8n Health Analysis API
     path("api/webhooks/user-profile/", views.n8n_health_analysis_view, name="n8n_health_analysis"),
+
+    # Activity Planner API
+    path("api/activity-plan/", GenerateActivityPlanView.as_view(), name="activity-plan"),
 ]
