@@ -33,7 +33,8 @@ type Activity = 'sedentary' | 'low' | 'medium' | 'high' | null;
 type Alcohol = 'none' | 'occasional' | 'frequent' | null;
 type Smoking = 'smoker' | 'nonSmoker' | null;
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8001';
+
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8000';
 
 export default function AnalysisFormPage() {
   const t = useTranslations('analysis');
@@ -65,7 +66,6 @@ export default function AnalysisFormPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [serverResult, setServerResult] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
-
 
   // refs for focusing first invalid field
   const ageRef = useRef<HTMLInputElement>(null);
@@ -227,7 +227,6 @@ export default function AnalysisFormPage() {
   }, []);
 
   // --- submit ---
-
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -241,6 +240,26 @@ export default function AnalysisFormPage() {
       height: validateHeight(height),
       weight: validateWeight(weight),
       waist: validateWaist(waist),
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Family history to API shape {Diabetes:"Yes|No", Hypertension:"Yes|No", Stroke:"Yes|No"}
+    const famObj: Record<string, string | null> = {
+      Diabetes: family['none'] ? 'No' : family['diabetes'] ? 'Yes' : 'No',
+      Hypertension: family['none'] ? 'No' : family['hypertension'] ? 'Yes' : 'No',
+      Stroke: family['none'] ? 'No' : family['stroke'] ? 'Yes' : 'No'
+    };
+
+    const payload = {
+      Age: age ? Number(age) : null,
+      Sex: sex ? sexMap[sex] : null,
+      FamilyHistory: famObj,
+      WeightKg: weight ? Number(weight) : null,
+      HeightCm: height ? Number(height) : null,
+      WaistCircumferenceCm: waist ? Number(waist) : null,
+      ActivityLevel: activity ? activityMap[activity] : null,
+      Smoking: smoking ? smokingMap[smoking] : null,
+      AlcoholConsumption: alcohol ? alcoholMap[alcohol] : null,
+      SystolicBP: sbp ? Number(sbp) : null
     };
     setFieldErrors(nextErrors);
 
@@ -672,6 +691,7 @@ export default function AnalysisFormPage() {
               type="submit"
               className="w-full rounded-xl px-6 py-3 text-base font-semibold text-white shadow-md transition hover:opacity-90 bg-gradient-to-r from-[#13D298] to-[#2CD30D]"
               disabled={isLoading || hasErrors}
+
             >
               {t('submit')}
             </button>

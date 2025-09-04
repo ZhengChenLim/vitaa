@@ -31,7 +31,7 @@ type Alcohol = 'none' | 'occasional' | 'frequent' | null;
 type Smoking = 'smoker' | 'nonSmoker' | null;
 
 // --- API base (same as your form page) ---
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8001';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8000';
 
 // --- helpers ---
 function clamp(n: number, lo: number, hi: number) {
@@ -151,6 +151,7 @@ export default function AnalysisResultPage() {
   const [result, setResult] = useState<any>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+
   const [fieldErrors, setFieldErrors] = useState<{
     age?: string;
     sex?: string;
@@ -271,6 +272,7 @@ export default function AnalysisResultPage() {
     setIsSubmitting(true);
     setErr(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
 
     // run validation (submit-only)
     const next = {
@@ -451,6 +453,7 @@ export default function AnalysisResultPage() {
 
                 <form onSubmit={onInlineSubmit} className="rounded-xl border border-slate-200 p-4">
                   <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+
                     {/* Age (required) */}
                     <LabeledInput
                       id="age"
