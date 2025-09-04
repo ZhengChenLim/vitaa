@@ -1,0 +1,426 @@
+{
+  "brand": "Vitaa",
+  "nav": {
+    "home": "Trang chủ",
+    "plan": "Kế hoạch sức khỏe",
+    "analysis": "Phân tích sức khỏe",
+    "contact": "Liên hệ"
+  },
+  "home": {
+    "heroTitle": "Ngăn ngừa <strong>thách thức sức khỏe</strong> của ngày mai ngay hôm nay",
+    "heroSubtitle": "Bữa ăn + bài tập thể dục cá nhân hóa, cùng với phân tích sức khỏe theo thời gian thực để bạn khỏe mạnh hơn.",
+    "ctaGenerate": "Tạo kế hoạch sức khỏe của tôi",
+    "ctaSample": "Xem kế hoạch mẫu",
+    "malaysiaReality": "Thực trạng sức khỏe tại Malaysia",
+    "malaysiaSubtitle": "Hiểu rõ sự cấp thiết của chăm sóc sức khỏe dự phòng ở Malaysia",
+    "stat1": "73% ca tử vong ở Malaysia do bệnh không lây nhiễm (NCD)",
+    "stat1sub": "Bệnh không lây nhiễm là nguyên nhân tử vong hàng đầu",
+    "stat2": "3,9 triệu người trưởng thành (18+) tại Malaysia mắc bệnh tiểu đường",
+    "stat2sub": "≈18,3% người trưởng thành",
+    "stat3": "80% các ca bệnh tim mạch và đột quỵ sớm có thể phòng tránh",
+    "stat3sub": "Thông qua thay đổi lối sống & phát hiện sớm",
+    "preventionTitle": "Phòng bệnh hơn chữa bệnh",
+    "preventionText": "Vitaa giúp người trưởng thành tại Malaysia phòng ngừa tiểu đường, tăng huyết áp và đột quỵ bằng các giải pháp sức khỏe cá nhân hóa, phù hợp văn hóa.",
+    "ctaAnalysis": "Muốn biết <highlight>rủi ro sức khỏe</highlight> của bạn?",
+    "ctaAnalysisBtn": "Bắt đầu phân tích",
+    "whyTitle": "Tại sao chọn Vitaa?",
+    "whyAi": "Phân tích sức khỏe dự phòng bằng AI",
+    "whyPersonalised": "Khuyến nghị ăn uống và luyện tập cá nhân hóa"
+  },
+  "plan": {
+    "validation": {
+      "age": "Tuổi phải từ 18 đến 150",
+      "height": "Chiều cao phải từ 50 cm đến 250 cm",
+      "weight": "Cân nặng phải từ 30 kg đến 300 kg",
+      "waist": "Vòng eo phải từ 30 cm đến 200 cm",
+      "required": "Trường này là bắt buộc",
+      "number": "Trường này phải là số"
+    },
+    "profile": {
+      "none": "Không"
+    },
+    "breadcrumbs": {
+      "home": "Trang chủ",
+      "plan": "Kế hoạch Sức khỏe"
+    },
+    "loading": "đang tải...",
+    "title": "Kế hoạch Sức khỏe Cá nhân hóa",
+    "subtitle": "Nhận kế hoạch ăn uống và tập luyện được điều chỉnh phù hợp với lối sống và mục tiêu của bạn.",
+    "stepper": {
+      "one": "1",
+      "two": "2"
+    },
+    "assessmentTitle": "Đánh giá Kế hoạch Sức khỏe",
+    "fields": {
+      "age": {
+        "label": "Tuổi",
+        "placeholder": "Nhập tuổi của bạn"
+      },
+      "sex": {
+        "label": "Giới tính",
+        "male": "Nam",
+        "female": "Nữ"
+      },
+      "height": {
+        "label": "Chiều cao (cm)",
+        "placeholder": "Nhập chiều cao của bạn"
+      },
+      "weight": {
+        "label": "Cân nặng (kg)",
+        "placeholder": "Nhập cân nặng của bạn"
+      },
+      "waist": {
+        "label": "Vòng eo (cm)",
+        "placeholder": "Nhập số đo vòng eo của bạn"
+      },
+      "activity": {
+        "label": "Tần suất hoạt động",
+        "sedentary": "Ít vận động",
+        "low": "Thấp",
+        "medium": "Trung bình",
+        "high": "Cao"
+      },
+      "goal": {
+        "label": "Mục tiêu luyện tập",
+        "loss": "Giảm cân",
+        "muscle": "Tăng cơ",
+        "maintain": "Duy trì sức khỏe"
+      },
+      "allergies": {
+        "label": "Dị ứng",
+        "help": "Chọn tất cả các mục áp dụng",
+        "milk": "Sữa",
+        "eggs": "Trứng",
+        "peanuts": "Đậu phộng",
+        "treeNuts": "Các loại hạt cây",
+        "soy": "Đậu nành",
+        "wheat": "Lúa mì",
+        "fish": "Cá",
+        "shellfish": "Động vật có vỏ",
+        "sesame": "Mè (vừng)"
+      },
+      "diet": {
+        "label": "Chế độ ăn",
+        "none": "Không ưu tiên",
+        "vegan": "Thuần chay",
+        "vegetarian": "Ăn chay",
+        "includeEggs": "Bao gồm trứng?"
+      }
+    },
+    "common": {
+      "yes": "Có",
+      "no": "Không"
+    },
+    "submit": "Tạo Kế hoạch Sức khỏe"
+  },
+  "analysis": {
+    "breadcrumbs": {
+      "home": "Trang chủ",
+      "analysis": "Phân tích Sức khỏe"
+    },
+    "validation": {
+      "age": "Tuổi phải từ 18 đến 150",
+      "height": "Chiều cao phải từ 50 cm đến 250 cm",
+      "weight": "Cân nặng phải từ 30 kg đến 300 kg",
+      "waist": "Vòng eo phải từ 30 cm đến 200 cm",
+      "required": "Trường này là bắt buộc",
+      "number": "Trường này phải là số"
+    },
+    "loading": "đang tải...",
+    "title": "Mẫu Phân tích Sức khỏe",
+    "subtitle": "Nhận thông tin chi tiết do AI hỗ trợ để phát hiện sớm nguy cơ tiểu đường, tăng huyết áp và đột quỵ — giúp bạn hành động sớm hơn.",
+    "assessmentTitle": "Đánh giá Nguy cơ Sức khỏe",
+    "fields": {
+      "age": {
+        "label": "Tuổi",
+        "placeholder": "Nhập tuổi của bạn"
+      },
+      "sex": {
+        "label": "Giới tính",
+        "male": "Nam",
+        "female": "Nữ"
+      },
+      "height": {
+        "label": "Chiều cao (cm)",
+        "placeholder": "Nhập chiều cao của bạn"
+      },
+      "weight": {
+        "label": "Cân nặng (kg)",
+        "placeholder": "Nhập cân nặng của bạn"
+      },
+      "waist": {
+        "label": "Vòng eo (cm)",
+        "placeholder": "Nhập số đo vòng eo của bạn"
+      },
+      "bpSystolic": {
+        "label": "Huyết áp tâm thu",
+        "placeholder": "Nhập chỉ số huyết áp tâm thu",
+        "help": "Hầu hết ứng dụng sức khỏe hoặc đồng hồ thông minh đều đo được huyết áp tâm thu, điều này rất quan trọng để đánh giá chính xác nguy cơ tăng huyết áp."
+      },
+      "activity": {
+        "label": "Tần suất hoạt động",
+        "sedentary": "Ít vận động",
+        "low": "Thấp",
+        "medium": "Trung bình",
+        "high": "Cao"
+      },
+      "alcohol": {
+        "label": "Mức độ uống rượu",
+        "none": "Không",
+        "occasional": "Ít khi",
+        "frequent": "Thường xuyên"
+      },
+      "smoking": {
+        "label": "Tình trạng hút thuốc",
+        "smoker": "Người hút thuốc",
+        "nonSmoker": "Không hút thuốc"
+      },
+      "family": {
+        "label": "Tiền sử gia đình",
+        "diabetes": "Đái tháo đường",
+        "hypertension": "Tăng huyết áp",
+        "stroke": "Đột quỵ",
+        "none": "Không có"
+      }
+    },
+    "submit": "Tạo Phân tích Sức khỏe"
+  },
+  "consent": {
+    "title": "Chúng tôi coi trọng quyền riêng tư của bạn",
+    "body": "Chúng tôi không lưu trữ dữ liệu cá nhân của bạn trên máy chủ. Cookie chỉ được dùng cho các chức năng thiết yếu và để chạy phân tích/tính toán cho kết quả sức khỏe của bạn. Dữ liệu bạn nhập chỉ được xử lý để tính toán và lưu trong trình duyệt của bạn dưới dạng cookie (không gửi cho chúng tôi). Bạn có thể chấp nhận hoặc từ chối.",
+    "lines": {
+      "essential": "Cookie thiết yếu: Cần thiết để trang web hoạt động và ghi nhớ các thiết lập như đồng ý và ngôn ngữ.",
+      "analytics": "Cookie phân tích/tính toán: Dùng để thực hiện phân tích và tính toán trên trang cho kết quả sức khỏe của bạn; dữ liệu luôn nằm trong trình duyệt.",
+      "personalization": "Cookie cá nhân hóa: Lưu tùy chọn của bạn (ví dụ: đơn vị, lựa chọn) để điều chỉnh gợi ý ăn uống và tập luyện; không chia sẻ với máy chủ của chúng tôi."
+    },
+    "accept": "CHẤP NHẬN TẤT CẢ",
+    "reject": "TỪ CHỐI TẤT CẢ"
+  },
+  "planResult": {
+    "breadcrumbs": {
+      "home": "Trang chủ",
+      "plan": "Kế hoạch Sức khỏe"
+    },
+    "title": "Kế hoạch Sức khỏe Cá nhân hóa",
+    "profile": {
+      "title": "Hồ sơ Sức khỏe",
+      "update": "Cập nhật kết quả",
+      "fields": {
+        "age": "Tuổi",
+        "sex": "Giới tính",
+        "height": "Chiều cao",
+        "weight": "Cân nặng",
+        "waist": "Vòng eo",
+        "activity": "Tần suất hoạt động",
+        "goal": "Mục tiêu luyện tập",
+        "diet": "Chế độ ăn",
+        "allergies": "Dị ứng"
+      },
+      "values": {
+        "male": "Nam",
+        "female": "Nữ",
+        "sedentary": "Ít vận động",
+        "low": "Thấp",
+        "medium": "Trung bình",
+        "high": "Cao",
+        "loss": "Giảm cân",
+        "muscle": "Tăng cơ",
+        "maintain": "Duy trì sức khỏe",
+        "none": "Không ưu tiên",
+        "vegan": "Thuần chay",
+        "vegetarian": "Ăn chay"
+      }
+    },
+    "overview": {
+      "title": "Kế hoạch Sức khỏe của bạn",
+      "macroTitle": "Phân bổ Đạm - Béo - Tinh bột",
+      "protein": "Protein",
+      "carbs": "Cacbohydrat",
+      "fat": "Chất béo",
+      "metrics": {
+        "bmi": "BMI",
+        "dailyCalories": "Calo mỗi ngày",
+        "weightStatus": "Tình trạng cân nặng"
+      },
+      "status": {
+        "under": "Thiếu cân",
+        "normal": "Bình thường",
+        "over": "Thừa cân",
+        "obese": "Béo phì",
+        "unknown": "Không xác định"
+      }
+    },
+    "diet": {
+      "title": "Kế hoạch Dinh dưỡng Cá nhân hóa",
+      "meals": {
+        "fruitGrain": "Salad trái cây & ngũ cốc",
+        "veggieEggSalad": "Salad rau & trứng",
+        "eggsPancakes": "Trứng và bánh kếp",
+        "fruitBowl": "Tô trái cây & ngũ cốc",
+        "avocadoSalad": "Tô salad bơ",
+        "yogurtBowl": "Tô sữa chua trái cây"
+      },
+      "breakfast": "Bữa sáng",
+      "lunch": "Bữa trưa",
+      "dinner": "Bữa tối"
+    },
+    "meal": {
+      "labels": {
+        "calories": "Năng lượng",
+        "kcal": "kcal",
+        "carbs": "Carb",
+        "protein": "Protein",
+        "fat": "Chất béo",
+        "fiber": "Chất xơ"
+      }
+    },
+    "considerations": {
+      "title": "Lưu ý về chế độ ăn",
+      "allergies": "Dị ứng cần tránh: {list}"
+    },
+    "exercise": {
+      "title": "Khuyến nghị Tập luyện",
+      "scheduleTitle": "Lịch tập 7 ngày",
+      "days": {
+        "mon": "Thứ Hai",
+        "tue": "Thứ Ba",
+        "wed": "Thứ Tư",
+        "thu": "Thứ Năm",
+        "fri": "Thứ Sáu",
+        "sat": "Thứ Bảy",
+        "sun": "Chủ Nhật"
+      },
+      "items": {
+        "mon": "Đi bộ nhẹ 20 phút",
+        "tue": "Chuỗi giãn cơ cơ bản",
+        "wed": "Bài tập trọng lượng cơ thể nhẹ",
+        "thu": "Đi bộ 20 phút ở công viên",
+        "fri": "Yoga cho người mới bắt đầu",
+        "sat": "Việc nhà nhẹ",
+        "sun": "Nghỉ ngơi với giãn cơ nhẹ"
+      }
+    },
+    "cta": {
+      "title": "Sẵn sàng thay đổi sức khỏe của bạn?",
+      "subtitle": "Nhận kế hoạch dinh dưỡng và tập luyện cá nhân hóa và bắt đầu hành trình sống khỏe hôm nay!",
+      "download": "Tải xuống kế hoạch đầy đủ"
+    }
+  },
+  "analysisResult": {
+    "breadcrumbs": {
+      "home": "Trang chủ",
+      "result": "Kết quả"
+    },
+    "validation": {
+      "age": "Tuổi phải từ 18 đến 150",
+      "height": "Chiều cao phải từ 50 cm đến 250 cm",
+      "weight": "Cân nặng phải từ 30 kg đến 300 kg",
+      "waist": "Vòng eo phải từ 30 cm đến 200 cm",
+      "required": "Trường này là bắt buộc",
+      "number": "Trường này phải là số"
+    },
+    "loading": "đang tải...",
+    "title": "Kết quả phân tích sức khỏe",
+    "profile": {
+      "title": "Hồ sơ sức khỏe",
+      "update": "Cập nhật kết quả",
+      "none": "Không có",
+      "fields": {
+        "age": "Tuổi",
+        "sex": "Giới tính",
+        "height": "Chiều cao (cm)",
+        "weight": "Cân nặng (kg)",
+        "waist": "Vòng eo (cm)",
+        "activity": "Mức độ hoạt động",
+        "sbp": "Huyết áp tâm thu",
+        "sbpHelp": "Hầu hết ứng dụng sức khỏe hoặc đồng hồ thông minh đều đo được huyết áp tâm thu, điều này rất quan trọng để đánh giá chính xác nguy cơ tăng huyết áp.",
+        "alcohol": "Mức tiêu thụ rượu/bia",
+        "smoking": "Tình trạng hút thuốc",
+        "family": {
+          "label": "Tiền sử gia đình",
+          "diabetes": "Đái tháo đường",
+          "hypertension": "Tăng huyết áp",
+          "stroke": "Đột quỵ",
+          "none": "Không có"
+        }
+      }
+    },
+    "result": {
+      "title": "Kết quả phân tích",
+      "disclaimerLabel": "Lưu ý:",
+      "disclaimer": "Đánh giá rủi ro này chỉ nhằm mục đích quản lý sức khỏe, không phải chẩn đoán y khoa. Kết quả \"Nguy cơ cao\" không có nghĩa là bạn chắc chắn sẽ mắc bệnh. Hãy tham khảo bác sĩ để được tư vấn cá nhân."
+    },
+    "enums": {
+      "sex": {
+        "male": "Nam",
+        "female": "Nữ"
+      },
+      "activity": {
+        "sedentary": "Ít vận động",
+        "low": "Thấp",
+        "medium": "Trung bình",
+        "high": "Cao"
+      },
+      "alcohol": {
+        "none": "Không",
+        "occasional": "Thỉnh thoảng",
+        "frequent": "Thường xuyên"
+      },
+      "smoking": {
+        "smoker": "Người hút thuốc",
+        "nonSmoker": "Không hút thuốc"
+      }
+    },
+    "bmi": {
+      "title": "BMI",
+      "myResult": "Kết quả của tôi:",
+      "desc": "BMI (Chỉ số khối cơ thể) là chỉ số phản ánh cân nặng theo chiều cao.",
+      "bands": {
+        "na": "—",
+        "underweight": "Thiếu cân",
+        "normal": "Bình thường",
+        "overweight": "Thừa cân",
+        "obese": "Béo phì"
+      }
+    },
+    "bri": {
+      "title": "BRI",
+      "myResult": "Kết quả của tôi:",
+      "desc": "Chỉ số Độ tròn Cơ thể (BRI) ước tính mỡ bụng từ chiều cao và vòng eo; giá trị cao liên quan đến béo bụng và nguy cơ chuyển hóa.",
+      "bands": {
+        "na": "—",
+        "poor": "Độ tròn thấp (ít mỡ)",
+        "desirable": "Tối ưu",
+        "excessive": "Quá mức",
+        "elevated": "Tăng đáng kể"
+      }
+    },
+    "risk": {
+      "title": "Đánh giá rủi ro sức khỏe",
+      "learnMore": "Tìm hiểu thêm",
+      "level": {
+        "high": "Nguy cơ cao",
+        "moderate": "Nguy cơ trung bình",
+        "low": "Nguy cơ thấp",
+        "unknown": "Chưa rõ"
+      },
+      "conditions": {
+        "diabetes": "Đái tháo đường",
+        "hypertension": "Tăng huyết áp",
+        "stroke": "Đột quỵ"
+      },
+      "desc": {
+        "diabetes": "Đái tháo đường là tình trạng đường huyết tăng cao mạn tính. Người có nguy cơ cao nên chú ý chế độ ăn, luyện tập và quản lý cân nặng.",
+        "hypertension": "Tăng huyết áp là tình trạng mạn tính với huyết áp tăng kéo dài. Nguy cơ hiện thấp. Nên duy trì lối sống lành mạnh để phòng ngừa.",
+        "stroke": "Đột quỵ là bệnh lý cấp tính do tắc mạch hoặc chảy máu não. Nguy cơ hiện thấp. Duy trì thói quen lành mạnh giúp giảm rủi ro trong tương lai."
+      }
+    }
+  },
+  "lang": {
+    "english": "English",
+    "malay": "Malay",
+    "chinese": "中文",
+    "vietnamese": "Tiếng Việt",
+    "switch": "Chuyển ngôn ngữ"
+  }
+}

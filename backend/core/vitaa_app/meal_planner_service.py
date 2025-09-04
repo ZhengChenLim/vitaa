@@ -194,11 +194,20 @@ def _sum_macros(rows_df: pd.DataFrame) -> Dict[str, float]:
 def _load_dishes_from_db() -> pd.DataFrame:
     """
     Pulls dishes + allergens from the DB and returns a DataFrame
-    aligned to the old CSV shape.
+    aligned to the old CSV shape, now including localized names.
     """
     base = list(Dish.objects.values(
-        "dish_id", "dish_name", "veg_class", "ingredients",
-        "calories_kcal", "protein_g", "fat_g", "carbohydrate_g",
+        "dish_id",
+        "dish_name",
+        "dish_ms_name",
+        "dish_vi_name",
+        "dish_zh_name",
+        "veg_class",
+        "ingredients",
+        "calories_kcal",
+        "protein_g",
+        "fat_g",
+        "carbohydrate_g",
         "image_url",
     ))
 
@@ -231,6 +240,9 @@ def _load_dishes_from_db() -> pd.DataFrame:
 
         records.append({
             "dish_name": r["dish_name"],
+            "dish_ms_name": r.get("dish_ms_name"),
+            "dish_vi_name": r.get("dish_vi_name"),
+            "dish_zh_name": r.get("dish_zh_name"),
             "diet_class": r["veg_class"],
             "ingredients": json.dumps(ingredients_list),
             "allergens": allergens,
@@ -250,11 +262,9 @@ def _load_dishes_from_db() -> pd.DataFrame:
     df = df[df["calories_kcal"] > 0]
     df["ingredients_list"] = df["ingredients"].apply(parse_list_cell)
 
-    # --- CRITICAL: deduplicate by dish_name so each name maps to exactly one row ---
+    # Deduplicate so each EN name maps to exactly one row
     df = df.drop_duplicates(subset=["dish_name"], keep="first").reset_index(drop=True)
-
     return df
-
 
 # ---------- PUBLIC API ----------
 def generate_meal_plan(goals: Dict) -> List[Dict]:
@@ -321,29 +331,34 @@ def generate_meal_plan(goals: Dict) -> List[Dict]:
     for meal, kcal_t in meal_targets.items():
         names, _unused_totals = choose_meal(mains, sides, kcal_t, weight_loss, used_names)
 
-        # Only track the ones we actually output to enforce uniqueness across the day
         selected_names = names[:MAX_ITEMS_PER_MEAL]
         used_names.update(selected_names)
 
-        # Build ordered rows by fetching EXACTLY one row per name
         ordered_rows_list = []
         ing_map = {}
         img_map = {}
         per_dish = []
+        dishes_localized = []  # <- new
 
         for dish_name in selected_names:
-            # fetch first match for this name (we deduped, so this should be 1 row)
             row = df.loc[df["dish_name"] == dish_name].head(1)
             if row.empty:
                 continue
             r = row.iloc[0]
             ordered_rows_list.append(r)
 
-            # maps
+            # localized names payload
+            dishes_localized.append({
+                "dish_name": r["dish_name"],
+                "dish_ms_name": r.get("dish_ms_name"),
+                "dish_vi_name": r.get("dish_vi_name"),
+                "dish_zh_name": r.get("dish_zh_name"),
+            })
+
+            # maps (keep keyed by EN name)
             ing_map[dish_name] = r["ingredients_list"]
             img_map[dish_name] = r.get("image_url")
 
-            # per-dish macros
             per_dish.append({
                 "Dish": dish_name,
                 "Calories": round(float(r["calories_kcal"]), 1),
@@ -352,7 +367,6 @@ def generate_meal_plan(goals: Dict) -> List[Dict]:
                 "Carbs_g": round(float(r["carbohydrate_g"]), 1),
             })
 
-        # Totals for the selected dishes
         if ordered_rows_list:
             ordered_rows = pd.DataFrame(ordered_rows_list)
             meal_totals = _sum_macros(ordered_rows)
@@ -361,10 +375,10 @@ def generate_meal_plan(goals: Dict) -> List[Dict]:
 
         plan.append({
             "Meal": meal,
-            "Dishes": selected_names,
+            "Dishes": dishes_localized,   # <- now returns all 4 names
             "Ingredients": ing_map,
             "Images": img_map,
-            "PerDish": per_dish,  # per-dish macros in order
+            "PerDish": per_dish,
             "Calories": meal_totals["calories"],
             "Protein_g": meal_totals["Protein_g"],
             "Fat_g": meal_totals["Fat_g"],

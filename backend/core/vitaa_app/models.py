@@ -17,6 +17,9 @@ class Allergen(models.Model):
 class Dish(models.Model):
     dish_id = models.AutoField(primary_key=True)
     dish_name = models.CharField(max_length=255)
+    dish_ms_name = models.CharField(max_length=255, null=True, blank=True)
+    dish_vi_name = models.CharField(max_length=255, null=True, blank=True)
+    dish_zh_name = models.CharField(max_length=255, null=True, blank=True)
     image_url = models.CharField(max_length=255)
     ingredients = models.CharField(max_length=255)
     veg_class = models.CharField(max_length=255)

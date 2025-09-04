@@ -31,7 +31,7 @@ type Alcohol = 'none' | 'occasional' | 'frequent' | null;
 type Smoking = 'smoker' | 'nonSmoker' | null;
 
 // --- API base (same as your form page) ---
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8000';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8001';
 
 // --- helpers ---
 function clamp(n: number, lo: number, hi: number) {
@@ -151,6 +151,38 @@ export default function AnalysisResultPage() {
   const [result, setResult] = useState<any>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<{
+    age?: string;
+    sex?: string;
+    height?: string;
+    weight?: string;
+    waist?: string;
+  }>({});
+
+  const validateAge = (v: number | null) => {
+    if (v == null || v === ('' as any)) return t('validation.required');
+    if (!Number.isFinite(v)) return t('validation.number');
+    if (v < 18 || v > 150) return t('validation.age');
+    return undefined;
+  };
+  const validateHeight = (v: number | null) => {
+    if (v == null || v === ('' as any)) return t('validation.required');
+    if (!Number.isFinite(v)) return t('validation.number');
+    if (v < 50 || v > 250) return t('validation.height');
+    return undefined;
+  };
+  const validateWeight = (v: number | null) => {
+    if (v == null || v === ('' as any)) return t('validation.required');
+    if (!Number.isFinite(v)) return t('validation.number');
+    if (v < 30 || v > 300) return t('validation.weight');
+    return undefined;
+  };
+  const validateWaist = (v: number | null) => {
+    if (v == null || v === ('' as any)) return t('validation.required');
+    if (!Number.isFinite(v)) return t('validation.number');
+    if (v < 30 || v > 200) return t('validation.waist');
+    return undefined;
+  };
 
   // hydrate profile & result from cookie / session
   useEffect(() => {
@@ -201,10 +233,12 @@ export default function AnalysisResultPage() {
     } catch { }
   }, []);
 
+  
+
   // derived metrics
   const bmi = useMemo(() => calcBMI(profile.weight_kg ?? null, profile.height_cm ?? null), [profile.weight_kg, profile.height_cm]);
   const bri = useMemo(() => calcBRI(profile.waist_cm ?? null, profile.height_cm ?? null), [profile.waist_cm, profile.height_cm]);
-
+  const hasErrors = Object.values(fieldErrors).some(Boolean);
   const bmiInfo = useMemo(() => {
     if (bmi == null) return { label: t('bmi.bands.na', { defaultValue: '—' }), color: 'bg-gray-300' };
     if (bmi < 18.5) return { label: t('bmi.bands.underweight', { defaultValue: 'Underweight' }), color: 'bg-sky-300' };
@@ -238,6 +272,32 @@ export default function AnalysisResultPage() {
     setErr(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
+    // run validation (submit-only)
+    const next = {
+      age: validateAge(profile.age),
+      sex: profile.sex ? undefined : t('validation.required'),
+      height: validateHeight(profile.height_cm),
+      weight: validateWeight(profile.weight_kg),
+      waist: validateWaist(profile.waist_cm),
+    };
+    setFieldErrors(next);
+    const hasErrors = Object.values(next).some(Boolean);
+    if (hasErrors) {
+      setIsSubmitting(false);
+      // focus the first invalid field
+      const first =
+        (next.age && 'age') ||
+        (next.sex && 'sex') ||
+        (next.height && 'height') ||
+        (next.weight && 'weight') ||
+        (next.waist && 'waist');
+      if (first) {
+        const el = document.getElementById(first);
+        if (el && 'focus' in el) (el as HTMLInputElement).focus();
+        el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
     // family to API shape
     const famObj: Record<string, string | null> = {
       Diabetes: family['none'] ? 'No' : family['diabetes'] ? 'Yes' : 'No',
@@ -391,15 +451,20 @@ export default function AnalysisResultPage() {
 
                 <form onSubmit={onInlineSubmit} className="rounded-xl border border-slate-200 p-4">
                   <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                    {/* Age */}
+                    {/* Age (required) */}
                     <LabeledInput
+                      id="age"
                       label={t('profile.fields.age', { defaultValue: 'Age' })}
                       type="number"
                       value={profile.age ?? ''}
                       onChange={v => setProfile(p => ({ ...p, age: v === '' ? null : Number(v) }))}
+                      required
+                      error={fieldErrors.age}
                     />
-                    {/* Sex */}
+
+                    {/* Sex (required) */}
                     <LabeledToggleGroup
+                      id="sex"
                       label={t('profile.fields.sex', { defaultValue: 'Sex' })}
                       options={[
                         { key: 'male', label: label.sex('male') },
@@ -408,28 +473,42 @@ export default function AnalysisResultPage() {
                       value={profile.sex}
                       onChange={v => setProfile(p => ({ ...p, sex: v as Sex }))}
                       columns={2}
+                      required
+                      error={fieldErrors.sex}
                     />
-                    {/* Height */}
+
+                    {/* Height (required) */}
                     <LabeledInput
+                      id="height"
                       label={t('profile.fields.height', { defaultValue: 'Height (cm)' })}
                       type="number"
                       value={profile.height_cm ?? ''}
                       onChange={v => setProfile(p => ({ ...p, height_cm: v === '' ? null : Number(v) }))}
+                      required
+                      error={fieldErrors.height}
                     />
-                    {/* Weight */}
+
+                    {/* Weight (required) */}
                     <LabeledInput
+                      id="weight"
                       label={t('profile.fields.weight', { defaultValue: 'Weight (kg)' })}
                       type="number"
                       value={profile.weight_kg ?? ''}
                       onChange={v => setProfile(p => ({ ...p, weight_kg: v === '' ? null : Number(v) }))}
+                      required
+                      error={fieldErrors.weight}
                     />
-                    {/* Waist */}
+
+                    {/* Waist (required) */}
                     <LabeledInput
+                      id="waist"
                       className="md:col-span-2"
                       label={t('profile.fields.waist', { defaultValue: 'Waist Circumference (cm)' })}
                       type="number"
                       value={profile.waist_cm ?? ''}
                       onChange={v => setProfile(p => ({ ...p, waist_cm: v === '' ? null : Number(v) }))}
+                      required
+                      error={fieldErrors.waist}
                     />
                     {/* Activity */}
                     <LabeledToggleGroup
@@ -484,7 +563,7 @@ export default function AnalysisResultPage() {
                       <label className="mb-1 block text-sm font-medium text-gray-700">
                         {t('profile.fields.family.label', { defaultValue: 'Family history' })}
                       </label>
-                      <div className="grid grid-cols-4 gap-2">
+                      <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
                         {famKeys.map(k => (
                           <button
                             key={k}
@@ -507,8 +586,8 @@ export default function AnalysisResultPage() {
                     <Button
                       type="submit"
                       className="w-full bg-gradient-to-r from-[#13D298] to-[#2CD30D] font-semibold text-white shadow-md hover:opacity-90 md:w-auto"
-                      disabled={isSubmitting}
-                    >
+                      disabled={isSubmitting || hasErrors}
+                      >
                       {isSubmitting ? (
                         <span className="inline-flex items-center gap-2">
                           <Loader2 className="h-4 w-4 animate-spin" /> {t('profile.update', { defaultValue: 'Update result' })}
@@ -654,7 +733,7 @@ export default function AnalysisResultPage() {
 
 /* ---------- tiny components ---------- */
 function LabeledInput({
-  label, type, value, onChange, help, className
+  label, type, value, onChange, help, className, required, error, id
 }: {
   label: string;
   type?: 'text' | 'number';
@@ -662,23 +741,38 @@ function LabeledInput({
   onChange: (v: string) => void;
   help?: string;
   className?: string;
+  required?: boolean;
+  error?: string;
+  id?: string;
 }) {
+  const Req = () => <span className="ml-1 text-red-600" aria-hidden="true">*</span>;
   return (
     <div className={className}>
-      <label className="mb-1 block text-sm font-medium text-gray-700">{label}</label>
+      <label htmlFor={id} className="mb-1 block text-sm font-medium text-gray-700">
+        {label} {required ? <Req /> : null}
+      </label>
       <input
+        id={id}
         type={type ?? 'text'}
         value={value as any}
         onChange={e => onChange(e.target.value)}
-        className="w-full rounded-md border border-gray-300 px-3 py-2 outline-none focus:border-sky-500"
+        className={`w-full rounded-md border px-3 py-2 outline-none focus:border-sky-500 ${error ? 'border-red-400 focus:border-red-500' : 'border-gray-300'
+          }`}
+        aria-invalid={!!error}
+        aria-describedby={error ? `${id}-error` : undefined}
       />
       {help && <p className="mt-1 text-xs italic text-gray-500">{help}</p>}
+      {error && (
+        <p id={`${id}-error`} className="mt-1 text-xs text-red-600">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
 
 function LabeledToggleGroup<T extends string>({
-  label, options, value, onChange, columns = 2, className
+  label, options, value, onChange, columns = 2, className, required, error, id
 }: {
   label: string;
   options: { key: T; label: string }[];
@@ -686,11 +780,23 @@ function LabeledToggleGroup<T extends string>({
   onChange: (v: T) => void;
   columns?: 2 | 3 | 4;
   className?: string;
+  required?: boolean;
+  error?: string;
+  id?: string;
 }) {
+  const Req = () => <span className="ml-1 text-red-600" aria-hidden="true">*</span>;
   return (
     <div className={className}>
-      <label className="mb-1 block text-sm font-medium text-gray-700">{label}</label>
-      <div className={`grid grid-cols-${columns} gap-2`}>
+      <label className="mb-1 block text-sm font-medium text-gray-700" htmlFor={id}>
+        {label} {required ? <Req /> : null}
+      </label>
+      <div
+        id={id}
+        className={`grid gap-2 ${columns === 4 ? 'md:grid-cols-4 grid-cols-2' : columns === 3 ? 'md:grid-cols-3 grid-cols-1' : 'grid-cols-2'}`}
+        role="group"
+        aria-invalid={!!error}
+        aria-describedby={error ? `${id}-error` : undefined}
+      >
         {options.map(opt => (
           <button
             key={opt.key}
@@ -698,11 +804,17 @@ function LabeledToggleGroup<T extends string>({
             onClick={() => onChange(opt.key)}
             className={`rounded-md border px-3 py-2 text-sm font-medium ${value === opt.key ? 'border-green-600 bg-green-50 text-green-700' : 'border-gray-300 text-gray-700 hover:bg-gray-50'
               }`}
+            aria-pressed={value === opt.key}
           >
             {opt.label}
           </button>
         ))}
       </div>
+      {error && (
+        <p id={`${id}-error`} className="mt-1 text-xs text-red-600">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

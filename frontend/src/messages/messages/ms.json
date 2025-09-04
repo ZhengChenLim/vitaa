@@ -1,0 +1,426 @@
+{
+  "brand": "Vitaa",
+  "nav": {
+    "home": "Laman Utama",
+    "plan": "Pelan Kesihatan",
+    "analysis": "Analisis Kesihatan",
+    "contact": "Hubungi"
+  },
+  "home": {
+    "heroTitle": "Cegah <strong>Cabaran Kesihatan</strong> Hari Esok, Hari Ini",
+    "heroSubtitle": "Pemakanan diperibadikan + senaman, dengan cerapan kesihatan masa nyata untuk diri yang lebih kuat dan sihat.",
+    "ctaGenerate": "Jana Pelan Kesihatan Saya",
+    "ctaSample": "Pelan Contoh",
+    "malaysiaReality": "Realiti Kesihatan Malaysia",
+    "malaysiaSubtitle": "Memahami keperluan mendesak untuk penjagaan kesihatan pencegahan di Malaysia",
+    "stat1": "73% kematian di Malaysia adalah daripada PTB (NCD)",
+    "stat1sub": "Penyakit tidak berjangkit ialah punca utama kematian",
+    "stat2": "3.9 juta dewasa Malaysia (18+) menghidap diabetes",
+    "stat2sub": "≈18.3% orang dewasa",
+    "stat3": "80% penyakit jantung pramatang & strok boleh dicegah",
+    "stat3sub": "Melalui perubahan gaya hidup & pengesanan awal",
+    "preventionTitle": "Mencegah Lebih Baik Daripada Merawat",
+    "preventionText": "Vitaa membantu orang dewasa Malaysia mencegah diabetes, hipertensi dan strok dengan penyelesaian kesihatan yang diperibadikan serta relevan secara budaya.",
+    "ctaAnalysis": "Mahukah anda mengetahui <highlight>risiko kesihatan</highlight> anda?",
+    "ctaAnalysisBtn": "Mulakan Analisis",
+    "whyTitle": "Mengapa Vitaa?",
+    "whyAi": "Analitik AI untuk Kesihatan Pencegahan",
+    "whyPersonalised": "Cadangan pemakanan dan senaman yang diperibadikan"
+  },
+  "plan": {
+    "validation": {
+      "age": "Umur mesti antara 18 dan 150",
+      "height": "Tinggi mesti antara 50 cm dan 250 cm",
+      "weight": "Berat mesti antara 30 kg dan 300 kg",
+      "waist": "Ukurlilit pinggang mesti antara 30 cm dan 200 cm",
+      "required": "Medan ini adalah wajib",
+      "number": "Medan ini mesti nombor"
+    },
+    "profile": {
+      "none": "Tiada"
+    },
+    "breadcrumbs": {
+      "home": "Laman Utama",
+      "plan": "Pelan Kesihatan"
+    },
+    "loading": "memuatkan...",
+    "title": "Pelan Kesihatan Peribadi",
+    "subtitle": "Dapatkan pelan diet dan senaman tersuai yang direka agar sesuai dengan gaya hidup dan matlamat anda.",
+    "stepper": {
+      "one": "1",
+      "two": "2"
+    },
+    "assessmentTitle": "Penilaian Pelan Kesihatan",
+    "fields": {
+      "age": {
+        "label": "Umur",
+        "placeholder": "Masukkan umur anda"
+      },
+      "sex": {
+        "label": "Jantina",
+        "male": "Lelaki",
+        "female": "Perempuan"
+      },
+      "height": {
+        "label": "Tinggi (cm)",
+        "placeholder": "Masukkan tinggi anda"
+      },
+      "weight": {
+        "label": "Berat (kg)",
+        "placeholder": "Masukkan berat anda"
+      },
+      "waist": {
+        "label": "Ukurlilit Pinggang (cm)",
+        "placeholder": "Masukkan ukurlilit pinggang anda"
+      },
+      "activity": {
+        "label": "Kekerapan Aktiviti",
+        "sedentary": "Sedentari",
+        "low": "Rendah",
+        "medium": "Sederhana",
+        "high": "Tinggi"
+      },
+      "goal": {
+        "label": "Matlamat Kecergasan",
+        "loss": "Penurunan Berat Badan",
+        "muscle": "Pertambahan Otot",
+        "maintain": "Kekalkan Kesihatan"
+      },
+      "allergies": {
+        "label": "Alergi",
+        "help": "Pilih semua yang berkaitan",
+        "milk": "Susu",
+        "eggs": "Telur",
+        "peanuts": "Kacang tanah",
+        "treeNuts": "Kacang pokok",
+        "soy": "Kacang soya",
+        "wheat": "Gandum",
+        "fish": "Ikan",
+        "shellfish": "Kerang-kerangan",
+        "sesame": "Bijan"
+      },
+      "diet": {
+        "label": "Pilihan Diet",
+        "none": "Tiada Keutamaan",
+        "vegan": "Vegan",
+        "vegetarian": "Vegetarian",
+        "includeEggs": "Termasuk telur?"
+      }
+    },
+    "common": {
+      "yes": "Ya",
+      "no": "Tidak"
+    },
+    "submit": "Jana Pelan Kesihatan"
+  },
+  "analysis": {
+    "breadcrumbs": {
+      "home": "Laman Utama",
+      "analysis": "Analisis Kesihatan"
+    },
+    "validation": {
+      "age": "Umur mesti antara 18 dan 150",
+      "height": "Tinggi mesti antara 50 cm dan 250 cm",
+      "weight": "Berat mesti antara 30 kg dan 300 kg",
+      "waist": "Ukurlilit pinggang mesti antara 30 cm dan 200 cm",
+      "required": "Medan ini adalah wajib",
+      "number": "Medan ini mesti nombor"
+    },
+    "loading": "memuatkan...",
+    "title": "Borang Analisis Kesihatan",
+    "subtitle": "Dapatkan cerapan jelas berkuasa AI untuk mengesan awal risiko diabetes, hipertensi dan strok — supaya anda boleh bertindak lebih awal.",
+    "assessmentTitle": "Penilaian Risiko Kesihatan",
+    "fields": {
+      "age": {
+        "label": "Umur",
+        "placeholder": "Masukkan umur anda"
+      },
+      "sex": {
+        "label": "Jantina",
+        "male": "Lelaki",
+        "female": "Perempuan"
+      },
+      "height": {
+        "label": "Tinggi (cm)",
+        "placeholder": "Masukkan tinggi anda"
+      },
+      "weight": {
+        "label": "Berat (kg)",
+        "placeholder": "Masukkan berat anda"
+      },
+      "waist": {
+        "label": "Ukurlilit Pinggang (cm)",
+        "placeholder": "Masukkan ukurlilit pinggang anda"
+      },
+      "bpSystolic": {
+        "label": "Tekanan Sistolik",
+        "placeholder": "Masukkan tekanan darah sistolik anda",
+        "help": "Kebanyakan aplikasi kesihatan atau jam pintar mengukur tekanan sistolik, yang penting untuk penilaian tepat risiko hipertensi."
+      },
+      "activity": {
+        "label": "Kekerapan Aktiviti",
+        "sedentary": "Sedentari",
+        "low": "Rendah",
+        "medium": "Sederhana",
+        "high": "Tinggi"
+      },
+      "alcohol": {
+        "label": "Pengambilan Alkohol",
+        "none": "Tiada",
+        "occasional": "Sekali-sekala",
+        "frequent": "Kerap"
+      },
+      "smoking": {
+        "label": "Status Merokok",
+        "smoker": "Perokok",
+        "nonSmoker": "Bukan perokok"
+      },
+      "family": {
+        "label": "Sejarah keluarga",
+        "diabetes": "Diabetes",
+        "hypertension": "Hipertensi",
+        "stroke": "Strok",
+        "none": "Tiada"
+      }
+    },
+    "submit": "Jana Analisis Kesihatan"
+  },
+  "consent": {
+    "title": "Kami menghargai privasi anda",
+    "body": "Kami tidak menyimpan data peribadi anda pada pelayan kami. Kuki digunakan hanya untuk menggerakkan ciri penting dan menjalankan analisis/pengiraan bagi keputusan kesihatan anda. Input anda diproses untuk pengiraan dan disimpan hanya dalam pelayar anda sebagai kuki (tidak dihantar kepada kami). Anda boleh menerima atau menolak.",
+    "lines": {
+      "essential": "Kuki Asas: Diperlukan untuk laman berfungsi dan mengingati perkara seperti persetujuan dan bahasa.",
+      "analytics": "Kuki Analisis/Pengiraan: Digunakan untuk melaksanakan analisis dan pengiraan pada halaman bagi keputusan kesihatan anda; data kekal dalam pelayar anda.",
+      "personalization": "Kuki Pemperibadian: Menyimpan keutamaan anda (cth. unit, pilihan) untuk menyesuaikan cadangan diet dan senaman; tidak dikongsi dengan pelayan kami."
+    },
+    "accept": "TERIMA SEMUA",
+    "reject": "TOLAK SEMUA"
+  },
+  "planResult": {
+    "breadcrumbs": {
+      "home": "Laman Utama",
+      "plan": "Pelan Kesihatan"
+    },
+    "title": "Pelan Kesihatan Peribadi",
+    "profile": {
+      "title": "Profil Kesihatan",
+      "update": "Kemas kini keputusan",
+      "fields": {
+        "age": "Umur",
+        "sex": "Jantina",
+        "height": "Tinggi",
+        "weight": "Berat",
+        "waist": "Ukurlilit Pinggang",
+        "activity": "Kekerapan Aktiviti",
+        "goal": "Matlamat Kecergasan",
+        "diet": "Pilihan Diet",
+        "allergies": "Alergi"
+      },
+      "values": {
+        "male": "Lelaki",
+        "female": "Perempuan",
+        "sedentary": "Sedentari",
+        "low": "Rendah",
+        "medium": "Sederhana",
+        "high": "Tinggi",
+        "loss": "Penurunan Berat Badan",
+        "muscle": "Pertambahan Otot",
+        "maintain": "Kekalkan Kesihatan",
+        "none": "Tiada Keutamaan",
+        "vegan": "Vegan",
+        "vegetarian": "Vegetarian"
+      }
+    },
+    "overview": {
+      "title": "Pelan Kesihatan Anda",
+      "macroTitle": "Pengagihan Makro",
+      "protein": "Protein",
+      "carbs": "Karbohidrat",
+      "fat": "Lemak",
+      "metrics": {
+        "bmi": "BMI",
+        "dailyCalories": "Kalori Harian",
+        "weightStatus": "Status Berat Badan"
+      },
+      "status": {
+        "under": "Kurang berat",
+        "normal": "Berat normal",
+        "over": "Berlebihan berat badan",
+        "obese": "Obes",
+        "unknown": "Tidak diketahui"
+      }
+    },
+    "diet": {
+      "title": "Pelan Diet Peribadi",
+      "meals": {
+        "fruitGrain": "Salad Buah & Bijirin",
+        "veggieEggSalad": "Salad Sayur & Telur",
+        "eggsPancakes": "Telur dan Pancake",
+        "fruitBowl": "Mangkuk Buah & Bijirin",
+        "avocadoSalad": "Mangkuk Salad Avokado",
+        "yogurtBowl": "Mangkuk Yogurt Buah"
+      },
+      "breakfast": "Sarapan",
+      "lunch": "Makan Tengahari",
+      "dinner": "Makan Malam"
+    },
+    "meal": {
+      "labels": {
+        "calories": "Kalori",
+        "kcal": "kcal",
+        "carbs": "Karbohidrat",
+        "protein": "Protein",
+        "fat": "Lemak",
+        "fiber": "Serat"
+      }
+    },
+    "considerations": {
+      "title": "Pertimbangan Diet",
+      "allergies": "Alergi untuk dielakkan: {list}"
+    },
+    "exercise": {
+      "title": "Cadangan Senaman",
+      "scheduleTitle": "Jadual Senaman 7 Hari",
+      "days": {
+        "mon": "Isnin",
+        "tue": "Selasa",
+        "wed": "Rabu",
+        "thu": "Khamis",
+        "fri": "Jumaat",
+        "sat": "Sabtu",
+        "sun": "Ahad"
+      },
+      "items": {
+        "mon": "Berjalan santai 20 minit",
+        "tue": "Rutin regangan asas",
+        "wed": "Senaman berat badan ringan",
+        "thu": "Berjalan 20 minit di taman",
+        "fri": "Yoga untuk pemula",
+        "sat": "Aktiviti rumah ringan",
+        "sun": "Hari rehat dengan regangan lembut"
+      }
+    },
+    "cta": {
+      "title": "Sedia Mengubah Kesihatan Anda?",
+      "subtitle": "Dapatkan pelan pemakanan dan senaman peribadi dan mulakan perjalanan ke arah kesihatan yang lebih baik hari ini!",
+      "download": "Muat turun pelan lengkap"
+    }
+  },
+  "analysisResult": {
+    "breadcrumbs": {
+      "home": "Laman Utama",
+      "result": "Keputusan"
+    },
+    "validation": {
+      "age": "Umur mesti antara 18 dan 150",
+      "height": "Tinggi mesti antara 50 cm dan 250 cm",
+      "weight": "Berat mesti antara 30 kg dan 300 kg",
+      "waist": "Ukurlilit pinggang mesti antara 30 cm dan 200 cm",
+      "required": "Medan ini adalah wajib",
+      "number": "Medan ini mesti nombor"
+    },
+    "loading": "memuatkan...",
+    "title": "Keputusan Analisis Kesihatan",
+    "profile": {
+      "title": "Profil Kesihatan",
+      "update": "Kemas kini keputusan",
+      "none": "Tiada",
+      "fields": {
+        "age": "Umur",
+        "sex": "Jantina",
+        "height": "Tinggi (cm)",
+        "weight": "Berat (kg)",
+        "waist": "Ukur lilit pinggang (cm)",
+        "activity": "Kekerapan aktiviti",
+        "sbp": "Tekanan darah sistolik",
+        "sbpHelp": "Kebanyakan aplikasi kesihatan atau jam pintar mengukur tekanan sistolik, yang penting untuk penilaian tepat risiko hipertensi.",
+        "alcohol": "Pengambilan alkohol",
+        "smoking": "Status merokok",
+        "family": {
+          "label": "Sejarah keluarga",
+          "diabetes": "Diabetes",
+          "hypertension": "Hipertensi",
+          "stroke": "Strok",
+          "none": "Tiada"
+        }
+      }
+    },
+    "result": {
+      "title": "Keputusan Analisis",
+      "disclaimerLabel": "Penafian:",
+      "disclaimer": "Penilaian risiko ini adalah untuk pengurusan kesihatan sahaja, bukan diagnosis perubatan. Keputusan \"Risiko tinggi\" tidak bermakna anda pasti akan mendapat penyakit. Untuk nasihat peribadi, sila berunding dengan doktor."
+    },
+    "enums": {
+      "sex": {
+        "male": "Lelaki",
+        "female": "Perempuan"
+      },
+      "activity": {
+        "sedentary": "Tidak aktif",
+        "low": "Rendah",
+        "medium": "Sederhana",
+        "high": "Tinggi"
+      },
+      "alcohol": {
+        "none": "Tiada",
+        "occasional": "Sekali-sekala",
+        "frequent": "Kerap"
+      },
+      "smoking": {
+        "smoker": "Perokok",
+        "nonSmoker": "Bukan perokok"
+      }
+    },
+    "bmi": {
+      "title": "BMI",
+      "myResult": "Keputusan saya:",
+      "desc": "BMI (Indeks Jisim Badan) ialah penunjuk berat badan relatif kepada ketinggian.",
+      "bands": {
+        "na": "—",
+        "underweight": "Kurang berat badan",
+        "normal": "Normal",
+        "overweight": "Berat badan berlebihan",
+        "obese": "Obes"
+      }
+    },
+    "bri": {
+      "title": "BRI",
+      "myResult": "Keputusan saya:",
+      "desc": "Indeks Kebulatan Badan (BRI) menganggar lemak abdomen berdasarkan ketinggian dan ukur lilit pinggang; nilai yang lebih tinggi dikaitkan dengan obesiti pusat dan risiko metabolik.",
+      "bands": {
+        "na": "—",
+        "poor": "Kebulatan rendah (lemak rendah)",
+        "desirable": "Diingini",
+        "excessive": "Berlebihan",
+        "elevated": "Meningkat dengan ketara"
+      }
+    },
+    "risk": {
+      "title": "Penilaian Risiko Kesihatan",
+      "learnMore": "Ketahui Lagi",
+      "level": {
+        "high": "Risiko Tinggi",
+        "moderate": "Risiko Sederhana",
+        "low": "Risiko Rendah",
+        "unknown": "Tidak diketahui"
+      },
+      "conditions": {
+        "diabetes": "Diabetes",
+        "hypertension": "Hipertensi",
+        "stroke": "Strok"
+      },
+      "desc": {
+        "diabetes": "Diabetes ialah keadaan yang dicirikan oleh paras gula darah yang tinggi secara kronik. Mereka yang berisiko tinggi perlu memberi perhatian kepada pemakanan, senaman dan pengurusan berat badan.",
+        "hypertension": "Hipertensi ialah keadaan kronik dengan tekanan darah tinggi berpanjangan. Risiko adalah rendah. Mengekalkan gaya hidup sihat dan pencegahan adalah digalakkan.",
+        "stroke": "Strok ialah penyakit akut akibat aliran darah ke otak tersekat atau pendarahan. Risiko adalah rendah. Mengekalkan tabiat sihat disyorkan untuk mengurangkan risiko masa depan."
+      }
+    }
+  },
+  "lang": {
+    "english": "English",
+    "malay": "Malay",
+    "chinese": "中文",
+    "vietnamese": "Tiếng Việt",
+    "switch": "Tukar Bahasa"
+  }
+}

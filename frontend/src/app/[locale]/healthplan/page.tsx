@@ -106,7 +106,7 @@ function setCookie(name: string, value: string, days = 7) {
     document.cookie = `${name}=${value}; Max-Age=${maxAge}; Path=/; SameSite=Lax`;
 }
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8000';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8001';
 
 /* -------------------- Page -------------------- */
 export default function HealthPlanPage() {
@@ -144,6 +144,49 @@ export default function HealthPlanPage() {
     const [saving, setSaving] = useState(false);
     const [saveError, setSaveError] = useState<string | null>(null);
 
+    const [fieldErrors, setFieldErrors] = useState<{
+        age?: string;
+        sex?: string;
+        height?: string;
+        weight?: string;
+        waist?: string;
+        activity?: string;
+        goal?: string;
+    }>({});
+
+    const validateAge = (v: string) => {
+        if (!v) return tf('validation.required');
+        const n = Number(v);
+        if (!Number.isFinite(n)) return tf('validation.number');
+        if (n < 18 || n > 150) return tf('validation.age');
+        return undefined;
+    };
+    const validateHeight = (v: string) => {
+        if (!v) return tf('validation.required');
+        const n = Number(v);
+        if (!Number.isFinite(n)) return tf('validation.number');
+        if (n < 50 || n > 250) return tf('validation.height');
+        return undefined;
+    };
+    const validateWeight = (v: string) => {
+        if (!v) return tf('validation.required');
+        const n = Number(v);
+        if (!Number.isFinite(n)) return tf('validation.number');
+        if (n < 30 || n > 200) return tf('validation.weight');
+        return undefined;
+    };
+    const validateWaist = (v: string) => {
+        if (!v) return undefined; // optional
+        const n = Number(v);
+        if (!Number.isFinite(n)) return tf('validation.number');
+        if (n < 30 || n > 200) return tf('validation.waist');
+        return undefined;
+    };
+
+    useEffect(() => setFieldErrors(p => ({ ...p, age: validateAge(age) })), [age]);
+    useEffect(() => setFieldErrors(p => ({ ...p, height: validateHeight(height) })), [height]);
+    useEffect(() => setFieldErrors(p => ({ ...p, weight: validateWeight(weight) })), [weight]);
+    useEffect(() => setFieldErrors(p => ({ ...p, waist: validateWaist(waist) })), [waist]);
     // mappings (same as your Plan form)
     const toTitle = (s: string) =>
         s.replace(/([A-Z])/g, ' $1')
@@ -301,6 +344,23 @@ export default function HealthPlanPage() {
     const handleProfileSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setSaving(true);
+        const nextErrors = {
+            age: validateAge(age),
+            sex: sex ? undefined : tf('validation.required'),
+            height: validateHeight(height),
+            weight: validateWeight(weight),
+            waist: validateWaist(waist),
+            activity: activity ? undefined : tf('validation.required'),
+            goal: goal ? undefined : tf('validation.required'),
+        };
+        setFieldErrors(nextErrors);
+
+        if (Object.values(nextErrors).some(Boolean)) {
+            setSaving(false);
+            // bring user back to the accordion area on mobile
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
         setSaveError(null);
 
         const payload = {
@@ -315,6 +375,7 @@ export default function HealthPlanPage() {
             include_eggs: eggs,
             fitness_goal: goal ? goalMap[goal] : null
         };
+        
 
         try {
             const res = await fetch(`${API_BASE}/api/plan/health/`, {
@@ -428,82 +489,130 @@ export default function HealthPlanPage() {
                                     {/* Grid of fields (mirrors Plan form) */}
                                     <div className="rounded-xl border border-slate-200 p-4">
                                         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                                            {/* Age */}
+                                            {/* Age (required) */}
                                             <LabeledInput
                                                 label={tf('fields.age.label')}
+                                                required
                                                 type="number"
+                                                inputMode="numeric"
+                                                min={18}
+                                                max={150}
+                                                step="1"
                                                 value={age}
                                                 onChange={setAge}
                                                 placeholder={tf('fields.age.placeholder')}
-                                                required
+                                                error={fieldErrors.age}
                                             />
-                                            {/* Sex */}
+
+                                            {/* Sex (required) */}
                                             <div>
                                                 <div className="mb-1 text-sm font-medium text-gray-700">
-                                                    {tf('fields.sex.label')}
+                                                    {tf('fields.sex.label')} <span className="text-red-600">*</span>
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-2">
-                                                    <ToggleBtn active={sex === 'male'} onClick={() => setSex('male')}>
+                                                    <ToggleBtn
+                                                        active={sex === 'male'}
+                                                        onClick={() => { setSex('male'); setFieldErrors(p => ({ ...p, sex: undefined })); }}
+                                                        ariaInvalid={!!fieldErrors.sex}
+                                                    >
                                                         {tf('fields.sex.male')}
                                                     </ToggleBtn>
-                                                    <ToggleBtn active={sex === 'female'} onClick={() => setSex('female')}>
+                                                    <ToggleBtn
+                                                        active={sex === 'female'}
+                                                        onClick={() => { setSex('female'); setFieldErrors(p => ({ ...p, sex: undefined })); }}
+                                                        ariaInvalid={!!fieldErrors.sex}
+                                                    >
                                                         {tf('fields.sex.female')}
                                                     </ToggleBtn>
                                                 </div>
+                                                {fieldErrors.sex && <p className="mt-1 text-xs text-red-600">{fieldErrors.sex}</p>}
                                             </div>
-                                            {/* Height */}
+
+                                            {/* Height (required) */}
                                             <LabeledInput
                                                 label={tf('fields.height.label')}
+                                                required
                                                 type="number"
+                                                inputMode="numeric"
+                                                min={30}
+                                                max={250}
+                                                step="1"
                                                 value={height}
                                                 onChange={setHeight}
                                                 placeholder={tf('fields.height.placeholder')}
-                                                required
+                                                error={fieldErrors.height}
                                             />
-                                            {/* Weight */}
+
+                                            {/* Weight (required) */}
                                             <LabeledInput
                                                 label={tf('fields.weight.label')}
+                                                required
                                                 type="number"
+                                                inputMode="decimal"
+                                                min={30}
+                                                max={200}
+                                                step="0.1"
                                                 value={weight}
                                                 onChange={setWeight}
                                                 placeholder={tf('fields.weight.placeholder')}
-                                                required
+                                                error={fieldErrors.weight}
                                             />
-                                            {/* Waist (full width) */}
+
+                                            {/* Waist (optional, validated if present) */}
                                             <div className="md:col-span-2">
                                                 <LabeledInput
                                                     label={tf('fields.waist.label')}
                                                     type="number"
+                                                    inputMode="numeric"
+                                                    min={30}
+                                                    max={200}
+                                                    step="1"
                                                     value={waist}
                                                     onChange={setWaist}
                                                     placeholder={tf('fields.waist.placeholder')}
+                                                    error={fieldErrors.waist}
                                                 />
                                             </div>
-                                            {/* Activity */}
+
+                                            {/* Activity (required) */}
                                             <div className="md:col-span-2">
                                                 <div className="mb-1 text-sm font-medium text-gray-700">
-                                                    {tf('fields.activity.label')}
+                                                    {tf('fields.activity.label')} <span className="text-red-600">*</span>
                                                 </div>
-                                                <div className="grid grid-cols-4 gap-2">
+                                                {/* Mobile-first: 2 cols on small screens, 4 on md+ */}
+                                                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                                                     {(['sedentary', 'low', 'medium', 'high'] as const).map(k => (
-                                                        <ToggleBtn key={k} active={activity === k} onClick={() => setActivity(k)}>
+                                                        <ToggleBtn
+                                                            key={k}
+                                                            active={activity === k}
+                                                            onClick={() => { setActivity(k); setFieldErrors(p => ({ ...p, activity: undefined })); }}
+                                                            ariaInvalid={!!fieldErrors.activity}
+                                                        >
                                                             {tf(`fields.activity.${k}`)}
                                                         </ToggleBtn>
                                                     ))}
                                                 </div>
+                                                {fieldErrors.activity && <p className="mt-1 text-xs text-red-600">{fieldErrors.activity}</p>}
                                             </div>
-                                            {/* Goal */}
+
+                                            {/* Goal (required) */}
                                             <div className="md:col-span-2">
                                                 <div className="mb-1 text-sm font-medium text-gray-700">
-                                                    {tf('fields.goal.label')}
+                                                    {tf('fields.goal.label')} <span className="text-red-600">*</span>
                                                 </div>
-                                                <div className="grid grid-cols-3 gap-2">
+                                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                                                     {(['loss', 'muscle', 'maintain'] as const).map(k => (
-                                                        <ToggleBtn key={k} active={goal === k} onClick={() => setGoal(k)}>
+                                                        <ToggleBtn
+                                                            key={k}
+                                                            active={goal === k}
+                                                            onClick={() => { setGoal(k); setFieldErrors(p => ({ ...p, goal: undefined })); }}
+                                                            ariaInvalid={!!fieldErrors.goal}
+                                                        >
                                                             {tf(`fields.goal.${k}`)}
                                                         </ToggleBtn>
                                                     ))}
                                                 </div>
+                                                {fieldErrors.goal && <p className="mt-1 text-xs text-red-600">{fieldErrors.goal}</p>}
                                             </div>
                                             {/* Allergies */}
                                             <div className="md:col-span-2">
@@ -532,7 +641,7 @@ export default function HealthPlanPage() {
                                                 <div className="mb-1 text-sm font-medium text-gray-700">
                                                     {tf('fields.diet.label')}
                                                 </div>
-                                                <div className="grid grid-cols-3 gap-2">
+                                                <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                                                     {(['none', 'vegan', 'vegetarian'] as const).map(k => (
                                                         <ToggleBtn key={k} active={diet === k} onClick={() => setDiet(k)}>
                                                             {tf(`fields.diet.${k}`)}
@@ -618,19 +727,19 @@ export default function HealthPlanPage() {
                                         <div className="text-2xl font-bold text-green-600">
                                             {apiData.targets.macro_split_pct.protein.toFixed(1)}%
                                         </div>
-                                        <div className="text-sm text-slate-600">Protein</div>
+                                        <div className="text-sm text-slate-600">{t('overview.protein')}</div>
                                     </div>
                                     <div>
                                         <div className="text-2xl font-bold text-green-600">
                                             {apiData.targets.macro_split_pct.carbs.toFixed(1)}%
                                         </div>
-                                        <div className="text-sm text-slate-600">Carbs</div>
+                                        <div className="text-sm text-slate-600">{t('overview.carbs')}</div>
                                     </div>
                                     <div>
                                         <div className="text-2xl font-bold text-green-600">
                                             {apiData.targets.macro_split_pct.fat.toFixed(1)}%
                                         </div>
-                                        <div className="text-sm text-slate-600">Fat</div>
+                                        <div className="text-sm text-slate-600">{t('overview.fat')}</div>
                                     </div>
                                 </div>
                             </CardContent>
@@ -704,42 +813,76 @@ export default function HealthPlanPage() {
 
 /* -------------------- Small helpers -------------------- */
 function LabeledInput(props: {
-    label: string;
-    type?: string;
-    value: string;
-    onChange: (v: string) => void;
-    placeholder?: string;
-    required?: boolean;
+  label: string;
+  type?: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+  required?: boolean;
+  error?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
+  min?: number;
+  max?: number;
+  step?: string | number;
 }) {
-    const { label, type = 'text', value, onChange, placeholder, required } = props;
-    return (
-        <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">{label}</label>
-            <input
-                type={type}
-                value={value}
-                required={required}
-                placeholder={placeholder}
-                onChange={e => onChange(e.target.value)}
-                className="w-full rounded-md border border-gray-300 px-3 py-2 outline-none focus:border-sky-500"
-            />
-        </div>
-    );
+  const { label, type = 'text', value, onChange, placeholder, required, error, inputMode, min, max, step } = props;
+  const id = useMemo(() => label.replace(/\s+/g, '-').toLowerCase(), [label]);
+  return (
+    <div>
+      <label htmlFor={id} className="mb-1 block text-sm font-medium text-gray-700">
+        {label} {required && <span className="text-red-600">*</span>}
+      </label>
+      <input
+        id={id}
+        type={type}
+        value={value}
+        required={required}
+        placeholder={placeholder}
+        onChange={e => onChange(e.target.value)}
+        inputMode={inputMode}
+        min={min as any}
+        max={max as any}
+        step={step as any}
+        aria-invalid={!!error}
+        aria-describedby={error ? `${id}-error` : undefined}
+        className={`w-full rounded-md border px-3 py-3 outline-none transition focus:border-sky-500
+          ${error ? 'border-red-400 focus:border-red-500' : 'border-gray-300'}
+        `}
+      />
+      {error && (
+        <p id={`${id}-error`} className="mt-1 text-xs text-red-600">
+          {error}
+        </p>
+      )}
+    </div>
+  );
 }
 
-function ToggleBtn(props: { active: boolean; onClick: () => void; children: React.ReactNode }) {
-    const { active, onClick, children } = props;
-    return (
-        <button
-            type="button"
-            onClick={onClick}
-            className={`rounded-md border px-3 py-2 text-sm font-medium ${active ? 'border-green-600 bg-green-50 text-green-700' : 'border-gray-300 text-gray-700 hover:bg-gray-50'
-                }`}
-        >
-            {children}
-        </button>
-    );
+
+function ToggleBtn(props: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+  ariaInvalid?: boolean;
+}) {
+  const { active, onClick, children, ariaInvalid } = props;
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      aria-invalid={ariaInvalid || undefined}
+      className={`rounded-md border px-3 py-3 text-sm font-medium transition
+        ${active ? 'border-green-600 bg-green-50 text-green-700'
+                 : 'border-gray-300 text-gray-700 active:bg-gray-100'}
+      `}
+    >
+      {children}
+    </button>
+  );
 }
+
+
 
 function Field({ label, value }: { label: string; value: string }) {
     return (
@@ -769,10 +912,10 @@ function DietCarousel({ meals }: { meals: Meal[] }) {
 
     const duplicatedMeals = useMemo(() => {
         if (meals.length === 0) return [];
-        return Array(5).fill(meals).flat();
+        return Array(20).fill(meals).flat();
     }, [meals]);
 
-    const startIndex = useMemo(() => meals.length * 2, [meals.length]);
+    const startIndex = useMemo(() => meals.length * 3, [meals.length]);
     const [current, setCurrent] = useState(startIndex);
     const [hasInitialized, setHasInitialized] = useState(false);
 
