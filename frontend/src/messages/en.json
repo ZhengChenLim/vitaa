@@ -4,7 +4,21 @@
     "home": "Home",
     "plan": "Health Plan",
     "analysis": "Health Analysis",
-    "contact": "Contact"
+    "explore": "Explore NCDs",
+    "exploreAria": "Explore NCDs menu",
+    "toggleMenuAria": "Toggle menu",
+    "section": {
+      "ncd": "NCDs",
+      "challenges": "Challenges"
+    },
+    "ncd": {
+      "diabetes": "Diabetes",
+      "hypertension": "Hypertension",
+      "stroke": "Stroke"
+    },
+    "challenges": {
+      "monthlyQuiz": "Monthly Challenges and Quiz"
+    }
   },
   "home": {
     "heroTitle": "Prevent Tomorrow's <strong>Health Challenges</strong> Today",
@@ -28,9 +42,17 @@
     "whyPersonalised": "Personalised recommendations for diet and exercise"
   },
   "plan": {
+    "validation": {
+      "age": "Age must be between 18 and 150",
+      "height": "Height must be between 50 cm and 250 cm",
+      "weight": "Weight must be between 30 kg and 300 kg",
+      "waist": "Waist circumference must be between 30 cm and 200 cm",
+      "required": "This field is required",
+      "number": "This field must be a number"
+    },
     "profile": {
       "none": "None"
-    }, 
+    },
     "breadcrumbs": {
       "home": "Home",
       "plan": "Health Plan"
@@ -110,6 +132,14 @@
       "home": "Home",
       "analysis": "Health Analysis"
     },
+    "validation": {
+      "age": "Age must be between 18 and 150",
+      "height": "Height must be between 50 cm and 250 cm",
+      "weight": "Weight must be between 30 kg and 300 kg",
+      "waist": "Waist circumference must be between 30 cm and 200 cm",
+      "required": "This field is required",
+      "number": "This field must be a number"
+    },
     "loading": "loading...",
     "title": "Health Analysis Form",
     "subtitle": "Get clear, AI-powered insights to detect early risks for diabetes, hypertension, and stroke—so you can take action sooner.",
@@ -186,7 +216,6 @@
       "plan": "Health Plan"
     },
     "title": "Personalized Health Plan",
-
     "profile": {
       "title": "Health Profile",
       "update": "Update result",
@@ -216,10 +245,12 @@
         "vegetarian": "Vegetarian"
       }
     },
-
     "overview": {
       "title": "Your Health Plan",
       "macroTitle": "Macro Distribution",
+      "protein": "Protein",
+      "carbs": "Carbs",
+      "fat": "Fat",
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "Daily Calories",
@@ -233,7 +264,6 @@
         "unknown": "Unknown"
       }
     },
-
     "diet": {
       "title": "Personalized Diet Plan",
       "meals": {
@@ -248,7 +278,6 @@
       "lunch": "Lunch",
       "dinner": "Dinner"
     },
-
     "meal": {
       "labels": {
         "calories": "Calories",
@@ -259,12 +288,10 @@
         "fiber": "Fiber"
       }
     },
-
     "considerations": {
       "title": "Dietary Considerations",
       "allergies": "Allergies to avoid: {list}"
     },
-
     "exercise": {
       "title": "Exercise Recommendations",
       "scheduleTitle": "7-Day Exercise Schedule",
@@ -287,7 +314,6 @@
         "sun": "Rest day with gentle stretching"
       }
     },
-
     "cta": {
       "title": "Ready to Transform Your Health?",
       "subtitle": "Get your personalized nutrition and exercise plan and start your journey to better health today!",
@@ -295,7 +321,18 @@
     }
   },
   "analysisResult": {
-    "breadcrumbs": { "home": "Home", "result": "Result" },
+    "breadcrumbs": {
+      "home": "Home",
+      "result": "Result"
+    },
+    "validation": {
+      "age": "Age must be between 18 and 150",
+      "height": "Height must be between 50 cm and 250 cm",
+      "weight": "Weight must be between 30 kg and 300 kg",
+      "waist": "Waist circumference must be between 30 cm and 200 cm",
+      "required": "This field is required",
+      "number": "This field must be a number"
+    },
     "loading": "loading...",
     "title": "Health Analysis Result",
     "profile": {
@@ -328,10 +365,25 @@
       "disclaimer": "This risk assessment is for health management only, not a medical diagnosis. A \"high risk\" result does not mean you will develop the disease. For personal advice, consult a doctor."
     },
     "enums": {
-      "sex": { "male": "Male", "female": "Female" },
-      "activity": { "sedentary": "Sedentary", "low": "Low", "medium": "Medium", "high": "High" },
-      "alcohol": { "none": "None", "occasional": "Occasional", "frequent": "Frequent" },
-      "smoking": { "smoker": "Smoker", "nonSmoker": "Non-smoker" }
+      "sex": {
+        "male": "Male",
+        "female": "Female"
+      },
+      "activity": {
+        "sedentary": "Sedentary",
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High"
+      },
+      "alcohol": {
+        "none": "None",
+        "occasional": "Occasional",
+        "frequent": "Frequent"
+      },
+      "smoking": {
+        "smoker": "Smoker",
+        "nonSmoker": "Non-smoker"
+      }
     },
     "bmi": {
       "title": "BMI",
@@ -360,8 +412,17 @@
     "risk": {
       "title": "Health Risk Assessment",
       "learnMore": "Learn More",
-      "level": { "high": "High Risk", "moderate": "Moderate Risk", "low": "Low Risk", "unknown": "Unknown" },
-      "conditions": { "diabetes": "Diabetes", "hypertension": "Hypertension", "stroke": "Stroke" },
+      "level": {
+        "high": "High Risk",
+        "moderate": "Moderate Risk",
+        "low": "Low Risk",
+        "unknown": "Unknown"
+      },
+      "conditions": {
+        "diabetes": "Diabetes",
+        "hypertension": "Hypertension",
+        "stroke": "Stroke"
+      },
       "desc": {
         "diabetes": "Diabetes is a condition characterized by chronically high blood sugar levels. Those at high risk should pay special attention to diet, exercise, and weight management.",
         "hypertension": "Hypertension is a chronic condition characterized by long-term elevated blood pressure. The risk is low. Maintaining a healthy lifestyle and preventing it are recommended.",
@@ -369,11 +430,43 @@
       }
     }
   },
+  "NCD": {
+    "title": "NCD Knowledge Library",
+    "subtitle": "Comprehensive information about Non-Communicable Diseases, their impact, and prevention strategies tailored for Malaysian healthcare context.",
+    "understanding": "Understanding Non-Communicable Diseases",
+    "whatHeading": "What are NCDs?",
+    "whatP1": "Noncommunicable diseases (NCDs), also known as chronic diseases, tend to be of long duration and are the result of a combination of genetic, physiological, environmental and behavioural factors.",
+    "whatP2": "Main types include cardiovascular diseases (such as heart attacks and stroke), cancers, chronic respiratory diseases (such as chronic obstructive pulmonary disease and asthma) and diabetes.",
+    "videoUrl": "https://www.youtube.com/watch?v=BWolWB3tSEU",
+    "ncdVsCd": "NCDs vs Communicable Diseases",
+    "ncdTitle": "Non-Communicable Diseases",
+    "ncdPoint1": "Not transmitted between people",
+    "ncdPoint2": "Chronic and long-lasting",
+    "ncdPoint3": "Often lifestyle-related",
+    "ncdExamples": "Examples: Diabetes, hypertension, stroke",
+    "cdTitle": "Communicable Diseases",
+    "cdPoint1": "Can spread from person to person",
+    "cdPoint2": "Often acute and short-term",
+    "cdPoint3": "Caused by pathogens",
+    "cdExamples": "Examples: COVID-19, tuberculosis, malaria",
+    "typesTitle": "Types of Non-Communicable Diseases",
+    "typesSubtitle": "Learn about the main types of NCDs affecting Malaysians and their impact on health.",
+    "diabetesTitle": "Diabetes",
+    "diabetesDesc": "A chronic condition that affects how your body processes blood sugar (glucose).",
+    "diabetesPrev": "Malaysian Prevalence: 3.9M adults affected",
+    "hypertensionTitle": "Hypertension",
+    "hypertensionDesc": "High blood pressure that can lead to serious health complications if left untreated.",
+    "hypertensionPrev": "Malaysian Prevalence: 6.4M adults affected",
+    "strokeTitle": "Stroke",
+    "strokeDesc": "A serious condition that occurs when blood supply to the brain is interrupted.",
+    "strokePrev": "Malaysian Prevalence: 40,000 cases annually",
+    "learnMore": "Learn more"
+  },
   "lang": {
     "english": "English",
     "malay": "Malay",
-    "chinese": "Chinese",
-    "vietnamese": "Vietnamese",
+    "chinese": "中文",
+    "vietnamese": "Tiếng Việt",
     "switch": "Switch Language"
   }
 }

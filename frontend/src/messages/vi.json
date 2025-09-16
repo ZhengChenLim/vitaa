@@ -4,7 +4,21 @@
     "home": "Trang chủ",
     "plan": "Kế hoạch sức khỏe",
     "analysis": "Phân tích sức khỏe",
-    "contact": "Liên hệ"
+    "explore": "Khám phá",
+    "exploreAria": "Khám phá các chủ đề sức khỏe",
+    "toggleMenuAria": "Chuyển đổi menu điều hướng",
+    "section": {
+      "ncd": "Bệnh Không Lây Nhiễm",
+      "challenges": "Thách Thức"
+    },
+    "ncd": {
+      "diabetes": "Bệnh Tiểu Đường",
+      "hypertension": "Tăng Huyết Áp",
+      "stroke": "Đột Quỵ"
+    },
+    "challenges": {
+      "monthlyQuiz": "Đố Vui Hàng Tháng"
+    }
   },
   "home": {
     "heroTitle": "Ngăn ngừa <strong>thách thức sức khỏe</strong> của ngày mai ngay hôm nay",
@@ -28,6 +42,14 @@
     "whyPersonalised": "Khuyến nghị ăn uống và luyện tập cá nhân hóa"
   },
   "plan": {
+    "validation": {
+      "age": "Tuổi phải từ 18 đến 150",
+      "height": "Chiều cao phải từ 50 cm đến 250 cm",
+      "weight": "Cân nặng phải từ 30 kg đến 300 kg",
+      "waist": "Vòng eo phải từ 30 cm đến 200 cm",
+      "required": "Trường này là bắt buộc",
+      "number": "Trường này phải là số"
+    },
     "profile": {
       "none": "Không"
     },
@@ -105,21 +127,45 @@
     },
     "submit": "Tạo Kế hoạch Sức khỏe"
   },
-   "analysis": {
+  "analysis": {
     "breadcrumbs": {
       "home": "Trang chủ",
       "analysis": "Phân tích Sức khỏe"
+    },
+    "validation": {
+      "age": "Tuổi phải từ 18 đến 150",
+      "height": "Chiều cao phải từ 50 cm đến 250 cm",
+      "weight": "Cân nặng phải từ 30 kg đến 300 kg",
+      "waist": "Vòng eo phải từ 30 cm đến 200 cm",
+      "required": "Trường này là bắt buộc",
+      "number": "Trường này phải là số"
     },
     "loading": "đang tải...",
     "title": "Mẫu Phân tích Sức khỏe",
     "subtitle": "Nhận thông tin chi tiết do AI hỗ trợ để phát hiện sớm nguy cơ tiểu đường, tăng huyết áp và đột quỵ — giúp bạn hành động sớm hơn.",
     "assessmentTitle": "Đánh giá Nguy cơ Sức khỏe",
     "fields": {
-      "age": { "label": "Tuổi", "placeholder": "Nhập tuổi của bạn" },
-      "sex": { "label": "Giới tính", "male": "Nam", "female": "Nữ" },
-      "height": { "label": "Chiều cao (cm)", "placeholder": "Nhập chiều cao của bạn" },
-      "weight": { "label": "Cân nặng (kg)", "placeholder": "Nhập cân nặng của bạn" },
-      "waist": { "label": "Vòng eo (cm)", "placeholder": "Nhập số đo vòng eo của bạn" },
+      "age": {
+        "label": "Tuổi",
+        "placeholder": "Nhập tuổi của bạn"
+      },
+      "sex": {
+        "label": "Giới tính",
+        "male": "Nam",
+        "female": "Nữ"
+      },
+      "height": {
+        "label": "Chiều cao (cm)",
+        "placeholder": "Nhập chiều cao của bạn"
+      },
+      "weight": {
+        "label": "Cân nặng (kg)",
+        "placeholder": "Nhập cân nặng của bạn"
+      },
+      "waist": {
+        "label": "Vòng eo (cm)",
+        "placeholder": "Nhập số đo vòng eo của bạn"
+      },
       "bpSystolic": {
         "label": "Huyết áp tâm thu",
         "placeholder": "Nhập chỉ số huyết áp tâm thu",
@@ -202,6 +248,9 @@
     "overview": {
       "title": "Kế hoạch Sức khỏe của bạn",
       "macroTitle": "Phân bổ Đạm - Béo - Tinh bột",
+      "protein": "Protein",
+      "carbs": "Cacbohydrat",
+      "fat": "Chất béo",
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "Calo mỗi ngày",
@@ -272,7 +321,18 @@
     }
   },
   "analysisResult": {
-    "breadcrumbs": { "home": "Trang chủ", "result": "Kết quả" },
+    "breadcrumbs": {
+      "home": "Trang chủ",
+      "result": "Kết quả"
+    },
+    "validation": {
+      "age": "Tuổi phải từ 18 đến 150",
+      "height": "Chiều cao phải từ 50 cm đến 250 cm",
+      "weight": "Cân nặng phải từ 30 kg đến 300 kg",
+      "waist": "Vòng eo phải từ 30 cm đến 200 cm",
+      "required": "Trường này là bắt buộc",
+      "number": "Trường này phải là số"
+    },
     "loading": "đang tải...",
     "title": "Kết quả phân tích sức khỏe",
     "profile": {
@@ -305,10 +365,25 @@
       "disclaimer": "Đánh giá rủi ro này chỉ nhằm mục đích quản lý sức khỏe, không phải chẩn đoán y khoa. Kết quả \"Nguy cơ cao\" không có nghĩa là bạn chắc chắn sẽ mắc bệnh. Hãy tham khảo bác sĩ để được tư vấn cá nhân."
     },
     "enums": {
-      "sex": { "male": "Nam", "female": "Nữ" },
-      "activity": { "sedentary": "Ít vận động", "low": "Thấp", "medium": "Trung bình", "high": "Cao" },
-      "alcohol": { "none": "Không", "occasional": "Thỉnh thoảng", "frequent": "Thường xuyên" },
-      "smoking": { "smoker": "Người hút thuốc", "nonSmoker": "Không hút thuốc" }
+      "sex": {
+        "male": "Nam",
+        "female": "Nữ"
+      },
+      "activity": {
+        "sedentary": "Ít vận động",
+        "low": "Thấp",
+        "medium": "Trung bình",
+        "high": "Cao"
+      },
+      "alcohol": {
+        "none": "Không",
+        "occasional": "Thỉnh thoảng",
+        "frequent": "Thường xuyên"
+      },
+      "smoking": {
+        "smoker": "Người hút thuốc",
+        "nonSmoker": "Không hút thuốc"
+      }
     },
     "bmi": {
       "title": "BMI",
@@ -337,8 +412,17 @@
     "risk": {
       "title": "Đánh giá rủi ro sức khỏe",
       "learnMore": "Tìm hiểu thêm",
-      "level": { "high": "Nguy cơ cao", "moderate": "Nguy cơ trung bình", "low": "Nguy cơ thấp", "unknown": "Chưa rõ" },
-      "conditions": { "diabetes": "Đái tháo đường", "hypertension": "Tăng huyết áp", "stroke": "Đột quỵ" },
+      "level": {
+        "high": "Nguy cơ cao",
+        "moderate": "Nguy cơ trung bình",
+        "low": "Nguy cơ thấp",
+        "unknown": "Chưa rõ"
+      },
+      "conditions": {
+        "diabetes": "Đái tháo đường",
+        "hypertension": "Tăng huyết áp",
+        "stroke": "Đột quỵ"
+      },
       "desc": {
         "diabetes": "Đái tháo đường là tình trạng đường huyết tăng cao mạn tính. Người có nguy cơ cao nên chú ý chế độ ăn, luyện tập và quản lý cân nặng.",
         "hypertension": "Tăng huyết áp là tình trạng mạn tính với huyết áp tăng kéo dài. Nguy cơ hiện thấp. Nên duy trì lối sống lành mạnh để phòng ngừa.",

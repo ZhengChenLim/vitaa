@@ -4,7 +4,23 @@
     "home": "首页",
     "plan": "健康计划",
     "analysis": "健康分析",
-    "contact": "联系我们"
+    "explore": "探索 NCDs",
+    "exploreAria": "探索 NCDs 菜单",
+    "toggleMenuAria": "切换菜单",
+    "section": {
+      "ncd": "非传染性疾病",
+      "challenges": "挑战"
+    },
+    "ncd": {
+      "diabetes": "糖尿病",
+      "hypertension": "高血压",
+      "stroke": "中风"
+    },
+    "challenges": {
+      "monthlyQuiz": "每月挑战和测验"
+    }
+    
+
   },
   "home": {
     "heroTitle": "今天就预防明天的<strong>健康挑战</strong>",
@@ -28,6 +44,14 @@
     "whyPersonalised": "个性化的饮食与运动建议"
   },
   "plan": {
+    "validation": {
+      "age": "年龄必须在 18 到 150 岁之间",
+      "height": "身高必须在 50 厘米到 250 厘米之间",
+      "weight": "体重必须在 30 公斤到 300 公斤之间",
+      "waist": "腰围必须在 30 厘米到 200 厘米之间",
+      "required": "此字段为必填项",
+      "number": "此字段必须为数字"
+    },
     "profile": {
       "none": "无"
     },
@@ -110,16 +134,40 @@
       "home": "首页",
       "analysis": "健康分析"
     },
+    "validation": {
+      "age": "年龄必须在 18 到 150 岁之间",
+      "height": "身高必须在 50 厘米到 250 厘米之间",
+      "weight": "体重必须在 30 公斤到 300 公斤之间",
+      "waist": "腰围必须在 30 厘米到 200 厘米之间",
+      "required": "此字段为必填项",
+      "number": "此字段必须为数字"
+    },
     "loading": "加载中...",
     "title": "健康分析表单",
     "subtitle": "借助 AI 提供的清晰洞察，及早发现糖尿病、高血压和中风等风险，从而更早采取行动。",
     "assessmentTitle": "健康风险评估",
     "fields": {
-      "age": { "label": "年龄", "placeholder": "请输入你的年龄" },
-      "sex": { "label": "性别", "male": "男", "female": "女" },
-      "height": { "label": "身高（厘米）", "placeholder": "请输入身高" },
-      "weight": { "label": "体重（公斤）", "placeholder": "请输入体重" },
-      "waist": { "label": "腰围（厘米）", "placeholder": "请输入腰围" },
+      "age": {
+        "label": "年龄",
+        "placeholder": "请输入你的年龄"
+      },
+      "sex": {
+        "label": "性别",
+        "male": "男",
+        "female": "女"
+      },
+      "height": {
+        "label": "身高（厘米）",
+        "placeholder": "请输入身高"
+      },
+      "weight": {
+        "label": "体重（公斤）",
+        "placeholder": "请输入体重"
+      },
+      "waist": {
+        "label": "腰围（厘米）",
+        "placeholder": "请输入腰围"
+      },
       "bpSystolic": {
         "label": "收缩压",
         "placeholder": "请输入你的收缩压",
@@ -153,7 +201,7 @@
     },
     "submit": "生成健康分析"
   },
-   "consent": {
+  "consent": {
     "title": "我们重视您的隐私",
     "body": "我们不会在服务器上存储您的个人数据。Cookie 仅用于提供必要功能，以及为您的健康结果进行分析/计算。您的输入仅用于计算，并仅以 Cookie 的形式保存在您的浏览器中（不会发送给我们）。您可以选择接受或拒绝。",
     "lines": {
@@ -164,7 +212,7 @@
     "accept": "全部接受",
     "reject": "全部拒绝"
   },
-   "planResult": {
+  "planResult": {
     "breadcrumbs": {
       "home": "首页",
       "plan": "健康计划"
@@ -202,6 +250,9 @@
     "overview": {
       "title": "你的健康计划",
       "macroTitle": "三大营养素分布",
+      "protein": "蛋白质",
+      "carbs": "碳水化合物",
+      "fat": "脂肪",
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "每日热量",
@@ -272,7 +323,18 @@
     }
   },
   "analysisResult": {
-    "breadcrumbs": { "home": "主页", "result": "结果" },
+    "breadcrumbs": {
+      "home": "主页",
+      "result": "结果"
+    },
+    "validation": {
+      "age": "年龄必须在 18 到 150 岁之间",
+      "height": "身高必须在 50 厘米到 250 厘米之间",
+      "weight": "体重必须在 30 公斤到 300 公斤之间",
+      "waist": "腰围必须在 30 厘米到 200 厘米之间",
+      "required": "此字段为必填项",
+      "number": "此字段必须为数字"
+    },
     "loading": "加载中...",
     "title": "健康分析结果",
     "profile": {
@@ -305,10 +367,25 @@
       "disclaimer": "本风险评估仅用于健康管理，并非医学诊断。“高风险”结果并不意味着一定会患病。若需个性化建议，请咨询医生。"
     },
     "enums": {
-      "sex": { "male": "男性", "female": "女性" },
-      "activity": { "sedentary": "久坐/不活动", "low": "低", "medium": "中等", "high": "高" },
-      "alcohol": { "none": "无", "occasional": "偶尔", "frequent": "频繁" },
-      "smoking": { "smoker": "吸烟者", "nonSmoker": "不吸烟者" }
+      "sex": {
+        "male": "男性",
+        "female": "女性"
+      },
+      "activity": {
+        "sedentary": "久坐/不活动",
+        "low": "低",
+        "medium": "中等",
+        "high": "高"
+      },
+      "alcohol": {
+        "none": "无",
+        "occasional": "偶尔",
+        "frequent": "频繁"
+      },
+      "smoking": {
+        "smoker": "吸烟者",
+        "nonSmoker": "不吸烟者"
+      }
     },
     "bmi": {
       "title": "BMI",
@@ -337,8 +414,17 @@
     "risk": {
       "title": "健康风险评估",
       "learnMore": "了解更多",
-      "level": { "high": "高风险", "moderate": "中等风险", "low": "低风险", "unknown": "未知" },
-      "conditions": { "diabetes": "糖尿病", "hypertension": "高血压", "stroke": "中风" },
+      "level": {
+        "high": "高风险",
+        "moderate": "中等风险",
+        "low": "低风险",
+        "unknown": "未知"
+      },
+      "conditions": {
+        "diabetes": "糖尿病",
+        "hypertension": "高血压",
+        "stroke": "中风"
+      },
       "desc": {
         "diabetes": "糖尿病的特点是长期血糖偏高。高风险人群应特别注意饮食、运动和体重管理。",
         "hypertension": "高血压是一种长期血压升高的慢性疾病。当前风险较低。建议保持健康的生活方式并做好预防。",
