@@ -4,8 +4,8 @@
     "home": "Laman Utama",
     "plan": "Pelan Kesihatan",
     "analysis": "Analisis Kesihatan",
-    "explore": "Teroka NCD",
-    "exploreAria": "Menu NCD",
+    "explore": "Teroka NCDs",
+    "exploreAria": "Menu NCDs",
     "toggleMenuAria": "Togol menu",
     "section": {
       "ncd": "PTB",
