@@ -78,6 +78,7 @@ class PhysicalActivity(models.Model):
     def __str__(self):
         return f"{self.activity_code} - {self.activity_description}"
 
+
 class NCDDeathStat(models.Model):
     year = models.IntegerField(db_index=True)
     location = models.CharField(max_length=128, db_index=True)
@@ -97,3 +98,61 @@ class NCDDeathStat(models.Model):
 
     def __str__(self):
         return f"{self.location} | {self.cause} | {self.year}"
+    
+    
+class WeeklyPhysicalChallenge(models.Model):
+    challenge_id = models.AutoField(primary_key=True)
+    challenge = models.CharField(max_length=500)
+    challenge_ms = models.CharField(max_length=500, blank=True, null=True)
+    challenge_zh = models.CharField(max_length=500, blank=True, null=True)
+    challenge_vi = models.CharField(max_length=500, blank=True, null=True)
+
+    class Meta:
+        db_table = "weekly_physical_challenge"
+        verbose_name = "Weekly Physical Challenge"
+        verbose_name_plural = "Weekly Physical Challenges"
+
+    def __str__(self):
+        return self.challenge
+
+
+class NCDQuizQuestion(models.Model):
+    question_id = models.AutoField(primary_key=True)
+    topic = models.CharField(max_length=255)
+
+    question = models.CharField(max_length=1000)
+    question_ms = models.CharField(max_length=1000, blank=True, null=True)
+    question_zh = models.CharField(max_length=1000, blank=True, null=True)
+    question_vi = models.CharField(max_length=1000, blank=True, null=True)
+
+    option_a = models.CharField(max_length=500)
+    optiona_ms = models.CharField(max_length=500, blank=True, null=True)
+    optiona_zh = models.CharField(max_length=500, blank=True, null=True)
+    optiona_vi = models.CharField(max_length=500, blank=True, null=True)
+
+    option_b = models.CharField(max_length=500)
+    optionb_ms = models.CharField(max_length=500, blank=True, null=True)
+    optionb_zh = models.CharField(max_length=500, blank=True, null=True)
+    optionb_vi = models.CharField(max_length=500, blank=True, null=True)
+
+    option_c = models.CharField(max_length=500)
+    optionc_ms = models.CharField(max_length=500, blank=True, null=True)
+    optionc_zh = models.CharField(max_length=500, blank=True, null=True)
+    optionc_vi = models.CharField(max_length=500, blank=True, null=True)
+
+    option_d = models.CharField(max_length=500)
+    optiond_ms = models.CharField(max_length=500, blank=True, null=True)
+    optiond_zh = models.CharField(max_length=500, blank=True, null=True)
+    optiond_vi = models.CharField(max_length=500, blank=True, null=True)
+
+    correct_option = models.CharField(max_length=10)
+
+    class Meta:
+        db_table = "ncd_quiz_question"
+        verbose_name = "NCD Quiz Question"
+        verbose_name_plural = "NCD Quiz Questions"
+
+    def __str__(self):
+        return f"{self.topic} - {self.question[:50]}..."
+
+
