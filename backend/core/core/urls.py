@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from vitaa_app import views
 from vitaa_app.views import GenerateActivityPlanView
+from vitaa_app.views import NCDDeathSeriesView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,4 +37,7 @@ urlpatterns = [
 
     # Activity Planner API
     path("api/activity-plan/", GenerateActivityPlanView.as_view(), name="activity-plan"),
+
+    # NCD Statistics API
+    path("api/ncd/stats-series", NCDDeathSeriesView.as_view(), name="ncd-stats-series"),
 ]

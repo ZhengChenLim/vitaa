@@ -1,0 +1,177 @@
+year,location_name,cause_name,number_of_deaths,percent_of_deaths
+2000,Global,Cardiovascular diseases,14363179.36,0.285620302
+2000,Global,Diabetes mellitus,897302.6945,0.017843306
+2000,Global,Non-communicable diseases,31278953.14,0.621998411
+2000,Global,Stroke,5864909.458,0.116624709
+2000,Malaysia,Cardiovascular diseases,36357.20813,0.348552198
+2000,Malaysia,Diabetes mellitus,3081.049686,0.029537665
+2000,Malaysia,Non-communicable diseases,76076.23977,0.729336333
+2000,Malaysia,Stroke,13004.51734,0.124672047
+2001,Global,Cardiovascular diseases,14603996.87,0.288347903
+2001,Global,Diabetes mellitus,924257.094,0.018248933
+2001,Global,Non-communicable diseases,31790347,0.627686698
+2001,Global,Stroke,5975502.92,0.117980497
+2001,Malaysia,Cardiovascular diseases,36490.7379,0.350542228
+2001,Malaysia,Diabetes mellitus,3133.363358,0.030100213
+2001,Malaysia,Non-communicable diseases,76456.5793,0.734468397
+2001,Malaysia,Stroke,12969.6561,0.124590451
+2002,Global,Cardiovascular diseases,14912508.79,0.291707329
+2002,Global,Diabetes mellitus,958318.0082,0.018745915
+2002,Global,Non-communicable diseases,32371593.52,0.633225147
+2002,Global,Stroke,6091406.992,0.119152512
+2002,Malaysia,Cardiovascular diseases,36991.64497,0.350439793
+2002,Malaysia,Diabetes mellitus,3199.093545,0.030306281
+2002,Malaysia,Non-communicable diseases,77721.66395,0.736291593
+2002,Malaysia,Stroke,13202.57842,0.125074319
+2003,Global,Cardiovascular diseases,15243641.57,0.294999041
+2003,Global,Diabetes mellitus,994101.7301,0.01923828
+2003,Global,Non-communicable diseases,33048915.78,0.639573932
+2003,Global,Stroke,6217556.99,0.120321105
+2003,Malaysia,Cardiovascular diseases,38830.88526,0.350727667
+2003,Malaysia,Diabetes mellitus,3344.779513,0.030210441
+2003,Malaysia,Non-communicable diseases,81697.68454,0.737904266
+2003,Malaysia,Stroke,13837.01684,0.124979688
+2004,Global,Cardiovascular diseases,15350235.03,0.294666537
+2004,Global,Diabetes mellitus,1016465.228,0.019512318
+2004,Global,Non-communicable diseases,33419548.98,0.64153449
+2004,Global,Stroke,6253104.263,0.12003335
+2004,Malaysia,Cardiovascular diseases,39143.20889,0.349185813
+2004,Malaysia,Diabetes mellitus,3332.058208,0.029724587
+2004,Malaysia,Non-communicable diseases,82679.79561,0.737563733
+2004,Malaysia,Stroke,13977.28004,0.124687863
+2005,Global,Cardiovascular diseases,15545805.83,0.298057226
+2005,Global,Diabetes mellitus,1042379.165,0.019985439
+2005,Global,Non-communicable diseases,33835903.92,0.648724546
+2005,Global,Stroke,6271161.818,0.120233289
+2005,Malaysia,Cardiovascular diseases,39613.21792,0.349481411
+2005,Malaysia,Diabetes mellitus,3307.427693,0.029179114
+2005,Malaysia,Non-communicable diseases,83685.89421,0.738305025
+2005,Malaysia,Stroke,14122.48444,0.124593198
+2006,Global,Cardiovascular diseases,15409036.45,0.298264375
+2006,Global,Diabetes mellitus,1060568.724,0.020528815
+2006,Global,Non-communicable diseases,33733587.42,0.652966797
+2006,Global,Stroke,6132488.747,0.11870119
+2006,Malaysia,Cardiovascular diseases,40279.15834,0.349558003
+2006,Malaysia,Diabetes mellitus,3271.866033,0.028394751
+2006,Malaysia,Non-communicable diseases,84903.54697,0.736829871
+2006,Malaysia,Stroke,14295.07888,0.12405816
+2007,Global,Cardiovascular diseases,15554243.74,0.300352256
+2007,Global,Diabetes mellitus,1085336.168,0.020957791
+2007,Global,Non-communicable diseases,34159660.5,0.65962009
+2007,Global,Stroke,6130852.209,0.118384344
+2007,Malaysia,Cardiovascular diseases,41197.49123,0.349362757
+2007,Malaysia,Diabetes mellitus,3227.984653,0.027373902
+2007,Malaysia,Non-communicable diseases,86709.70183,0.735313561
+2007,Malaysia,Stroke,14540.67408,0.123307656
+2008,Global,Cardiovascular diseases,15877023.3,0.302537457
+2008,Global,Diabetes mellitus,1116613.831,0.021277081
+2008,Global,Non-communicable diseases,34883533.04,0.664709836
+2008,Global,Stroke,6221634.021,0.118550827
+2008,Malaysia,Cardiovascular diseases,43518.80359,0.350450099
+2008,Malaysia,Diabetes mellitus,3281.434403,0.026424479
+2008,Malaysia,Non-communicable diseases,91086.97459,0.733500837
+2008,Malaysia,Stroke,15330.72979,0.123457352
+2009,Global,Cardiovascular diseases,16071943.2,0.306485425
+2009,Global,Diabetes mellitus,1144986.153,0.021834377
+2009,Global,Non-communicable diseases,35385319.08,0.674778577
+2009,Global,Stroke,6270407.565,0.119571431
+2009,Malaysia,Cardiovascular diseases,45637.49641,0.350492798
+2009,Malaysia,Diabetes mellitus,3317.022561,0.025474273
+2009,Malaysia,Non-communicable diseases,95200.33194,0.731133036
+2009,Malaysia,Stroke,16120.58714,0.123805999
+2010,Global,Cardiovascular diseases,16382908.2,0.308714626
+2010,Global,Diabetes mellitus,1173814.237,0.02211915
+2010,Global,Non-communicable diseases,36054649.37,0.679397831
+2010,Global,Stroke,6345442.767,0.119568321
+2010,Malaysia,Cardiovascular diseases,47088.66779,0.352503283
+2010,Malaysia,Diabetes mellitus,3333.5873,0.024952233
+2010,Malaysia,Non-communicable diseases,97926.20984,0.73306741
+2010,Malaysia,Stroke,16643.55011,0.124607976
+2011,Global,Cardiovascular diseases,16549303.19,0.31105161
+2011,Global,Diabetes mellitus,1200308.232,0.022560314
+2011,Global,Non-communicable diseases,36558121.53,0.687117137
+2011,Global,Stroke,6347567.38,0.119301722
+2011,Malaysia,Cardiovascular diseases,47847.77533,0.3515278
+2011,Malaysia,Diabetes mellitus,3334.954171,0.024501949
+2011,Malaysia,Non-communicable diseases,99768.54803,0.73297325
+2011,Malaysia,Stroke,16889.96777,0.124104655
+2012,Global,Cardiovascular diseases,16758706.15,0.314491533
+2012,Global,Diabetes mellitus,1230728.571,0.023095602
+2012,Global,Non-communicable diseases,37088538.02,0.695991025
+2012,Global,Stroke,6357597.101,0.119301923
+2012,Malaysia,Cardiovascular diseases,47508.68002,0.348426415
+2012,Malaysia,Diabetes mellitus,3300.22451,0.024203868
+2012,Malaysia,Non-communicable diseases,99863.80808,0.732394296
+2012,Malaysia,Stroke,16719.88736,0.122623619
+2013,Global,Cardiovascular diseases,17050002.24,0.317171194
+2013,Global,Diabetes mellitus,1272197.924,0.023666012
+2013,Global,Non-communicable diseases,37816962.23,0.703486709
+2013,Global,Stroke,6407280.814,0.119186319
+2013,Malaysia,Cardiovascular diseases,48371.25162,0.348958125
+2013,Malaysia,Diabetes mellitus,3388.778271,0.024441035
+2013,Malaysia,Non-communicable diseases,101954.402,0.73550498
+2013,Malaysia,Stroke,16984.73935,0.122531451
+2014,Global,Cardiovascular diseases,17340462.9,0.31931038
+2014,Global,Diabetes mellitus,1325614.851,0.024410412
+2014,Global,Non-communicable diseases,38568401.09,0.710203965
+2014,Global,Stroke,6478642.258,0.119294307
+2014,Malaysia,Cardiovascular diseases,50315.55134,0.347546937
+2014,Malaysia,Diabetes mellitus,3584.281265,0.024757489
+2014,Malaysia,Non-communicable diseases,106508.8521,0.735691208
+2014,Malaysia,Stroke,17697.17633,0.122241977
+2015,Global,Cardiovascular diseases,17580615.62,0.321158388
+2015,Global,Diabetes mellitus,1375408.358,0.025126055
+2015,Global,Non-communicable diseases,39264135.95,0.717248162
+2015,Global,Stroke,6559562.279,0.119821856
+2015,Malaysia,Cardiovascular diseases,54703.31504,0.350581325
+2015,Malaysia,Diabetes mellitus,3986.102936,0.025545616
+2015,Malaysia,Non-communicable diseases,115287.7422,0.73885872
+2015,Malaysia,Stroke,19126.86149,0.122578982
+2016,Global,Cardiovascular diseases,17912408.74,0.323713026
+2016,Global,Diabetes mellitus,1427131.544,0.025791872
+2016,Global,Non-communicable diseases,40109561.34,0.724865824
+2016,Global,Stroke,6684422.717,0.120793099
+2016,Malaysia,Cardiovascular diseases,56376.0192,0.351478351
+2016,Malaysia,Diabetes mellitus,4143.352678,0.025831766
+2016,Malaysia,Non-communicable diseases,119098.3289,0.742523942
+2016,Malaysia,Stroke,19695.61518,0.122793073
+2017,Global,Cardiovascular diseases,18160330.87,0.32535516
+2017,Global,Diabetes mellitus,1476713.817,0.026457555
+2017,Global,Non-communicable diseases,40812899.03,0.731197005
+2017,Global,Stroke,6784646.01,0.121542454
+2017,Malaysia,Cardiovascular diseases,58694.81539,0.352322002
+2017,Malaysia,Diabetes mellitus,4378.189436,0.026280414
+2017,Malaysia,Non-communicable diseases,124296.0789,0.746100794
+2017,Malaysia,Stroke,20522.16195,0.123187926
+2018,Global,Cardiovascular diseases,18522266.2,0.328461502
+2018,Global,Diabetes mellitus,1533639.738,0.027197711
+2018,Global,Non-communicable diseases,41676335.83,0.739049614
+2018,Global,Stroke,6905838.48,0.122452556
+2018,Malaysia,Cardiovascular diseases,60389.97907,0.354080864
+2018,Malaysia,Diabetes mellitus,4567.547177,0.02678048
+2018,Malaysia,Non-communicable diseases,128235.124,0.751870688
+2018,Malaysia,Stroke,21021.61928,0.123254405
+2019,Global,Cardiovascular diseases,18870288.97,0.331215885
+2019,Global,Diabetes mellitus,1590099.883,0.027911065
+2019,Global,Non-communicable diseases,42539087.98,0.746630456
+2019,Global,Stroke,7033585.363,0.123442499
+2019,Malaysia,Cardiovascular diseases,61989.85395,0.353857669
+2019,Malaysia,Diabetes mellitus,4763.320977,0.027190562
+2019,Malaysia,Non-communicable diseases,132266.3918,0.755017674
+2019,Malaysia,Stroke,21563.88232,0.123093683
+2020,Global,Cardiovascular diseases,19145788.01,0.303321285
+2020,Global,Diabetes mellitus,1625602.222,0.025755375
+2020,Global,Non-communicable diseases,43121377.77,0.683153642
+2020,Global,Stroke,7145972.306,0.113198844
+2020,Malaysia,Cardiovascular diseases,57883.32584,0.356019348
+2020,Malaysia,Diabetes mellitus,4533.605611,0.02788398
+2020,Malaysia,Non-communicable diseases,124153.1244,0.763621859
+2020,Malaysia,Stroke,20110.26314,0.123691299
+2021,Global,Cardiovascular diseases,19414853.09,0.286055957
+2021,Global,Diabetes mellitus,1656634.526,0.02440971
+2021,Global,Non-communicable diseases,43768181.66,0.644868491
+2021,Global,Stroke,7252675.541,0.106846992
+2021,Malaysia,Cardiovascular diseases,66778.94148,0.29777151
+2021,Malaysia,Diabetes mellitus,5203.414705,0.023202451
+2021,Malaysia,Non-communicable diseases,142271.7996,0.634382723
+2021,Malaysia,Stroke,23245.51054,0.103651665
