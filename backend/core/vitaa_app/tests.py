@@ -1,5 +1,7 @@
 from django.test import TestCase
 from vitaa_app.utils import calc_targets
+from rest_framework.test import APIClient
+from vitaa_app.models import PhysicalActivity
 
 class CalcTargetsTests(TestCase):
     '''
@@ -43,3 +45,36 @@ class CalcTargetsTests(TestCase):
         split = result["targets"]["macro_split_pct"]
         total_pct = split["protein"] + split["fat"] + split["carbs"]
         self.assertTrue(98 <= total_pct <= 102)  # allow rounding wiggle
+
+class ActivityPlanAPITest(TestCase):
+    def setUp(self):
+        # seed minimal data if your DB is empty in tests
+        PhysicalActivity.objects.create(
+            major_heading="Walking",
+            major_heading_ms="",
+            major_heading_cn="",
+            major_heading_vn="",
+            activity_code=1000001,
+            met_value="3.80",
+            activity_description="Walking, brisk pace",
+            activity_description_ms="",
+            activity_description_cn="",
+            activity_description_vn="",
+        )
+
+    def test_plan_endpoint(self):
+        client = APIClient()
+        payload = {
+            "Age": 25, "Sex": "Male", "WeightKg": 120, "HeightCm": 180,
+            "WaistCircumferenceCm": 100, "ActivityLevel": "Low",
+            "FavoriteActivities": ["walking"],
+            "goal": "weight loss",
+            "seed": 1
+        }
+        resp = client.post("/api/activity-plan/", payload, format="json")
+        self.assertEqual(resp.status_code, 200)
+        data = resp.json()
+        self.assertEqual(len(data), 7)
+        self.assertIn("day", data[0])
+        self.assertIn("recommendation", data[0])
+        self.assertIn("duration", data[0])
