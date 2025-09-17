@@ -430,6 +430,242 @@
       }
     }
   },
+  "NCD": {
+    "title": "Perpustakaan Pengetahuan NCD",
+    "subtitle": "Maklumat menyeluruh mengenai Penyakit Tidak Berjangkit, kesannya, dan strategi pencegahan yang disesuaikan dengan konteks penjagaan kesihatan Malaysia.",
+    "understanding": "Memahami Penyakit Tidak Berjangkit",
+    "whatHeading": "Apakah itu NCD?",
+    "whatP1": "Penyakit tidak berjangkit (NCD), juga dikenali sebagai penyakit kronik, biasanya berpanjangan dan berpunca daripada gabungan faktor genetik, fisiologi, persekitaran dan tingkah laku.",
+    "whatP2": "Jenis utama termasuk penyakit kardiovaskular (seperti serangan jantung dan strok), kanser, penyakit pernafasan kronik (seperti penyakit paru-paru obstruktif kronik dan asma) serta diabetes.",
+    "ncdVsCd": "NCD vs Penyakit Berjangkit",
+    "ncdTitle": "Penyakit Tidak Berjangkit",
+    "ncdPoint1": "Tidak berjangkit antara manusia",
+    "ncdPoint2": "Kronik dan berpanjangan",
+    "ncdPoint3": "Sering berkaitan gaya hidup",
+    "ncdExamples": "Contoh: Diabetes, hipertensi, strok",
+    "cdTitle": "Penyakit Berjangkit",
+    "cdPoint1": "Boleh merebak dari seorang ke seorang",
+    "cdPoint2": "Sering akut dan jangka pendek",
+    "cdPoint3": "Disebabkan oleh patogen",
+    "cdExamples": "Contoh: COVID-19, tuberkulosis, malaria",
+    "typesTitle": "Jenis Penyakit Tidak Berjangkit",
+    "typesSubtitle": "Ketahui jenis utama NCD yang memberi kesan kepada rakyat Malaysia dan impaknya terhadap kesihatan.",
+    "diabetesTitle": "Diabetes",
+    "diabetesDesc": "Keadaan kronik yang menjejaskan cara tubuh memproses gula darah (glukosa).",
+    "diabetesPrev": "Prevalens di Malaysia: 3.9 juta orang dewasa terjejas",
+    "hypertensionTitle": "Hipertensi",
+    "hypertensionDesc": "Tekanan darah tinggi yang boleh membawa kepada komplikasi kesihatan serius jika tidak dirawat.",
+    "hypertensionPrev": "Prevalens di Malaysia: 6.4 juta orang dewasa terjejas",
+    "strokeTitle": "Strok",
+    "strokeDesc": "Keadaan serius yang berlaku apabila bekalan darah ke otak terganggu.",
+    "strokePrev": "Prevalens di Malaysia: 40,000 kes setiap tahun",
+    "learnMore": "Ketahui lebih lanjut"
+  },
+  "diabetes": {
+  "title": "Diabetes",
+  "subtitle": "Keadaan kronik yang menjejaskan cara badan anda memproses gula darah (glukosa), melibatkan {count} juta orang dewasa Malaysia.",
+  "breadcrumbHome": "Laman Utama",
+  "breadcrumbLibrary": "NCD",
+  "tabs": {
+    "overview": "Gambaran",
+    "symptoms": "Gejala",
+    "risk": "Faktor Risiko",
+    "prevention": "Pencegahan",
+    "management": "Pengurusan"
+  },
+  "whatHeading": "Apa itu Diabetes?",
+  "whatDesc": "Diabetes ialah kumpulan gangguan metabolik yang dicirikan oleh paras gula darah tinggi untuk tempoh yang berpanjangan. Ia berlaku apabila badan anda tidak menghasilkan insulin yang mencukupi atau tidak dapat menggunakan insulin dengan berkesan.",
+  "keyFacts": "Fakta Utama",
+  "facts": [
+    "Lebih 3.9 juta orang dewasa Malaysia menghidap diabetes",
+    "Kadar prevalens meningkat daripada 11.6% kepada 18.3% (2011–2019)",
+    "Punca utama kebutaan, kegagalan buah pinggang, dan amputasi anggota bawah",
+    "Meningkatkan risiko penyakit jantung dan strok"
+  ],
+  "stats": {
+    "adultPrevalence": "Prevalens Dewasa",
+    "adultsAffected": "Dewasa Terjejas",
+    "totalDeaths": "Daripada Jumlah Kematian",
+    "nhms": "NHMS 2019",
+    "estimate": "Anggaran 2023",
+    "moh": "KKM Malaysia 2021"
+  },
+  "type1": {
+    "title": "Diabetes Jenis 1",
+    "desc": "Keadaan autoimun di mana sistem imun badan memusnahkan sel beta penghasil insulin dalam pankreas. Biasanya berlaku pada zaman kanak-kanak atau awal dewasa.",
+    "note": "Memerlukan terapi insulin sepanjang hayat dan pemantauan gula darah yang rapi."
+  },
+  "type2": {
+    "title": "Diabetes Jenis 2",
+    "desc": "Badan menjadi tahan terhadap insulin atau tidak menghasilkan insulin yang mencukupi. Bentuk paling biasa; biasanya berlaku pada orang dewasa berumur lebih 40 tahun, tetapi kini semakin meningkat dalam kalangan orang muda.",
+    "note": "Sering diuruskan dengan perubahan gaya hidup, ubat oral, dan kadangkala insulin."
+  },
+  "badges": {
+    "evidence": "Kandungan berasaskan bukti",
+    "ncd": "Perpustakaan NCD"
+  },
+  "symptoms": {
+    "title": "Gejala Diabetes",
+    "subtitle": "Pengesanan awal adalah penting. Ketahui tanda-tanda amaran dan dapatkan rawatan perubatan jika anda mengalaminya.",
+    "type1": {
+      "title": "Gejala Diabetes Jenis 1",
+      "list": [
+        "Kerap kencing",
+        "Dahaga berlebihan",
+        "Sangat lapar",
+        "Kehilangan berat badan tanpa sebab",
+        "Lesu dan lemah",
+        "Penglihatan kabur",
+        "Luka lambat sembuh"
+      ],
+      "note": "Gejala Jenis 1 biasanya muncul dengan cepat dalam beberapa minggu atau bulan dan memerlukan rawatan segera."
+    },
+    "type2": {
+      "title": "Gejala Diabetes Jenis 2",
+      "list": [
+        "Dahaga dan kencing meningkat",
+        "Rasa lapar meningkat",
+        "Lesu",
+        "Penglihatan kabur",
+        "Jangkitan lambat sembuh",
+        "Tompok gelap pada kulit",
+        "Rasa kebas di tangan atau kaki"
+      ],
+      "note": "Gejala Jenis 2 berkembang secara beransur-ansur dan mungkin ringan pada awalnya, sering tidak disedari selama bertahun-tahun."
+    },
+    "cta": {
+      "title": "Bila Perlu Jumpa Doktor",
+      "desc": "Hubungi penyedia penjagaan kesihatan anda segera jika anda mengalami gabungan gejala ini, terutamanya jika anda mempunyai faktor risiko diabetes.",
+      "immediate": {
+        "title": "Segera",
+        "desc": "Gejala teruk atau tanda ketoasidosis"
+      },
+      "withinDays": {
+        "title": "Dalam Beberapa Hari",
+        "desc": "Pelbagai gejala hadir"
+      },
+      "routine": {
+        "title": "Saringan Rutin",
+        "desc": "Pemeriksaan tahunan jika berisiko tinggi"
+      }
+    }
+  },
+  "risk": {
+    "title": "Faktor Risiko Diabetes",
+    "subtitle": "Memahami faktor risiko anda boleh membantu anda mengambil langkah pencegahan dan membuat keputusan yang bijak tentang kesihatan.",
+    "items": [
+      "Sejarah keluarga diabetes",
+      "Umur 45 tahun ke atas",
+      "Berlebihan berat badan atau obesiti (BMI ≥ 25)",
+      "Tidak aktif fizikal",
+      "Tekanan darah tinggi",
+      "Tahap kolesterol tinggi",
+      "Sejarah diabetes semasa hamil",
+      "Sindrom ovari polisistik (PCOS)"
+    ],
+    "my": {
+      "title": "Faktor Risiko Khusus Malaysia"
+    },
+    "genetic": {
+      "title": "Faktor Genetik",
+      "list": [
+        "Prevalens lebih tinggi dalam populasi India dan Melayu",
+        "Populasi Asia mendapat diabetes pada BMI lebih rendah",
+        "Kecenderungan genetik berbeza mengikut etnik"
+      ]
+    },
+    "lifestyle": {
+      "title": "Faktor Gaya Hidup",
+      "list": [
+        "Pengambilan karbohidrat halus yang tinggi",
+        "Gaya hidup sedentari akibat urbanisasi",
+        "Tekanan daripada persekitaran kerja moden"
+      ]
+    }
+  },
+  "prevention": {
+    "title": "Pencegahan Diabetes",
+    "subtitle": "Diabetes Jenis 2 boleh dicegah melalui perubahan gaya hidup. Kawal kesihatan anda dengan strategi berasaskan bukti.",
+    "left": [
+      "Kekalkan berat badan sihat",
+      "Makan diet seimbang rendah gula",
+      "Saringan kesihatan berkala",
+      "Dapatkan tidur mencukupi (7–9 jam)"
+    ],
+    "right": [
+      "Bersenam secara tetap (150 minit seminggu)",
+      "Kurangkan makanan diproses dan minuman manis",
+      "Urus tahap stres",
+      "Elakkan merokok dan hadkan alkohol"
+    ],
+    "diet": {
+      "title": "Cadangan Pemakanan Malaysia",
+      "localTitle": "Makanan Tempatan Sihat",
+      "limitTitle": "Makanan Perlu Dihadkan",
+      "portionTitle": "Kawalan Saiz Hidangan",
+      "local": [
+        "Nasi perang menggantikan nasi putih",
+        "Ikan kukus dan sayur-sayuran",
+        "Buah segar seperti betik, jambu",
+        "Protein tanpa lemak dan kekacang"
+      ],
+      "limit": [
+        "Minuman bergula dan teh tarik",
+        "Makanan bergoreng dan kuih",
+        "Snek diproses",
+        "Makanan tinggi garam"
+      ],
+      "portion": [
+        "Guna pinggan kecil",
+        "Separuh pinggan diisi sayur-sayuran",
+        "Hadkan nasi kepada ¼ pinggan",
+        "Sertakan protein di setiap hidangan"
+      ]
+    }
+  },
+  "management": {
+    "title": "Pengurusan Diabetes",
+    "subtitle": "Pengurusan diabetes berkesan menggabungkan ubat, perubahan gaya hidup, dan pemantauan berkala.",
+    "left": [
+      "Pantau glukosa darah secara berkala",
+      "Ikuti pelan pemakanan mesra diabetes",
+      "Pemeriksaan berkala dengan pasukan kesihatan",
+      "Jaga kesihatan kaki setiap hari"
+    ],
+    "right": [
+      "Ambil ubat yang ditetapkan",
+      "Bersenam dengan kerap dan selamat",
+      "Pantau tekanan darah dan kolesterol",
+      "Ikut vaksinasi semasa"
+    ],
+    "panels": {
+      "targetsTitle": "Sasaran Gula Darah",
+      "medsTitle": "Jenis Ubat",
+      "checksTitle": "Pemeriksaan Berkala"
+    },
+    "targets": [
+      "Sebelum makan: 4.0–7.0 mmol/L",
+      "2 jam selepas makan: < 10.0 mmol/L",
+      "HbA1c: < 7.0%"
+    ],
+    "meds": [
+      "Metformin — rawatan utama",
+      "Insulin — pelbagai jenis tersedia",
+      "Ubat lain seperti ditetapkan"
+    ],
+    "checks": [
+      "Ujian HbA1c — setiap 3–6 bulan",
+      "Pemeriksaan mata — setiap tahun",
+      "Pemeriksaan kaki — setiap lawatan"
+    ],
+    "cta": {
+      "blurb": "Dengan peningkatan prevalens diabetes di Malaysia, pencegahan dan pengurusan semakin penting.",
+      "plan": "Jana Pelan Diet & Senaman Saya",
+      "analysis": "Mulakan Analisis Kesihatan",
+      "quiz": "Ambil Kuiz Kesihatan"
+    }
+  }
+},
   "lang": {
     "english": "English",
     "malay": "Malay",

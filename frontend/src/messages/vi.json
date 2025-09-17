@@ -430,6 +430,242 @@
       }
     }
   },
+  "NCD": {
+    "title": "Thư Viện Kiến Thức NCD",
+    "subtitle": "Thông tin toàn diện về các bệnh không lây nhiễm, tác động và chiến lược phòng ngừa phù hợp với bối cảnh y tế tại Malaysia.",
+    "understanding": "Tìm hiểu về Bệnh Không Lây Nhiễm",
+    "whatHeading": "NCD là gì?",
+    "whatP1": "Bệnh không lây nhiễm (NCD), còn gọi là bệnh mạn tính, thường kéo dài và do sự kết hợp của yếu tố di truyền, sinh lý, môi trường và hành vi.",
+    "whatP2": "Các loại chính bao gồm bệnh tim mạch (như đau tim và đột quỵ), ung thư, bệnh hô hấp mạn tính (như COPD và hen suyễn) và tiểu đường.",
+    "ncdVsCd": "NCD so với Bệnh Truyền Nhiễm",
+    "ncdTitle": "Bệnh Không Lây Nhiễm",
+    "ncdPoint1": "Không lây từ người sang người",
+    "ncdPoint2": "Mạn tính và kéo dài",
+    "ncdPoint3": "Thường liên quan đến lối sống",
+    "ncdExamples": "Ví dụ: Tiểu đường, tăng huyết áp, đột quỵ",
+    "cdTitle": "Bệnh Truyền Nhiễm",
+    "cdPoint1": "Có thể lây từ người sang người",
+    "cdPoint2": "Thường cấp tính và ngắn hạn",
+    "cdPoint3": "Do mầm bệnh gây ra",
+    "cdExamples": "Ví dụ: COVID-19, lao, sốt rét",
+    "typesTitle": "Các Loại Bệnh Không Lây Nhiễm",
+    "typesSubtitle": "Tìm hiểu các loại NCD chính ảnh hưởng đến người dân Malaysia và tác động đến sức khỏe.",
+    "diabetesTitle": "Tiểu đường",
+    "diabetesDesc": "Một bệnh mạn tính ảnh hưởng đến cách cơ thể xử lý đường huyết (glucose).",
+    "diabetesPrev": "Tỉ lệ tại Malaysia: 3,9 triệu người trưởng thành mắc bệnh",
+    "hypertensionTitle": "Tăng huyết áp",
+    "hypertensionDesc": "Huyết áp cao có thể dẫn đến biến chứng sức khỏe nghiêm trọng nếu không được điều trị.",
+    "hypertensionPrev": "Tỉ lệ tại Malaysia: 6,4 triệu người trưởng thành mắc bệnh",
+    "strokeTitle": "Đột quỵ",
+    "strokeDesc": "Một tình trạng nghiêm trọng xảy ra khi nguồn cung cấp máu lên não bị gián đoạn.",
+    "strokePrev": "Tỉ lệ tại Malaysia: 40.000 ca hàng năm",
+    "learnMore": "Tìm hiểu thêm"
+  },
+  "diabetes": {
+    "title": "Đái tháo đường",
+    "subtitle": "Một bệnh mạn tính ảnh hưởng đến cách cơ thể xử lý đường huyết (glucose), ảnh hưởng đến {count} triệu người trưởng thành tại Malaysia.",
+    "breadcrumbHome": "Trang chủ",
+    "breadcrumbLibrary": "Bệnh không lây",
+    "tabs": {
+      "overview": "Tổng quan",
+      "symptoms": "Triệu chứng",
+      "risk": "Yếu tố nguy cơ",
+      "prevention": "Phòng ngừa",
+      "management": "Quản lý"
+    },
+    "whatHeading": "Đái tháo đường là gì?",
+    "whatDesc": "Đái tháo đường là nhóm rối loạn chuyển hóa đặc trưng bởi mức đường huyết cao kéo dài. Bệnh xảy ra khi cơ thể không sản xuất đủ insulin hoặc không thể sử dụng insulin hiệu quả.",
+    "keyFacts": "Thông tin chính",
+    "facts": [
+      "Hơn 3.9 triệu người trưởng thành Malaysia mắc bệnh đái tháo đường",
+      "Tỷ lệ mắc tăng từ 11.6% lên 18.3% (2011–2019)",
+      "Nguyên nhân hàng đầu gây mù lòa, suy thận và cắt cụt chi dưới",
+      "Tăng nguy cơ bệnh tim và đột quỵ"
+    ],
+    "stats": {
+      "adultPrevalence": "Tỷ lệ mắc ở người lớn",
+      "adultsAffected": "Người lớn mắc bệnh",
+      "totalDeaths": "Trong tổng số ca tử vong",
+      "nhms": "NHMS 2019",
+      "estimate": "Ước tính 2023",
+      "moh": "Bộ Y tế Malaysia 2021"
+    },
+    "type1": {
+      "title": "Đái tháo đường tuýp 1",
+      "desc": "Bệnh tự miễn trong đó hệ miễn dịch phá hủy các tế bào beta sản xuất insulin trong tuyến tụy. Thường xuất hiện ở trẻ em hoặc người trưởng thành trẻ.",
+      "note": "Cần tiêm insulin suốt đời và theo dõi đường huyết chặt chẽ."
+    },
+    "type2": {
+      "title": "Đái tháo đường tuýp 2",
+      "desc": "Cơ thể trở nên kháng insulin hoặc không sản xuất đủ insulin. Dạng phổ biến nhất; thường gặp ở người trên 40 tuổi nhưng ngày càng thấy ở người trẻ.",
+      "note": "Thường được kiểm soát bằng thay đổi lối sống, thuốc uống và đôi khi insulin."
+    },
+    "badges": {
+      "evidence": "Nội dung dựa trên bằng chứng",
+      "ncd": "Thư viện bệnh không lây"
+    },
+    "symptoms": {
+      "title": "Triệu chứng đái tháo đường",
+      "subtitle": "Phát hiện sớm rất quan trọng. Hãy biết các dấu hiệu cảnh báo và tìm kiếm sự chăm sóc y tế nếu bạn gặp phải.",
+      "type1": {
+        "title": "Triệu chứng tuýp 1",
+        "list": [
+          "Đi tiểu thường xuyên",
+          "Khát nước nhiều",
+          "Đói dữ dội",
+          "Sụt cân không rõ nguyên nhân",
+          "Mệt mỏi và yếu sức",
+          "Mờ mắt",
+          "Vết thương lâu lành"
+        ],
+        "note": "Triệu chứng tuýp 1 thường phát triển nhanh trong vài tuần hoặc tháng và cần chăm sóc y tế ngay lập tức."
+      },
+      "type2": {
+        "title": "Triệu chứng tuýp 2",
+        "list": [
+          "Khát nước và đi tiểu nhiều hơn",
+          "Ăn nhiều hơn bình thường",
+          "Mệt mỏi",
+          "Mờ mắt",
+          "Nhiễm trùng lâu lành",
+          "Vùng da sẫm màu",
+          "Tê hoặc ngứa ran ở tay hoặc chân"
+        ],
+        "note": "Triệu chứng tuýp 2 tiến triển từ từ và có thể nhẹ lúc đầu, thường không được chú ý trong nhiều năm."
+      },
+      "cta": {
+        "title": "Khi nào cần gặp bác sĩ",
+        "desc": "Liên hệ ngay với bác sĩ nếu bạn có nhiều triệu chứng, đặc biệt khi có yếu tố nguy cơ.",
+        "immediate": {
+          "title": "Khẩn cấp",
+          "desc": "Triệu chứng nghiêm trọng hoặc dấu hiệu nhiễm toan ceton"
+        },
+        "withinDays": {
+          "title": "Trong vài ngày",
+          "desc": "Có nhiều triệu chứng cùng lúc"
+        },
+        "routine": {
+          "title": "Khám định kỳ",
+          "desc": "Khám hàng năm nếu có nguy cơ cao"
+        }
+      }
+    },
+    "risk": {
+      "title": "Yếu tố nguy cơ đái tháo đường",
+      "subtitle": "Hiểu rõ nguy cơ giúp bạn phòng ngừa và đưa ra quyết định đúng đắn cho sức khỏe.",
+      "items": [
+        "Tiền sử gia đình mắc bệnh",
+        "Trên 45 tuổi",
+        "Thừa cân hoặc béo phì (BMI ≥ 25)",
+        "Ít vận động",
+        "Huyết áp cao",
+        "Cholesterol cao",
+        "Tiền sử tiểu đường thai kỳ",
+        "Hội chứng buồng trứng đa nang (PCOS)"
+      ],
+      "my": {
+        "title": "Nguy cơ đặc thù tại Malaysia"
+      },
+      "genetic": {
+        "title": "Yếu tố di truyền",
+        "list": [
+          "Tỷ lệ mắc cao hơn ở người Ấn Độ và Mã Lai",
+          "Người châu Á mắc bệnh ở mức BMI thấp hơn",
+          "Khuynh hướng di truyền khác nhau theo dân tộc"
+        ]
+      },
+      "lifestyle": {
+        "title": "Yếu tố lối sống",
+        "list": [
+          "Ăn nhiều tinh bột tinh chế",
+          "Lối sống ít vận động do đô thị hóa",
+          "Căng thẳng từ công việc hiện đại"
+        ]
+      }
+    },
+    "prevention": {
+      "title": "Phòng ngừa đái tháo đường",
+      "subtitle": "Đái tháo đường tuýp 2 có thể phòng ngừa chủ yếu bằng thay đổi lối sống.",
+      "left": [
+        "Duy trì cân nặng hợp lý",
+        "Ăn uống cân bằng, ít đường",
+        "Khám sức khỏe định kỳ",
+        "Ngủ đủ giấc (7–9 giờ)"
+      ],
+      "right": [
+        "Tập thể dục thường xuyên (150 phút/tuần)",
+        "Hạn chế thực phẩm chế biến, đồ ngọt",
+        "Quản lý căng thẳng",
+        "Tránh hút thuốc, hạn chế rượu bia"
+      ],
+      "diet": {
+        "title": "Khuyến nghị dinh dưỡng Malaysia",
+        "localTitle": "Thực phẩm địa phương lành mạnh",
+        "limitTitle": "Thực phẩm nên hạn chế",
+        "portionTitle": "Kiểm soát khẩu phần",
+        "local": [
+          "Cơm gạo lứt thay cơm trắng",
+          "Cá hấp và rau",
+          "Trái cây tươi như đu đủ, ổi",
+          "Protein nạc và các loại đậu"
+        ],
+        "limit": [
+          "Đồ uống có đường và trà sữa kéo",
+          "Đồ chiên và bánh ngọt (kuih)",
+          "Đồ ăn vặt chế biến sẵn",
+          "Thực phẩm nhiều muối"
+        ],
+        "portion": [
+          "Dùng đĩa nhỏ hơn",
+          "Nửa đĩa là rau",
+          "Cơm chỉ chiếm ¼ đĩa",
+          "Luôn có protein trong mỗi bữa"
+        ]
+      }
+    },
+    "management": {
+      "title": "Quản lý đái tháo đường",
+      "subtitle": "Quản lý hiệu quả kết hợp thuốc, lối sống và theo dõi định kỳ.",
+      "left": [
+        "Theo dõi đường huyết thường xuyên",
+        "Tuân theo chế độ ăn phù hợp",
+        "Khám định kỳ với bác sĩ",
+        "Chăm sóc bàn chân hằng ngày"
+      ],
+      "right": [
+        "Uống thuốc theo chỉ định",
+        "Tập thể dục đều đặn và an toàn",
+        "Theo dõi huyết áp và cholesterol",
+        "Tiêm phòng đầy đủ"
+      ],
+      "panels": {
+        "targetsTitle": "Mục tiêu đường huyết",
+        "medsTitle": "Các loại thuốc",
+        "checksTitle": "Khám định kỳ"
+      },
+      "targets": [
+        "Trước bữa ăn: 4.0–7.0 mmol/L",
+        "2 giờ sau ăn: < 10.0 mmol/L",
+        "HbA1c: < 7.0%"
+      ],
+      "meds": [
+        "Metformin — điều trị đầu tay",
+        "Insulin — nhiều loại khác nhau",
+        "Các thuốc khác theo chỉ định"
+      ],
+      "checks": [
+        "Xét nghiệm HbA1c — 3–6 tháng/lần",
+        "Khám mắt — hàng năm",
+        "Khám bàn chân — mỗi lần tái khám"
+      ],
+      "cta": {
+        "blurb": "Với tỷ lệ mắc bệnh ngày càng tăng ở Malaysia, phòng ngừa và quản lý là vô cùng quan trọng.",
+        "plan": "Tạo kế hoạch ăn uống & tập luyện",
+        "analysis": "Bắt đầu phân tích sức khỏe",
+        "quiz": "Làm bài kiểm tra sức khỏe"
+      }
+    }
+  },
   "lang": {
     "english": "English",
     "malay": "Malay",

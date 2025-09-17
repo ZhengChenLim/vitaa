@@ -1,9 +1,9 @@
 // app/components/Header.tsx
 'use client';
 
-import {useTranslations} from 'next-intl';
-import {Link} from '@/i18n/navigation';
-import {useState} from 'react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+import { useState } from 'react';
 import LocaleSwitcher from './LocaleSwitcher';
 import { Leckerli_One } from "next/font/google";
 
@@ -17,7 +17,7 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem
 } from "@/components/ui/dropdown-menu";
-import {ChevronDown} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const leckerli = Leckerli_One({
   subsets: ["latin"],
@@ -49,7 +49,7 @@ export default function Header() {
     <header className="sticky top-0 z-30 w-full border-b bg-white backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         <Link href="/" className="text-2xl font-extrabold tracking-tight">
-          <span className={`text-green-700 ${leckerli.className}`}>Vittaa</span>
+          <span className={`text-green-700 ${leckerli.className}`}>Vitaa</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -59,51 +59,62 @@ export default function Header() {
           <NavLink href="/analysisform">{t('nav.analysis')}</NavLink>
 
           {/* Explore NCD Dropdown */}
+          {/* Explore NCD Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger
               className="inline-flex items-center rounded-lg px-3 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-100"
-              aria-label={t('nav.exploreAria')}
+              aria-label={t("nav.exploreAria")}
             >
-              {t('nav.explore')}
+              {t("nav.explore")}
               <ChevronDown className="ml-1 h-4 w-4" />
             </DropdownMenuTrigger>
 
-            {/* 2-col unless tight: grid-cols-1 on very small, sm:grid-cols-2 otherwise */}
-            <DropdownMenuContent align="end" className="min-w-72 sm:min-w-80 p-2">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <DropdownMenuContent
+              align="end"
+              className="min-w-80 p-4 bg-white shadow-lg rounded-xl"
+            >
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {/* Column 1: NCD */}
                 <div>
-                  {/* <DropdownMenuLabel className="px-2">{t('nav.section.ncd')}</DropdownMenuLabel> */}
-                  <DropdownMenuGroup>
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-purple-600">
+                    {t("nav.section.ncd")}
+                  </p>
+                  <DropdownMenuGroup className="space-y-1">
                     <DropdownMenuItem asChild>
-                      <Link href="/ncd">{t('nav.section.ncd')}</Link>
+                      <Link href="/ncd/diabetes" className="rounded-md px-2 py-1.5 hover:bg-purple-50">
+                        {t("nav.ncd.diabetes")}
+                      </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link href="/ncd/diabetes">{t('nav.ncd.diabetes')}</Link>
+                      <Link href="/ncd/hypertension" className="rounded-md px-2 py-1.5 hover:bg-purple-50">
+                        {t("nav.ncd.hypertension")}
+                      </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link href="/ncd/hypertension">{t('nav.ncd.hypertension')}</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href="/ncd/stroke">{t('nav.ncd.stroke')}</Link>
+                      <Link href="/ncd/stroke" className="rounded-md px-2 py-1.5 hover:bg-purple-50">
+                        {t("nav.ncd.stroke")}
+                      </Link>
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                 </div>
 
                 {/* Column 2: Challenges */}
-                <div className="sm:border-l sm:pl-3">
-                  {/* <DropdownMenuLabel className="px-2">{t('nav.section.challenges')}</DropdownMenuLabel> */}
-                  <DropdownMenuGroup>
+                <div>
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-emerald-600">
+                    {t("nav.section.challenges")}
+                  </p>
+                  <DropdownMenuGroup className="space-y-1">
                     <DropdownMenuItem asChild>
-                      <Link href="/challenges/monthly-quiz">
-                        {t('nav.challenges.monthlyQuiz')}
+                      <Link
+                        href="/challenges/monthly-quiz"
+                        className="rounded-md px-2 py-1.5 hover:bg-emerald-50"
+                      >
+                        {t("nav.challenges.monthlyQuiz")}
                       </Link>
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                 </div>
               </div>
-
-              <DropdownMenuSeparator className="sm:hidden" />
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>
@@ -116,7 +127,7 @@ export default function Header() {
             aria-label={t('nav.toggleMenuAria')}
           >
             <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor">
-              <path strokeWidth="2" strokeLinecap="round" d="M4 6h16M4 12h16M4 18h16"/>
+              <path strokeWidth="2" strokeLinecap="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>

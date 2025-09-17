@@ -7,40 +7,6 @@ import { Droplet, HeartPulse, Activity } from "lucide-react";
 
 export default function NcdPage() {
     const t = useTranslations("NCD");
-
-    const diseases = [
-        {
-            key: "diabetes",
-            icon: <Droplet className="h-6 w-6" />,
-            title: t("diabetesTitle"),
-            desc: t("diabetesDesc"),
-            prevalence: t("diabetesPrev"),
-            color: "text-white",
-            bgColor: "bg-[#FF5A5A]",
-            cardbg: "bg-[#FF5A5A]/10",
-        },
-        {
-            key: "hypertension",
-            icon: <HeartPulse className="h-6 w-6" />,
-            title: t("hypertensionTitle"),
-            desc: t("hypertensionDesc"),
-            prevalence: t("hypertensionPrev"),
-            color: "text-white",
-            bgColor: "bg-yellow-400",
-            cardbg: "bg-yellow-100",
-        },
-        {
-            key: "stroke",
-            icon: <Activity className="h-6 w-6" />,
-            title: t("strokeTitle"),
-            desc: t("strokeDesc"),
-            prevalence: t("strokePrev"),
-            color: "text-white",
-            bgColor: "bg-emerald-400",
-            cardbg: "bg-emerald-100",
-        },
-    ];
-
     return (
         <main className="px-4 max-w-6xl mx-auto space-y-12">
             {/* Hero */}
@@ -123,28 +89,70 @@ export default function NcdPage() {
                 </p>
 
                 <div className="mt-6 grid gap-6 md:grid-cols-3">
-                    {diseases.map((d, i) => (
-                        <Card key={i} className={`flex flex-col justify-between ${d.cardbg} border-0 shadow-sm`}>
-                            
-                            <CardHeader className="flex flex-row items-center gap-3 bg-white p-4">
-                                <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${d.bgColor} ${d.color}`}>
-                                    {d.icon}
-                                </div>
-                                <CardTitle>{d.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent className="text-base">
-                                <p className="mb-3">{d.desc}</p>
-                                <p className="font-medium text-emerald-600">{d.prevalence}</p>
-                            </CardContent>
-                            <CardFooter>
-                                <Button variant="outline" className="w-full">
-                                    {t("learnMore")}
-                                </Button>
-                            </CardFooter>
-                        </Card>
-                    ))}
+                    {/* Diabetes */}
+                    <Card className="relative flex flex-col justify-between rounded-lg border-0 shadow-sm overflow-hidden">
+                        <span className="absolute inset-x-0 top-0 h-2 bg-red-500" />
+                        <CardHeader className="flex flex-row items-center gap-3 bg-white p-4">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-100 text-red-600">
+                                <Droplet className="h-5 w-5" />
+                            </div>
+                            <CardTitle>{t("diabetesTitle")}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-base">
+                            <p className="mb-3">{t("diabetesDesc")}</p>
+                            <p className="font-medium text-emerald-600">{t("diabetesPrev")}</p>
+                        </CardContent>
+                        <CardFooter>
+                            <Button variant="outline" className="w-full">
+                                {t("learnMore")}
+                            </Button>
+                        </CardFooter>
+                    </Card>
+
+                    {/* Hypertension */}
+                    <Card className="relative flex flex-col justify-between rounded-lg border-0 shadow-sm overflow-hidden">
+                        <span className="absolute inset-x-0 top-0 h-2 bg-yellow-500" />
+                        <CardHeader className="flex flex-row items-center gap-3 bg-white p-4">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-yellow-100 text-yellow-600">
+                                <HeartPulse className="h-5 w-5" />
+                            </div>
+                            <CardTitle>{t("hypertensionTitle")}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-base">
+                            <p className="mb-3">{t("hypertensionDesc")}</p>
+                            <p className="font-medium text-emerald-600">{t("hypertensionPrev")}</p>
+                        </CardContent>
+                        <CardFooter>
+                            <Button variant="outline" className="w-full">
+                                {t("learnMore")}
+                            </Button>
+                        </CardFooter>
+                    </Card>
+
+                    {/* Stroke */}
+                    <Card className="relative flex flex-col justify-between rounded-lg border-0 shadow-sm overflow-hidden">
+                        <span className="absolute inset-x-0 top-0 h-2 bg-purple-500" />
+                        <CardHeader className="flex flex-row items-center gap-3 bg-white p-4">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-100 text-purple-600">
+                                <Activity className="h-5 w-5" />
+                            </div>
+                            <CardTitle>{t("strokeTitle")}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-base">
+                            <p className="mb-3">{t("strokeDesc")}</p>
+                            <p className="font-medium text-emerald-600">{t("strokePrev")}</p>
+                        </CardContent>
+                        <CardFooter>
+                            <Button variant="outline" className="w-full">
+                                {t("learnMore")}
+                            </Button>
+                        </CardFooter>
+                    </Card>
                 </div>
             </section>
+
+
+
         </main>
     );
 }
