@@ -7,7 +7,6 @@ from pathlib import Path
 
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
-
 from vitaa_app.models import Dish, Allergen, AllergenDish
 
 # ---------- Helpers & config ----------
@@ -83,9 +82,44 @@ def to_decimal(x, default="0"):
 
 # ---------- Command ----------
 
-class Command(BaseCommand):
-    help = "Import dishes from CSV (idempotent via dish_name + image_url). Usage: python manage.py import_food_data <csv_file>"
+def _parse_list(value: str):
+    """
+    Try JSON first; fall back to Python literal (e.g. "['a','b']"); finally split on commas.
+    Returns a list[str].
+    """
+    if value is None:
+        return []
+    s = value.strip()
+    if not s:
+        return []
+    # JSON
+    try:
+        out = json.loads(s)
+        return out if isinstance(out, list) else [str(out)]
+    except Exception:
+        pass
+    # Python literal
+    try:
+        out = ast.literal_eval(s)
+        return out if isinstance(out, list) else [str(out)]
+    except Exception:
+        pass
+    # Comma-separated fallback
+    return [part.strip() for part in s.split(",") if part.strip()]
 
+
+def _to_decimal(x, default="0"):
+    if x is None:
+        return Decimal(default)
+    try:
+        return Decimal(str(x))
+    except Exception:
+        return Decimal(default)
+
+
+class Command(BaseCommand):
+
+    help = "Import dishes from CSV (idempotent via dish_name + image_url). Usage: python manage.py import_food_data <csv_file>"
     def add_arguments(self, parser):
         parser.add_argument("csv_file", type=str, help="Path to CSV file")
 
@@ -203,10 +237,12 @@ class Command(BaseCommand):
 
                     imported += 1
 
+
                 except Exception as e:
                     skipped += 1
                     self.stderr.write(f"Row {idx}: Error importing '{row.get(dish_col, '') or 'Unknown'}': {e}")
 
         self.stdout.write(self.style.SUCCESS(
             f"Imported/updated {imported} dishes. Skipped {skipped} rows."
+
         ))

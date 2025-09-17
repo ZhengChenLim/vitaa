@@ -1,0 +1,426 @@
+{
+  "brand": "Vitaa",
+  "nav": {
+    "home": "首页",
+    "plan": "健康计划",
+    "analysis": "健康分析",
+    "contact": "联系我们"
+  },
+  "home": {
+    "heroTitle": "今天就预防明天的<strong>健康挑战</strong>",
+    "heroSubtitle": "个性化饮食与运动方案，结合实时健康洞察，助你更强壮、更健康。",
+    "ctaGenerate": "生成我的健康计划",
+    "ctaSample": "示例计划",
+    "malaysiaReality": "马来西亚的健康现状",
+    "malaysiaSubtitle": "了解在马来西亚开展预防性医疗的迫切需求",
+    "stat1": "马来西亚73%的死亡源于慢性非传染性疾病（NCD）",
+    "stat1sub": "非传染性疾病是导致死亡的主要原因",
+    "stat2": "390万名马来西亚成年人（18+）患有糖尿病",
+    "stat2sub": "≈18.3%的成年人",
+    "stat3": "80%的早发心脏病和中风可以预防",
+    "stat3sub": "通过生活方式改变与早期筛查",
+    "preventionTitle": "预防胜于治疗",
+    "preventionText": "Vitaa 通过个性化、符合文化的健康方案，帮助马来西亚成年人预防糖尿病、高血压和中风。",
+    "ctaAnalysis": "想了解你的<highlight>健康风险</highlight>吗？",
+    "ctaAnalysisBtn": "开始分析",
+    "whyTitle": "为什么选择 Vitaa？",
+    "whyAi": "AI 预防性健康分析",
+    "whyPersonalised": "个性化的饮食与运动建议"
+  },
+  "plan": {
+    "validation": {
+      "age": "年龄必须在 18 到 150 岁之间",
+      "height": "身高必须在 50 厘米到 250 厘米之间",
+      "weight": "体重必须在 30 公斤到 300 公斤之间",
+      "waist": "腰围必须在 30 厘米到 200 厘米之间",
+      "required": "此字段为必填项",
+      "number": "此字段必须为数字"
+    },
+    "profile": {
+      "none": "无"
+    },
+    "breadcrumbs": {
+      "home": "首页",
+      "plan": "健康计划"
+    },
+    "loading": "加载中...",
+    "title": "个性化健康计划",
+    "subtitle": "为你的生活方式与目标量身打造饮食与运动方案。",
+    "stepper": {
+      "one": "1",
+      "two": "2"
+    },
+    "assessmentTitle": "健康计划评估",
+    "fields": {
+      "age": {
+        "label": "年龄",
+        "placeholder": "请输入你的年龄"
+      },
+      "sex": {
+        "label": "性别",
+        "male": "男",
+        "female": "女"
+      },
+      "height": {
+        "label": "身高（厘米）",
+        "placeholder": "请输入身高"
+      },
+      "weight": {
+        "label": "体重（公斤）",
+        "placeholder": "请输入体重"
+      },
+      "waist": {
+        "label": "腰围（厘米）",
+        "placeholder": "请输入腰围"
+      },
+      "activity": {
+        "label": "活动频率",
+        "sedentary": "久坐",
+        "low": "低",
+        "medium": "中",
+        "high": "高"
+      },
+      "goal": {
+        "label": "健身目标",
+        "loss": "减重",
+        "muscle": "增肌",
+        "maintain": "维持健康"
+      },
+      "allergies": {
+        "label": "过敏",
+        "help": "选择所有适用项",
+        "milk": "牛奶",
+        "eggs": "鸡蛋",
+        "peanuts": "花生",
+        "treeNuts": "树坚果",
+        "soy": "大豆",
+        "wheat": "小麦",
+        "fish": "鱼类",
+        "shellfish": "贝类",
+        "sesame": "芝麻"
+      },
+      "diet": {
+        "label": "饮食偏好",
+        "none": "无偏好",
+        "vegan": "纯素",
+        "vegetarian": "素食",
+        "includeEggs": "包含鸡蛋？"
+      }
+    },
+    "common": {
+      "yes": "是",
+      "no": "否"
+    },
+    "submit": "生成健康计划"
+  },
+  "analysis": {
+    "breadcrumbs": {
+      "home": "首页",
+      "analysis": "健康分析"
+    },
+    "validation": {
+      "age": "年龄必须在 18 到 150 岁之间",
+      "height": "身高必须在 50 厘米到 250 厘米之间",
+      "weight": "体重必须在 30 公斤到 300 公斤之间",
+      "waist": "腰围必须在 30 厘米到 200 厘米之间",
+      "required": "此字段为必填项",
+      "number": "此字段必须为数字"
+    },
+    "loading": "加载中...",
+    "title": "健康分析表单",
+    "subtitle": "借助 AI 提供的清晰洞察，及早发现糖尿病、高血压和中风等风险，从而更早采取行动。",
+    "assessmentTitle": "健康风险评估",
+    "fields": {
+      "age": {
+        "label": "年龄",
+        "placeholder": "请输入你的年龄"
+      },
+      "sex": {
+        "label": "性别",
+        "male": "男",
+        "female": "女"
+      },
+      "height": {
+        "label": "身高（厘米）",
+        "placeholder": "请输入身高"
+      },
+      "weight": {
+        "label": "体重（公斤）",
+        "placeholder": "请输入体重"
+      },
+      "waist": {
+        "label": "腰围（厘米）",
+        "placeholder": "请输入腰围"
+      },
+      "bpSystolic": {
+        "label": "收缩压",
+        "placeholder": "请输入你的收缩压",
+        "help": "大多数健康应用或智能手表都能测量收缩压，这对准确评估高血压风险非常重要。"
+      },
+      "activity": {
+        "label": "活动频率",
+        "sedentary": "久坐",
+        "low": "低",
+        "medium": "中",
+        "high": "高"
+      },
+      "alcohol": {
+        "label": "饮酒情况",
+        "none": "无",
+        "occasional": "偶尔",
+        "frequent": "频繁"
+      },
+      "smoking": {
+        "label": "吸烟状况",
+        "smoker": "吸烟者",
+        "nonSmoker": "不吸烟者"
+      },
+      "family": {
+        "label": "家族史",
+        "diabetes": "糖尿病",
+        "hypertension": "高血压",
+        "stroke": "中风",
+        "none": "无"
+      }
+    },
+    "submit": "生成健康分析"
+  },
+  "consent": {
+    "title": "我们重视您的隐私",
+    "body": "我们不会在服务器上存储您的个人数据。Cookie 仅用于提供必要功能，以及为您的健康结果进行分析/计算。您的输入仅用于计算，并仅以 Cookie 的形式保存在您的浏览器中（不会发送给我们）。您可以选择接受或拒绝。",
+    "lines": {
+      "essential": "必要 Cookie：用于保证网站正常运行，并记住同意与语言等设置。",
+      "analytics": "分析/计算 Cookie：用于在页面上执行分析与计算以生成健康结果；数据仅保留在您的浏览器中。",
+      "personalization": "个性化 Cookie：保存您的偏好（如单位、选择），以便提供更贴合的饮食与运动建议；不会与我们的服务器共享。"
+    },
+    "accept": "全部接受",
+    "reject": "全部拒绝"
+  },
+  "planResult": {
+    "breadcrumbs": {
+      "home": "首页",
+      "plan": "健康计划"
+    },
+    "title": "个性化健康计划",
+    "profile": {
+      "title": "健康档案",
+      "update": "更新结果",
+      "fields": {
+        "age": "年龄",
+        "sex": "性别",
+        "height": "身高",
+        "weight": "体重",
+        "waist": "腰围",
+        "activity": "活动频率",
+        "goal": "健身目标",
+        "diet": "饮食偏好",
+        "allergies": "过敏"
+      },
+      "values": {
+        "male": "男",
+        "female": "女",
+        "sedentary": "久坐",
+        "low": "低",
+        "medium": "中",
+        "high": "高",
+        "loss": "减重",
+        "muscle": "增肌",
+        "maintain": "维持健康",
+        "none": "无偏好",
+        "vegan": "纯素",
+        "vegetarian": "素食"
+      }
+    },
+    "overview": {
+      "title": "你的健康计划",
+      "macroTitle": "三大营养素分布",
+      "protein": "蛋白质",
+      "carbs": "碳水化合物",
+      "fat": "脂肪",
+      "metrics": {
+        "bmi": "BMI",
+        "dailyCalories": "每日热量",
+        "weightStatus": "体重状态"
+      },
+      "status": {
+        "under": "体重过低",
+        "normal": "正常体重",
+        "over": "超重",
+        "obese": "肥胖",
+        "unknown": "未知"
+      }
+    },
+    "diet": {
+      "title": "个性化饮食计划",
+      "meals": {
+        "fruitGrain": "水果谷物沙拉",
+        "veggieEggSalad": "蔬菜鸡蛋沙拉",
+        "eggsPancakes": "鸡蛋配煎饼",
+        "fruitBowl": "水果谷物碗",
+        "avocadoSalad": "牛油果沙拉碗",
+        "yogurtBowl": "水果酸奶碗"
+      },
+      "breakfast": "早餐",
+      "lunch": "午餐",
+      "dinner": "晚餐"
+    },
+    "meal": {
+      "labels": {
+        "calories": "热量",
+        "kcal": "千卡",
+        "carbs": "碳水",
+        "protein": "蛋白质",
+        "fat": "脂肪",
+        "fiber": "膳食纤维"
+      }
+    },
+    "considerations": {
+      "title": "饮食注意事项",
+      "allergies": "需避免的过敏原：{list}"
+    },
+    "exercise": {
+      "title": "运动建议",
+      "scheduleTitle": "7 天运动安排",
+      "days": {
+        "mon": "周一",
+        "tue": "周二",
+        "wed": "周三",
+        "thu": "周四",
+        "fri": "周五",
+        "sat": "周六",
+        "sun": "周日"
+      },
+      "items": {
+        "mon": "20 分钟轻松步行",
+        "tue": "基础拉伸训练",
+        "wed": "轻量徒手训练",
+        "thu": "在公园步行 20 分钟",
+        "fri": "初学者瑜伽",
+        "sat": "轻度家务活动",
+        "sun": "休息日（轻柔拉伸）"
+      }
+    },
+    "cta": {
+      "title": "准备好改善健康了吗？",
+      "subtitle": "获取你的个性化营养与运动计划，今天就开始更健康的旅程！",
+      "download": "下载完整计划"
+    }
+  },
+  "analysisResult": {
+    "breadcrumbs": {
+      "home": "主页",
+      "result": "结果"
+    },
+    "validation": {
+      "age": "年龄必须在 18 到 150 岁之间",
+      "height": "身高必须在 50 厘米到 250 厘米之间",
+      "weight": "体重必须在 30 公斤到 300 公斤之间",
+      "waist": "腰围必须在 30 厘米到 200 厘米之间",
+      "required": "此字段为必填项",
+      "number": "此字段必须为数字"
+    },
+    "loading": "加载中...",
+    "title": "健康分析结果",
+    "profile": {
+      "title": "健康档案",
+      "update": "更新结果",
+      "none": "无",
+      "fields": {
+        "age": "年龄",
+        "sex": "性别",
+        "height": "身高（厘米）",
+        "weight": "体重（千克）",
+        "waist": "腰围（厘米）",
+        "activity": "活动频率",
+        "sbp": "收缩压",
+        "sbpHelp": "大多数健康应用或智能手表都能测量收缩压，这对准确评估高血压风险非常重要。",
+        "alcohol": "饮酒情况",
+        "smoking": "吸烟状态",
+        "family": {
+          "label": "家族病史",
+          "diabetes": "糖尿病",
+          "hypertension": "高血压",
+          "stroke": "中风",
+          "none": "无"
+        }
+      }
+    },
+    "result": {
+      "title": "分析结果",
+      "disclaimerLabel": "免责声明：",
+      "disclaimer": "本风险评估仅用于健康管理，并非医学诊断。“高风险”结果并不意味着一定会患病。若需个性化建议，请咨询医生。"
+    },
+    "enums": {
+      "sex": {
+        "male": "男性",
+        "female": "女性"
+      },
+      "activity": {
+        "sedentary": "久坐/不活动",
+        "low": "低",
+        "medium": "中等",
+        "high": "高"
+      },
+      "alcohol": {
+        "none": "无",
+        "occasional": "偶尔",
+        "frequent": "频繁"
+      },
+      "smoking": {
+        "smoker": "吸烟者",
+        "nonSmoker": "不吸烟者"
+      }
+    },
+    "bmi": {
+      "title": "BMI",
+      "myResult": "我的结果：",
+      "desc": "BMI（身体质量指数）用于衡量体重相对于身高的情况。",
+      "bands": {
+        "na": "—",
+        "underweight": "体重过低",
+        "normal": "正常",
+        "overweight": "超重",
+        "obese": "肥胖"
+      }
+    },
+    "bri": {
+      "title": "BRI",
+      "myResult": "我的结果：",
+      "desc": "体型圆润指数（BRI）根据身高与腰围估算腹部脂肪；数值越高通常与中心性肥胖和代谢风险升高有关。",
+      "bands": {
+        "na": "—",
+        "poor": "圆度低（脂肪少）",
+        "desirable": "理想",
+        "excessive": "过多",
+        "elevated": "显著升高"
+      }
+    },
+    "risk": {
+      "title": "健康风险评估",
+      "learnMore": "了解更多",
+      "level": {
+        "high": "高风险",
+        "moderate": "中等风险",
+        "low": "低风险",
+        "unknown": "未知"
+      },
+      "conditions": {
+        "diabetes": "糖尿病",
+        "hypertension": "高血压",
+        "stroke": "中风"
+      },
+      "desc": {
+        "diabetes": "糖尿病的特点是长期血糖偏高。高风险人群应特别注意饮食、运动和体重管理。",
+        "hypertension": "高血压是一种长期血压升高的慢性疾病。当前风险较低。建议保持健康的生活方式并做好预防。",
+        "stroke": "中风是由于脑部血流阻塞或出血引起的急性疾病。当前风险较低。保持健康习惯有助于降低未来风险。"
+      }
+    }
+  },
+  "lang": {
+    "english": "English",
+    "malay": "Malay",
+    "chinese": "中文",
+    "vietnamese": "Tiếng Việt",
+    "switch": "切换语言"
+  }
+}
