@@ -2,19 +2,21 @@ from collections import defaultdict, OrderedDict
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-import json
+import json, random
 from requests import RequestException, HTTPError
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.db.models import Q
 from rest_framework import status
-from .models import PhysicalActivity
-from .models import NCDDeathStat
-from serializers import PlanRequestSerializer
+
+from .models import PhysicalActivity, WeeklyPhysicalChallenge, NCDDeathStat, NCDQuizQuestion
+from serializers import PlanRequestSerializer, NCDQuizQuestionSerializer, WeeklyPhysicalChallengeSerializer
+
 from vitaa_app.activity_planner_service import make_week_plan_from_queryset
 from vitaa_app.utils import calc_targets
 from vitaa_app.meal_planner_service import generate_meal_plan
 from vitaa_app.health_analysis import n8n_health_analysis
+
 
 @csrf_exempt
 def n8n_health_analysis_view(request):
@@ -256,3 +258,185 @@ class NCDDeathSeriesView(APIView):
             "series": series,
         }
         return Response(payload)
+    
+class NCDQuizGetQuestionsView(APIView):
+    """
+    GET /api/ncd-quiz/questions
+    Returns 25 random questions (5 from each topic).
+    Assumes exactly 5 topics in the table.
+    """
+
+    def get(self, request):
+        # Identify the five topics that exist in the table.
+        topics = list(
+            NCDQuizQuestion.objects.order_by().values_list("topic", flat=True).distinct()
+        )
+        if len(topics) < 5:
+            return Response(
+                {"detail": f"Need at least 5 distinct topics, found {len(topics)}."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        per_topic = 5
+        selected = []
+        # For each topic, pick 5 random rows (DB-level random)
+        for t in topics[:5]:
+            qs = (NCDQuizQuestion.objects
+                  .filter(topic=t)
+                  .order_by("?")[:per_topic])
+            selected.extend(qs)
+
+        # Serialize
+        data = NCDQuizQuestionSerializer(selected, many=True).data
+
+        # For front-end convenience, group counts by topic (not required but nice)
+        counts = defaultdict(int)
+        for row in data:
+            counts[row["topic"]] += 1
+
+        return Response({
+            "topics": topics[:5],
+            "count_by_topic": counts,
+            "total": len(data),
+            "questions": data,
+        })
+
+
+class NCDQuizGradeView(APIView):
+    """
+    POST /api/ncd-quiz/grade
+    {
+      "answers": [{"id": 123, "selected": "A"}, ...]
+    }
+    """
+
+    def post(self, request):
+        answers = request.data.get("answers", [])
+        if not isinstance(answers, list) or not answers:
+            return Response({"detail": "Provide 'answers' as a non-empty list."},
+                            status=status.HTTP_400_BAD_REQUEST)
+
+        # Normalize & de-duplicate by first occurrence
+        id_to_selected, ids_in_order = {}, []
+        for item in answers:
+            try:
+                qid = int(item.get("id"))
+                sel = (item.get("selected") or "").strip().upper()
+                if sel not in {"A", "B", "C", "D"}:
+                    continue
+                if qid not in id_to_selected:
+                    id_to_selected[qid] = sel
+                    ids_in_order.append(qid)
+            except Exception:
+                continue
+
+        if not ids_in_order:
+            return Response({"detail": "No valid answers provided."},
+                            status=status.HTTP_400_BAD_REQUEST)
+
+        # Fetch referenced questions (topic + correct answer)
+        rows = (NCDQuizQuestion.objects
+                .filter(pk__in=ids_in_order)
+                .values("pk", "topic", "correct_option"))
+
+        lookup = {
+            r["pk"]: {
+                "topic": r["topic"],
+                "correct": str(r["correct_option"] or "").strip().upper()
+            }
+            for r in rows
+        }
+
+        results = []
+        total = score = 0
+
+        # Per-topic counters
+        per_topic_counts = defaultdict(lambda: {"correct": 0, "wrong": 0, "total": 0})
+
+        for qid in ids_in_order:
+            meta = lookup.get(qid)
+            if not meta:
+                # unknown id -> ignore from scoring
+                continue
+
+            topic = meta["topic"]
+            selected = id_to_selected[qid]
+            correct_option = meta["correct"]
+            is_correct = (selected == correct_option)
+
+            total += 1
+            if is_correct:
+                score += 1
+
+            per_topic_counts[topic]["total"] += 1
+            if is_correct:
+                per_topic_counts[topic]["correct"] += 1
+            else:
+                per_topic_counts[topic]["wrong"] += 1
+
+            results.append({
+                "id": qid,
+                "topic": topic,
+                "selected": selected,
+                "correct_option": correct_option,
+                "correct": is_correct,
+            })
+
+        # Compute per-topic accuracy %
+        per_topic = {}
+        for topic, cnt in per_topic_counts.items():
+            t = cnt["total"] or 1  # guard divide-by-zero
+            acc = (cnt["correct"] / t) * 100.0
+            per_topic[topic] = {
+                "correct": cnt["correct"],
+                "wrong": cnt["wrong"],
+                "total": cnt["total"],
+                "accuracy_pct": round(acc, 1),
+            }
+
+        overall_accuracy_pct = round((score / (total or 1)) * 100.0, 1)
+
+        return Response({
+            "score": score,
+            "total": total,
+            "overall_accuracy_pct": overall_accuracy_pct,
+            "per_topic": per_topic,
+            "results": results,
+        })
+
+class WeeklyChallengePlanView(APIView):
+    """
+    GET /api/weekly-challenges/
+
+    Returns 12 random challenges split into 4 weeks (3 per week):
+    {
+        "Week 1": [
+            {"id": 1, "challenge": "...", "challenge_ms": "...", ...},
+            {"id": 2, "challenge": "...", ...},
+            {"id": 3, "challenge": "...", ...}
+        ],
+        "Week 2": [...],
+        "Week 3": [...],
+        "Week 4": [...]
+    }
+    """
+
+    def get(self, request):
+        all_challenges = list(WeeklyPhysicalChallenge.objects.all())
+        if len(all_challenges) < 12:
+            return Response(
+                {"detail": f"Not enough challenges in database. Found {len(all_challenges)}, need at least 12."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # Pick 12 random
+        selected = random.sample(all_challenges, 12)
+
+        # Split into 4 weeks of 3 challenges
+        plan = {}
+        for i in range(4):
+            week_challenges = selected[i * 3:(i + 1) * 3]
+            serializer = WeeklyPhysicalChallengeSerializer(week_challenges, many=True)
+            plan[f"Week {i + 1}"] = serializer.data
+
+        return Response(plan)

@@ -17,8 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from vitaa_app import views
-from vitaa_app.views import GenerateActivityPlanView
-from vitaa_app.views import NCDDeathSeriesView
+from vitaa_app.views import GenerateActivityPlanView, NCDQuizGetQuestionsView, NCDQuizGradeView, NCDDeathSeriesView, WeeklyChallengePlanView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,4 +39,13 @@ urlpatterns = [
 
     # NCD Statistics API
     path("api/ncd/stats-series", NCDDeathSeriesView.as_view(), name="ncd-stats-series"),
+
+    # NCD Quiz Fetch Questions API
+    path("api/ncd-quiz/questions", NCDQuizGetQuestionsView.as_view(), name="ncd-quiz-questions"),
+
+    # NCD Quiz Grade API
+    path("api/ncd-quiz/grade", NCDQuizGradeView.as_view(), name="ncd-quiz-grade"),
+
+    # Weekly Challenges API
+    path("api/weekly-challenges/", WeeklyChallengePlanView.as_view(), name="weekly-challenges"),
 ]

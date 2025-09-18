@@ -120,32 +120,32 @@ class NCDQuizQuestion(models.Model):
     question_id = models.AutoField(primary_key=True)
     topic = models.CharField(max_length=255)
 
-    question = models.CharField(max_length=1000)
-    question_ms = models.CharField(max_length=1000, blank=True, null=True)
-    question_zh = models.CharField(max_length=1000, blank=True, null=True)
-    question_vi = models.CharField(max_length=1000, blank=True, null=True)
+    question = models.TextField()
+    question_ms = models.TextField(blank=True, null=True)
+    question_zh = models.TextField(blank=True, null=True)
+    question_vi = models.TextField(blank=True, null=True)
 
-    option_a = models.CharField(max_length=500)
-    optiona_ms = models.CharField(max_length=500, blank=True, null=True)
-    optiona_zh = models.CharField(max_length=500, blank=True, null=True)
-    optiona_vi = models.CharField(max_length=500, blank=True, null=True)
+    option_a = models.TextField()
+    option_a_ms = models.TextField(blank=True, null=True)
+    option_a_zh = models.TextField(blank=True, null=True)
+    option_a_vi = models.TextField(blank=True, null=True)
 
-    option_b = models.CharField(max_length=500)
-    optionb_ms = models.CharField(max_length=500, blank=True, null=True)
-    optionb_zh = models.CharField(max_length=500, blank=True, null=True)
-    optionb_vi = models.CharField(max_length=500, blank=True, null=True)
+    option_b = models.TextField()
+    option_b_ms = models.TextField(blank=True, null=True)
+    option_b_zh = models.TextField(blank=True, null=True)
+    option_b_vi = models.TextField(blank=True, null=True)
 
-    option_c = models.CharField(max_length=500)
-    optionc_ms = models.CharField(max_length=500, blank=True, null=True)
-    optionc_zh = models.CharField(max_length=500, blank=True, null=True)
-    optionc_vi = models.CharField(max_length=500, blank=True, null=True)
+    option_c = models.TextField()
+    option_c_ms = models.TextField(blank=True, null=True)
+    option_c_zh = models.TextField(blank=True, null=True)
+    option_c_vi = models.TextField(blank=True, null=True)
 
-    option_d = models.CharField(max_length=500)
-    optiond_ms = models.CharField(max_length=500, blank=True, null=True)
-    optiond_zh = models.CharField(max_length=500, blank=True, null=True)
-    optiond_vi = models.CharField(max_length=500, blank=True, null=True)
+    option_d = models.TextField()
+    option_d_ms = models.TextField(blank=True, null=True)
+    option_d_zh = models.TextField(blank=True, null=True)
+    option_d_vi = models.TextField(blank=True, null=True)
 
-    correct_option = models.CharField(max_length=10)
+    correct_option = models.CharField(max_length=1)
 
     class Meta:
         db_table = "ncd_quiz_question"
