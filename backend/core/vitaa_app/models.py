@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Allergen(models.Model):
     allergen_id = models.AutoField(primary_key=True)
     allergen_name = models.CharField(max_length=255)
@@ -50,3 +49,110 @@ class AllergenDish(models.Model):
 
     def __str__(self):
         return f"{self.dish.dish_name} - {self.allergen.allergen_name}"
+    
+class PhysicalActivity(models.Model):
+    # From physical_activity.csv
+    major_heading = models.CharField(max_length=200)
+    major_heading_ms = models.CharField(max_length=200, blank=True)
+    major_heading_cn = models.CharField(max_length=200, blank=True)
+    major_heading_vn = models.CharField(max_length=200, blank=True)
+
+    activity_code = models.IntegerField(unique=True, db_index=True)
+
+    met_value = models.DecimalField(max_digits=5, decimal_places=2)
+
+    activity_description = models.CharField(max_length=500)
+    activity_description_ms = models.CharField(max_length=500, blank=True)
+    activity_description_cn = models.CharField(max_length=500, blank=True)
+    activity_description_vn = models.CharField(max_length=500, blank=True)
+
+    class Meta:
+        db_table = "physical_activity"
+        verbose_name = "Physical Activity"
+        verbose_name_plural = "Physical Activities"
+        indexes = [
+            models.Index(fields=["major_heading"]),
+            models.Index(fields=["activity_description"]),
+        ]
+
+    def __str__(self):
+        return f"{self.activity_code} - {self.activity_description}"
+
+
+class NCDDeathStat(models.Model):
+    year = models.IntegerField(db_index=True)
+    location = models.CharField(max_length=128, db_index=True)
+    cause = models.CharField(max_length=256, db_index=True)
+
+    # Use Decimal for robustness (handles very large counts or scientific notation gracefully)
+    number_of_deaths = models.DecimalField(max_digits=20, decimal_places=2)  # adjust as needed
+    percent_of_deaths = models.DecimalField(max_digits=7, decimal_places=4)  # e.g., 0.0000–100.0000
+
+    class Meta:
+        db_table = "ncd_death_stat"
+        unique_together = ("year", "location", "cause")
+        indexes = [
+            models.Index(fields=["year", "location"]),
+            models.Index(fields=["location", "cause"]),
+        ]
+
+    def __str__(self):
+        return f"{self.location} | {self.cause} | {self.year}"
+    
+    
+class WeeklyPhysicalChallenge(models.Model):
+    challenge_id = models.AutoField(primary_key=True)
+    challenge = models.CharField(max_length=500)
+    challenge_ms = models.CharField(max_length=500, blank=True, null=True)
+    challenge_zh = models.CharField(max_length=500, blank=True, null=True)
+    challenge_vi = models.CharField(max_length=500, blank=True, null=True)
+
+    class Meta:
+        db_table = "weekly_physical_challenge"
+        verbose_name = "Weekly Physical Challenge"
+        verbose_name_plural = "Weekly Physical Challenges"
+
+    def __str__(self):
+        return self.challenge
+
+
+class NCDQuizQuestion(models.Model):
+    question_id = models.AutoField(primary_key=True)
+    topic = models.CharField(max_length=255)
+
+    question = models.TextField()
+    question_ms = models.TextField(blank=True, null=True)
+    question_zh = models.TextField(blank=True, null=True)
+    question_vi = models.TextField(blank=True, null=True)
+
+    option_a = models.TextField()
+    option_a_ms = models.TextField(blank=True, null=True)
+    option_a_zh = models.TextField(blank=True, null=True)
+    option_a_vi = models.TextField(blank=True, null=True)
+
+    option_b = models.TextField()
+    option_b_ms = models.TextField(blank=True, null=True)
+    option_b_zh = models.TextField(blank=True, null=True)
+    option_b_vi = models.TextField(blank=True, null=True)
+
+    option_c = models.TextField()
+    option_c_ms = models.TextField(blank=True, null=True)
+    option_c_zh = models.TextField(blank=True, null=True)
+    option_c_vi = models.TextField(blank=True, null=True)
+
+    option_d = models.TextField()
+    option_d_ms = models.TextField(blank=True, null=True)
+    option_d_zh = models.TextField(blank=True, null=True)
+    option_d_vi = models.TextField(blank=True, null=True)
+
+    correct_option = models.CharField(max_length=1)
+
+    class Meta:
+        db_table = "ncd_quiz_question"
+        verbose_name = "NCD Quiz Question"
+        verbose_name_plural = "NCD Quiz Questions"
+
+    def __str__(self):
+        return f"{self.topic} - {self.question[:50]}..."
+
+

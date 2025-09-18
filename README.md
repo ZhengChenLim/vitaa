@@ -160,3 +160,53 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 Do you want me to make this **README more academic-focused** (e.g., with sections like *Problem Statement, Objectives, System Architecture*) since this might also tie to your **FIT5120 / university deliverables**?
+
+## Populating the Database
+
+Ensure the following files are in the `data` folder:  
+*(path: `vitaa/backend/core/data`)*
+
+- `final_food_data.csv`
+- `NCD_Quiz_Translated.xlsx`
+- `ncd_statistics.csv`
+- `physical_activity.csv`
+- `Weekly_Physical_Challenges_Translated.xlsx`
+
+If your server already has a prior version of the database, it is safer to remove it and repopulate it to ensure the data is up to date.
+
+> **Note:** Run all commands from the **core** directory in the terminal (`vitaa/backend/core`).
+
+---
+
+### 1. Remove the previous DB (skip if there is no previous DB)
+```bash
+rm db.sqlite3
+```
+### 2. Delete any previous migrations (skip if there is no previous DB)
+```bash
+find vitaa_app/migrations -type f ! -name "__init__.py" -delete
+```
+### 3. Make new migrations
+```bash
+python manage.py makemigrations
+```
+### 4. Apply migrations
+```bash
+python manage.py migrate
+```
+### 5. Import food data
+```bash
+python manage.py import_food_data data/final_food_data.csv
+```
+### 6. Import physical activity data
+```bash
+python manage.py import_physical_activity --path data/physical_activity.csv
+```
+### 7. Import quiz and challenges data
+```bash
+python manage.py import_quiz_challenge --quiz data/NCD_Quiz_Translated.xlsx --challenges data/Weekly_Physical_Challenges_Translated.xlsx
+```
+### 8. Import NCD statistics data
+```bash
+python manage.py import_ncd_statistics --path "data/ncd_statistics.csv"
+```

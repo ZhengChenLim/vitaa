@@ -50,6 +50,13 @@ type ApiDishName = {
     dish_zh_name: string;
 };
 
+type ApiDishName = {
+    dish_name: string;
+    dish_ms_name: string;
+    dish_vi_name: string;
+    dish_zh_name: string;
+};
+
 type ApiMeal = {
     Meal: string;
     Dishes: ApiDishName[];                 
@@ -375,7 +382,7 @@ export default function HealthPlanPage() {
             include_eggs: eggs,
             fitness_goal: goal ? goalMap[goal] : null
         };
-        
+
 
         try {
             const res = await fetch(`${API_BASE}/api/plan/health/`, {
