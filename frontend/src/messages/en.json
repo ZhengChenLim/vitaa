@@ -4,7 +4,21 @@
     "home": "Home",
     "plan": "Health Plan",
     "analysis": "Health Analysis",
-    "contact": "Contact"
+    "explore": "Explore NCDs",
+    "exploreAria": "Explore NCDs menu",
+    "toggleMenuAria": "Toggle menu",
+    "section": {
+      "ncd": "NCDs",
+      "challenges": "Challenges"
+    },
+    "ncd": {
+      "diabetes": "Diabetes",
+      "hypertension": "Hypertension",
+      "stroke": "Stroke"
+    },
+    "challenges": {
+      "monthlyQuiz": "Monthly Challenges and Quiz"
+    }
   },
   "home": {
     "heroTitle": "Prevent Tomorrow's <strong>Health Challenges</strong> Today",
@@ -28,9 +42,17 @@
     "whyPersonalised": "Personalised recommendations for diet and exercise"
   },
   "plan": {
+    "validation": {
+      "age": "Age must be between 18 and 150",
+      "height": "Height must be between 50 cm and 250 cm",
+      "weight": "Weight must be between 30 kg and 300 kg",
+      "waist": "Waist circumference must be between 30 cm and 200 cm",
+      "required": "This field is required",
+      "number": "This field must be a number"
+    },
     "profile": {
       "none": "None"
-    }, 
+    },
     "breadcrumbs": {
       "home": "Home",
       "plan": "Health Plan"
@@ -110,6 +132,14 @@
       "home": "Home",
       "analysis": "Health Analysis"
     },
+    "validation": {
+      "age": "Age must be between 18 and 150",
+      "height": "Height must be between 50 cm and 250 cm",
+      "weight": "Weight must be between 30 kg and 300 kg",
+      "waist": "Waist circumference must be between 30 cm and 200 cm",
+      "required": "This field is required",
+      "number": "This field must be a number"
+    },
     "loading": "loading...",
     "title": "Health Analysis Form",
     "subtitle": "Get clear, AI-powered insights to detect early risks for diabetes, hypertension, and stroke—so you can take action sooner.",
@@ -186,7 +216,6 @@
       "plan": "Health Plan"
     },
     "title": "Personalized Health Plan",
-
     "profile": {
       "title": "Health Profile",
       "update": "Update result",
@@ -216,10 +245,12 @@
         "vegetarian": "Vegetarian"
       }
     },
-
     "overview": {
       "title": "Your Health Plan",
       "macroTitle": "Macro Distribution",
+      "protein": "Protein",
+      "carbs": "Carbs",
+      "fat": "Fat",
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "Daily Calories",
@@ -233,7 +264,6 @@
         "unknown": "Unknown"
       }
     },
-
     "diet": {
       "title": "Personalized Diet Plan",
       "meals": {
@@ -248,7 +278,6 @@
       "lunch": "Lunch",
       "dinner": "Dinner"
     },
-
     "meal": {
       "labels": {
         "calories": "Calories",
@@ -259,12 +288,10 @@
         "fiber": "Fiber"
       }
     },
-
     "considerations": {
       "title": "Dietary Considerations",
       "allergies": "Allergies to avoid: {list}"
     },
-
     "exercise": {
       "title": "Exercise Recommendations",
       "scheduleTitle": "7-Day Exercise Schedule",
@@ -287,7 +314,6 @@
         "sun": "Rest day with gentle stretching"
       }
     },
-
     "cta": {
       "title": "Ready to Transform Your Health?",
       "subtitle": "Get your personalized nutrition and exercise plan and start your journey to better health today!",
@@ -295,7 +321,18 @@
     }
   },
   "analysisResult": {
-    "breadcrumbs": { "home": "Home", "result": "Result" },
+    "breadcrumbs": {
+      "home": "Home",
+      "result": "Result"
+    },
+    "validation": {
+      "age": "Age must be between 18 and 150",
+      "height": "Height must be between 50 cm and 250 cm",
+      "weight": "Weight must be between 30 kg and 300 kg",
+      "waist": "Waist circumference must be between 30 cm and 200 cm",
+      "required": "This field is required",
+      "number": "This field must be a number"
+    },
     "loading": "loading...",
     "title": "Health Analysis Result",
     "profile": {
@@ -328,10 +365,25 @@
       "disclaimer": "This risk assessment is for health management only, not a medical diagnosis. A \"high risk\" result does not mean you will develop the disease. For personal advice, consult a doctor."
     },
     "enums": {
-      "sex": { "male": "Male", "female": "Female" },
-      "activity": { "sedentary": "Sedentary", "low": "Low", "medium": "Medium", "high": "High" },
-      "alcohol": { "none": "None", "occasional": "Occasional", "frequent": "Frequent" },
-      "smoking": { "smoker": "Smoker", "nonSmoker": "Non-smoker" }
+      "sex": {
+        "male": "Male",
+        "female": "Female"
+      },
+      "activity": {
+        "sedentary": "Sedentary",
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High"
+      },
+      "alcohol": {
+        "none": "None",
+        "occasional": "Occasional",
+        "frequent": "Frequent"
+      },
+      "smoking": {
+        "smoker": "Smoker",
+        "nonSmoker": "Non-smoker"
+      }
     },
     "bmi": {
       "title": "BMI",
@@ -360,8 +412,17 @@
     "risk": {
       "title": "Health Risk Assessment",
       "learnMore": "Learn More",
-      "level": { "high": "High Risk", "moderate": "Moderate Risk", "low": "Low Risk", "unknown": "Unknown" },
-      "conditions": { "diabetes": "Diabetes", "hypertension": "Hypertension", "stroke": "Stroke" },
+      "level": {
+        "high": "High Risk",
+        "moderate": "Moderate Risk",
+        "low": "Low Risk",
+        "unknown": "Unknown"
+      },
+      "conditions": {
+        "diabetes": "Diabetes",
+        "hypertension": "Hypertension",
+        "stroke": "Stroke"
+      },
       "desc": {
         "diabetes": "Diabetes is a condition characterized by chronically high blood sugar levels. Those at high risk should pay special attention to diet, exercise, and weight management.",
         "hypertension": "Hypertension is a chronic condition characterized by long-term elevated blood pressure. The risk is low. Maintaining a healthy lifestyle and preventing it are recommended.",
@@ -369,11 +430,778 @@
       }
     }
   },
+  "NCD": {
+    "title": "NCD Knowledge Library",
+    "subtitle": "Comprehensive information about Non-Communicable Diseases, their impact, and prevention strategies tailored for Malaysian healthcare context.",
+    "understanding": "Understanding Non-Communicable Diseases",
+    "whatHeading": "What are NCDs?",
+    "whatP1": "Noncommunicable diseases (NCDs), also known as chronic diseases, tend to be of long duration and are the result of a combination of genetic, physiological, environmental and behavioural factors.",
+    "whatP2": "Main types include cardiovascular diseases (such as heart attacks and stroke), cancers, chronic respiratory diseases (such as chronic obstructive pulmonary disease and asthma) and diabetes.",
+    "ncdVsCd": "NCDs vs Communicable Diseases",
+    "ncdTitle": "Non-Communicable Diseases",
+    "ncdPoint1": "Not transmitted between people",
+    "ncdPoint2": "Chronic and long-lasting",
+    "ncdPoint3": "Often lifestyle-related",
+    "ncdExamples": "Examples: Diabetes, hypertension, stroke",
+    "cdTitle": "Communicable Diseases",
+    "cdPoint1": "Can spread from person to person",
+    "cdPoint2": "Often acute and short-term",
+    "cdPoint3": "Caused by pathogens",
+    "cdExamples": "Examples: COVID-19, tuberculosis, malaria",
+    "typesTitle": "Types of Non-Communicable Diseases",
+    "typesSubtitle": "Learn about the main types of NCDs affecting Malaysians and their impact on health.",
+    "diabetesTitle": "Diabetes",
+    "diabetesDesc": "A chronic condition that affects how your body processes blood sugar (glucose).",
+    "diabetesPrev": "Malaysian Prevalence: 3.9M adults affected",
+    "hypertensionTitle": "Hypertension",
+    "hypertensionDesc": "High blood pressure that can lead to serious health complications if left untreated.",
+    "hypertensionPrev": "Malaysian Prevalence: 6.4M adults affected",
+    "strokeTitle": "Stroke",
+    "strokeDesc": "A serious condition that occurs when blood supply to the brain is interrupted.",
+    "strokePrev": "Malaysian Prevalence: 40,000 cases annually",
+    "learnMore": "Learn more"
+  },
+  "diabetes": {
+    "title": "Diabetes",
+    "subtitle": "A chronic condition that affects how your body processes blood sugar (glucose), affecting {count} million Malaysian adults.",
+    "breadcrumbHome": "Home",
+    "breadcrumbLibrary": "NCDs",
+    "tabs": {
+      "overview": "Overview",
+      "symptoms": "Symptoms",
+      "risk": "Risk Factors",
+      "prevention": "Prevention",
+      "management": "Management"
+    },
+    "whatHeading": "What is Diabetes?",
+    "whatDesc": "Diabetes is a group of metabolic disorders characterized by high blood sugar levels over a prolonged period. It occurs when your body either doesn’t make enough insulin or can’t effectively use the insulin it makes.",
+    "keyFacts": "Key Facts",
+    "facts": [
+      "Over 3.9 million Malaysian adults have diabetes",
+      "Prevalence has increased from 11.6% to 18.3% (2011–2019)",
+      "Leading cause of blindness, kidney failure, and lower limb amputation",
+      "Increases risk of heart disease and stroke"
+    ],
+    "stats": {
+      "adultPrevalence": "Adult Prevalence",
+      "adultsAffected": "Adults Affected",
+      "totalDeaths": "Of Total Deaths",
+      "nhms": "NHMS 2019",
+      "estimate": "Estimated 2023",
+      "moh": "MOH Malaysia 2021"
+    },
+    "type1": {
+      "title": "Type 1 Diabetes",
+      "desc": "An autoimmune condition where the body’s immune system destroys the insulin-producing beta cells in the pancreas. Usually develops in childhood or young adulthood.",
+      "note": "Requires lifelong insulin therapy and careful blood sugar monitoring."
+    },
+    "type2": {
+      "title": "Type 2 Diabetes",
+      "desc": "The body becomes resistant to insulin or doesn’t produce enough insulin. Most common form; typically develops in adults over 40, though increasingly seen in younger people.",
+      "note": "Often managed with lifestyle changes, oral medications, and sometimes insulin."
+    },
+    "badges": {
+      "evidence": "Evidence-informed content",
+      "ncd": "NCD Library"
+    },
+    "symptoms": {
+      "title": "Diabetes Symptoms",
+      "subtitle": "Early detection is crucial. Know the warning signs and seek medical attention if you experience these symptoms.",
+      "type1": {
+        "title": "Type 1 Diabetes Symptoms",
+        "list": [
+          "Frequent urination",
+          "Excessive thirst",
+          "Extreme hunger",
+          "Unexplained weight loss",
+          "Fatigue and weakness",
+          "Blurred vision",
+          "Slow-healing wounds"
+        ],
+        "note": "Type 1 symptoms often develop quickly over weeks or months and require immediate medical attention."
+      },
+      "type2": {
+        "title": "Type 2 Diabetes Symptoms",
+        "list": [
+          "Increased thirst and urination",
+          "Increased hunger",
+          "Fatigue",
+          "Blurred vision",
+          "Slow-healing infections",
+          "Dark patches of skin",
+          "Tingling in hands or feet"
+        ],
+        "note": "Type 2 symptoms develop gradually and may be mild initially, often going unnoticed for years."
+      },
+      "cta": {
+        "title": "When to See a Doctor",
+        "desc": "Contact your healthcare provider immediately if you experience any combination of these symptoms, especially if you have risk factors for diabetes.",
+        "immediate": {
+          "title": "Immediate",
+          "desc": "Severe symptoms or ketoacidosis signs"
+        },
+        "withinDays": {
+          "title": "Within Days",
+          "desc": "Multiple symptoms present"
+        },
+        "routine": {
+          "title": "Routine Screening",
+          "desc": "Annual check-ups if high risk"
+        }
+      }
+    },
+    "risk": {
+      "title": "Diabetes Risk Factors",
+      "subtitle": "Understanding your risk factors can help you take preventive measures and make informed decisions about your health.",
+      "items": [
+        "Family history of diabetes",
+        "Age 45 years or older",
+        "Overweight or obesity (BMI ≥ 25)",
+        "Physical inactivity",
+        "High blood pressure",
+        "High cholesterol levels",
+        "History of gestational diabetes",
+        "Polycystic ovary syndrome (PCOS)"
+      ],
+      "my": {
+        "title": "Malaysian-Specific Risk Factors"
+      },
+      "genetic": {
+        "title": "Genetic Factors",
+        "list": [
+          "Higher prevalence in Indian and Malay populations",
+          "Asian populations develop diabetes at lower BMI",
+          "Genetic predisposition varies by ethnicity"
+        ]
+      },
+      "lifestyle": {
+        "title": "Lifestyle Factors",
+        "list": [
+          "High consumption of refined carbohydrates",
+          "Sedentary lifestyle due to urbanization",
+          "Stress from modern work environments"
+        ]
+      }
+    },
+    "prevention": {
+      "title": "Diabetes Prevention",
+      "subtitle": "Type 2 diabetes is largely preventable through lifestyle modifications. Take control of your health with these evidence-based strategies.",
+      "left": [
+        "Maintain a healthy weight",
+        "Eat a balanced, low-sugar diet",
+        "Regular health screenings",
+        "Get adequate sleep (7–9 hours)"
+      ],
+      "right": [
+        "Exercise regularly (150 minutes per week)",
+        "Limit processed foods and sugary drinks",
+        "Manage stress levels",
+        "Avoid smoking and limit alcohol"
+      ],
+      "diet": {
+        "title": "Malaysian Dietary Recommendations",
+        "localTitle": "Healthy Local Foods",
+        "limitTitle": "Foods to Limit",
+        "portionTitle": "Portion Control",
+        "local": [
+          "Brown rice instead of white rice",
+          "Steamed fish and vegetables",
+          "Fresh fruits like papaya, guava",
+          "Lean proteins and legumes"
+        ],
+        "limit": [
+          "Sugary drinks and teh tarik",
+          "Fried foods and kuih",
+          "Processed snacks",
+          "High-sodium foods"
+        ],
+        "portion": [
+          "Use smaller plates",
+          "Fill half plate with vegetables",
+          "Limit rice to ¼ of plate",
+          "Include protein at each meal"
+        ]
+      }
+    },
+    "management": {
+      "title": "Diabetes Management",
+      "subtitle": "Effective diabetes management combines medication, lifestyle changes, and regular monitoring.",
+      "left": [
+        "Monitor blood glucose regularly",
+        "Follow a diabetes-friendly meal plan",
+        "Regular check-ups with healthcare team",
+        "Care for your feet daily"
+      ],
+      "right": [
+        "Take prescribed medications as directed",
+        "Exercise regularly and safely",
+        "Monitor blood pressure and cholesterol",
+        "Stay up to date with vaccinations"
+      ],
+      "panels": {
+        "targetsTitle": "Blood Sugar Targets",
+        "medsTitle": "Medication Types",
+        "checksTitle": "Regular Check-ups"
+      },
+      "targets": [
+        "Before meals: 4.0–7.0 mmol/L",
+        "2 hours after meals: < 10.0 mmol/L",
+        "HbA1c: < 7.0%"
+      ],
+      "meds": [
+        "Metformin — first-line treatment",
+        "Insulin — various types available",
+        "Other medications as prescribed"
+      ],
+      "checks": [
+        "HbA1c test — every 3–6 months",
+        "Eye exam — annually",
+        "Foot exam — every visit"
+      ],
+      "cta": {
+        "blurb": "With the rising prevalence of diabetes in Malaysia, prevention and management are more important than ever.",
+        "plan": "Generate My Diet & Exercise Plan",
+        "analysis": "Start Health Analysis",
+        "quiz": "Take Health Quiz"
+      }
+    }
+  },
+  "hypertension": {
+    "title": "Hypertension",
+    "subtitle": "A chronic condition characterized by long-term elevated blood pressure, affecting {count} million Malaysian adults.",
+    "breadcrumbHome": "Home",
+    "breadcrumbLibrary": "NCDs",
+    "tabs": {
+      "overview": "Overview",
+      "symptoms": "Symptoms",
+      "risk": "Risk Factors",
+      "prevention": "Prevention",
+      "management": "Management"
+    },
+    "whatHeading": "What is Hypertension?",
+    "whatDesc": "Hypertension, or high blood pressure, is a chronic medical condition where the blood pressure in the arteries is persistently elevated. It is often called the 'silent killer' because it typically has no symptoms until significant damage has occurred.",
+    "keyFacts": "Key Facts",
+    "facts": [
+      "Over 6.4 million Malaysian adults have hypertension",
+      "Adult prevalence is ~30% (NHMS 2019)",
+      "Major risk factor for heart disease and stroke",
+      "Often undiagnosed due to lack of symptoms"
+    ],
+    "stats": {
+      "adultPrevalence": "Adult Prevalence",
+      "adultsAffected": "Adults Affected",
+      "totalDeaths": "Of Total Deaths",
+      "nhms": "NHMS 2019",
+      "estimate": "Estimated 2023",
+      "moh": "MOH Malaysia 2021"
+    },
+    "badges": {
+      "evidence": "Evidence-informed content",
+      "ncd": "NCD Library"
+    },
+    "overview": {
+      "bpReadings": {
+        "title": "Understanding Blood Pressure Readings",
+        "normal": {
+          "title": "Normal",
+          "range": "< 120/80",
+          "note": "Optimal blood pressure"
+        },
+        "elevated": {
+          "title": "Elevated",
+          "range": "120–129/<80",
+          "note": "At risk of hypertension"
+        },
+        "stage1": {
+          "title": "Stage 1",
+          "range": "130–139/80–89",
+          "note": "High blood pressure"
+        },
+        "stage2": {
+          "title": "Stage 2",
+          "range": "≥140/≥90",
+          "note": "Requires immediate attention"
+        }
+      },
+      "types": {
+        "primary": {
+          "title": "Primary Hypertension",
+          "desc": "The most common type, developing gradually over many years with no identifiable cause. Affects about 90–95% of people with high blood pressure.",
+          "note": "Usually related to lifestyle factors and genetics."
+        },
+        "secondary": {
+          "title": "Secondary Hypertension",
+          "desc": "Caused by an underlying condition such as kidney disease, adrenal disorders, or certain medications. Tends to appear suddenly and cause higher blood pressure.",
+          "note": "Can often be treated by addressing the underlying cause."
+        }
+      }
+    },
+    "symptoms": {
+      "title": "Hypertension Symptoms",
+      "subtitle": "Hypertension is often called the \"silent killer\" because most people with high blood pressure have no symptoms, even when readings are high.",
+      "warning": {
+        "title": "Warning: Most Cases Are Asymptomatic",
+        "desc": "The majority of people with hypertension experience no symptoms at all. This is why regular blood pressure monitoring is crucial for early detection and prevention of complications."
+      },
+      "left": {
+        "title": "Symptoms of Severe Hypertension",
+        "lead": "When blood pressure reaches dangerously high levels (hypertensive crisis), some people may experience:",
+        "list": [
+          "Severe headaches",
+          "Nosebleeds",
+          "Fatigue or confusion",
+          "Vision problems",
+          "Chest pain",
+          "Difficulty breathing",
+          "Irregular heartbeat",
+          "Blood in urine",
+          "Pounding in chest, neck, or ears"
+        ]
+      },
+      "right": {
+        "title": "Emergency Signs",
+        "lead": "Seek immediate medical attention if you experience these symptoms with high blood pressure:",
+        "cards": [
+          {
+            "title": "Hypertensive Crisis",
+            "desc": "Blood pressure > 180/120 mmHg"
+          },
+          {
+            "title": "Severe Headache",
+            "desc": "Sudden, severe headache unlike any before"
+          },
+          {
+            "title": "Chest Pain",
+            "desc": "Chest pain with shortness of breath"
+          },
+          {
+            "title": "Vision Changes",
+            "desc": "Sudden vision problems or loss"
+          }
+        ]
+      },
+      "monitor": {
+        "title": "The Importance of Regular Monitoring",
+        "subtitle": "Since hypertension usually has no symptoms, regular blood pressure checks are the only way to detect it early.",
+        "u40": {
+          "title": "Adults < 40",
+          "desc": "Check every 3–5 years"
+        },
+        "o40": {
+          "title": "Adults 40+",
+          "desc": "Check annually"
+        },
+        "high": {
+          "title": "High Risk",
+          "desc": "Check every 6 months"
+        }
+      }
+    },
+    "risk": {
+      "title": "Hypertension Risk Factors",
+      "subtitle": "Understanding your risk factors can help you take preventive measures and make informed decisions about your health.",
+      "items": [
+        "Age 35 years or older",
+        "Family history of hypertension",
+        "Overweight or obesity (BMI ≥ 25)",
+        "Physical inactivity",
+        "High salt intake",
+        "Excessive alcohol consumption",
+        "Smoking",
+        "Chronic stress",
+        "Certain medical conditions (e.g., diabetes, kidney disease)"
+      ],
+      "my": {
+        "title": "Malaysian-Specific Risk Factors"
+      },
+      "genetic": {
+        "title": "Genetic Factors",
+        "list": [
+          "Higher prevalence in Malay and Indian populations",
+          "Family history increases risk",
+          "Genetic predisposition varies"
+        ]
+      },
+      "lifestyle": {
+        "title": "Lifestyle Factors",
+        "list": [
+          "High consumption of salty and processed foods",
+          "Sedentary lifestyle due to urbanization",
+          "Stress from modern work environments"
+        ]
+      }
+    },
+    "prevention": {
+      "title": "Hypertension Prevention",
+      "subtitle": "Hypertension can often be prevented or delayed through lifestyle modifications. Take control of your health with these evidence-based strategies.",
+      "left": [
+        "Maintain a healthy weight",
+        "Eat a balanced, low-sodium diet",
+        "Regular health screenings",
+        "Get adequate sleep (7–9 hours)"
+      ],
+      "right": [
+        "Exercise regularly (150 minutes per week)",
+        "Limit processed foods and salty snacks",
+        "Manage stress levels",
+        "Avoid smoking and limit alcohol"
+      ],
+      "diet": {
+        "title": "Malaysian Dietary Recommendations",
+        "localTitle": "Healthy Local Foods",
+        "limitTitle": "Foods to Limit",
+        "portionTitle": "Portion Control",
+        "local": [
+          "Fresh fruits and vegetables",
+          "Whole grains like brown rice",
+          "Lean proteins such as fish and tofu",
+          "Legumes and nuts"
+        ],
+        "limit": [
+          "Salty snacks and processed foods",
+          "Fried foods and fast food",
+          "Sugary drinks and desserts",
+          "High-sodium condiments"
+        ],
+        "portion": [
+          "Use smaller plates",
+          "Fill half plate with vegetables",
+          "Limit rice to ¼ of plate",
+          "Include protein at each meal"
+        ]
+      }
+    },
+    "management": {
+      "title": "Hypertension Management",
+      "subtitle": "Effective hypertension management combines medication, lifestyle changes, and regular monitoring.",
+      "left": [
+        "Monitor blood pressure regularly",
+        "Follow a heart-healthy meal plan",
+        "Regular check-ups with healthcare team",
+        "Limit alcohol and avoid smoking"
+      ],
+      "right": [
+        "Take prescribed medications as directed",
+        "Exercise regularly and safely",
+        "Monitor weight and waist circumference",
+        "Stay up to date with vaccinations"
+      ],
+      "panels": {
+        "targetsTitle": "Blood Pressure Targets",
+        "medsTitle": "Medication Types",
+        "checksTitle": "Regular Check-ups"
+      },
+      "targets": [
+        "Normal: <120/80 mmHg",
+        "Elevated: 120–129/<80 mmHg",
+        "Hypertension Stage 1: 130–139/80–89 mmHg",
+        "Hypertension Stage 2: ≥140/90 mmHg"
+      ],
+      "meds": [
+        "Diuretics : help kidneys remove excess salt and water",
+        "ACE inhibitors : relax blood vessels",
+        "Calcium channel blockers : relax blood vessel muscles",
+        "Beta-blockers : reduce heart rate and output"
+      ],
+      "checks": [
+        "Blood pressure : at every visit",
+        "Kidney function : annually",
+        "Cholesterol levels : every 4–6 years",
+        "Eye exam : annually"
+      ],
+      "cta": {
+        "blurb": "With the rising prevalence of hypertension in Malaysia, prevention and management are more important than ever.",
+        "plan": "Generate My Diet & Exercise Plan",
+        "analysis": "Start Health Analysis",
+        "quiz": "Take Health Quiz"
+      }
+    }
+  },
+  "stroke": {
+    "title": "Stroke",
+    "subtitle": "A serious life-threatening medical condition that occurs when blood supply to the brain is interrupted, with 40,000 cases annually in Malaysia.",
+    "breadcrumbHome": "Home",
+    "breadcrumbLibrary": "NCDs",
+    "tabs": {
+      "overview": "Overview",
+      "symptoms": "Symptoms",
+      "risk": "Risk Factors",
+      "prevention": "Prevention",
+      "management": "Management"
+    },
+    "whatHeading": "What is Stroke?",
+    "whatDesc": "A stroke occurs when blood flow to part of the brain is interrupted or reduced, preventing brain tissue from getting oxygen and nutrients. Brain cells begin to die within minutes, making stroke a medical emergency requiring immediate treatment.",
+    "keyFacts": "Key Facts",
+    "facts": [
+      "40,000 stroke cases occur annually in Malaysia",
+      "Third leading cause of death globally",
+      "Leading cause of adult disability worldwide",
+      "Time-critical: “Time is brain” – every minute counts"
+    ],
+    "stats": {
+      "cases": "40,000",
+      "casesLabel": "Annual Cases",
+      "deathsPercent": "8.9%",
+      "deathsLabel": "Of Total Deaths",
+      "rank": "3rd",
+      "rankLabel": "Leading Cause"
+    },
+    "types": {
+      "ischemicTitle": "Ischemic Stroke",
+      "ischemicDesc": "Caused by a blockage (blood clot) that cuts off blood flow to part of the brain. Accounts for about 85% of all strokes.",
+      "ischemicNote": "Most common type. Can be caused by blood clots formed in the brain (thrombotic) or clots that travel from elsewhere (embolic).",
+      "hemorrhagicTitle": "Hemorrhagic Stroke",
+      "hemorrhagicDesc": "Caused by bleeding in or around the brain when a blood vessel bursts. Less common but often more severe.",
+      "hemorrhagicNote": "Can be intracerebral (bleeding within brain tissue) or subarachnoid (bleeding around the brain)."
+    },
+    "symptoms": {
+      "title": "Stroke Symptoms - Act F.A.S.T.",
+      "subtitle": "Recognizing stroke symptoms quickly and acting F.A.S.T. can save lives and reduce long-term disability.",
+      "fast": {
+        "face": "Face drooping",
+        "face2": "Ask person to smile. Does one side droop?",
+        "arms": "Arm weakness",
+        "arms2": "Ask person to raise both arms. Does one drift down?",
+        "speech": "Speech difficulty",
+        "speech2": "Ask person to repeat simple phrase. Is speech slurred?",
+        "time": "Time to call emergency",
+        "time2": "If any signs present, call 999 immediately."
+      },
+      "emergencyAction": "If you see any of these signs, call 999 immediately! Note the time symptoms first appeared – this information is crucial for treatment decisions.",
+      "otherTitle": "Other Stroke Symptoms",
+      "otherList": [
+        "Sudden severe headache",
+        "Sudden vision loss or changes",
+        "Sudden dizziness or loss of balance",
+        "Sudden numbness or weakness",
+        "Sudden confusion or trouble understanding"
+      ],
+      "whatToDo": {
+        "title": "What to Do",
+        "list": [
+          "Call 999 immediately. Don’t wait to see if symptoms improve",
+          "Note the time. When did symptoms first appear?",
+          "Stay calm and safe. Keep the person comfortable and safe"
+        ]
+      },
+      "whatNotToDo": {
+        "title": "What NOT to Do",
+        "list": [
+          "Don’t wait – Don’t wait to see if symptoms improve",
+          "Don’t drive – Don’t drive yourself or let the person drive",
+          "Don’t give medication – Don’t give aspirin or other medications"
+        ]
+      }
+    },
+    "risk": {
+      "title": "Stroke Risk Factors",
+      "list": [
+        "High blood pressure (hypertension)",
+        "Diabetes mellitus",
+        "High cholesterol levels",
+        "Smoking and tobacco use",
+        "Excessive alcohol consumption",
+        "Obesity and physical inactivity",
+        "Atrial fibrillation (irregular heartbeat)",
+        "Age (risk doubles every decade after 55)",
+        "Family history of stroke",
+        "Previous stroke or TIA"
+      ],
+      "malaysianSpecific": {
+        "title": "Malaysian-Specific Risk Considerations",
+        "ethnic": [
+          "Indians have higher stroke risk due to diabetes prevalence",
+          "Chinese populations show higher rates of hemorrhagic stroke",
+          "Malays have increased risk due to hypertension rates",
+          "Genetic factors influence stroke susceptibility"
+        ],
+        "lifestyle": [
+          "High-sodium traditional foods",
+          "Limited physical activity in urban areas",
+          "High stress from work and traffic congestion",
+          "Delayed medical attention due to cultural beliefs"
+        ]
+      }
+    },
+    "prevention": {
+      "title": "Stroke Prevention",
+      "subtitle": "Up to 80% of strokes can be prevented through lifestyle modifications and proper management of risk factors.",
+      "list": [
+        "Control blood pressure (< 140/90 mmHg)",
+        "Manage diabetes effectively (HbA1c < 7%)",
+        "Maintain healthy cholesterol levels",
+        "Quit smoking and avoid tobacco products",
+        "Exercise regularly (150 minutes/week)",
+        "Maintain healthy weight (BMI 18.5–24.9)",
+        "Eat a balanced, heart-healthy diet",
+        "Limit alcohol consumption",
+        "Manage stress and get adequate sleep",
+        "Take prescribed medications as directed"
+      ],
+      "diet": {
+        "title": "Malaysian Heart-Healthy Diet Recommendations",
+        "include": [
+          "Fresh fish (ikan kembung, tenggiri)",
+          "Leafy greens (bayam, kangkung)",
+          "Whole grains (brown rice, oats)",
+          "Fresh fruits (papaya, guava, banana)",
+          "Legumes (dal, tauhu, tempe)"
+        ],
+        "limit": [
+          "High-sodium foods (kicap, belacan)",
+          "Fried foods (goreng pisang, keropok)",
+          "Processed meats (sausages)",
+          "Sugary drinks (teh tarik, sirap)",
+          "High-fat coconut milk dishes"
+        ],
+        "cookingTips": [
+          "Steam, grill, or bake instead of frying",
+          "Use herbs and spices for flavoring",
+          "Reduce oil and salt when cooking",
+          "Choose lean cuts of meat",
+          "Use low-fat cooking methods"
+        ]
+      }
+    },
+    "management": {
+      "title": "Stroke Management",
+      "subtitle": "Comprehensive stroke management involves acute treatment, rehabilitation, and long-term care to optimize recovery and prevent future strokes.",
+      "list": [
+        "Immediate emergency medical treatment",
+        "Clot-busting medications (if appropriate)",
+        "Physical therapy and rehabilitation",
+        "Speech and occupational therapy",
+        "Medication management for underlying conditions",
+        "Lifestyle modifications and risk factor control",
+        "Regular follow-up with healthcare team",
+        "Psychological support and counseling",
+        "Family education and support",
+        "Prevention of secondary strokes"
+      ],
+      "goldenHours": {
+        "title": "Acute Stroke Treatment - The Golden Hours",
+        "stages": [
+          "0–3 Hours: Optimal window for clot-busting drugs (tPA). Brain tissue can still be saved.",
+          "3–4.5 Hours: Extended window for tPA in selected patients. Still beneficial for many.",
+          "6–24 Hours: Mechanical thrombectomy may be possible for large vessel occlusions."
+        ]
+      },
+      "secondary": {
+        "title": "Secondary Stroke Prevention",
+        "medical": [
+          "Antiplatelet therapy (aspirin, clopidogrel)",
+          "Blood pressure control (< 140/90 mmHg)",
+          "Cholesterol management (statins)",
+          "Diabetes control (HbA1c < 7%)",
+          "Anticoagulation for atrial fibrillation"
+        ],
+        "lifestyle": [
+          "Regular exercise as tolerated",
+          "Heart-healthy diet",
+          "Smoking cessation",
+          "Weight management",
+          "Stress reduction and adequate sleep"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Call to Action",
+      "desc": "With the rising prevalence of stroke in Malaysia, prevention and management are more important than ever.",
+      "buttons": {
+        "diet": "Generate My Diet & Exercise Plan",
+        "analysis": "Start Health Analysis",
+        "quiz": "Take Health Quiz"
+      }
+    }
+  },
+  "challenges": {
+    "breadcrumbHome": "Home",
+    "breadcrumbQuiz": "Quiz & Challenges",
+    "hero": {
+      "title": "Health Knowledge Quiz",
+      "lead": {
+        "1": "Test your understanding of",
+        "ncd": "Non-Communicable Diseases",
+        "2": "and get personalized health insights!"
+      },
+      "pills": {
+        "qTitle": "25 Questions (5 Sections)",
+        "qDesc": "Comprehensive Noncommunicable Disease Knowledge Assessment",
+        "tTitle": "30 Minutes",
+        "tDesc": "Average completion time",
+        "rTitle": "Instant Results",
+        "rDesc": "Get feedback immediately"
+      },
+      "imgAlt": "Family taking a health quiz"
+    },
+    "cta": {
+      "start": "Start Quiz",
+      "getPrize": "🏆 Get Your Badge"
+    },
+    "challenges": {
+      "title": "Monthly Health Challenges",
+      "for": "for"
+    },
+    "weeks": {
+      "week1": "Week 1",
+      "week2": "Week 2",
+      "week3": "Week 3",
+      "week4": "Week 4"
+    },
+    "loading": "Loading challenges…",
+    "progress": "Progress: {completed}/{total} challenges completed",
+    "badge": {
+      "title": "Congratulations!",
+      "desc": "You’ve completed all challenges for {monthYear}. Download your personalized badge.",
+      "summaryTitle": "Your Achievement",
+      "summary": "Completed {count} challenges • Earned in {monthYear}",
+      "download": "Download Badge",
+      "generating": "Generating Badge…",
+      "close": "Close"
+    },
+    "errors": {
+      "load": "We couldn’t load this month’s challenges. Please try again.",
+      "generate": "Sorry, there was an error generating your badge. Please try again."
+    }
+  },
+  "quiz": {
+    "loading": "Loading quiz…",
+    "error": "Unable to load quiz.",
+    "backHome": "Back to Home",
+    "breadcrumbHome": "Home",
+    "breadcrumbQuiz": "Quiz",
+    "hero": {
+      "title": "Health Knowledge Quiz",
+      "lead": "Want a fuller picture of your health? Try our knowledge checks on diabetes, hypertension, and stroke."
+    },
+    "card": { "title": "NCD Knowledge Quiz" },
+    "nav": { "title": "Quiz navigation", "section": "Section", "hide": "Hide" },
+    "left": { "notAnswered": "Not yet answered", "answered": "Answered" },
+    "sectionPrefix": "Section",
+    "sectionHint": "Showing questions {start}–{end} of {total}",
+    "prev": "Previous page",
+    "next": "Next page",
+    "submit": "Submit",
+    "breadcrumbResults": "Results",
+    "resultsTitle": "Test results",
+    "yourResult": "Your Result",
+    "outOf": "Out of",
+    "radarTitle": "Radar Analysis Capability Chart",
+    "noResults": "No results found. Please take the quiz first.",
+    "retry": "Retry quiz",
+    "topics": {
+      "diabetes": "Diabetes",
+      "stroke": "Stroke",
+      "hypertension": "Hypertension",
+      "otherNcds": "Other NCDs",
+      "generalKnowledge": "General Knowledge"
+    }
+  },
   "lang": {
     "english": "English",
     "malay": "Malay",
-    "chinese": "Chinese",
-    "vietnamese": "Vietnamese",
+    "chinese": "中文",
+    "vietnamese": "Tiếng Việt",
     "switch": "Switch Language"
   }
 }

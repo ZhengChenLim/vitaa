@@ -4,7 +4,21 @@
     "home": "Trang chủ",
     "plan": "Kế hoạch sức khỏe",
     "analysis": "Phân tích sức khỏe",
-    "contact": "Liên hệ"
+    "explore": "Khám phá",
+    "exploreAria": "Khám phá các chủ đề sức khỏe",
+    "toggleMenuAria": "Chuyển đổi menu điều hướng",
+    "section": {
+      "ncd": "Bệnh Không Lây Nhiễm",
+      "challenges": "Thách Thức"
+    },
+    "ncd": {
+      "diabetes": "Bệnh Tiểu Đường",
+      "hypertension": "Tăng Huyết Áp",
+      "stroke": "Đột Quỵ"
+    },
+    "challenges": {
+      "monthlyQuiz": "Đố Vui Hàng Tháng"
+    }
   },
   "home": {
     "heroTitle": "Ngăn ngừa <strong>thách thức sức khỏe</strong> của ngày mai ngay hôm nay",
@@ -28,6 +42,14 @@
     "whyPersonalised": "Khuyến nghị ăn uống và luyện tập cá nhân hóa"
   },
   "plan": {
+    "validation": {
+      "age": "Tuổi phải từ 18 đến 150",
+      "height": "Chiều cao phải từ 50 cm đến 250 cm",
+      "weight": "Cân nặng phải từ 30 kg đến 300 kg",
+      "waist": "Vòng eo phải từ 30 cm đến 200 cm",
+      "required": "Trường này là bắt buộc",
+      "number": "Trường này phải là số"
+    },
     "profile": {
       "none": "Không"
     },
@@ -105,21 +127,45 @@
     },
     "submit": "Tạo Kế hoạch Sức khỏe"
   },
-   "analysis": {
+  "analysis": {
     "breadcrumbs": {
       "home": "Trang chủ",
       "analysis": "Phân tích Sức khỏe"
+    },
+    "validation": {
+      "age": "Tuổi phải từ 18 đến 150",
+      "height": "Chiều cao phải từ 50 cm đến 250 cm",
+      "weight": "Cân nặng phải từ 30 kg đến 300 kg",
+      "waist": "Vòng eo phải từ 30 cm đến 200 cm",
+      "required": "Trường này là bắt buộc",
+      "number": "Trường này phải là số"
     },
     "loading": "đang tải...",
     "title": "Mẫu Phân tích Sức khỏe",
     "subtitle": "Nhận thông tin chi tiết do AI hỗ trợ để phát hiện sớm nguy cơ tiểu đường, tăng huyết áp và đột quỵ — giúp bạn hành động sớm hơn.",
     "assessmentTitle": "Đánh giá Nguy cơ Sức khỏe",
     "fields": {
-      "age": { "label": "Tuổi", "placeholder": "Nhập tuổi của bạn" },
-      "sex": { "label": "Giới tính", "male": "Nam", "female": "Nữ" },
-      "height": { "label": "Chiều cao (cm)", "placeholder": "Nhập chiều cao của bạn" },
-      "weight": { "label": "Cân nặng (kg)", "placeholder": "Nhập cân nặng của bạn" },
-      "waist": { "label": "Vòng eo (cm)", "placeholder": "Nhập số đo vòng eo của bạn" },
+      "age": {
+        "label": "Tuổi",
+        "placeholder": "Nhập tuổi của bạn"
+      },
+      "sex": {
+        "label": "Giới tính",
+        "male": "Nam",
+        "female": "Nữ"
+      },
+      "height": {
+        "label": "Chiều cao (cm)",
+        "placeholder": "Nhập chiều cao của bạn"
+      },
+      "weight": {
+        "label": "Cân nặng (kg)",
+        "placeholder": "Nhập cân nặng của bạn"
+      },
+      "waist": {
+        "label": "Vòng eo (cm)",
+        "placeholder": "Nhập số đo vòng eo của bạn"
+      },
       "bpSystolic": {
         "label": "Huyết áp tâm thu",
         "placeholder": "Nhập chỉ số huyết áp tâm thu",
@@ -202,6 +248,9 @@
     "overview": {
       "title": "Kế hoạch Sức khỏe của bạn",
       "macroTitle": "Phân bổ Đạm - Béo - Tinh bột",
+      "protein": "Protein",
+      "carbs": "Cacbohydrat",
+      "fat": "Chất béo",
       "metrics": {
         "bmi": "BMI",
         "dailyCalories": "Calo mỗi ngày",
@@ -272,7 +321,18 @@
     }
   },
   "analysisResult": {
-    "breadcrumbs": { "home": "Trang chủ", "result": "Kết quả" },
+    "breadcrumbs": {
+      "home": "Trang chủ",
+      "result": "Kết quả"
+    },
+    "validation": {
+      "age": "Tuổi phải từ 18 đến 150",
+      "height": "Chiều cao phải từ 50 cm đến 250 cm",
+      "weight": "Cân nặng phải từ 30 kg đến 300 kg",
+      "waist": "Vòng eo phải từ 30 cm đến 200 cm",
+      "required": "Trường này là bắt buộc",
+      "number": "Trường này phải là số"
+    },
     "loading": "đang tải...",
     "title": "Kết quả phân tích sức khỏe",
     "profile": {
@@ -305,10 +365,25 @@
       "disclaimer": "Đánh giá rủi ro này chỉ nhằm mục đích quản lý sức khỏe, không phải chẩn đoán y khoa. Kết quả \"Nguy cơ cao\" không có nghĩa là bạn chắc chắn sẽ mắc bệnh. Hãy tham khảo bác sĩ để được tư vấn cá nhân."
     },
     "enums": {
-      "sex": { "male": "Nam", "female": "Nữ" },
-      "activity": { "sedentary": "Ít vận động", "low": "Thấp", "medium": "Trung bình", "high": "Cao" },
-      "alcohol": { "none": "Không", "occasional": "Thỉnh thoảng", "frequent": "Thường xuyên" },
-      "smoking": { "smoker": "Người hút thuốc", "nonSmoker": "Không hút thuốc" }
+      "sex": {
+        "male": "Nam",
+        "female": "Nữ"
+      },
+      "activity": {
+        "sedentary": "Ít vận động",
+        "low": "Thấp",
+        "medium": "Trung bình",
+        "high": "Cao"
+      },
+      "alcohol": {
+        "none": "Không",
+        "occasional": "Thỉnh thoảng",
+        "frequent": "Thường xuyên"
+      },
+      "smoking": {
+        "smoker": "Người hút thuốc",
+        "nonSmoker": "Không hút thuốc"
+      }
     },
     "bmi": {
       "title": "BMI",
@@ -337,13 +412,798 @@
     "risk": {
       "title": "Đánh giá rủi ro sức khỏe",
       "learnMore": "Tìm hiểu thêm",
-      "level": { "high": "Nguy cơ cao", "moderate": "Nguy cơ trung bình", "low": "Nguy cơ thấp", "unknown": "Chưa rõ" },
-      "conditions": { "diabetes": "Đái tháo đường", "hypertension": "Tăng huyết áp", "stroke": "Đột quỵ" },
+      "level": {
+        "high": "Nguy cơ cao",
+        "moderate": "Nguy cơ trung bình",
+        "low": "Nguy cơ thấp",
+        "unknown": "Chưa rõ"
+      },
+      "conditions": {
+        "diabetes": "Đái tháo đường",
+        "hypertension": "Tăng huyết áp",
+        "stroke": "Đột quỵ"
+      },
       "desc": {
         "diabetes": "Đái tháo đường là tình trạng đường huyết tăng cao mạn tính. Người có nguy cơ cao nên chú ý chế độ ăn, luyện tập và quản lý cân nặng.",
         "hypertension": "Tăng huyết áp là tình trạng mạn tính với huyết áp tăng kéo dài. Nguy cơ hiện thấp. Nên duy trì lối sống lành mạnh để phòng ngừa.",
         "stroke": "Đột quỵ là bệnh lý cấp tính do tắc mạch hoặc chảy máu não. Nguy cơ hiện thấp. Duy trì thói quen lành mạnh giúp giảm rủi ro trong tương lai."
       }
+    }
+  },
+  "NCD": {
+    "title": "Thư Viện Kiến Thức NCD",
+    "subtitle": "Thông tin toàn diện về các bệnh không lây nhiễm, tác động và chiến lược phòng ngừa phù hợp với bối cảnh y tế tại Malaysia.",
+    "understanding": "Tìm hiểu về Bệnh Không Lây Nhiễm",
+    "whatHeading": "NCD là gì?",
+    "whatP1": "Bệnh không lây nhiễm (NCD), còn gọi là bệnh mạn tính, thường kéo dài và do sự kết hợp của yếu tố di truyền, sinh lý, môi trường và hành vi.",
+    "whatP2": "Các loại chính bao gồm bệnh tim mạch (như đau tim và đột quỵ), ung thư, bệnh hô hấp mạn tính (như COPD và hen suyễn) và tiểu đường.",
+    "ncdVsCd": "NCD so với Bệnh Truyền Nhiễm",
+    "ncdTitle": "Bệnh Không Lây Nhiễm",
+    "ncdPoint1": "Không lây từ người sang người",
+    "ncdPoint2": "Mạn tính và kéo dài",
+    "ncdPoint3": "Thường liên quan đến lối sống",
+    "ncdExamples": "Ví dụ: Tiểu đường, tăng huyết áp, đột quỵ",
+    "cdTitle": "Bệnh Truyền Nhiễm",
+    "cdPoint1": "Có thể lây từ người sang người",
+    "cdPoint2": "Thường cấp tính và ngắn hạn",
+    "cdPoint3": "Do mầm bệnh gây ra",
+    "cdExamples": "Ví dụ: COVID-19, lao, sốt rét",
+    "typesTitle": "Các Loại Bệnh Không Lây Nhiễm",
+    "typesSubtitle": "Tìm hiểu các loại NCD chính ảnh hưởng đến người dân Malaysia và tác động đến sức khỏe.",
+    "diabetesTitle": "Tiểu đường",
+    "diabetesDesc": "Một bệnh mạn tính ảnh hưởng đến cách cơ thể xử lý đường huyết (glucose).",
+    "diabetesPrev": "Tỉ lệ tại Malaysia: 3,9 triệu người trưởng thành mắc bệnh",
+    "hypertensionTitle": "Tăng huyết áp",
+    "hypertensionDesc": "Huyết áp cao có thể dẫn đến biến chứng sức khỏe nghiêm trọng nếu không được điều trị.",
+    "hypertensionPrev": "Tỉ lệ tại Malaysia: 6,4 triệu người trưởng thành mắc bệnh",
+    "strokeTitle": "Đột quỵ",
+    "strokeDesc": "Một tình trạng nghiêm trọng xảy ra khi nguồn cung cấp máu lên não bị gián đoạn.",
+    "strokePrev": "Tỉ lệ tại Malaysia: 40.000 ca hàng năm",
+    "learnMore": "Tìm hiểu thêm"
+  },
+  "diabetes": {
+    "title": "Đái tháo đường",
+    "subtitle": "Một bệnh mạn tính ảnh hưởng đến cách cơ thể xử lý đường huyết (glucose), ảnh hưởng đến {count} triệu người trưởng thành tại Malaysia.",
+    "breadcrumbHome": "Trang chủ",
+    "breadcrumbLibrary": "Bệnh không lây",
+    "tabs": {
+      "overview": "Tổng quan",
+      "symptoms": "Triệu chứng",
+      "risk": "Yếu tố nguy cơ",
+      "prevention": "Phòng ngừa",
+      "management": "Quản lý"
+    },
+    "whatHeading": "Đái tháo đường là gì?",
+    "whatDesc": "Đái tháo đường là nhóm rối loạn chuyển hóa đặc trưng bởi mức đường huyết cao kéo dài. Bệnh xảy ra khi cơ thể không sản xuất đủ insulin hoặc không thể sử dụng insulin hiệu quả.",
+    "keyFacts": "Thông tin chính",
+    "facts": [
+      "Hơn 3.9 triệu người trưởng thành Malaysia mắc bệnh đái tháo đường",
+      "Tỷ lệ mắc tăng từ 11.6% lên 18.3% (2011–2019)",
+      "Nguyên nhân hàng đầu gây mù lòa, suy thận và cắt cụt chi dưới",
+      "Tăng nguy cơ bệnh tim và đột quỵ"
+    ],
+    "stats": {
+      "adultPrevalence": "Tỷ lệ mắc ở người lớn",
+      "adultsAffected": "Người lớn mắc bệnh",
+      "totalDeaths": "Trong tổng số ca tử vong",
+      "nhms": "NHMS 2019",
+      "estimate": "Ước tính 2023",
+      "moh": "Bộ Y tế Malaysia 2021"
+    },
+    "type1": {
+      "title": "Đái tháo đường tuýp 1",
+      "desc": "Bệnh tự miễn trong đó hệ miễn dịch phá hủy các tế bào beta sản xuất insulin trong tuyến tụy. Thường xuất hiện ở trẻ em hoặc người trưởng thành trẻ.",
+      "note": "Cần tiêm insulin suốt đời và theo dõi đường huyết chặt chẽ."
+    },
+    "type2": {
+      "title": "Đái tháo đường tuýp 2",
+      "desc": "Cơ thể trở nên kháng insulin hoặc không sản xuất đủ insulin. Dạng phổ biến nhất; thường gặp ở người trên 40 tuổi nhưng ngày càng thấy ở người trẻ.",
+      "note": "Thường được kiểm soát bằng thay đổi lối sống, thuốc uống và đôi khi insulin."
+    },
+    "badges": {
+      "evidence": "Nội dung dựa trên bằng chứng",
+      "ncd": "Thư viện bệnh không lây"
+    },
+    "symptoms": {
+      "title": "Triệu chứng đái tháo đường",
+      "subtitle": "Phát hiện sớm rất quan trọng. Hãy biết các dấu hiệu cảnh báo và tìm kiếm sự chăm sóc y tế nếu bạn gặp phải.",
+      "type1": {
+        "title": "Triệu chứng tuýp 1",
+        "list": [
+          "Đi tiểu thường xuyên",
+          "Khát nước nhiều",
+          "Đói dữ dội",
+          "Sụt cân không rõ nguyên nhân",
+          "Mệt mỏi và yếu sức",
+          "Mờ mắt",
+          "Vết thương lâu lành"
+        ],
+        "note": "Triệu chứng tuýp 1 thường phát triển nhanh trong vài tuần hoặc tháng và cần chăm sóc y tế ngay lập tức."
+      },
+      "type2": {
+        "title": "Triệu chứng tuýp 2",
+        "list": [
+          "Khát nước và đi tiểu nhiều hơn",
+          "Ăn nhiều hơn bình thường",
+          "Mệt mỏi",
+          "Mờ mắt",
+          "Nhiễm trùng lâu lành",
+          "Vùng da sẫm màu",
+          "Tê hoặc ngứa ran ở tay hoặc chân"
+        ],
+        "note": "Triệu chứng tuýp 2 tiến triển từ từ và có thể nhẹ lúc đầu, thường không được chú ý trong nhiều năm."
+      },
+      "cta": {
+        "title": "Khi nào cần gặp bác sĩ",
+        "desc": "Liên hệ ngay với bác sĩ nếu bạn có nhiều triệu chứng, đặc biệt khi có yếu tố nguy cơ.",
+        "immediate": {
+          "title": "Khẩn cấp",
+          "desc": "Triệu chứng nghiêm trọng hoặc dấu hiệu nhiễm toan ceton"
+        },
+        "withinDays": {
+          "title": "Trong vài ngày",
+          "desc": "Có nhiều triệu chứng cùng lúc"
+        },
+        "routine": {
+          "title": "Khám định kỳ",
+          "desc": "Khám hàng năm nếu có nguy cơ cao"
+        }
+      }
+    },
+    "risk": {
+      "title": "Yếu tố nguy cơ đái tháo đường",
+      "subtitle": "Hiểu rõ nguy cơ giúp bạn phòng ngừa và đưa ra quyết định đúng đắn cho sức khỏe.",
+      "items": [
+        "Tiền sử gia đình mắc bệnh",
+        "Trên 45 tuổi",
+        "Thừa cân hoặc béo phì (BMI ≥ 25)",
+        "Ít vận động",
+        "Huyết áp cao",
+        "Cholesterol cao",
+        "Tiền sử tiểu đường thai kỳ",
+        "Hội chứng buồng trứng đa nang (PCOS)"
+      ],
+      "my": {
+        "title": "Nguy cơ đặc thù tại Malaysia"
+      },
+      "genetic": {
+        "title": "Yếu tố di truyền",
+        "list": [
+          "Tỷ lệ mắc cao hơn ở người Ấn Độ và Mã Lai",
+          "Người châu Á mắc bệnh ở mức BMI thấp hơn",
+          "Khuynh hướng di truyền khác nhau theo dân tộc"
+        ]
+      },
+      "lifestyle": {
+        "title": "Yếu tố lối sống",
+        "list": [
+          "Ăn nhiều tinh bột tinh chế",
+          "Lối sống ít vận động do đô thị hóa",
+          "Căng thẳng từ công việc hiện đại"
+        ]
+      }
+    },
+    "prevention": {
+      "title": "Phòng ngừa đái tháo đường",
+      "subtitle": "Đái tháo đường tuýp 2 có thể phòng ngừa chủ yếu bằng thay đổi lối sống.",
+      "left": [
+        "Duy trì cân nặng hợp lý",
+        "Ăn uống cân bằng, ít đường",
+        "Khám sức khỏe định kỳ",
+        "Ngủ đủ giấc (7–9 giờ)"
+      ],
+      "right": [
+        "Tập thể dục thường xuyên (150 phút/tuần)",
+        "Hạn chế thực phẩm chế biến, đồ ngọt",
+        "Quản lý căng thẳng",
+        "Tránh hút thuốc, hạn chế rượu bia"
+      ],
+      "diet": {
+        "title": "Khuyến nghị dinh dưỡng Malaysia",
+        "localTitle": "Thực phẩm địa phương lành mạnh",
+        "limitTitle": "Thực phẩm nên hạn chế",
+        "portionTitle": "Kiểm soát khẩu phần",
+        "local": [
+          "Cơm gạo lứt thay cơm trắng",
+          "Cá hấp và rau",
+          "Trái cây tươi như đu đủ, ổi",
+          "Protein nạc và các loại đậu"
+        ],
+        "limit": [
+          "Đồ uống có đường và trà sữa kéo",
+          "Đồ chiên và bánh ngọt (kuih)",
+          "Đồ ăn vặt chế biến sẵn",
+          "Thực phẩm nhiều muối"
+        ],
+        "portion": [
+          "Dùng đĩa nhỏ hơn",
+          "Nửa đĩa là rau",
+          "Cơm chỉ chiếm ¼ đĩa",
+          "Luôn có protein trong mỗi bữa"
+        ]
+      }
+    },
+    "management": {
+      "title": "Quản lý đái tháo đường",
+      "subtitle": "Quản lý hiệu quả kết hợp thuốc, lối sống và theo dõi định kỳ.",
+      "left": [
+        "Theo dõi đường huyết thường xuyên",
+        "Tuân theo chế độ ăn phù hợp",
+        "Khám định kỳ với bác sĩ",
+        "Chăm sóc bàn chân hằng ngày"
+      ],
+      "right": [
+        "Uống thuốc theo chỉ định",
+        "Tập thể dục đều đặn và an toàn",
+        "Theo dõi huyết áp và cholesterol",
+        "Tiêm phòng đầy đủ"
+      ],
+      "panels": {
+        "targetsTitle": "Mục tiêu đường huyết",
+        "medsTitle": "Các loại thuốc",
+        "checksTitle": "Khám định kỳ"
+      },
+      "targets": [
+        "Trước bữa ăn: 4.0–7.0 mmol/L",
+        "2 giờ sau ăn: < 10.0 mmol/L",
+        "HbA1c: < 7.0%"
+      ],
+      "meds": [
+        "Metformin — điều trị đầu tay",
+        "Insulin — nhiều loại khác nhau",
+        "Các thuốc khác theo chỉ định"
+      ],
+      "checks": [
+        "Xét nghiệm HbA1c — 3–6 tháng/lần",
+        "Khám mắt — hàng năm",
+        "Khám bàn chân — mỗi lần tái khám"
+      ],
+      "cta": {
+        "blurb": "Với tỷ lệ mắc bệnh ngày càng tăng ở Malaysia, phòng ngừa và quản lý là vô cùng quan trọng.",
+        "plan": "Tạo kế hoạch ăn uống & tập luyện",
+        "analysis": "Bắt đầu phân tích sức khỏe",
+        "quiz": "Làm bài kiểm tra sức khỏe"
+      }
+    }
+  },
+  "hypertension": {
+    "title": "Tăng huyết áp",
+    "subtitle": "Một bệnh mạn tính đặc trưng bởi huyết áp cao kéo dài, ảnh hưởng đến {count} triệu người trưởng thành ở Malaysia.",
+    "breadcrumbHome": "Trang chủ",
+    "breadcrumbLibrary": "Bệnh mạn tính",
+    "tabs": {
+      "overview": "Tổng quan",
+      "symptoms": "Triệu chứng",
+      "risk": "Yếu tố nguy cơ",
+      "prevention": "Phòng ngừa",
+      "management": "Quản lý"
+    },
+    "whatHeading": "Tăng huyết áp là gì?",
+    "whatDesc": "Tăng huyết áp, hay huyết áp cao, là tình trạng mạn tính khi áp lực máu trong động mạch duy trì ở mức cao. Thường được gọi là 'kẻ giết người thầm lặng' vì thường không có triệu chứng cho đến khi gây ra tổn thương nghiêm trọng.",
+    "keyFacts": "Thông tin chính",
+    "facts": [
+      "Hơn 6,4 triệu người trưởng thành ở Malaysia bị tăng huyết áp",
+      "Tỷ lệ mắc ở người lớn ~30% (NHMS 2019)",
+      "Là yếu tố nguy cơ chính của bệnh tim và đột quỵ",
+      "Thường không được chẩn đoán do không có triệu chứng"
+    ],
+    "stats": {
+      "adultPrevalence": "Tỷ lệ mắc ở người lớn",
+      "adultsAffected": "Người lớn bị ảnh hưởng",
+      "totalDeaths": "Trong tổng số tử vong",
+      "nhms": "NHMS 2019",
+      "estimate": "Ước tính 2023",
+      "moh": "Bộ Y tế Malaysia 2021"
+    },
+    "badges": {
+      "evidence": "Nội dung dựa trên bằng chứng",
+      "ncd": "Thư viện bệnh mạn tính"
+    },
+    "overview": {
+      "bpReadings": {
+        "title": "Hiểu chỉ số huyết áp",
+        "normal": {
+          "title": "Bình thường",
+          "range": "< 120/80",
+          "note": "Huyết áp tối ưu"
+        },
+        "elevated": {
+          "title": "Tăng nhẹ",
+          "range": "120–129/<80",
+          "note": "Nguy cơ cao huyết áp"
+        },
+        "stage1": {
+          "title": "Giai đoạn 1",
+          "range": "130–139/80–89",
+          "note": "Huyết áp cao"
+        },
+        "stage2": {
+          "title": "Giai đoạn 2",
+          "range": "≥140/≥90",
+          "note": "Cần can thiệp ngay"
+        }
+      },
+      "types": {
+        "primary": {
+          "title": "Tăng huyết áp nguyên phát",
+          "desc": "Loại phổ biến nhất, phát triển dần dần trong nhiều năm mà không có nguyên nhân rõ ràng. Chiếm khoảng 90–95% người bệnh.",
+          "note": "Thường liên quan đến lối sống và di truyền."
+        },
+        "secondary": {
+          "title": "Tăng huyết áp thứ phát",
+          "desc": "Do bệnh nền như bệnh thận, rối loạn tuyến thượng thận hoặc do thuốc. Thường xuất hiện đột ngột và mức huyết áp cao hơn.",
+          "note": "Có thể cải thiện bằng cách điều trị nguyên nhân cơ bản."
+        }
+      }
+    },
+    "symptoms": {
+      "title": "Triệu chứng tăng huyết áp",
+      "subtitle": "Tăng huyết áp thường được gọi là \"kẻ giết người thầm lặng\" vì hầu hết bệnh nhân không có triệu chứng ngay cả khi huyết áp cao.",
+      "warning": {
+        "title": "Cảnh báo: Hầu hết các ca không có triệu chứng",
+        "desc": "Đa số người tăng huyết áp không có triệu chứng. Do đó, việc kiểm tra huyết áp định kỳ là rất quan trọng để phát hiện sớm và ngăn ngừa biến chứng."
+      },
+      "left": {
+        "title": "Triệu chứng tăng huyết áp nặng",
+        "lead": "Khi huyết áp đạt mức nguy hiểm (cơn tăng huyết áp), có thể xuất hiện:",
+        "list": [
+          "Đau đầu dữ dội",
+          "Chảy máu cam",
+          "Mệt mỏi hoặc lú lẫn",
+          "Vấn đề thị lực",
+          "Đau ngực",
+          "Khó thở",
+          "Nhịp tim không đều",
+          "Có máu trong nước tiểu",
+          "Cảm giác đập mạnh ở ngực, cổ hoặc tai"
+        ]
+      },
+      "right": {
+        "title": "Dấu hiệu khẩn cấp",
+        "lead": "Hãy đi khám ngay nếu có những triệu chứng này kèm huyết áp cao:",
+        "cards": [
+          {
+            "title": "Cơn tăng huyết áp",
+            "desc": "Huyết áp > 180/120 mmHg"
+          },
+          {
+            "title": "Đau đầu dữ dội",
+            "desc": "Đau đầu đột ngột, khác thường"
+          },
+          {
+            "title": "Đau ngực",
+            "desc": "Đau ngực kèm khó thở"
+          },
+          {
+            "title": "Thay đổi thị lực",
+            "desc": "Đột ngột mờ mắt hoặc mất thị lực"
+          }
+        ]
+      },
+      "monitor": {
+        "title": "Tầm quan trọng của theo dõi định kỳ",
+        "subtitle": "Vì tăng huyết áp thường không có triệu chứng, kiểm tra thường xuyên là cách duy nhất để phát hiện sớm.",
+        "u40": {
+          "title": "Người lớn < 40 tuổi",
+          "desc": "Kiểm tra mỗi 3–5 năm"
+        },
+        "o40": {
+          "title": "Người lớn 40+",
+          "desc": "Kiểm tra hằng năm"
+        },
+        "high": {
+          "title": "Nguy cơ cao",
+          "desc": "Kiểm tra mỗi 6 tháng"
+        }
+      }
+    },
+    "risk": {
+      "title": "Yếu tố nguy cơ tăng huyết áp",
+      "subtitle": "Hiểu rõ các yếu tố nguy cơ giúp bạn phòng ngừa và đưa ra quyết định đúng đắn.",
+      "items": [
+        "Tuổi từ 35 trở lên",
+        "Tiền sử gia đình tăng huyết áp",
+        "Thừa cân hoặc béo phì (BMI ≥ 25)",
+        "Ít hoạt động thể chất",
+        "Ăn mặn",
+        "Uống nhiều rượu bia",
+        "Hút thuốc lá",
+        "Căng thẳng kéo dài",
+        "Một số bệnh nền (ví dụ: đái tháo đường, bệnh thận)"
+      ],
+      "my": {
+        "title": "Yếu tố đặc thù tại Malaysia"
+      },
+      "genetic": {
+        "title": "Yếu tố di truyền",
+        "list": [
+          "Người Mã Lai và Ấn Độ có tỷ lệ mắc cao hơn",
+          "Tiền sử gia đình làm tăng nguy cơ",
+          "Tính nhạy cảm di truyền khác nhau"
+        ]
+      },
+      "lifestyle": {
+        "title": "Yếu tố lối sống",
+        "list": [
+          "Ăn nhiều thực phẩm mặn, chế biến sẵn",
+          "Lối sống ít vận động do đô thị hóa",
+          "Căng thẳng trong môi trường làm việc hiện đại"
+        ]
+      }
+    },
+    "prevention": {
+      "title": "Phòng ngừa tăng huyết áp",
+      "subtitle": "Tăng huyết áp có thể phòng ngừa hoặc trì hoãn nhờ thay đổi lối sống.",
+      "left": [
+        "Duy trì cân nặng hợp lý",
+        "Ăn uống cân bằng, ít muối",
+        "Khám sức khỏe định kỳ",
+        "Ngủ đủ giấc (7–9 giờ)"
+      ],
+      "right": [
+        "Tập thể dục đều đặn (150 phút/tuần)",
+        "Hạn chế thực phẩm chế biến và mặn",
+        "Quản lý căng thẳng",
+        "Không hút thuốc và hạn chế rượu bia"
+      ],
+      "diet": {
+        "title": "Khuyến nghị dinh dưỡng tại Malaysia",
+        "localTitle": "Thực phẩm địa phương lành mạnh",
+        "limitTitle": "Thực phẩm cần hạn chế",
+        "portionTitle": "Kiểm soát khẩu phần",
+        "local": [
+          "Trái cây và rau tươi",
+          "Ngũ cốc nguyên hạt như gạo lức",
+          "Đạm nạc như cá và đậu hũ",
+          "Các loại đậu và hạt"
+        ],
+        "limit": [
+          "Đồ ăn mặn và thực phẩm chế biến",
+          "Đồ chiên rán và thức ăn nhanh",
+          "Đồ uống có đường và tráng miệng",
+          "Gia vị nhiều natri"
+        ],
+        "portion": [
+          "Dùng đĩa nhỏ hơn",
+          "Nửa đĩa là rau",
+          "Giới hạn cơm còn 1/4 đĩa",
+          "Bổ sung đạm trong mỗi bữa"
+        ]
+      }
+    },
+    "management": {
+      "title": "Quản lý tăng huyết áp",
+      "subtitle": "Quản lý hiệu quả kết hợp thuốc, thay đổi lối sống và theo dõi định kỳ.",
+      "left": [
+        "Theo dõi huyết áp thường xuyên",
+        "Chế độ ăn tốt cho tim mạch",
+        "Khám định kỳ với bác sĩ",
+        "Hạn chế rượu bia và không hút thuốc"
+      ],
+      "right": [
+        "Dùng thuốc theo chỉ định",
+        "Tập luyện đều đặn, an toàn",
+        "Theo dõi cân nặng và vòng eo",
+        "Tiêm phòng đầy đủ theo khuyến cáo"
+      ],
+      "panels": {
+        "targetsTitle": "Mục tiêu huyết áp",
+        "medsTitle": "Nhóm thuốc",
+        "checksTitle": "Khám định kỳ"
+      },
+      "targets": [
+        "Bình thường: <120/80 mmHg",
+        "Tăng nhẹ: 120–129/<80 mmHg",
+        "Tăng huyết áp giai đoạn 1: 130–139/80–89 mmHg",
+        "Tăng huyết áp giai đoạn 2: ≥140/90 mmHg"
+      ],
+      "meds": [
+        "Lợi tiểu: giúp thận thải muối và nước dư thừa",
+        "Ức chế men chuyển (ACEI): giãn mạch",
+        "Chẹn kênh canxi: giãn cơ trơn mạch máu",
+        "Chẹn beta: giảm nhịp và cung lượng tim"
+      ],
+      "checks": [
+        "Huyết áp: mỗi lần tái khám",
+        "Chức năng thận: hằng năm",
+        "Mỡ máu: mỗi 4–6 năm",
+        "Khám mắt: hằng năm"
+      ],
+      "cta": {
+        "blurb": "Với tỷ lệ tăng huyết áp gia tăng tại Malaysia, phòng ngừa và quản lý ngày càng quan trọng.",
+        "plan": "Tạo kế hoạch ăn uống & tập luyện",
+        "analysis": "Bắt đầu phân tích sức khỏe",
+        "quiz": "Làm bài trắc nghiệm sức khỏe"
+      }
+    }
+  },
+  "stroke": {
+    "title": "Đột quỵ",
+    "subtitle": "Tình trạng y khoa nguy hiểm đe dọa tính mạng xảy ra khi nguồn máu lên não bị gián đoạn; khoảng 40.000 ca mỗi năm ở Malaysia.",
+    "breadcrumbHome": "Trang chủ",
+    "breadcrumbLibrary": "Bệnh mạn tính",
+    "tabs": {
+      "overview": "Tổng quan",
+      "symptoms": "Triệu chứng",
+      "risk": "Yếu tố nguy cơ",
+      "prevention": "Phòng ngừa",
+      "management": "Quản lý"
+    },
+    "whatHeading": "Đột quỵ là gì?",
+    "whatDesc": "Đột quỵ xảy ra khi máu đến một phần của não bị gián đoạn hoặc giảm, khiến mô não thiếu oxy và dưỡng chất. Tế bào não bắt đầu chết trong vài phút, vì vậy đột quỵ là cấp cứu y khoa cần điều trị ngay lập tức.",
+    "keyFacts": "Thông tin chính",
+    "facts": [
+      "Khoảng 40.000 ca đột quỵ xảy ra hằng năm ở Malaysia",
+      "Xếp thứ ba trong các nguyên nhân tử vong toàn cầu",
+      "Nguyên nhân hàng đầu gây tàn tật ở người trưởng thành",
+      "Thời gian là não – từng phút đều quý giá"
+    ],
+    "stats": {
+      "cases": "40,000",
+      "casesLabel": "Ca mỗi năm",
+      "deathsPercent": "8.9%",
+      "deathsLabel": "Trong tổng số tử vong",
+      "rank": "Thứ 3",
+      "rankLabel": "Nguyên nhân hàng đầu"
+    },
+    "types": {
+      "ischemicTitle": "Đột quỵ thiếu máu não",
+      "ischemicDesc": "Do cục máu đông làm tắc mạch, cắt đứt dòng máu đến não; chiếm khoảng 85% các trường hợp.",
+      "ischemicNote": "Thường gặp nhất; có thể là huyết khối (hình thành tại chỗ) hoặc thuyên tắc (cục máu đông từ nơi khác di chuyển đến).",
+      "hemorrhagicTitle": "Đột quỵ xuất huyết não",
+      "hemorrhagicDesc": "Do mạch máu vỡ gây chảy máu trong hoặc quanh não. Ít gặp hơn nhưng thường nặng hơn.",
+      "hemorrhagicNote": "Gồm xuất huyết trong nhu mô não hoặc xuất huyết dưới nhện."
+    },
+    "symptoms": {
+      "title": "Triệu chứng đột quỵ – Hành động F.A.S.T.",
+      "subtitle": "Nhận biết nhanh và hành động theo F.A.S.T. có thể cứu sống và giảm tàn tật lâu dài.",
+      "fast": {
+        "face": "Face (Mặt)",
+        "face2": "Yêu cầu mỉm cười. Một bên có xệ không?",
+        "arms": "Arms (Tay)",
+        "arms2": "Yêu cầu giơ hai tay. Một tay có rơi xuống không?",
+        "speech": "Speech (Nói)",
+        "speech2": "Lặp lại câu đơn giản. Có nói líu hay không rõ?",
+        "time": "Time (Thời gian)",
+        "time2": "Nếu có bất kỳ dấu hiệu nào, gọi 999 ngay."
+      },
+      "emergencyAction": "Nếu thấy bất kỳ dấu hiệu nào, hãy gọi 999 ngay! Ghi lại thời điểm khởi phát triệu chứng – rất quan trọng cho quyết định điều trị.",
+      "otherTitle": "Các triệu chứng khác",
+      "otherList": [
+        "Đau đầu dữ dội đột ngột",
+        "Mất/thay đổi thị lực đột ngột",
+        "Chóng mặt hoặc mất thăng bằng đột ngột",
+        "Tê yếu đột ngột",
+        "Lú lẫn hoặc khó hiểu đột ngột"
+      ],
+      "whatToDo": {
+        "title": "Nên làm",
+        "list": [
+          "Gọi 999 ngay : đừng chờ xem có tự hết hay không",
+          "Ghi lại thời gian : lúc triệu chứng bắt đầu",
+          "Giữ bình tĩnh và an toàn : để người bệnh nằm thoải mái, thông thoáng đường thở"
+        ]
+      },
+      "whatNotToDo": {
+        "title": "Không nên làm",
+        "list": [
+          "Không chần chừ",
+          "Không tự lái xe đến bệnh viện",
+          "Không tự ý dùng thuốc (ví dụ: aspirin)"
+        ]
+      }
+    },
+    "risk": {
+      "title": "Yếu tố nguy cơ đột quỵ",
+      "list": [
+        "Tăng huyết áp",
+        "Đái tháo đường",
+        "Mỡ máu cao",
+        "Hút thuốc và các sản phẩm thuốc lá",
+        "Uống rượu bia quá mức",
+        "Béo phì và ít vận động",
+        "Rung nhĩ",
+        "Tuổi tác (nguy cơ tăng gấp đôi mỗi thập kỷ sau 55 tuổi)",
+        "Tiền sử gia đình đột quỵ",
+        "Đã từng đột quỵ hoặc TIA"
+      ],
+      "malaysianSpecific": {
+        "title": "Lưu ý đặc thù tại Malaysia",
+        "ethnic": [
+          "Người Ấn có nguy cơ cao hơn do tỷ lệ đái tháo đường cao",
+          "Người Hoa có tỷ lệ đột quỵ xuất huyết cao hơn",
+          "Người Mã Lai có nguy cơ tăng do tỷ lệ tăng huyết áp cao",
+          "Yếu tố di truyền ảnh hưởng tính nhạy cảm"
+        ],
+        "lifestyle": [
+          "Thực phẩm truyền thống nhiều muối",
+          "Ít vận động ở khu vực đô thị",
+          "Căng thẳng do công việc và giao thông",
+          "Chậm trễ đi khám do yếu tố văn hóa"
+        ]
+      }
+    },
+    "prevention": {
+      "title": "Phòng ngừa đột quỵ",
+      "subtitle": "Tới 80% ca đột quỵ có thể phòng ngừa bằng thay đổi lối sống và kiểm soát yếu tố nguy cơ.",
+      "list": [
+        "Kiểm soát huyết áp (< 140/90 mmHg)",
+        "Kiểm soát tốt đái tháo đường (HbA1c < 7%)",
+        "Duy trì mỡ máu lành mạnh",
+        "Bỏ thuốc lá, tránh mọi sản phẩm thuốc lá",
+        "Tập luyện đều đặn (150 phút/tuần)",
+        "Duy trì BMI 18,5–24,9",
+        "Chế độ ăn tốt cho tim mạch",
+        "Hạn chế rượu bia",
+        "Quản lý căng thẳng và ngủ đủ giấc",
+        "Dùng thuốc theo chỉ định"
+      ],
+      "diet": {
+        "title": "Khuyến nghị ăn uống tốt cho tim tại Malaysia",
+        "include": [
+          "Cá tươi (ikan kembung, tenggiri)",
+          "Rau lá xanh (bayam, kangkung)",
+          "Ngũ cốc nguyên hạt (gạo lức, yến mạch)",
+          "Trái cây tươi (đu đủ, ổi, chuối)",
+          "Các loại đậu (đậu lăng, đậu hũ, tempe)"
+        ],
+        "limit": [
+          "Thực phẩm nhiều muối (xì dầu, belacan)",
+          "Đồ chiên (chuối chiên, keropok)",
+          "Thịt chế biến (xúc xích)",
+          "Đồ uống nhiều đường (trà sữa kéo, siro)",
+          "Món ăn dùng nhiều nước cốt dừa"
+        ],
+        "cookingTips": [
+          "Hấp, nướng hoặc áp chảo thay vì chiên",
+          "Dùng thảo mộc và gia vị để tạo vị",
+          "Giảm dầu và muối khi nấu",
+          "Chọn thịt nạc",
+          "Ưu tiên phương pháp nấu ít béo"
+        ]
+      }
+    },
+    "management": {
+      "title": "Quản lý đột quỵ",
+      "subtitle": "Quản lý toàn diện gồm điều trị cấp cứu, phục hồi chức năng và chăm sóc dài hạn để tối ưu hồi phục và phòng ngừa tái phát.",
+      "list": [
+        "Điều trị cấp cứu ngay lập tức",
+        "Thuốc tiêu sợi huyết (khi phù hợp)",
+        "Vật lý trị liệu và phục hồi chức năng",
+        "Âm ngữ trị liệu và hoạt động trị liệu",
+        "Quản lý thuốc cho bệnh nền",
+        "Thay đổi lối sống và kiểm soát yếu tố nguy cơ",
+        "Tái khám định kỳ",
+        "Hỗ trợ tâm lý và tư vấn",
+        "Giáo dục và hỗ trợ gia đình",
+        "Phòng ngừa đột quỵ thứ phát"
+      ],
+      "goldenHours": {
+        "title": "Điều trị giai đoạn cấp – Thời gian vàng",
+        "stages": [
+          "0–3 giờ: Cửa sổ tối ưu cho tiêu sợi huyết tĩnh mạch.",
+          "3–4,5 giờ: Mở rộng cho một số bệnh nhân, vẫn có lợi ích.",
+          "6–24 giờ: Có thể lấy huyết khối cơ học với tắc mạch lớn."
+        ]
+      },
+      "secondary": {
+        "title": "Phòng ngừa thứ phát",
+        "medical": [
+          "Kháng kết tập tiểu cầu (aspirin, clopidogrel)",
+          "Kiểm soát huyết áp (< 140/90 mmHg)",
+          "Kiểm soát mỡ máu (statin)",
+          "Kiểm soát đái tháo đường (HbA1c < 7%)",
+          "Kháng đông cho rung nhĩ"
+        ],
+        "lifestyle": [
+          "Tập luyện phù hợp, tăng dần",
+          "Chế độ ăn tốt cho tim",
+          "Bỏ thuốc lá",
+          "Quản lý cân nặng",
+          "Giảm căng thẳng và ngủ đủ giấc"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Kêu gọi hành động",
+      "desc": "Với tỷ lệ đột quỵ gia tăng ở Malaysia, phòng ngừa và quản lý quan trọng hơn bao giờ hết.",
+      "buttons": {
+        "diet": "Tạo kế hoạch ăn & tập",
+        "analysis": "Bắt đầu phân tích sức khỏe",
+        "quiz": "Làm bài trắc nghiệm sức khỏe"
+      }
+    }
+  },
+  "challenges": {
+    "breadcrumbHome": "Trang chủ",
+    "breadcrumbQuiz": "Bài kiểm tra & Thử thách",
+    "hero": {
+      "title": "Bài Kiểm Tra Kiến Thức Sức Khỏe",
+      "lead": {
+        "1": "Kiểm tra mức độ hiểu biết của bạn về",
+        "ncd": "Bệnh không lây nhiễm (NCD)",
+        "2": "và nhận thông tin sức khỏe được cá nhân hóa!"
+      },
+      "pills": {
+        "qTitle": "25 Câu hỏi (5 Phần)",
+        "qDesc": "Đánh giá toàn diện kiến thức về bệnh không lây nhiễm",
+        "tTitle": "30 Phút",
+        "tDesc": "Thời gian hoàn thành trung bình",
+        "rTitle": "Kết quả tức thì",
+        "rDesc": "Nhận phản hồi ngay lập tức"
+      },
+      "imgAlt": "Gia đình làm bài kiểm tra sức khỏe"
+    },
+    "cta": {
+      "start": "Bắt đầu làm bài",
+      "getPrize": "🏆 Nhận Huy hiệu"
+    },
+    "challenges": {
+      "title": "Thử thách Sức khỏe Hàng tháng",
+      "for": "cho"
+    },
+    "weeks": {
+      "week1": "Tuần 1",
+      "week2": "Tuần 2",
+      "week3": "Tuần 3",
+      "week4": "Tuần 4"
+    },
+    "loading": "Đang tải thử thách…",
+    "progress": "Tiến độ: đã hoàn thành {completed}/{total} thử thách",
+    "badge": {
+      "title": "Xin chúc mừng!",
+      "desc": "Bạn đã hoàn thành tất cả các thử thách trong {monthYear}. Tải xuống huy hiệu cá nhân của bạn.",
+      "summaryTitle": "Thành tích của bạn",
+      "summary": "Hoàn thành {count} thử thách • Đạt được vào {monthYear}",
+      "download": "Tải Huy hiệu",
+      "generating": "Đang tạo Huy hiệu…",
+      "close": "Đóng"
+    },
+    "errors": {
+      "load": "Chúng tôi không thể tải thử thách của tháng này. Vui lòng thử lại.",
+      "generate": "Rất tiếc, đã có lỗi khi tạo huy hiệu. Vui lòng thử lại."
+    }
+  },
+  "quiz": {
+    "loading": "Đang tải bài kiểm tra…",
+    "error": "Không thể tải bài kiểm tra.",
+    "backHome": "Về Trang chủ",
+    "breadcrumbHome": "Trang chủ",
+    "breadcrumbQuiz": "Bài kiểm tra",
+    "hero": {
+      "title": "Bài Kiểm Tra Kiến Thức Sức Khỏe",
+      "lead": "Muốn có cái nhìn đầy đủ hơn về sức khỏe? Hãy thử các câu hỏi kiểm tra kiến thức về đái tháo đường, tăng huyết áp và đột quỵ."
+    },
+    "card": {
+      "title": "Bài Kiểm Tra Kiến Thức Bệnh Không Lây Nhiễm (NCD)"
+    },
+    "nav": {
+      "title": "Điều hướng bài kiểm tra",
+      "section": "Phần",
+      "hide": "Ẩn"
+    },
+    "left": {
+      "notAnswered": "Chưa trả lời",
+      "answered": "Đã trả lời"
+    },
+    "sectionPrefix": "Phần",
+    "sectionHint": "Hiển thị câu hỏi {start}–{end} trên tổng {total}",
+    "prev": "Trang trước",
+    "next": "Trang tiếp",
+    "submit": "Nộp bài",
+    "breadcrumbResults": "Kết quả",
+    "resultsTitle": "Kết quả kiểm tra",
+    "yourResult": "Kết quả của bạn",
+    "outOf": "trên",
+    "radarTitle": "Biểu đồ Năng lực Phân tích Radar",
+    "noResults": "Chưa có kết quả. Vui lòng làm bài kiểm tra trước.",
+    "retry": "Làm lại bài kiểm tra",
+    "topics": {
+      "diabetes": "Đái tháo đường",
+      "stroke": "Đột quỵ",
+      "hypertension": "Tăng huyết áp",
+      "otherNcds": "Các NCD khác",
+      "generalKnowledge": "Kiến thức chung"
     }
   },
   "lang": {
