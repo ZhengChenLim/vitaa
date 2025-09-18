@@ -1,3 +1,4 @@
+from collections import defaultdict, OrderedDict
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -5,10 +6,12 @@ import json
 from requests import RequestException, HTTPError
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.db.models import Q
 from rest_framework import status
 from .models import PhysicalActivity
+from .models import NCDDeathStat
 from serializers import PlanRequestSerializer
-from activity_planner_service import make_week_plan_from_queryset
+from vitaa_app.activity_planner_service import make_week_plan_from_queryset
 from vitaa_app.utils import calc_targets
 from vitaa_app.meal_planner_service import generate_meal_plan
 from vitaa_app.health_analysis import n8n_health_analysis
@@ -179,3 +182,77 @@ class GenerateActivityPlanView(APIView):
         )
         # Return exactly the array of 7 items (day, recommendation, duration)
         return Response(plan, status=status.HTTP_200_OK)
+
+class NCDDeathSeriesView(APIView):
+    """
+    GET /api/ncd/stats-series?locations=Malaysia,Global&causes=diabetes&years=2000,2001
+    - locations: comma-separated (exact match)
+    - causes: comma-separated (substring case-insensitive)
+    - years: comma-separated integers
+    """
+
+    def get(self, request):
+        # --- Parse query params ---
+        locations = request.GET.get("locations")
+        causes = request.GET.get("causes")
+        years = request.GET.get("years")
+
+        if locations:
+            location_list = [loc.strip() for loc in locations.split(",") if loc.strip()]
+        else:
+            location_list = ["Global", "Malaysia"]  # default
+
+        # allow substring search
+        cause_substrings = [c.strip() for c in causes.split(",")] if causes else None
+
+        if years:
+            year_list = []
+            for y in years.split(","):
+                y = y.strip()
+                if y.isdigit():
+                    year_list.append(int(y))
+            year_list = sorted(set(year_list))
+        else:
+            year_list = None
+
+        # --- Build queryset ---
+        qs = NCDDeathStat.objects.filter(location__in=location_list)
+
+        if cause_substrings:
+            q_obj = Q()
+            for c in cause_substrings:
+                q_obj |= Q(cause__icontains=c)
+            qs = qs.filter(q_obj)
+
+        if year_list:
+            qs = qs.filter(year__in=year_list)
+
+        qs = qs.values("year", "location", "cause", "number_of_deaths", "percent_of_deaths").order_by(
+            "location", "cause", "year"
+        )
+
+        # --- Collect years (for front-end axis) ---
+        year_set = set(row["year"] for row in qs)
+        years_all = sorted(year_set)
+
+        # --- Build series ---
+        series = {loc: OrderedDict() for loc in location_list}
+        for row in qs:
+            loc = row["location"]
+            cause = row["cause"]
+            year = row["year"]
+            num = float(row["number_of_deaths"]) if row["number_of_deaths"] is not None else None
+            pct = float(row["percent_of_deaths"]) if row["percent_of_deaths"] is not None else None
+
+            if cause not in series[loc]:
+                series[loc][cause] = {"number": [], "percent": []}
+
+            series[loc][cause]["number"].append({"x": year, "y": num})
+            series[loc][cause]["percent"].append({"x": year, "y": pct})
+
+        payload = {
+            "locations": location_list,
+            "years": years_all,
+            "series": series,
+        }
+        return Response(payload)

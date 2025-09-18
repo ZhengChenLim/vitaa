@@ -244,5 +244,4 @@ class Command(BaseCommand):
 
         self.stdout.write(self.style.SUCCESS(
             f"Imported/updated {imported} dishes. Skipped {skipped} rows."
-
         ))

@@ -2,6 +2,9 @@ from django.test import TestCase
 from vitaa_app.utils import calc_targets
 from rest_framework.test import APIClient
 from vitaa_app.models import PhysicalActivity
+from django.urls import reverse
+from rest_framework.test import APITestCase
+from vitaa_app.models import NCDDeathStat
 
 class CalcTargetsTests(TestCase):
     '''
@@ -78,3 +81,18 @@ class ActivityPlanAPITest(TestCase):
         self.assertIn("day", data[0])
         self.assertIn("recommendation", data[0])
         self.assertIn("duration", data[0])
+
+class NCDDeathSeriesTests(APITestCase):
+    def setUp(self):
+        NCDDeathStat.objects.create(year=2020, location="Global", cause="Stroke",
+                                    number_of_deaths=1000, percent_of_deaths=12.5)
+        NCDDeathStat.objects.create(year=2020, location="Malaysia", cause="Stroke",
+                                    number_of_deaths=200, percent_of_deaths=15.0)
+
+    def test_series_endpoint(self):
+        url = reverse("ncd-stats-series")
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("Global", data["series"])
+        self.assertIn("Malaysia", data["series"])

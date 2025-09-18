@@ -77,6 +77,27 @@ class PhysicalActivity(models.Model):
 
     def __str__(self):
         return f"{self.activity_code} - {self.activity_description}"
+
+
+class NCDDeathStat(models.Model):
+    year = models.IntegerField(db_index=True)
+    location = models.CharField(max_length=128, db_index=True)
+    cause = models.CharField(max_length=256, db_index=True)
+
+    # Use Decimal for robustness (handles very large counts or scientific notation gracefully)
+    number_of_deaths = models.DecimalField(max_digits=20, decimal_places=2)  # adjust as needed
+    percent_of_deaths = models.DecimalField(max_digits=7, decimal_places=4)  # e.g., 0.0000–100.0000
+
+    class Meta:
+        db_table = "ncd_death_stat"
+        unique_together = ("year", "location", "cause")
+        indexes = [
+            models.Index(fields=["year", "location"]),
+            models.Index(fields=["location", "cause"]),
+        ]
+
+    def __str__(self):
+        return f"{self.location} | {self.cause} | {self.year}"
     
     
 class WeeklyPhysicalChallenge(models.Model):
