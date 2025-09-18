@@ -898,16 +898,16 @@
         "Hypertension Stage 2: ≥140/90 mmHg"
       ],
       "meds": [
-        "Diuretics — help kidneys remove excess salt and water",
-        "ACE inhibitors — relax blood vessels",
-        "Calcium channel blockers — relax blood vessel muscles",
-        "Beta-blockers — reduce heart rate and output"
+        "Diuretics : help kidneys remove excess salt and water",
+        "ACE inhibitors : relax blood vessels",
+        "Calcium channel blockers : relax blood vessel muscles",
+        "Beta-blockers : reduce heart rate and output"
       ],
       "checks": [
-        "Blood pressure — at every visit",
-        "Kidney function — annually",
-        "Cholesterol levels — every 4–6 years",
-        "Eye exam — annually"
+        "Blood pressure : at every visit",
+        "Kidney function : annually",
+        "Cholesterol levels : every 4–6 years",
+        "Eye exam : annually"
       ],
       "cta": {
         "blurb": "With the rising prevalence of hypertension in Malaysia, prevention and management are more important than ever.",
@@ -958,10 +958,14 @@
       "title": "Stroke Symptoms - Act F.A.S.T.",
       "subtitle": "Recognizing stroke symptoms quickly and acting F.A.S.T. can save lives and reduce long-term disability.",
       "fast": {
-        "face": "Face drooping – Ask person to smile. Does one side droop?",
-        "arms": "Arm weakness – Ask person to raise both arms. Does one drift down?",
-        "speech": "Speech difficulty – Ask person to repeat simple phrase. Is speech slurred?",
-        "time": "Time to call emergency – If any signs present, call 999 immediately."
+        "face": "Face drooping",
+        "face2": "Ask person to smile. Does one side droop?",
+        "arms": "Arm weakness",
+        "arms2": "Ask person to raise both arms. Does one drift down?",
+        "speech": "Speech difficulty",
+        "speech2": "Ask person to repeat simple phrase. Is speech slurred?",
+        "time": "Time to call emergency",
+        "time2": "If any signs present, call 999 immediately."
       },
       "emergencyAction": "If you see any of these signs, call 999 immediately! Note the time symptoms first appeared – this information is crucial for treatment decisions.",
       "otherTitle": "Other Stroke Symptoms",
@@ -975,9 +979,9 @@
       "whatToDo": {
         "title": "What to Do",
         "list": [
-          "Call 999 immediately – Don’t wait to see if symptoms improve",
-          "Note the time – When did symptoms first appear?",
-          "Stay calm and safe – Keep the person comfortable and safe"
+          "Call 999 immediately. Don’t wait to see if symptoms improve",
+          "Note the time. When did symptoms first appear?",
+          "Stay calm and safe. Keep the person comfortable and safe"
         ]
       },
       "whatNotToDo": {
@@ -1108,6 +1112,89 @@
         "analysis": "Start Health Analysis",
         "quiz": "Take Health Quiz"
       }
+    }
+  },
+  "challenges": {
+    "breadcrumbHome": "Home",
+    "breadcrumbQuiz": "Quiz & Challenges",
+    "hero": {
+      "title": "Health Knowledge Quiz",
+      "lead": {
+        "1": "Test your understanding of",
+        "ncd": "Non-Communicable Diseases",
+        "2": "and get personalized health insights!"
+      },
+      "pills": {
+        "qTitle": "25 Questions (5 Sections)",
+        "qDesc": "Comprehensive Noncommunicable Disease Knowledge Assessment",
+        "tTitle": "30 Minutes",
+        "tDesc": "Average completion time",
+        "rTitle": "Instant Results",
+        "rDesc": "Get feedback immediately"
+      },
+      "imgAlt": "Family taking a health quiz"
+    },
+    "cta": {
+      "start": "Start Quiz",
+      "getPrize": "🏆 Get Your Badge"
+    },
+    "challenges": {
+      "title": "Monthly Health Challenges",
+      "for": "for"
+    },
+    "weeks": {
+      "week1": "Week 1",
+      "week2": "Week 2",
+      "week3": "Week 3",
+      "week4": "Week 4"
+    },
+    "loading": "Loading challenges…",
+    "progress": "Progress: {completed}/{total} challenges completed",
+    "badge": {
+      "title": "Congratulations!",
+      "desc": "You’ve completed all challenges for {monthYear}. Download your personalized badge.",
+      "summaryTitle": "Your Achievement",
+      "summary": "Completed {count} challenges • Earned in {monthYear}",
+      "download": "Download Badge",
+      "generating": "Generating Badge…",
+      "close": "Close"
+    },
+    "errors": {
+      "load": "We couldn’t load this month’s challenges. Please try again.",
+      "generate": "Sorry, there was an error generating your badge. Please try again."
+    }
+  },
+  "quiz": {
+    "loading": "Loading quiz…",
+    "error": "Unable to load quiz.",
+    "backHome": "Back to Home",
+    "breadcrumbHome": "Home",
+    "breadcrumbQuiz": "Quiz",
+    "hero": {
+      "title": "Health Knowledge Quiz",
+      "lead": "Want a fuller picture of your health? Try our knowledge checks on diabetes, hypertension, and stroke."
+    },
+    "card": { "title": "NCD Knowledge Quiz" },
+    "nav": { "title": "Quiz navigation", "section": "Section", "hide": "Hide" },
+    "left": { "notAnswered": "Not yet answered", "answered": "Answered" },
+    "sectionPrefix": "Section",
+    "sectionHint": "Showing questions {start}–{end} of {total}",
+    "prev": "Previous page",
+    "next": "Next page",
+    "submit": "Submit",
+    "breadcrumbResults": "Results",
+    "resultsTitle": "Test results",
+    "yourResult": "Your Result",
+    "outOf": "Out of",
+    "radarTitle": "Radar Analysis Capability Chart",
+    "noResults": "No results found. Please take the quiz first.",
+    "retry": "Retry quiz",
+    "topics": {
+      "diabetes": "Diabetes",
+      "stroke": "Stroke",
+      "hypertension": "Hypertension",
+      "otherNcds": "Other NCDs",
+      "generalKnowledge": "General Knowledge"
     }
   },
   "lang": {

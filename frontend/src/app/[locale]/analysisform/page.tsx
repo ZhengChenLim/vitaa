@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import { useMemo, useState, useEffect, useRef } from 'react';
-import { useMemo, useState, useEffect, useRef } from 'react';
 import { Clipboard, Home, Loader2 } from 'lucide-react';
 import {
   Breadcrumb,
@@ -63,91 +62,6 @@ export default function AnalysisFormPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [serverResult, setServerResult] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
-
-
-  // refs for focusing first invalid field
-  const ageRef = useRef<HTMLInputElement>(null);
-  const heightRef = useRef<HTMLInputElement>(null);
-  const weightRef = useRef<HTMLInputElement>(null);
-  const waistRef = useRef<HTMLInputElement>(null);
-
-  // field-level errors
-  const [fieldErrors, setFieldErrors] = useState<{
-    age?: string;
-    sex?: string;
-    height?: string;
-    weight?: string;
-    waist?: string;
-  }>({});
-  const [touched, setTouched] = useState({
-    age: false,
-    height: false,
-    weight: false,
-    waist: false,
-  });
-
-  // validation helpers
-  const validateAge = (v: string) => {
-    if (!v) return t('validation.required');
-    const n = Number(v);
-    if (!Number.isFinite(n)) return t('validation.number');
-    if (n < 18 || n > 150) return t('validation.age');
-    return undefined;
-  };
-  const validateHeight = (v: string) => {
-    if (!v) return t('validation.required');
-    const n = Number(v);
-    if (!Number.isFinite(n)) return t('validation.number');
-    if (n < 50 || n > 250) return t('validation.height');
-    return undefined;
-  };
-  const validateWeight = (v: string) => {
-    if (!v) return t('validation.required');
-    const n = Number(v);
-    if (!Number.isFinite(n)) return t('validation.number');
-    if (n < 30 || n > 300) return t('validation.weight');
-    return undefined;
-  };
-  const validateWaist = (v: string) => {
-    if (!v) return t('validation.required'); // waist is required for analysis
-    const n = Number(v);
-    if (!Number.isFinite(n)) return t('validation.number');
-    if (n < 30 || n > 200) return t('validation.waist');
-    return undefined;
-  };
-
-  // live-validate numeric fields
-  // useEffect(() => { setFieldErrors(p => ({ ...p, age: validateAge(age) })); }, [age]);
-  // useEffect(() => { setFieldErrors(p => ({ ...p, height: validateHeight(height) })); }, [height]);
-  // useEffect(() => { setFieldErrors(p => ({ ...p, weight: validateWeight(weight) })); }, [weight]);
-  // useEffect(() => { setFieldErrors(p => ({ ...p, waist: validateWaist(waist) })); }, [waist]);
-  useEffect(() => {
-    if (touched.age) setFieldErrors(p => ({ ...p, age: validateAge(age) }));
-  }, [age, touched.age]);
-
-  useEffect(() => {
-    if (touched.height) setFieldErrors(p => ({ ...p, height: validateHeight(height) }));
-  }, [height, touched.height]);
-
-  useEffect(() => {
-    if (touched.weight) setFieldErrors(p => ({ ...p, weight: validateWeight(weight) }));
-  }, [weight, touched.weight]);
-
-  useEffect(() => {
-    if (touched.waist) setFieldErrors(p => ({ ...p, waist: validateWaist(waist) }));
-  }, [waist, touched.waist]);
-
-  const focusFirstError = () => {
-    if (fieldErrors.age) return ageRef.current?.focus();
-    if (fieldErrors.height) return heightRef.current?.focus();
-    if (fieldErrors.weight) return weightRef.current?.focus();
-    if (fieldErrors.waist) return waistRef.current?.focus();
-    // if sex missing, just focus age as a visible cue; you could also scroll to sex group
-    if (!sex) return ageRef.current?.focus();
-  };
-
-  const Req = () => <span className="ml-1 text-red-600" aria-hidden="true">*</span>;
-
 
   // refs for focusing first invalid field
   const ageRef = useRef<HTMLInputElement>(null);

@@ -50,13 +50,6 @@ type ApiDishName = {
     dish_zh_name: string;
 };
 
-type ApiDishName = {
-    dish_name: string;
-    dish_ms_name: string;
-    dish_vi_name: string;
-    dish_zh_name: string;
-};
-
 type ApiMeal = {
     Meal: string;
     Dishes: ApiDishName[];                 

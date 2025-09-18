@@ -81,6 +81,11 @@ export default function Header() {
                   </p>
                   <DropdownMenuGroup className="space-y-1">
                     <DropdownMenuItem asChild>
+                      <Link href="/ncd" className="rounded-md px-2 py-1.5 hover:bg-purple-50">
+                        {t("nav.section.ncd")}
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
                       <Link href="/ncd/diabetes" className="rounded-md px-2 py-1.5 hover:bg-purple-50">
                         {t("nav.ncd.diabetes")}
                       </Link>
@@ -106,7 +111,7 @@ export default function Header() {
                   <DropdownMenuGroup className="space-y-1">
                     <DropdownMenuItem asChild>
                       <Link
-                        href="/challenges/monthly-quiz"
+                        href="/challenges"
                         className="rounded-md px-2 py-1.5 hover:bg-emerald-50"
                       >
                         {t("nav.challenges.monthlyQuiz")}
@@ -175,7 +180,7 @@ export default function Header() {
                 </Link>
 
                 <div className="px-3 pt-2 text-xs font-medium text-slate-500">{t('nav.section.challenges')}</div>
-                <Link href="/challenges/monthly-quiz" className="rounded-lg px-3 py-2 text-sm hover:bg-gray-100" onClick={() => setOpen(false)}>
+                <Link href="/challenges" className="rounded-lg px-3 py-2 text-sm hover:bg-gray-100" onClick={() => setOpen(false)}>
                   {t('nav.challenges.monthlyQuiz')}
                 </Link>
               </div>
