@@ -1,9 +1,8 @@
-// app/quiz/page.tsx
 "use client";
 
 import * as React from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation"; // or "next/link" if not using next-intl helper
+import { Link } from "@/i18n/navigation";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,7 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-  import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
@@ -31,6 +30,17 @@ type Question = {
   option_c: string; option_c_ms?: string; option_c_zh?: string; option_c_vi?: string;
   option_d: string; option_d_ms?: string; option_d_zh?: string; option_d_vi?: string;
   correct_option: "A" | "B" | "C" | "D";
+};
+
+const topicKey = (topic: string) => {
+  const map: Record<string, string> = {
+    "Diabetes": "diabetes",
+    "Stroke": "stroke",
+    "Hypertension": "hypertension",
+    "Other NCDs": "otherNcds",
+    "General Knowledge": "generalKnowledge",
+  };
+  return map[topic] ?? topic.toLowerCase().replace(/\s+/g, "");
 };
 
 type ApiResponse = {
@@ -98,14 +108,13 @@ export default function QuizPage() {
   const jumpTo = (s: number) => setSection(s);
 
   const onSubmit = () => {
-    // Save answers for results page (optional)
     if (typeof window !== "undefined") {
       sessionStorage.setItem("quiz:answers", JSON.stringify(answers));
       sessionStorage.setItem("quiz:questions", JSON.stringify(data?.questions ?? []));
       sessionStorage.setItem("quiz:topics", JSON.stringify(data?.topics ?? []));
       sessionStorage.setItem("quiz:count_by_topic", JSON.stringify(data?.count_by_topic ?? {}));
     }
-    window.location.href = "/quiz/results"; // or compute inline if you prefer
+    window.location.href = "/quiz/results"; 
   };
 
   if (loading) {
@@ -124,7 +133,7 @@ export default function QuizPage() {
       </main>
     );
   }
-
+  const sectionTopic = sectionQs[0] ? t(`topics.${topicKey(sectionQs[0].topic)}`) : "";
   return (
     <main className="min-h-screen w-full bg-green-50/40 pb-24">
       {/* Breadcrumbs */}
@@ -191,13 +200,17 @@ export default function QuizPage() {
 
           <CardContent className="p-0">
             {/* Section header strip */}
-            <div className="border-t border-slate-200/70  px-5 py-4">
+            <div className="border-t border-slate-200/70 px-5 py-4">
               <h3 className="text-base font-bold">
                 {t("sectionPrefix")} {section + 1}
-                <span className="text-slate-500"> — {sectionQs[0]?.topic ?? ""}</span>
+                <span className="text-slate-500"> — {sectionTopic}</span>
               </h3>
               <p className="mt-1 text-xs text-slate-600">
-                {t("sectionHint", { start: sectionStart + 1, end: Math.min(sectionStart + PER_SECTION, total), total })}
+                {t("sectionHint", {
+                  start: sectionStart + 1,
+                  end: Math.min(sectionStart + PER_SECTION, total),
+                  total,
+                })}
               </p>
             </div>
 
@@ -241,15 +254,22 @@ export default function QuizPage() {
                       ] as const).map(([val, label]) => {
                         const id = `${q.id}-${val}`;
                         return (
-                          <div
+                          <label
                             key={val}
-                            className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-3 py-3 hover:bg-emerald-100/60"
+                            htmlFor={id}
+                            className={cn(
+                              "flex cursor-pointer items-center gap-3 rounded-lg border border-slate-200 bg-white px-3 py-3 hover:bg-emerald-100/60",
+                              // optional: visual highlight when selected (uses tailwind peer below)
+                              answers[q.id] === val ? "ring-1 ring-emerald-400" : ""
+                            )}
                           >
-                            <RadioGroupItem id={id} value={val as any} />
-                            <Label htmlFor={id} className="text-sm leading-5">
-                              {label}
-                            </Label>
-                          </div>
+                            <RadioGroupItem
+                              id={id}
+                              value={val as any}
+                              className="h-4 w-4"
+                            />
+                            <span className="text-sm leading-5">{label}</span>
+                          </label>
                         );
                       })}
                     </RadioGroup>

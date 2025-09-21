@@ -31,7 +31,7 @@ type Alcohol = 'none' | 'occasional' | 'frequent' | null;
 type Smoking = 'smoker' | 'nonSmoker' | null;
 
 // --- API base (same as your form page) ---
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8000';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8001';
 
 // --- helpers ---
 function clamp(n: number, lo: number, hi: number) {
@@ -151,7 +151,6 @@ export default function AnalysisResultPage() {
   const [result, setResult] = useState<any>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [err, setErr] = useState<string | null>(null);
-
   const [fieldErrors, setFieldErrors] = useState<{
     age?: string;
     sex?: string;
@@ -234,7 +233,7 @@ export default function AnalysisResultPage() {
     } catch { }
   }, []);
 
-  
+
 
   // derived metrics
   const bmi = useMemo(() => calcBMI(profile.weight_kg ?? null, profile.height_cm ?? null), [profile.weight_kg, profile.height_cm]);
@@ -272,7 +271,6 @@ export default function AnalysisResultPage() {
     setIsSubmitting(true);
     setErr(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
 
     // run validation (submit-only)
     const next = {
@@ -453,7 +451,6 @@ export default function AnalysisResultPage() {
 
                 <form onSubmit={onInlineSubmit} className="rounded-xl border border-slate-200 p-4">
                   <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-
                     {/* Age (required) */}
                     <LabeledInput
                       id="age"
@@ -590,7 +587,7 @@ export default function AnalysisResultPage() {
                       type="submit"
                       className="w-full bg-gradient-to-r from-[#13D298] to-[#2CD30D] font-semibold text-white shadow-md hover:opacity-90 md:w-auto"
                       disabled={isSubmitting || hasErrors}
-                      >
+                    >
                       {isSubmitting ? (
                         <span className="inline-flex items-center gap-2">
                           <Loader2 className="h-4 w-4 animate-spin" /> {t('profile.update', { defaultValue: 'Update result' })}
@@ -703,31 +700,31 @@ export default function AnalysisResultPage() {
         </div>
 
         {/* Risk tiles */}
-        <div className="rounded-2xl border bg-white p-6 shadow-sm">
-          <h3 className="mb-4 text-lg font-semibold text-slate-800">{t('risk.title', { defaultValue: 'Health Risk Assessment' })}</h3>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <RiskTile
-              t={t}
-              titleKey="risk.conditions.diabetes"
-              code={diabetesRiskCode}
-              descKey="risk.desc.diabetes"
-              descDefault="Diabetes is a condition characterized by chronically high blood sugar levels. Those at high risk should pay special attention to diet, exercise, and weight management."
-            />
-            <RiskTile
-              t={t}
-              titleKey="risk.conditions.hypertension"
-              code={htnRiskCode}
-              descKey="risk.desc.hypertension"
-              descDefault="Hypertension is a chronic condition characterized by long-term elevated blood pressure. The risk is low. Maintaining a healthy lifestyle and preventing it are recommended."
-            />
-            <RiskTile
-              t={t}
-              titleKey="risk.conditions.stroke"
-              code={strokeRiskCode}
-              descKey="risk.desc.stroke"
-              descDefault="A stroke is an acute illness caused by blocked blood flow or bleeding in the brain. The risk is low. Maintaining healthy habits is recommended to reduce future risk."
-            />
-          </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <RiskTile
+            t={t}
+            titleKey="risk.conditions.diabetes"
+            code={diabetesRiskCode}
+            descKey="risk.desc.diabetes"
+            descDefault="Diabetes is a condition characterized by chronically high blood sugar levels. Those at high risk should pay special attention to diet, exercise, and weight management."
+            condition="diabetes"
+          />
+          <RiskTile
+            t={t}
+            titleKey="risk.conditions.hypertension"
+            code={htnRiskCode}
+            descKey="risk.desc.hypertension"
+            descDefault="Hypertension is a chronic condition characterized by long-term elevated blood pressure. The risk is low. Maintaining a healthy lifestyle and preventing it are recommended."
+            condition="hypertension"
+          />
+          <RiskTile
+            t={t}
+            titleKey="risk.conditions.stroke"
+            code={strokeRiskCode}
+            descKey="risk.desc.stroke"
+            descDefault="A stroke is an acute illness caused by blocked blood flow or bleeding in the brain. The risk is low. Maintaining healthy habits is recommended to reduce future risk."
+            condition="stroke"
+          />
         </div>
       </section>
     </main>
@@ -858,17 +855,25 @@ function ScaleBar({
   );
 }
 
+// 1) Replace your RiskTile component with this version
 function RiskTile({
-  t, titleKey, code, descKey, descDefault
+  t,
+  titleKey,
+  code,
+  descKey,
+  descDefault,
+  condition, // 'diabetes' | 'hypertension' | 'stroke'
 }: {
   t: ReturnType<typeof useTranslations>;
   titleKey: string;
   code: RiskCode;
   descKey: string;
   descDefault: string;
+  condition: 'diabetes' | 'hypertension' | 'stroke';
 }) {
   const clr = riskColor(code);
   const icon = riskIcon(code);
+
   const codeLabel =
     code === 'high'
       ? t('risk.level.high', { defaultValue: 'High' })
@@ -878,21 +883,28 @@ function RiskTile({
           ? t('risk.level.low', { defaultValue: 'Low' })
           : t('risk.level.unknown', { defaultValue: 'Unknown' });
 
+  const href = `/ncd/${condition}`;
+
   return (
     <div className="rounded-xl border p-5 shadow-sm transition-all hover:shadow-md">
       <div className={`mb-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${clr} border`}>
         {icon}
         {codeLabel}
       </div>
+
       <h5 className="mb-2 text-lg font-bold text-slate-900">
         {t(titleKey as any, { defaultValue: 'Condition' })}
       </h5>
+
       <p className="text-sm leading-relaxed text-slate-700">
         {t(descKey as any, { defaultValue: descDefault })}
       </p>
+
       <div className="mt-3 inline-flex items-center text-sm font-medium text-green-700 hover:underline">
-        {t('risk.learnMore', { defaultValue: 'Learn More' })}
-        <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <Link href={href} aria-label={t('risk.learnMore', { defaultValue: 'Learn More' })}>
+          {t('risk.learnMore', { defaultValue: 'Learn More' })}
+        </Link>
+        <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </div>

@@ -31,6 +31,7 @@ import {
     Ban,
     Utensils,
     CookingPot,
+    ScanHeart,
 } from "lucide-react";
 
 const HERO_IMG = "/hypertension-hero.png";
@@ -160,7 +161,7 @@ export default function HypertensionPage() {
                                 <motion.div animate={{ y: [0, -8, 0] }}
                                     transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
                                     className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-orange-500 shadow-md md:h-20 md:w-20">
-                                    <HeartPulse className="h-8 w-8 text-white md:h-10 md:w-10" />
+                                    <ScanHeart className="h-8 w-8 text-white md:h-10 md:w-10" />
                                 </motion.div>
                             </motion.div>
                             <motion.h1 className="text-3xl font-extrabold tracking-tight text-gray-900 md:text-6xl">
@@ -328,10 +329,9 @@ function SubNav() {
     const scrollerRef = React.useRef<HTMLDivElement>(null);
     const barRef = React.useRef<HTMLDivElement>(null);
 
-    // Smooth scroll with sticky header offset (mobile-friendly)
     const handleClick = (e: React.MouseEvent, id: string) => {
         e.preventDefault();
-        setCurrent(id); // <-- make it red immediately
+        setCurrent(id);
 
         const el = document.getElementById(id);
         if (!el) return;
@@ -342,7 +342,6 @@ function SubNav() {
         history.replaceState(null, "", `#${id}`);
     };
 
-    // IntersectionObserver: use the SAME top offset as scrolling
     React.useEffect(() => {
         const ids = sections.map(s => s.id);
         const els = ids.map(id => document.getElementById(id)).filter(Boolean) as HTMLElement[];
@@ -359,7 +358,7 @@ function SubNav() {
             },
             {
                 root: null,
-                rootMargin: `${-topOffset}px 0px -40% 0px`, // <-- match scroll offset; gentler bottom band
+                rootMargin: `${-topOffset}px 0px -40% 0px`, 
                 threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
             }
         );
@@ -368,7 +367,7 @@ function SubNav() {
         return () => obs.disconnect();
     }, [sections]);
 
-    // (Optional) Scroll fallback for iOS/short sections
+
     React.useEffect(() => {
         const onScroll = () => {
             const isMobile = window.matchMedia("(max-width: 768px)").matches;

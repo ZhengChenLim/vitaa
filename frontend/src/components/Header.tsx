@@ -12,8 +12,6 @@ import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuGroup,
   DropdownMenuItem
 } from "@/components/ui/dropdown-menu";
@@ -46,7 +44,7 @@ export default function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-30 w-full border-b bg-white backdrop-blur">
+    <header className="sticky top-0 z-50 w-full border-b bg-white backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         <Link href="/" className="text-2xl font-extrabold tracking-tight">
           <span className={`text-green-700 ${leckerli.className}`}>Vitaa</span>
@@ -58,7 +56,6 @@ export default function Header() {
           <NavLink href="/planform">{t('nav.plan')}</NavLink>
           <NavLink href="/analysisform">{t('nav.analysis')}</NavLink>
 
-          {/* Explore NCD Dropdown */}
           {/* Explore NCD Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger

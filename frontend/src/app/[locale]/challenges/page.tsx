@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useEffect } from "react"; // named import
+import { useEffect } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import NextImage from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -11,6 +11,7 @@ import {
     BreadcrumbLink,
     BreadcrumbList,
     BreadcrumbSeparator,
+    BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -25,7 +26,7 @@ import {
     DialogDescription,
     DialogFooter,
 } from "@/components/ui/dialog";
-import { Calendar, Clock, Zap, CheckCircle2, HelpCircle, Timer, Award, Home } from "lucide-react";
+import { Calendar, HelpCircle, Timer, Award, Home } from "lucide-react";
 
 /** ---------- Types ---------- */
 type Challenge = {
@@ -37,10 +38,10 @@ type Challenge = {
 };
 type ChallengeAPI = Record<"Week 1" | "Week 2" | "Week 3" | "Week 4", Challenge[]>;
 type CookieShape = {
-    monthKey: string; // e.g. "2025-09"
+    monthKey: string; 
     challenges: ChallengeAPI;
     selected: Record<number, boolean>;
-    expiresAt: string; // ISO string for when cookie expires
+    expiresAt: string; 
 };
 
 /** ---------- Date helpers ---------- */
@@ -127,14 +128,10 @@ export default function QuizAndChallengesPage() {
 
     const [badgeImage, setBadgeImage] = React.useState<HTMLImageElement | null>(null);
     const [isDownloading, setIsDownloading] = React.useState(false);
-
-    // modal state
     const [showBadge, setShowBadge] = React.useState(false);
 
-    // hidden canvas for PNG generation
     const downloadCanvasRef = React.useRef<HTMLCanvasElement | null>(null);
 
-    // gradient per open/click
     const [gradientIndex, setGradientIndex] = React.useState<number>(() =>
         Math.floor(Math.random() * GRADIENTS.length)
     );
@@ -154,7 +151,10 @@ export default function QuizAndChallengesPage() {
         [locale]
     );
 
-    // Preload badge image (use window.Image, not next/image)
+    const API_URL = process.env.NEXT_PUBLIC_API_BASE
+        ? `${process.env.NEXT_PUBLIC_API_BASE}/api/weekly-challenges/`
+        : "http://127.0.0.1:8000/api/weekly-challenges/";
+    
     useEffect(() => {
         const img = new window.Image();
         img.onload = () => setBadgeImage(img);
@@ -171,7 +171,7 @@ export default function QuizAndChallengesPage() {
 
             if (!cached) {
                 try {
-                    const res = await fetch("http://127.0.0.1:8000/api/weekly-challenges/", { cache: "no-store" });
+                    const res = await fetch(API_URL, { cache: "no-store" });
                     if (!res.ok) throw new Error(`API ${res.status}`);
 
                     const apiData = (await res.json()) as ChallengeAPI;
@@ -225,7 +225,6 @@ export default function QuizAndChallengesPage() {
 
         setIsDownloading(true);
         try {
-            // new gradient each click so each badge can feel fresh
             const idx = Math.floor(Math.random() * GRADIENTS.length);
             setGradientIndex(idx);
 
@@ -262,7 +261,7 @@ export default function QuizAndChallengesPage() {
                     <BreadcrumbList>
                         <BreadcrumbItem>
                             <BreadcrumbLink asChild>
-                                <Link href="/" className="inline-flex items-center gap-1.5 text-base text-gray-500 hover:text-gray-700">
+                                <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700">
                                     <Home className="h-4 w-4" />
                                     <span>{t("breadcrumbHome")}</span>
                                 </Link>
@@ -270,11 +269,11 @@ export default function QuizAndChallengesPage() {
                         </BreadcrumbItem>
                         <BreadcrumbSeparator className="text-gray-400" />
                         <BreadcrumbItem>
-                            <BreadcrumbLink asChild>
-                                <Link href="/quiz" className="text-base text-gray-700">
-                                    {t("breadcrumbQuiz")} {/* e.g., "Quiz & Challenges" */}
-                                </Link>
-                            </BreadcrumbLink>
+                            <BreadcrumbPage className="text-sm text-gray-700">
+                                {t("breadcrumbQuiz")}
+                            </BreadcrumbPage>
+
+
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
@@ -357,13 +356,15 @@ export default function QuizAndChallengesPage() {
 
                 {/* Row 3: CTA centered */}
                 <div className="mt-8 flex justify-center">
-                    <Button 
-                        size="lg"
-                        className="rounded-2xl px-10 py-6 text-base font-semibold text-white shadow-lg
+                    <Link href="/quiz">
+                        <Button
+                            size="lg"
+                            className="rounded-2xl px-10 py-6 text-base font-semibold text-white shadow-lg
                  bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600"
-                    >
-                        <Link href="/quiz">{t("cta.start")}</Link>
-                    </Button>
+                        >
+                            {t("cta.start")}
+                        </Button>
+                    </Link>
                 </div>
             </section>
 
@@ -372,9 +373,8 @@ export default function QuizAndChallengesPage() {
             <div className="my-10 h-px w-full bg-gradient-to-r from-transparent via-emerald-200 to-transparent" />
 
             {/* ---------- BOTTOM: Monthly Challenges ---------- */}
-            {/* ---------- BOTTOM: Monthly Challenges ---------- */}
             <section className="rounded-3xl border border-emerald-100 bg-white/80 p-4 sm:p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_8px_30px_-12px_rgba(16,185,129,0.25)]">
-                <div className="mb-6 flex flex-wrap items-center gap-3">
+                <div className="mb-6 flex flex-wrap items-center justify-center text-center gap-3">
                     <h2 className="text-3xl font-extrabold italic tracking-tight text-emerald-600 drop-shadow-[0_1px_0_rgba(255,255,255,0.8)]">
                         {t("challenges.title")}
                     </h2>
@@ -408,9 +408,9 @@ export default function QuizAndChallengesPage() {
                                     className="overflow-hidden rounded-2xl border border-slate-200/70 shadow-[0_12px_30px_-18px_rgba(2,132,199,0.25)]"
                                 >
                                     {/* header with plain bg, green text */}
-                                    <CardHeader>
-                                        <CardTitle className="flex items-center gap-2 text-2xl font-bold text-emerald-600">
-                                            <Calendar className="text-emerald-600" />
+                                    <CardHeader className="text-center">
+                                        <CardTitle className="flex items-center gap-2 text-2xl font-bold text-emerald-500">
+                                            <Calendar className="text-emerald-500" />
                                             {t(`weeks.${week.replace(" ", "").toLowerCase()}`)}
                                         </CardTitle>
                                     </CardHeader>
@@ -482,7 +482,6 @@ export default function QuizAndChallengesPage() {
                     </>
                 )}
 
-                {/* Hidden canvas used only for PNG download */}
                 <canvas ref={downloadCanvasRef} className="hidden" />
             </section>
 
