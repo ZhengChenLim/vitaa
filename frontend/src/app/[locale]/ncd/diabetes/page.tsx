@@ -212,13 +212,10 @@ export default function DiabetesPage() {
                         </BreadcrumbList>
                     </Breadcrumb>
                 </div>
-
-                {/* Centered logo + animated text */}
                 <div className="relative z-10 mx-auto max-w-6xl px-4 py-12">
                     <div className="flex flex-col items-center text-center">
-                        {/* Logo + title beside each other */}
                         <div className="flex items-center justify-center gap-4">
-                            {/* OUTER: one-time drop-in */}
+
                             <motion.div
                                 initial={{ y: -140, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
@@ -230,7 +227,6 @@ export default function DiabetesPage() {
                                     duration: 0.6,
                                 }}
                             >
-                                {/* INNER: bounce the whole circle + icon */}
                                 <motion.div
                                     animate={{ y: [0, -8, 0] }}
                                     transition={{
@@ -238,7 +234,7 @@ export default function DiabetesPage() {
                                         repeat: Infinity,
                                         repeatType: "loop",
                                         ease: "easeInOut",
-                                        delay: 0.2, // tiny pause after drop before bouncing
+                                        delay: 0.2, 
                                     }}
                                     className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-red-500 shadow-md md:h-20 md:w-20"
                                 >
@@ -391,13 +387,12 @@ function SubNav() {
         const el = document.getElementById(id);
         if (!el) return;
         const isMobile = window.matchMedia("(max-width: 768px)").matches;
-        const offset = isMobile ? 96 : 120; // keep this as your true sticky offset
+        const offset = isMobile ? 96 : 120; 
         const y = el.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top: y, behavior: "smooth" });
         history.replaceState(null, "", `#${id}`);
     };
 
-    // IntersectionObserver: use the SAME top offset as scrolling
     React.useEffect(() => {
         const ids = sections.map(s => s.id);
         const els = ids.map(id => document.getElementById(id)).filter(Boolean) as HTMLElement[];
@@ -423,7 +418,6 @@ function SubNav() {
         return () => obs.disconnect();
     }, [sections]);
 
-    // (Optional) Scroll fallback for iOS/short sections
     React.useEffect(() => {
         const onScroll = () => {
             const isMobile = window.matchMedia("(max-width: 768px)").matches;

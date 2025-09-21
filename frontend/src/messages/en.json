@@ -17,7 +17,7 @@
       "stroke": "Stroke"
     },
     "challenges": {
-      "monthlyQuiz": "Monthly Challenges and Quiz"
+      "monthlyQuiz": "Quiz & Challenges"
     }
   },
   "home": {
@@ -459,7 +459,31 @@
     "strokeTitle": "Stroke",
     "strokeDesc": "A serious condition that occurs when blood supply to the brain is interrupted.",
     "strokePrev": "Malaysian Prevalence: 40,000 cases annually",
-    "learnMore": "Learn more"
+    "learnMore": "Learn more",
+    "globalStatsTitle": "Global NCD Statistics",
+    "globalStatsSubtitle": "Understanding worldwide mortality trends of non-communicable diseases.",
+    "malaysiaStatsTitle": "Malaysian NCD Statistics",
+    "malaysiaStatsSubtitle": "The current state of NCDs and their impact on mortality in Malaysia.",
+    "latestShare": "Latest share of total deaths (Up to 2021)",
+    "lineGlobalTitle": "Total NCD Deaths Over Time",
+    "lineHint": "Counts shown as reported per year.",
+    "barsGlobalTitle": "Share of NCD Deaths (2015-2021)",
+    "cardio": "Cardiovascular diseases",
+    "diabetes": "Diabetes",
+    "stroke": "Stroke",
+    "ofTotalDeaths": "of total deaths",
+    "myChallenge": {
+      "title": "The Malaysian Challenge",
+      "risingTitle": "Rising Mortality Trends",
+      "contribTitle": "Contributing Factors",
+      "r1": "Cardiovascular diseases cause nearly 30% of deaths among the Malaysian population.",
+      "r2": "Diabetes accounts for around 2.3% of nationwide deaths.",
+      "r3": "Stroke mortality remains high, responsible for more than 10% of deaths in Malaysia.",
+      "c1": "Sedentary lifestyle and urbanization",
+      "c2": "High-calorie, processed food consumption",
+      "c3": "Stress and work–life imbalance"
+    },
+    "loading": "Loading…"
   },
   "diabetes": {
     "title": "Diabetes",
@@ -1039,7 +1063,7 @@
         "Take prescribed medications as directed"
       ],
       "diet": {
-        "title": "Malaysian Heart-Healthy Diet Recommendations",
+        "title": "Healthy Local Foods",
         "include": [
           "Fresh fish (ikan kembung, tenggiri)",
           "Leafy greens (bayam, kangkung)",
@@ -1174,9 +1198,18 @@
       "title": "Health Knowledge Quiz",
       "lead": "Want a fuller picture of your health? Try our knowledge checks on diabetes, hypertension, and stroke."
     },
-    "card": { "title": "NCD Knowledge Quiz" },
-    "nav": { "title": "Quiz navigation", "section": "Section", "hide": "Hide" },
-    "left": { "notAnswered": "Not yet answered", "answered": "Answered" },
+    "card": {
+      "title": "NCD Knowledge Quiz"
+    },
+    "nav": {
+      "title": "Quiz navigation",
+      "section": "Section",
+      "hide": "Hide"
+    },
+    "left": {
+      "notAnswered": "Not yet answered",
+      "answered": "Answered"
+    },
     "sectionPrefix": "Section",
     "sectionHint": "Showing questions {start}–{end} of {total}",
     "prev": "Previous page",

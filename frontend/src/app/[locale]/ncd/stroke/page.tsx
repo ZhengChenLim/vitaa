@@ -582,7 +582,8 @@ function PreventionSection() {
                     <DietCard
                         iconBg="bg-emerald-100"
                         icon={<CookingPot className="h-4 w-4 text-emerald-700" />}
-                        title={t("diet.title") + " — Include More"}
+                        title={t("diet.title")}
+
                         items={include}
                     />
                     <DietCard
