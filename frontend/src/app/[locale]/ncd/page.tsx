@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
@@ -312,6 +313,7 @@ export default function NcdPage() {
                 <h2 className="text-center text-2xl font-semibold">{t("typesTitle")}</h2>
                 <p className="mt-2 text-center text-sm text-muted-foreground">{t("typesSubtitle")}</p>
 
+
                 <div className="mt-6 grid gap-6 md:grid-cols-3">
                     {/* Diabetes */}
                     <Card className="relative flex flex-col justify-between rounded-lg border-0 shadow-sm overflow-hidden">
@@ -452,6 +454,7 @@ export default function NcdPage() {
                     </div>
                 </div>
             </section>
+
 
         </main>
     );

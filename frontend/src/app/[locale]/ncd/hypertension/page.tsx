@@ -367,7 +367,6 @@ function SubNav() {
         return () => obs.disconnect();
     }, [sections]);
 
-
     React.useEffect(() => {
         const onScroll = () => {
             const isMobile = window.matchMedia("(max-width: 768px)").matches;

@@ -212,10 +212,10 @@ export default function DiabetesPage() {
                         </BreadcrumbList>
                     </Breadcrumb>
                 </div>
-
                 <div className="relative z-10 mx-auto max-w-6xl px-4 py-12">
                     <div className="flex flex-col items-center text-center">
                         <div className="flex items-center justify-center gap-4">
+
                             <motion.div
                                 initial={{ y: -140, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
