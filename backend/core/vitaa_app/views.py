@@ -2,7 +2,10 @@ from collections import defaultdict, OrderedDict
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-import json, random
+from django.conf import settings
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
+import json, random, requests
 from requests import RequestException, HTTPError
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -10,7 +13,7 @@ from django.db.models import Q
 from rest_framework import status
 
 from .models import PhysicalActivity, WeeklyPhysicalChallenge, NCDDeathStat, NCDQuizQuestion
-from serializers import PlanRequestSerializer, NCDQuizQuestionSerializer, WeeklyPhysicalChallengeSerializer
+from serializers import PlanRequestSerializer, NCDQuizQuestionSerializer, WeeklyPhysicalChallengeSerializer, AQIQuerySerializer
 
 from vitaa_app.activity_planner_service import make_week_plan_from_queryset
 from vitaa_app.utils import calc_targets
@@ -440,3 +443,120 @@ class WeeklyChallengePlanView(APIView):
             plan[f"Week {i + 1}"] = serializer.data
 
         return Response(plan)
+
+TIMEOUT_SECONDS = 10  # network safety
+
+@method_decorator(cache_page(60), name="get")  # cache identical queries for 60s
+class AQIView(APIView):
+    """
+    GET /api/aqi?lat=...&lon=...
+    GET /api/aqi?city=beijing
+    GET /api/aqi?here=true
+    """
+
+    def get(self, request):
+        s = AQIQuerySerializer(data=request.query_params)
+        s.is_valid(raise_exception=True)
+        data = s.validated_data
+
+        token = data.get("token") or getattr(settings, "WAQI_TOKEN", "")
+        if not token:
+            return Response(
+                {"detail": "WAQI token not configured."},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
+
+        base = getattr(settings, "WAQI_BASE_URL", "https://api.waqi.info/feed")
+
+        # Build WAQI path
+        if data.get("here"):
+            path = "here"
+        elif data.get("city"):
+            path = data["city"]
+        else:
+            lat = data["lat"]
+            lon = data["lon"]
+            path = f"geo:{lat};{lon}"
+
+        url = f"{base}/{path}/?token={token}"
+
+        try:
+            r = requests.get(url, timeout=TIMEOUT_SECONDS)
+        except requests.RequestException as e:
+            return Response(
+                {"detail": f"Upstream request failed: {str(e)}"},
+                status=status.HTTP_502_BAD_GATEWAY,
+            )
+
+        # Pass through WAQI status codes where sensible
+        http_status = r.status_code if 200 <= r.status_code < 500 else 502
+
+        # If WAQI returns non-JSON, guard it:
+        try:
+            payload = r.json()
+        except ValueError:
+            return Response(
+                {"detail": "Invalid response from WAQI."},
+                status=status.HTTP_502_BAD_GATEWAY,
+            )
+
+        # Normalize common error shapes
+        if payload.get("status") not in ("ok", "nope"):
+            # WAQI sometimes uses 'error' or other flags; just return as-is
+            pass
+
+        return Response(payload, status=http_status)
+    
+MALAYSIA_STATES = [
+    {"state": "Johor", "lat": 1.4927, "lon": 103.7414},
+    {"state": "Kedah", "lat": 6.1210, "lon": 100.3600},
+    {"state": "Kelantan", "lat": 6.1254, "lon": 102.2381},
+    {"state": "Melaka", "lat": 2.1896, "lon": 102.2501},
+    {"state": "Negeri Sembilan", "lat": 2.7297, "lon": 101.9381},
+    {"state": "Pahang", "lat": 3.8077, "lon": 103.3260},
+    {"state": "Penang", "lat": 5.4141, "lon": 100.3288},
+    {"state": "Perak", "lat": 4.5975, "lon": 101.0901},
+    {"state": "Perlis", "lat": 6.4410, "lon": 100.1986},
+    {"state": "Sabah", "lat": 5.9804, "lon": 116.0735},
+    {"state": "Sarawak", "lat": 1.5533, "lon": 110.3592},
+    {"state": "Selangor", "lat": 3.0738, "lon": 101.5183},
+    {"state": "Terengganu", "lat": 5.3290, "lon": 103.1370},
+    {"state": "Kuala Lumpur", "lat": 3.1390, "lon": 101.6869},
+]
+
+class MalaysiaAQIView(APIView):
+    """
+    GET /api/aqi/all-states
+    Returns AQI data for all 14 Malaysian states
+    """
+
+    def get(self, request):
+        token = getattr(settings, "WAQI_TOKEN", "")
+        if not token:
+            return Response(
+                {"detail": "WAQI token not configured."},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
+
+        base = getattr(settings, "WAQI_BASE_URL", "https://api.waqi.info/feed")
+        results = []
+
+        for s in MALAYSIA_STATES:
+            url = f"{base}/geo:{s['lat']};{s['lon']}/?token={token}"
+            try:
+                r = requests.get(url, timeout=8)
+                data = r.json()
+                if data.get("status") == "ok":
+                    results.append({
+                        "state": s["state"],
+                        "aqi": data["data"].get("aqi"),
+                        "city": data["data"]["city"].get("name"),
+                        "dominentpol": data["data"].get("dominentpol"),
+                        "time": data["data"]["time"].get("iso"),
+                    })
+                else:
+                    results.append({"state": s["state"], "error": data})
+            except Exception as e:
+                results.append({"state": s["state"], "error": str(e)})
+
+        return Response({"status": "ok", "results": results})
