@@ -32,3 +32,30 @@ class WeeklyPhysicalChallengeSerializer(serializers.ModelSerializer):
     class Meta:
         model = WeeklyPhysicalChallenge
         fields = ["challenge_id", "challenge", "challenge_ms", "challenge_zh", "challenge_vi"]
+
+class AQIQuerySerializer(serializers.Serializer):
+    lat = serializers.FloatField(required=False)
+    lon = serializers.FloatField(required=False)
+    city = serializers.CharField(required=False, allow_blank=False)
+    here = serializers.BooleanField(required=False, default=False)
+    # Optional: allow overriding token for testing (you can remove in prod)
+    token = serializers.CharField(required=False, allow_blank=False)
+
+    def validate(self, attrs):
+        lat, lon, city, here = attrs.get("lat"), attrs.get("lon"), attrs.get("city"), attrs.get("here", False)
+
+        modes = sum([
+            1 if (lat is not None or lon is not None) else 0,
+            1 if city else 0,
+            1 if here else 0
+        ])
+
+        if modes == 0:
+            raise serializers.ValidationError("Provide either (lat & lon), or city, or here=true.")
+        if modes > 1:
+            raise serializers.ValidationError("Use only one: (lat & lon) OR city OR here=true.")
+
+        if (lat is not None) ^ (lon is not None):
+            raise serializers.ValidationError("Both lat and lon must be provided together.")
+
+        return attrs
