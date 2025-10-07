@@ -15,9 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from vitaa_app import views
-from vitaa_app.views import GenerateActivityPlanView, NCDQuizGetQuestionsView, NCDQuizGradeView, NCDDeathSeriesView, WeeklyChallengePlanView
+from vitaa_app.views import GenerateActivityPlanView, NCDQuizGetQuestionsView, NCDQuizGradeView, NCDDeathSeriesView, WeeklyChallengePlanView, AQIView, MalaysiaAQIView 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -48,4 +48,10 @@ urlpatterns = [
 
     # Weekly Challenges API
     path("api/weekly-challenges/", WeeklyChallengePlanView.as_view(), name="weekly-challenges"),
+
+    #Air Quality Index API
+    path("api/aqi", AQIView.as_view(), name="aqi"),
+
+    # Malaysia AQI API
+    path("api/aqi/all-states", MalaysiaAQIView.as_view(), name="aqi-all-states"),
 ]

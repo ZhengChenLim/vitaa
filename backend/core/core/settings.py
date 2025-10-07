@@ -19,6 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
+WAQI_TOKEN = "6dc75c29aec3f0cde9e4d38f94f33afd08b50de4"
+WAQI_BASE_URL = "https://api.waqi.info/feed"
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-6_^-ysd7n4n-2f-lu&rfxkw5!_9_(z0&4*nk@o)tg!%zzevm@%'
 
