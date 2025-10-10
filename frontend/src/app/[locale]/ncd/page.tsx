@@ -236,7 +236,7 @@ export default function NcdPage() {
     return (
         <main className="px-4 max-w-6xl mx-auto space-y-12">
             {/* Hero */}
-            <section className="relative overflow-hidden rounded-2xl bg-[url('/library-hero.jpg')] bg-cover bg-center">
+            <section className="relative overflow-hidden rounded-2xl bg-[url('/library-hero.jpg')] bg-cover bg-center mt-8">
                 <div className="backdrop-brightness-50 p-8 md:p-36 text-center">
                     <h1 className="text-3xl md:text-4xl font-bold text-white drop-shadow">
                         {t("title")}
@@ -426,7 +426,7 @@ export default function NcdPage() {
                 )}
             </section>
 
-            <section className="mx-auto max-w-6xl">
+            <section className="mx-auto max-w-6xl mb-8">
                 <div className="mt-10 rounded-2xl bg-rose-50 p-6 md:p-8 relative">
                     {/* left accent line */}
                     <span className="absolute left-0 top-4 bottom-4 w-1 rounded-full bg-rose-500" />
