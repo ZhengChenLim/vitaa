@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { useLocale, useTranslations } from 'next-intl';
 
 // OPTIONAL (shadcn): comment these 3 lines if you’re not using shadcn/ui Avatar
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
@@ -22,11 +23,7 @@ type Msg = { role: 'assistant' | 'user'; content: string; reasoning?: string | n
 
 function RobotAvatar({ className = 'h-7 w-7' }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 100 100"
-      aria-hidden="true"
-      className={`${className} shrink-0 drop-shadow-sm`}
-    >
+    <svg viewBox="0 0 100 100" aria-hidden="true" className={`${className} shrink-0 drop-shadow-sm`}>
       <defs>
         <linearGradient id="gBodyMini" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#b9f3d5" />
@@ -56,6 +53,15 @@ function RobotAvatar({ className = 'h-7 w-7' }: { className?: string }) {
   );
 }
 
+/** 🔧 normalize assistant markdown to remove stray <br> and collapse blank lines */
+function normalizeAssistant(text: string): string {
+  if (!text) return '';
+  let t = text.replace(/(\s*<br\s*\/?>\s*)+/gi, '\n');
+  t = t.replace(/\n{2,}/g, '\n');
+  t = t.trim();
+  return t;
+}
+
 function ChatPanel({
   open,
   onClose,
@@ -63,7 +69,7 @@ function ChatPanel({
   onSend,
   pending,
   onRefresh,
-  onRegenerate, // NEW
+  onRegenerate,
 }: {
   open: boolean;
   onClose: () => void;
@@ -71,28 +77,42 @@ function ChatPanel({
   onSend: (text: string) => void;
   pending: boolean;
   onRefresh: () => void;
-  onRegenerate: (assistantIndex: number) => void; // NEW
+  onRegenerate: (assistantIndex: number) => void;
 }) {
+  const t = useTranslations('CHAT'); // Provide strings under this namespace
   const [text, setText] = useState('');
   const [expanded, setExpanded] = useState(false);
   const [isSmall, setIsSmall] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const latestAssistantRef = useRef<HTMLDivElement | null>(null); // NEW
+  const latestAssistantRef = useRef<HTMLDivElement | null>(null);
+  const [toast, setToast] = useState<{ msg: string; show: boolean }>({ msg: '', show: false });
+  const toastTimer = useRef<number | null>(null);
 
-  // Frequently-asked quick replies (chips)
+  function showToast(msg: string, ms = 1600) {
+    setToast({ msg, show: true });
+    if (toastTimer.current) window.clearTimeout(toastTimer.current);
+    toastTimer.current = window.setTimeout(() => setToast((v) => ({ ...v, show: false })), ms);
+  }
+
+  useEffect(() => {
+    return () => {
+      if (toastTimer.current) window.clearTimeout(toastTimer.current);
+    };
+  }, []);
+
+  // Quick reply chips (localized)
   const chips = [
-    'Where can I find NCD articles?',
-    'How do I start a Health Plan?',
-    'Where is the Health Analysis?',
-    'What does BMI mean here?',
-    'How do monthly challenges work?',
+    t('chips.findArticles'),
+    t('chips.startHealthPlan'),
+    t('chips.whereHealthAnalysis'),
+    t('chips.whatIsBMI'),
+    t('chips.monthlyChallenges'),
   ];
 
-  // You can change this to your signed-in user photo if you have it
-  const userAvatarUrl = 'https://api.dicebear.com/9.x/thumbs/svg?seed=you'; // placeholder
+  // You can replace with signed-in photo if you have it
+  const userAvatarUrl = ''; // intentionally blank (using lucide User)
   const userAvatarFallback = 'You';
 
-  // --- HOOKS MUST ALWAYS RUN IN THE SAME ORDER ---
   // 1) media-query watcher
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 640px)');
@@ -114,7 +134,7 @@ function ChatPanel({
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
   }, [open, messages.length, expanded, pending]);
 
-  // 4) AUTO-EXPAND EFFECT (moved ABOVE any conditional returns)
+  // 4) AUTO-EXPAND EFFECT
   useEffect(() => {
     if (!open || isSmall || expanded) return;
     const el = latestAssistantRef.current;
@@ -122,8 +142,9 @@ function ChatPanel({
 
     const hasOverflow = () => {
       if (el.scrollWidth > el.clientWidth + 2) return true;
-      const wideChild = Array.from(el.querySelectorAll<HTMLElement>('pre, table, blockquote'))
-        .some((n) => n.scrollWidth > el.clientWidth + 2);
+      const wideChild = Array.from(el.querySelectorAll<HTMLElement>('pre, table, blockquote')).some(
+        (n) => n.scrollWidth > el.clientWidth + 2
+      );
       return wideChild;
     };
 
@@ -137,13 +158,8 @@ function ChatPanel({
     });
     ro.observe(el);
     el.querySelectorAll('pre, table, img').forEach((node) => ro.observe(node));
-
     return () => ro.disconnect();
   }, [open, messages, pending, isSmall, expanded]);
-
-  // -------------------------------------------------
-  // No hooks below this line; safe to early-return.
-  // -------------------------------------------------
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -168,23 +184,20 @@ function ChatPanel({
       ta.select();
       document.execCommand('copy');
       document.body.removeChild(ta);
+    } finally {
+      showToast(t('copied'));
     }
   };
 
   if (!open) return null;
 
-  // Find the latest (most recent) user message index
+  // Find indices
   const lastUserIdx = (() => {
-    for (let i = messages.length - 1; i >= 0; i--) {
-      if (messages[i]?.role === 'user') return i;
-    }
+    for (let i = messages.length - 1; i >= 0; i--) if (messages[i]?.role === 'user') return i;
     return -1;
   })();
-
   const lastAssistantIdx = (() => {
-    for (let i = messages.length - 1; i >= 0; i--) {
-      if (messages[i]?.role === 'assistant') return i;
-    }
+    for (let i = messages.length - 1; i >= 0; i--) if (messages[i]?.role === 'assistant') return i;
     return -1;
   })();
 
@@ -192,14 +205,12 @@ function ChatPanel({
     <div className="fixed z-[70] bottom-6 right-6">
       <div
         className={[
-          'rounded-2xl shadow-2xl border border-gray-300 transition-all bg-gradient-to-tr from-white via-emerald-50 to-emerald-100 flex flex-col',
-          expanded
-            ? 'w-[min(96vw,1720px)] h-[min(86vh,1080px)] origin-bottom-right'
-            : 'w-[min(92vw,380px)] h-[500px] origin-bottom-right',
+          'relative rounded-2xl shadow-2xl border border-gray-300 transition-all bg-gradient-to-tr from-white via-emerald-50 to-emerald-100 flex flex-col',
+          expanded ? 'w-[min(96vw,1720px)] h-[min(86vh,1080px)] origin-bottom-right' : 'w-[min(92vw,380px)] h-[500px] origin-bottom-right',
           'flex flex-col',
         ].join(' ')}
         role="dialog"
-        aria-label="Vivi chatbot"
+        aria-label={t('aria.chatbot')}
         aria-modal="true"
       >
         {/* Header */}
@@ -233,8 +244,8 @@ function ChatPanel({
               </g>
             </svg>
             <div className="flex flex-col leading-tight">
-              <div className="text-base font-semibold">Vivi</div>
-              <div className="text-xs text-slate-500">Your AI assistant</div>
+              <div className="text-base font-semibold">{t('brand.name')}</div>
+              <div className="text-xs text-slate-500">{t('brand.tagline')}</div>
             </div>
           </div>
 
@@ -244,9 +255,9 @@ function ChatPanel({
               type="button"
               className="h-7 w-7 inline-flex items-center justify-center rounded-md hover:bg-slate-100 disabled:opacity-50"
               onClick={onRefresh}
-              aria-label="Refresh"
+              aria-label={t('actions.refresh')}
               disabled={pending}
-              title="Reset conversation"
+              title={t('actions.resetConversation')}
             >
               <RotateCw className="h-4 w-4" />
             </button>
@@ -256,7 +267,7 @@ function ChatPanel({
                 type="button"
                 className="h-7 w-7 inline-flex items-center justify-center rounded-md hover:bg-slate-100"
                 onClick={() => setExpanded((e) => !e)}
-                aria-label={expanded ? 'Collapse' : 'Expand'}
+                aria-label={expanded ? t('actions.collapse') : t('actions.expand')}
               >
                 {expanded ? <Minimize2 className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
               </button>
@@ -265,7 +276,7 @@ function ChatPanel({
               type="button"
               className="h-7 w-7 inline-flex items-center justify-center rounded-md hover:bg-slate-100"
               onClick={onClose}
-              aria-label="Close"
+              aria-label={t('actions.close')}
             >
               <X className="h-4 w-4" />
             </button>
@@ -274,39 +285,36 @@ function ChatPanel({
 
         {/* Content */}
         <div className="pt-0 flex-1 flex flex-col min-h-0">
-          <div
-            ref={scrollRef}
-            className="flex-1 min-h-0 overflow-y-auto rounded-none bg-white/80 backdrop-blur-sm"
-          >
-            <div className="p-4 space-y-2">
+          <div ref={scrollRef} className="flex-1 min-h-0 overflow-y-auto rounded-none bg-white/80 backdrop-blur-sm">
+            <div className="p-4 space-y-1">
               {messages.map((m, idx) => {
                 const isAssistant = m.role === 'assistant';
                 const isUser = m.role === 'user';
                 const isThinking = isAssistant && (!m.content || m.content.length === 0);
                 const isLastAssistant = isAssistant && idx === messages.length - 1;
                 const isLatestAssistant = isAssistant && idx === lastAssistantIdx;
-                // Is this the latest user prompt?
                 const isLatestUserPrompt = isUser && idx === lastUserIdx;
 
-                // Wrapper alignment
                 const wrapperClasses = isUser ? 'justify-end' : 'justify-start';
 
-                // Bubble base classes — UPDATED
+                // 🔵 Link styling + tighter spacing
                 const bubbleBase = [
                   'max-w-[85%] rounded-2xl px-3 py-2 text-sm shadow-sm',
-                  // Markdown-friendly wrapping/scrolling
                   'break-words whitespace-pre-wrap',
-                  // long tokens/links
+                  // Link styles
                   '[&_a]:break-all',
-                  // inline code wrap
-                  '[&_code]:break-words',
-                  // code blocks scroll and smaller font
+                  'prose prose-sm max-w-none',
+                  'prose-a:text-blue-600 hover:prose-a:underline focus:prose-a:underline',
+                  // 🔧 Tighter paragraphs & lists
+                  'prose-p:my-0 prose-p:leading-relaxed',
+                  'prose-ul:my-1 prose-ol:my-1 prose-li:my-0',
+                  'prose-pre:my-1 prose-blockquote:my-1 prose-headings:my-1',
+                  // Remove extra padding at start/end
+                  '[&_p:first-child]:mt-0 [&_p:last-child]:mb-0',
+                  // Code blocks / tables / images
                   '[&_pre]:overflow-x-auto [&_pre]:p-3 [&_pre]:rounded-lg [&_pre]:text-xs',
-                  // wide tables/images scroll within bubble
                   '[&_table]:block [&_table]:overflow-x-auto',
                   '[&_img]:max-w-full',
-                  // compact headings in bubbles
-                  'prose prose-sm max-w-none'
                 ].join(' ');
 
                 const assistantPalette =
@@ -314,25 +322,20 @@ function ChatPanel({
                 const userPalette =
                   'bg-gradient-to-br from-indigo-500 via-blue-500 to-sky-400 text-white border border-gray-200 prose-invert hover:ring-1 hover:ring-blue-300/40';
 
-                // --- Latest user prompt: add avatar to the right
+                // Latest user prompt: avatar on the right (lucide User, bg sky-600)
                 if (isLatestUserPrompt) {
                   return (
                     <div key={idx} className={`flex ${wrapperClasses}`}>
                       <div className="flex items-end gap-2">
                         <div className={`${bubbleBase} ${userPalette}`}>
                           <div className="space-y-2">
-                            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                              {m.content}
-                            </ReactMarkdown>
+                            <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content}</ReactMarkdown>
                           </div>
                         </div>
-
-                        {/* Right-side avatar for the most recent user prompt */}
                         <div className="shrink-0">
                           <div className="h-7 w-7 flex items-center justify-center rounded-full bg-sky-600 text-white">
                             <User className="h-4 w-4" />
                           </div>
-                          {/* shadcn Avatar */}
                           {/* <Avatar className="h-7 w-7 ring-1 ring-slate-200">
                             <AvatarImage src={userAvatarUrl} alt="You" />
                             <AvatarFallback className="text-[10px]">{userAvatarFallback}</AvatarFallback>
@@ -343,7 +346,7 @@ function ChatPanel({
                   );
                 }
 
-                // --- Assistant message while reasoning/streaming: show robot + skeleton
+                // Assistant message while reasoning/streaming
                 if (isAssistant && isThinking) {
                   return (
                     <div key={idx} className="flex justify-start">
@@ -353,10 +356,10 @@ function ChatPanel({
                           <div className="flex items-start gap-2">
                             <Loader2 className="h-4 w-4 mt-0.5 animate-spin" />
                             <div className="flex-1">
-                              <div className="font-medium">Thinking…</div>
+                              <div className="font-medium">{t('thinking')}</div>
                               {m.reasoning && m.reasoning.length > 0 && (
                                 <details className="mt-1 text-[10px] opacity-90">
-                                  <summary className="cursor-pointer select-none">Show why</summary>
+                                  <summary className="cursor-pointer select-none">{t('showWhy')}</summary>
                                   <div className="mt-1 whitespace-pre-wrap">{m.reasoning}</div>
                                 </details>
                               )}
@@ -368,8 +371,9 @@ function ChatPanel({
                   );
                 }
 
-                // --- Assistant message (normal)
+                // Assistant message (normal)
                 if (isAssistant) {
+                  const cleaned = normalizeAssistant(m.content);
                   return (
                     <div key={idx} className="flex justify-start">
                       <div className="flex items-start gap-2">
@@ -379,7 +383,21 @@ function ChatPanel({
                           className={[bubbleBase, assistantPalette].join(' ')}
                         >
                           <div className="space-y-2">
-                            <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content}</ReactMarkdown>
+                            <ReactMarkdown
+                              remarkPlugins={[remarkGfm]}
+                              components={{
+                                a: ({ node, ...props }) => (
+                                  <a
+                                    {...props}
+                                    className="text-blue-600 underline-offset-2 hover:underline focus:underline"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  />
+                                ),
+                              }}
+                            >
+                              {cleaned}
+                            </ReactMarkdown>
 
                             {idx === 0 && (
                               <div className="flex flex-wrap gap-1 pt-1">
@@ -399,7 +417,7 @@ function ChatPanel({
 
                             {m.reasoning && m.reasoning.trim() && (
                               <details className="mt-2 text-xs border-t pt-2 opacity-90">
-                                <summary className="cursor-pointer select-none">Show reasoning</summary>
+                                <summary className="cursor-pointer select-none">{t('showReasoning')}</summary>
                                 <div className="mt-1 whitespace-pre-wrap">{m.reasoning}</div>
                               </details>
                             )}
@@ -409,7 +427,7 @@ function ChatPanel({
                                 type="button"
                                 onClick={() => handleCopy(m.content)}
                                 className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-[10px] border border-slate-200 hover:bg-slate-50 disabled:opacity-50"
-                                title="Copy message"
+                                title={t('actions.copy')}
                                 disabled={pending}
                               >
                                 <CopyIcon className="h-3.5 w-3.5" />
@@ -420,7 +438,7 @@ function ChatPanel({
                                   type="button"
                                   onClick={() => onRegenerate(idx)}
                                   className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-[10px] border border-slate-200 hover:bg-slate-50 disabled:opacity-50"
-                                  title="Regenerate last response"
+                                  title={t('actions.regenerate')}
                                   disabled={pending}
                                 >
                                   <RotateCw className="h-3.5 w-3.5" />
@@ -434,7 +452,7 @@ function ChatPanel({
                   );
                 }
 
-                // --- Other user messages (not the latest): plain right-aligned bubble
+                // Other user messages (not the latest)
                 return (
                   <div key={idx} className={`flex ${wrapperClasses}`}>
                     <div className={[bubbleBase, userPalette].join(' ')}>
@@ -451,14 +469,14 @@ function ChatPanel({
             <input
               value={text}
               onChange={(e) => setText(e.target.value)}
-              placeholder="Type a message…"
+              placeholder={t('placeholder')}
               className="flex-1 h-9 rounded-md border border-slate-300 px-3 text-sm outline-none focus:ring-2 focus:ring-emerald-500"
               disabled={pending}
             />
             <button
               type="submit"
               className="h-9 w-9 inline-flex items-center justify-center rounded-md bg-sky-600 hover:bg-sky-600/90 text-white disabled:opacity-50"
-              aria-label="Send"
+              aria-label={t('actions.send')}
               disabled={pending}
             >
               <ArrowRight className="h-4 w-4" />
@@ -469,8 +487,30 @@ function ChatPanel({
         {/* Footer note */}
         <div className="px-3 py-2 border-t">
           <p className="text-[10px] text-slate-700 text-center">
-            AI can make mistakes. For critical advice, please consult a human expert.
+            {t('disclaimer')}
           </p>
+        </div>
+      </div>
+
+      {/* Center toast */}
+      <div
+        aria-live="polite"
+        className={[
+          'pointer-events-none absolute inset-0 z-[80] flex items-center justify-center',
+          'transition-opacity duration-200',
+          toast.show ? 'opacity-100' : 'opacity-0',
+        ].join(' ')}
+      >
+        <div
+          className={[
+            'rounded-full px-3 py-1.5 text-xs font-medium shadow-lg',
+            'bg-emerald-200/80 text-black border border-emerald-300',
+            'backdrop-blur-md',
+            'transform transition-transform duration-200',
+            toast.show ? 'scale-100' : 'scale-95',
+          ].join(' ')}
+        >
+          {toast.msg}
         </div>
       </div>
     </div>
@@ -478,18 +518,22 @@ function ChatPanel({
 }
 
 export default function ChatMount() {
+  const t = useTranslations('CHAT');
+  const locale = useLocale();
   const [chatOpen, setChatOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([
-    { role: 'assistant', content: 'Hi, I’m Vivi! How can I help today?' },
+    { role: 'assistant', content: t('greeting') },
   ]);
   const [pending, setPending] = useState(false);
+
+  const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
   // STREAMING CLIENT
   const callLLMStream = async (
     fullMessages: { role: 'user' | 'assistant' | 'system'; content: string }[],
     onDelta: (part: 'content' | 'reasoning', text: string) => void
   ) => {
-    const res = await fetch('http://localhost:3000/en/chat', {
+    const res = await fetch(`${API}/${locale}/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream' },
       body: JSON.stringify({ messages: fullMessages }),
@@ -510,9 +554,9 @@ export default function ChatMount() {
 
       for (const evt of events) {
         for (const line of evt.split('\n')) {
-          const t = line.trim();
-          if (!t.startsWith('data:')) continue;
-          const payload = t.slice(5).trim();
+          const tline = line.trim();
+          if (!tline.startsWith('data:')) continue;
+          const payload = tline.slice(5).trim();
           if (payload === '[DONE]') return;
           try {
             const obj = JSON.parse(payload) as {
@@ -564,7 +608,7 @@ export default function ChatMount() {
   // Reset conversation
   const refreshChat = () => {
     if (pending) return;
-    setMessages([{ role: 'assistant', content: 'Hi, I’m Vivi! How can I help today?' }]);
+    setMessages([{ role: 'assistant', content: t('greeting') }]);
   };
 
   // Regenerate last assistant response (from the immediately preceding user)
@@ -627,7 +671,7 @@ export default function ChatMount() {
         onSend={handleSend}
         pending={pending}
         onRefresh={refreshChat}
-        onRegenerate={regenerateAt} // NEW
+        onRegenerate={regenerateAt}
       />
     </>
   );

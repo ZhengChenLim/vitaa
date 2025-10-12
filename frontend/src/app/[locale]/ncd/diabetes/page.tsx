@@ -323,7 +323,7 @@ export default function DiabetesPage() {
                         icon={<Stethoscope className="h-4 w-4" />}
                     />
                     <StatCard
-                        value="12.8%"
+                        value="2.3%"
                         label={t("stats.totalDeaths")}
                         footnote={t("stats.moh")}
                         icon={<HeartPulse className="h-4 w-4" />}

@@ -169,7 +169,7 @@ export default function HypertensionPage() {
                             </motion.h1>
                         </div>
                         <motion.p className="mt-3 max-w-2xl text-base text-gray-800 font-medium md:text-lg">
-                            {t("subtitle", { count: "6.4" })}
+                            {t("subtitle", { count: "6.7" })}
                         </motion.p>
                     </div>
                 </div>
@@ -216,8 +216,8 @@ export default function HypertensionPage() {
                 {/* Stats */}
                 <div className="mt-10 grid gap-4 md:grid-cols-3">
                     <StatCard value="30.0%" label={t("stats.adultPrevalence")} footnote={t("stats.nhms")} />
-                    <StatCard value="6.4M" label={t("stats.adultsAffected")} footnote={t("stats.estimate")} />
-                    <StatCard value="35.2%" label={t("stats.totalDeaths")} footnote={t("stats.moh")} />
+                    <StatCard value="6.7M" label={t("stats.adultsAffected")} footnote={t("stats.estimate")} />
+                    <StatCard value="0.3%" label={t("stats.totalDeaths")} footnote={t("stats.moh")} />
                 </div>
 
                 <div className="mt-12">

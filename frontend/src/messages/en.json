@@ -9,7 +9,8 @@
     "toggleMenuAria": "Toggle menu",
     "section": {
       "ncd": "NCDs",
-      "challenges": "Challenges"
+      "challenges": "Challenges",
+      "factors": "NCD Factors"
     },
     "ncd": {
       "diabetes": "Diabetes",
@@ -18,6 +19,9 @@
     },
     "challenges": {
       "monthlyQuiz": "Quiz & Challenges"
+    },
+    "factors": {
+      "airPollution": "Air Pollution"
     }
   },
   "home": {
@@ -312,13 +316,15 @@
         "fri": "Yoga for beginners",
         "sat": "Light household activities",
         "sun": "Rest day with gentle stretching"
-      }
+      },
+      "empty": "No exercise planned for this day."
     },
     "cta": {
       "title": "Ready to Transform Your Health?",
       "subtitle": "Get your personalized nutrition and exercise plan and start your journey to better health today!",
       "download": "Download complete plan"
-    }
+    },
+    "loading": "loading..."
   },
   "analysisResult": {
     "breadcrumbs": {
@@ -455,10 +461,10 @@
     "diabetesPrev": "Malaysian Prevalence: 3.9M adults affected",
     "hypertensionTitle": "Hypertension",
     "hypertensionDesc": "High blood pressure that can lead to serious health complications if left untreated.",
-    "hypertensionPrev": "Malaysian Prevalence: 6.4M adults affected",
+    "hypertensionPrev": "Malaysian Prevalence: 6.7M adults affected",
     "strokeTitle": "Stroke",
     "strokeDesc": "A serious condition that occurs when blood supply to the brain is interrupted.",
-    "strokePrev": "Malaysian Prevalence: 40,000 cases annually",
+    "strokePrev": "Malaysian Prevalence: 50,000 cases annually",
     "learnMore": "Learn more",
     "globalStatsTitle": "Global NCD Statistics",
     "globalStatsSubtitle": "Understanding worldwide mortality trends of non-communicable diseases.",
@@ -511,8 +517,8 @@
       "adultsAffected": "Adults Affected",
       "totalDeaths": "Of Total Deaths",
       "nhms": "NHMS 2019",
-      "estimate": "Estimated 2023",
-      "moh": "MOH Malaysia 2021"
+      "estimate": "NHMS 2019",
+      "moh": "GHDx, 2021"
     },
     "type1": {
       "title": "Type 1 Diabetes",
@@ -706,7 +712,7 @@
     "whatDesc": "Hypertension, or high blood pressure, is a chronic medical condition where the blood pressure in the arteries is persistently elevated. It is often called the 'silent killer' because it typically has no symptoms until significant damage has occurred.",
     "keyFacts": "Key Facts",
     "facts": [
-      "Over 6.4 million Malaysian adults have hypertension",
+      "Over 6.7 million Malaysian adults have hypertension",
       "Adult prevalence is ~30% (NHMS 2019)",
       "Major risk factor for heart disease and stroke",
       "Often undiagnosed due to lack of symptoms"
@@ -957,15 +963,15 @@
     "whatDesc": "A stroke occurs when blood flow to part of the brain is interrupted or reduced, preventing brain tissue from getting oxygen and nutrients. Brain cells begin to die within minutes, making stroke a medical emergency requiring immediate treatment.",
     "keyFacts": "Key Facts",
     "facts": [
-      "40,000 stroke cases occur annually in Malaysia",
+      "50,000 stroke cases occur annually in Malaysia",
       "Third leading cause of death globally",
       "Leading cause of adult disability worldwide",
       "Time-critical: “Time is brain” – every minute counts"
     ],
     "stats": {
-      "cases": "40,000",
+      "cases": "50,000",
       "casesLabel": "Annual Cases",
-      "deathsPercent": "8.9%",
+      "deathsPercent": "10.7%",
       "deathsLabel": "Of Total Deaths",
       "rank": "3rd",
       "rankLabel": "Leading Cause"
@@ -1230,12 +1236,11 @@
       "generalKnowledge": "General Knowledge"
     }
   },
-
   "AIR": {
-    "title": "Air Quality",
+    "title": "Air Pollution",
     "subtitle": "Clean air is essential for health, wellbeing, and quality of life.",
     "whyTitle": "Why Does Air Quality Matter?",
-    "whyHeading": "Air affects everyone—especially children, the elderly, and those with conditions.",
+    "whyHeading": "Air affects everyone, especially children, the elderly, and those with conditions.",
     "whyP1": "Poor air quality can cause short-term effects like coughing, irritation, and fatigue.",
     "whyP2": "Long-term exposure increases risks of chronic respiratory and cardiovascular diseases.",
     "whyKpi1Label": "Short-term effects",
@@ -1258,13 +1263,6 @@
     "myRealityTitle": "Malaysian Air Quality Reality",
     "myRealitySubtitle": "Industrial activity, transport emissions, and seasonal haze raise PM2.5 levels.",
     "loading": "Loading air quality data…",
-    "kpiKlPm25Label": "Kuala Lumpur PM2.5 (latest)",
-    "kpiMyPm25Label": "Malaysia PM2.5 (latest)",
-    "kpiKlAqiLabel": "Kuala Lumpur AQI (latest)",
-    "linePm25KlTitle": "Kuala Lumpur PM2.5 Trend",
-    "lineAqiKlTitle": "Kuala Lumpur AQI Trend",
-    "linePm25Hint": "WHO guideline: annual PM2.5 ≤ 5 µg/m³.",
-    "lineAqiHint": "AQI 0–50 Good · 51–100 Moderate · 101–150 Unhealthy for sensitive groups.",
     "industryTitle": "Industrial & Transport Contributions",
     "industryP1": "Manufacturing and transportation are significant urban pollution sources.",
     "hazeTitle": "Seasonal Haze Events",
@@ -1286,7 +1284,161 @@
     "map": {
       "title": "Malaysia Live AQI by State",
       "subtitle": "Pick a state to view its AQI on the map. Only the selected state is shown."
+    },
+    "table": {
+      "state": "State",
+      "aqi": "AQI",
+      "category": "Category",
+      "updated": "Updated",
+      "noData": "No data available.",
+      "note": "Sorted by AQI (highest first). Categories are inferred if not provided by the API."
     }
+  },
+  "DATA_SOURCES": {
+    "hero": {
+      "title": "Data Source",
+      "subtitle": "Where Your Health Insights Come From",
+      "tagline": "Vitaa AI uses trusted data sources to provide personalized, science-backed health guidance."
+    },
+    "table": {
+      "content": "Content",
+      "link": "Link",
+      "notes": "Notes",
+      "continued": "continued"
+    },
+    "food": {
+      "title": "Food datasets",
+      "subtitle": "High-quality, multi-modal food datasets for nutrition-aware features.",
+      "badge": "Datasets",
+      "mmFood100k": "Codatta — MM-Food-100K",
+      "hint": "Images • multi-label • nutrition"
+    },
+    "exercise": {
+      "title": "Exercise compendium",
+      "subtitle": "Energy cost references to estimate activity intensity.",
+      "badge": "Phys. Activity",
+      "compAdult": "Adult Compendium of Physical Activities",
+      "hint": "METS • activity coding"
+    },
+    "myNcd": {
+      "title": "Malaysian NCDs statistics",
+      "subtitle": "National surveys and factsheets for Malaysia.",
+      "badge": "Malaysia",
+      "pmc": "Burden of Non-communicable Diseases in Malaysia (2024, PMC)",
+      "nhms2019": "NHMS 2019 — Non-Communicable Diseases, Healthcare Demand & Health Literacy",
+      "healthFacts2022": "Health Facts 2022 — Ministry of Health Malaysia"
+    },
+    "globalNcd": {
+      "title": "Global NCDs statistics",
+      "subtitle": "Global context, risk factors, and comparative estimates.",
+      "badge": "Global",
+      "whoFs": "WHO Fact Sheet — Noncommunicable diseases",
+      "ihmeGbd": "IHME — GBD Results (Viz Hub)"
+    },
+    "note": "Links open in a new tab. Some sources may be updated by their publishers over time."
+  },
+  "AI_HOW": {
+    "subtitle": "Vitaa AI – How We Help You Stay Healthy",
+    "badgeAiGuides": "AI Guides",
+    "meet": {
+      "title": "1. Meet Your AI Assistant",
+      "desc": "Your personal guide for health, fitness, and everyday lifestyle decisions — simple, safe, and tailored.",
+      "p1": "Vitaa’s AI learns from the data you choose to share to offer personalized meal plans, exercise ideas, and health insights.",
+      "li1": "Detects early signs of health risks and suggests preventive actions.",
+      "li2": "Delivers guidance, meals/exercises, and personalized recommendations.",
+      "tipTitle": "Tip",
+      "tipBody": "You stay in control — adjust your preferences anytime. Explanations are written in plain language."
+    },
+    "vivi": {
+      "title": "Vivi – AI Chatbox",
+      "desc": "Ask anything about health, lifestyle, or our features.",
+      "step1": {
+        "h": "Open the AI Chatbox:",
+        "p": "Click the chat icon in the corner. Vivi greets you with a welcome message."
+      },
+      "step2": {
+        "h": "Ask your question or start a plan:",
+        "p": "Type your goal (e.g., “Help me plan dinners for the week.”) or click the quick action **Start a Health Plan**."
+      },
+      "step3": {
+        "h": "AI prepares your next step",
+        "p": "Vivi returns a smart card with a deep link to the Health Plan page."
+      },
+      "step4": {
+        "h": "Open the Health Plan page",
+        "p": "Tap **Health Plan** to go to the Health Plan page, then follow the on-screen steps to generate your plan."
+      }
+    },
+    "how": {
+      "title": "2. How It Works",
+      "subtitle": "Three simple steps to generate your health analysis.",
+      "tabs": {
+        "how": "Tell the AI About You",
+        "result": "Get Your Result",
+        "understand": "Understand the Result"
+      },
+      "how": {
+        "p": "Provide the basics and your context so the analysis is relevant:",
+        "fields": {
+          "age": "Age",
+          "weight": "Weight",
+          "height": "Height",
+          "waist": "Waist Circumference",
+          "bp": "Systolic BP",
+          "lifestyle": "Lifestyle & Activity Level",
+          "family": "Family History"
+        }
+      },
+      "result": {
+        "p": "Click “Generate Health Analysis” to compute your current risk profile and summary."
+      },
+      "understand": {
+        "p": "Vitaa AI explains results using simple, color-coded alerts."
+      },
+      "table": {
+        "h1": "Health Score",
+        "h2": "Meaning",
+        "h3": "What You Can Do",
+        "low": "Low Risk",
+        "lowMeaning": "You’re on track!",
+        "lowDo": "Keep following your plan.",
+        "high": "High Risk",
+        "highMeaning": "Some attention needed.",
+        "highDo": "Consult your doctor and update lifestyle habits."
+      }
+    },
+    "trust": {
+      "title": "3. Why You Can Trust It",
+      "desc": "Safety, privacy, and clarity — by design.",
+      "safe": {
+        "h": "Safe & private:",
+        "p": "Your data stays secure. We do not store your data."
+      },
+      "clear": {
+        "h": "Clear & understandable:",
+        "p": "Explanations without confusing jargon."
+      },
+      "ethical": {
+        "h": "Ethical:",
+        "p": "Designed for fairness across all users."
+      }
+    },
+    "models": {
+      "title": "Models We Use",
+      "desc": "Open-weight LLMs served behind our API.",
+      "learnMore": "Learn more in the model card (external):",
+      "arxiv": "arXiv:2508.10925",
+      "howPowers": "How this powers Vitaa",
+      "howPowersBody": "We combine these models with our domain logic to generate analyses, plans, and chat responses."
+    }
+  },
+  
+  "FOOTER": {
+    "ai": "AI Specs",
+    "resources": "Resources",
+    "sdg3": "SDG 3",
+    "about": "About",
+    "byTeam": "by Six Minus One"
   },
   "lang": {
     "english": "English",
@@ -1294,5 +1446,38 @@
     "chinese": "中文",
     "vietnamese": "Tiếng Việt",
     "switch": "Switch Language"
+  },
+  "CHAT": {
+    "greeting": "Hi, I’m Vivi! How can I help today?",
+    "placeholder": "Type a message…",
+    "disclaimer": "AI can make mistakes. For critical advice, please consult a human expert.",
+    "thinking": "Thinking…",
+    "showWhy": "Show why",
+    "showReasoning": "Show reasoning",
+    "copied": "Copied!",
+    "brand": {
+      "name": "Vivi",
+      "tagline": "Your AI assistant"
+    },
+    "actions": {
+      "refresh": "Refresh",
+      "resetConversation": "Reset conversation",
+      "collapse": "Collapse",
+      "expand": "Expand",
+      "close": "Close",
+      "copy": "Copy",
+      "regenerate": "Regenerate",
+      "send": "Send"
+    },
+    "chips": {
+      "findArticles": "Where can I find NCD articles?",
+      "startHealthPlan": "How do I start a Health Plan?",
+      "whereHealthAnalysis": "Where is the Health Analysis?",
+      "whatIsBMI": "What does BMI mean here?",
+      "monthlyChallenges": "How do monthly challenges work?"
+    },
+    "aria": {
+      "chatbot": "Vivi chatbot"
+    }
   }
 }

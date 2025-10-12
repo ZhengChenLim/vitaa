@@ -3,7 +3,8 @@
 
 import { Link } from "@/i18n/navigation";
 import { Leckerli_One } from "next/font/google";
-import { Separator } from "@/components/ui/separator"
+import { Separator } from "@/components/ui/separator";
+import { useTranslations } from "next-intl";
 
 const leckerli = Leckerli_One({
   subsets: ["latin"],
@@ -13,6 +14,7 @@ const leckerli = Leckerli_One({
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const t = useTranslations("FOOTER"); // expect translations under "FOOTER" namespace
 
   return (
     <footer className="w-full border-t bg-green-50">
@@ -24,39 +26,52 @@ export default function Footer() {
           Vitaa
         </div>
 
-        {/* Nav links with spaced | separators */}
+        {/* Nav links with separators */}
         <nav className="mt-1">
-          <div className="flex items-center text-sm font-semibold text-slate-800 ">
+          <div className="flex items-center text-sm font-semibold text-slate-800">
             <div>
-            <Link href="/ai" className="hover:text-green-700 transition-colors">
-              AI
-            </Link>
+              <Link
+                href="/ai"
+                className="hover:text-green-700 transition-colors"
+              >
+                {t("ai")}
+              </Link>
             </div>
             <Separator orientation="vertical" className="mx-6" />
             <div>
-            <Link href="/resources" className="hover:text-green-700 transition-colors">
-              Resources
-            </Link>
+              <Link
+                href="/resources"
+                className="hover:text-green-700 transition-colors"
+              >
+                {t("resources")}
+              </Link>
             </div>
             <Separator orientation="vertical" className="mx-6" />
             <div>
-            <Link href="/about" className="hover:text-green-700 transition-colors">
-              About Us
-            </Link>
+              <a
+                href="https://sdgs.un.org/goals/goal3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-green-700 transition-colors"
+              >
+                {t("sdg3")}
+              </a>
             </div>
             <Separator orientation="vertical" className="mx-6" />
             <div>
-            <Link href="/contact" className="hover:text-green-700 transition-colors">
-              Contact
-            </Link>
+              <Link
+                href="#"
+                onClick={(e) => e.preventDefault()}
+                className="text-slate-400 cursor-not-allowed"
+              >
+                {t("about")}
+              </Link>
             </div>
           </div>
         </nav>
 
         {/* Copyright */}
-        <p className="mt-2 text-xs text-slate-600">
-          © {year} by Six Minus One
-        </p>
+        <p className="mt-2 text-xs text-slate-600">© {year} {t("byTeam")}</p>
       </div>
     </footer>
   );
