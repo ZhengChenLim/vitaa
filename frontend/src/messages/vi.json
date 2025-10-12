@@ -9,7 +9,8 @@
     "toggleMenuAria": "Chuyển đổi menu điều hướng",
     "section": {
       "ncd": "Bệnh Không Lây Nhiễm",
-      "challenges": "Thách Thức"
+      "challenges": "Thách Thức",
+      "factors": "Yếu Tố Nguy Cơ"
     },
     "ncd": {
       "diabetes": "Bệnh Tiểu Đường",
@@ -18,6 +19,9 @@
     },
     "challenges": {
       "monthlyQuiz": "Câu đố & Thử thách"
+    },
+    "factors": {
+      "airPollution": "Ô Nhiễm Không Khí"
     }
   },
   "home": {
@@ -455,10 +459,10 @@
     "diabetesPrev": "Tỉ lệ mắc tại Malaysia: 3,9 triệu người trưởng thành",
     "hypertensionTitle": "Tăng huyết áp",
     "hypertensionDesc": "Huyết áp cao có thể dẫn đến biến chứng nghiêm trọng nếu không được điều trị.",
-    "hypertensionPrev": "Tỉ lệ mắc tại Malaysia: 6,4 triệu người trưởng thành",
+    "hypertensionPrev": "Tỉ lệ mắc tại Malaysia: 6,7 triệu người trưởng thành",
     "strokeTitle": "Đột quỵ",
     "strokeDesc": "Tình trạng nghiêm trọng xảy ra khi nguồn cung cấp máu cho não bị gián đoạn.",
-    "strokePrev": "Tỉ lệ mắc tại Malaysia: 40.000 ca hàng năm",
+    "strokePrev": "Tỉ lệ mắc tại Malaysia: 50.000 ca hàng năm",
     "learnMore": "Tìm hiểu thêm",
     "globalStatsTitle": "Thống Kê Tử Vong do NCD Toàn Cầu",
     "globalStatsSubtitle": "Hiểu các xu hướng tử vong do bệnh không lây nhiễm trên toàn thế giới.",
@@ -511,8 +515,8 @@
       "adultsAffected": "Người lớn mắc bệnh",
       "totalDeaths": "Trong tổng số ca tử vong",
       "nhms": "NHMS 2019",
-      "estimate": "Ước tính 2023",
-      "moh": "Bộ Y tế Malaysia 2021"
+      "estimate": "NHMS 2019",
+      "moh": "GHDx, 2021"
     },
     "type1": {
       "title": "Đái tháo đường tuýp 1",
@@ -706,7 +710,7 @@
     "whatDesc": "Tăng huyết áp, hay huyết áp cao, là tình trạng mạn tính khi áp lực máu trong động mạch duy trì ở mức cao. Thường được gọi là 'kẻ giết người thầm lặng' vì thường không có triệu chứng cho đến khi gây ra tổn thương nghiêm trọng.",
     "keyFacts": "Thông tin chính",
     "facts": [
-      "Hơn 6,4 triệu người trưởng thành ở Malaysia bị tăng huyết áp",
+      "Hơn 6,7 triệu người trưởng thành ở Malaysia bị tăng huyết áp",
       "Tỷ lệ mắc ở người lớn ~30% (NHMS 2019)",
       "Là yếu tố nguy cơ chính của bệnh tim và đột quỵ",
       "Thường không được chẩn đoán do không có triệu chứng"
@@ -957,15 +961,15 @@
     "whatDesc": "Đột quỵ xảy ra khi máu đến một phần của não bị gián đoạn hoặc giảm, khiến mô não thiếu oxy và dưỡng chất. Tế bào não bắt đầu chết trong vài phút, vì vậy đột quỵ là cấp cứu y khoa cần điều trị ngay lập tức.",
     "keyFacts": "Thông tin chính",
     "facts": [
-      "Khoảng 40.000 ca đột quỵ xảy ra hằng năm ở Malaysia",
+      "Khoảng 50.000 ca đột quỵ xảy ra hằng năm ở Malaysia",
       "Xếp thứ ba trong các nguyên nhân tử vong toàn cầu",
       "Nguyên nhân hàng đầu gây tàn tật ở người trưởng thành",
       "Thời gian là não – từng phút đều quý giá"
     ],
     "stats": {
-      "cases": "40,000",
+      "cases": "50,000",
       "casesLabel": "Ca mỗi năm",
-      "deathsPercent": "8.9%",
+      "deathsPercent": "10.7%",
       "deathsLabel": "Trong tổng số tử vong",
       "rank": "Thứ 3",
       "rankLabel": "Nguyên nhân hàng đầu"
@@ -1230,11 +1234,227 @@
       "generalKnowledge": "Kiến thức chung"
     }
   },
+  "AIR": {
+    "title": "Ô Nhiễm Không Khí",
+    "subtitle": "Không khí trong lành rất cần thiết cho sức khỏe, hạnh phúc và chất lượng cuộc sống.",
+    "whyTitle": "Tại Sao Chất Lượng Không Khí Quan Trọng?",
+    "whyHeading": "Không khí ảnh hưởng đến tất cả mọi người, đặc biệt là trẻ em, người cao tuổi và người có bệnh lý nền.",
+    "whyP1": "Không khí ô nhiễm có thể gây ho, kích ứng và mệt mỏi trong ngắn hạn.",
+    "whyP2": "Tiếp xúc lâu dài làm tăng nguy cơ mắc bệnh hô hấp và tim mạch mãn tính.",
+    "whyKpi1Label": "Tác động ngắn hạn",
+    "whyKpi1Value": "Ho · Kích ứng · Mệt mỏi",
+    "whyKpi1Hint": "Triệu chứng phổ biến sau khi tiếp xúc",
+    "whyKpi2Label": "Rủi ro dài hạn",
+    "whyKpi2Value": "COPD · Bệnh tim · Đột quỵ",
+    "whyKpi2Hint": "Bệnh mãn tính do ô nhiễm không khí gây ra",
+    "ncdLinkTitle": "Không Khí Ô Nhiễm Gây Bệnh Mãn Tính Như Thế Nào?",
+    "ncdMechanismsTitle": "Cơ Chế Tác Động",
+    "ncdPoint1": "Các hạt và khí nhỏ xâm nhập vào phổi và máu.",
+    "ncdPoint2": "Kích hoạt viêm và stress oxy hóa.",
+    "ncdPoint3": "Gây tổn thương mô và cơ quan về lâu dài.",
+    "ncdPoint4": "Tiếp xúc kéo dài làm tăng nguy cơ mắc bệnh mãn tính.",
+    "ncdExamplesTitle": "Các Bệnh Liên Quan",
+    "ncdExample1": "Hen suyễn và bệnh phổi tắc nghẽn mãn tính (COPD)",
+    "ncdExample2": "Bệnh tim thiếu máu cục bộ",
+    "ncdExample3": "Đột quỵ",
+    "ncdExample4": "Các bệnh hô hấp mãn tính khác",
+    "myRealityTitle": "Thực Trạng Không Khí Ở Malaysia",
+    "myRealitySubtitle": "Hoạt động công nghiệp, khí thải giao thông và khói mù theo mùa làm tăng mức PM2.5.",
+    "loading": "Đang tải dữ liệu chất lượng không khí…",
+    "industryTitle": "Đóng Góp Của Công Nghiệp & Giao Thông",
+    "industryP1": "Sản xuất và giao thông là nguồn ô nhiễm chính tại khu vực đô thị.",
+    "hazeTitle": "Hiện Tượng Khói Mù Theo Mùa",
+    "hazeP1": "Khói mù xuyên biên giới có thể làm tăng PM2.5 — hãy chú ý cảnh báo trong mùa khô giữa năm.",
+    "app": {
+      "title": "Ứng Dụng Giám Sát Chất Lượng Không Khí",
+      "f1Title": "AQI Thời Gian Thực",
+      "f1Desc": "Kiểm tra mức độ không khí tại thành phố hoặc khu vực của bạn.",
+      "f2Title": "Cảnh Báo Cá Nhân",
+      "f2Desc": "Nhận thông báo khi chất lượng không khí trở nên xấu.",
+      "f3Title": "Mẹo Sức Khỏe",
+      "f3Desc": "Cách thực tế để giảm tiếp xúc và bảo vệ bản thân.",
+      "f4Title": "Lịch Sử & Xu Hướng",
+      "f4Desc": "Xem các mô hình để lên kế hoạch cho hoạt động và di chuyển.",
+      "ctaBlurb": "Hành động chủ động để đưa ra lựa chọn sống lành mạnh hơn.",
+      "ctaPrimary": "Mở Giám Sát",
+      "ctaSecondary": "Tìm Hiểu Thêm"
+    },
+    "map": {
+      "title": "AQI Trực Tiếp Theo Bang Tại Malaysia",
+      "subtitle": "Chọn một bang để xem AQI trên bản đồ. Chỉ hiển thị bang được chọn."
+    },
+    "table": {
+      "state": "Bang",
+      "aqi": "AQI",
+      "category": "Phân loại",
+      "updated": "Cập nhật",
+      "noData": "Không có dữ liệu.",
+      "note": "Sắp xếp theo AQI (cao nhất trước). Phân loại được ước tính nếu API không cung cấp."
+    }
+  },
+  "DATA_SOURCES": {
+    "hero": {
+      "title": "Nguồn dữ liệu",
+      "subtitle": "Nguồn tạo nên hiểu biết sức khỏe của bạn",
+      "tagline": "Vitaa AI sử dụng các nguồn dữ liệu đáng tin cậy để cung cấp hướng dẫn sức khỏe cá nhân hóa, dựa trên bằng chứng khoa học."
+    },
+    "table": {
+      "content": "Nội dung",
+      "link": "Liên kết",
+      "notes": "Ghi chú",
+      "continued": "tiếp theo"
+    },
+    "food": {
+      "title": "Bộ dữ liệu thực phẩm",
+      "subtitle": "Bộ dữ liệu đa phương thức chất lượng cao phục vụ các tính năng liên quan đến dinh dưỡng.",
+      "badge": "Bộ dữ liệu",
+      "mmFood100k": "Codatta — MM-Food-100K",
+      "hint": "Hình ảnh • gán nhãn đa • dinh dưỡng"
+    },
+    "exercise": {
+      "title": "Bảng đối chiếu hoạt động thể lực",
+      "subtitle": "Tài liệu tham chiếu chi phí năng lượng để ước tính cường độ hoạt động.",
+      "badge": "Hoạt động thể lực",
+      "compAdult": "Adult Compendium of Physical Activities",
+      "hint": "METS • mã hoá hoạt động"
+    },
+    "myNcd": {
+      "title": "Thống kê NCD tại Malaysia",
+      "subtitle": "Khảo sát và bảng dữ kiện quốc gia của Malaysia.",
+      "badge": "Malaysia",
+      "pmc": "Gánh nặng Bệnh Không Lây nhiễm ở Malaysia (2024, PMC)",
+      "nhms2019": "NHMS 2019 — Bệnh Không Lây nhiễm, Nhu cầu Chăm sóc Sức khỏe & Hiểu biết về Sức khỏe",
+      "healthFacts2022": "Health Facts 2022 — Bộ Y tế Malaysia"
+    },
+    "globalNcd": {
+      "title": "Thống kê NCD toàn cầu",
+      "subtitle": "Bối cảnh toàn cầu, yếu tố nguy cơ và các ước tính so sánh.",
+      "badge": "Toàn cầu",
+      "whoFs": "WHO — Bảng thông tin: Bệnh Không Lây nhiễm",
+      "ihmeGbd": "IHME — Kết quả GBD (Viz Hub)"
+    },
+    "note": "Liên kết sẽ mở trong thẻ mới. Một số nguồn có thể được nhà xuất bản cập nhật theo thời gian."
+  },
+  "AI_HOW": {
+    "subtitle": "Vitaa AI – Cách chúng tôi giúp bạn khỏe mạnh",
+    "badgeAiGuides": "Hướng dẫn AI",
+    "meet": {
+      "title": "1. Làm quen Trợ lý AI",
+      "desc": "Người dẫn đường cá nhân cho sức khỏe, thể dục và lối sống — đơn giản, an toàn, được cá nhân hóa.",
+      "p1": "AI của Vitaa học từ dữ liệu bạn cho phép để gợi ý thực đơn, bài tập và insight sức khỏe.",
+      "li1": "Phát hiện sớm nguy cơ sức khỏe và đề xuất phòng ngừa.",
+      "li2": "Cung cấp hướng dẫn, bữa ăn/bài tập và khuyến nghị cá nhân hóa.",
+      "tipTitle": "Mẹo",
+      "tipBody": "Bạn luôn kiểm soát — thay đổi tuỳ chọn bất cứ lúc nào. Giải thích dễ hiểu."
+    },
+    "vivi": {
+      "title": "Vivi – Trò chuyện AI",
+      "desc": "Hỏi về sức khỏe, lối sống hoặc tính năng của chúng tôi.",
+      "step1": { "h": "Mở hộp chat AI:", "p": "Nhấn biểu tượng chat ở góc; Vivi sẽ chào bạn." },
+      "step2": {
+        "h": "Đặt câu hỏi hoặc bắt đầu kế hoạch:",
+        "p": "Nhập mục tiêu (ví dụ: “Giúp tôi lên thực đơn tối tuần này”) hoặc nhấn hành động nhanh **Bắt đầu Kế hoạch Sức khỏe**."
+      },
+      "step3": {
+        "h": "AI chuẩn bị bước tiếp theo",
+        "p": "Vivi trả về thẻ thông minh kèm liên kết sâu tới trang Kế hoạch Sức khỏe."
+      },
+      "step4": {
+        "h": "Mở trang Kế hoạch Sức khỏe",
+        "p": "Nhấn **Health Plan** để tới trang Kế hoạch Sức khỏe, rồi làm theo hướng dẫn trên màn hình để tạo kế hoạch."
+      }
+    },
+    "how": {
+      "title": "2. Cách hoạt động",
+      "subtitle": "Ba bước đơn giản để tạo phân tích sức khỏe.",
+      "tabs": { "how": "Khai báo thông tin", "result": "Nhận kết quả", "understand": "Hiểu kết quả" },
+      "how": {
+        "p": "Cung cấp thông tin cơ bản và bối cảnh để phân tích phù hợp:",
+        "fields": {
+          "age": "Tuổi",
+          "weight": "Cân nặng",
+          "height": "Chiều cao",
+          "waist": "Vòng eo",
+          "bp": "Huyết áp tâm thu",
+          "lifestyle": "Lối sống & Vận động",
+          "family": "Tiền sử gia đình"
+        }
+      },
+      "result": { "p": "Nhấn “Tạo phân tích sức khỏe” để tính hồ sơ rủi ro hiện tại." },
+      "understand": { "p": "Vitaa AI giải thích bằng tín hiệu màu dễ hiểu." },
+      "table": {
+        "h1": "Điểm sức khỏe",
+        "h2": "Ý nghĩa",
+        "h3": "Bạn nên làm gì",
+        "low": "Nguy cơ thấp",
+        "lowMeaning": "Bạn đang đi đúng hướng!",
+        "lowDo": "Tiếp tục theo kế hoạch.",
+        "high": "Nguy cơ cao",
+        "highMeaning": "Cần chú ý.",
+        "highDo": "Tham khảo bác sĩ và điều chỉnh lối sống."
+      }
+    },
+    "trust": {
+      "title": "3. Vì sao đáng tin",
+      "desc": "An toàn, riêng tư và rõ ràng — ngay từ thiết kế.",
+      "safe": { "h": "An toàn & riêng tư:", "p": "Dữ liệu của bạn được bảo vệ. Chúng tôi không lưu trữ dữ liệu của bạn." },
+      "clear": { "h": "Rõ ràng & dễ hiểu:", "p": "Giải thích không dùng thuật ngữ rối rắm." },
+      "ethical": { "h": "Đạo đức:", "p": "Thiết kế công bằng cho mọi người dùng." }
+    },
+    "models": {
+      "title": "Mô hình sử dụng",
+      "desc": "LLM nguồn mở phía sau API của chúng tôi.",
+      "learnMore": "Tìm hiểu thêm trong thẻ mô hình (bên ngoài):",
+      "arxiv": "arXiv:2508.10925",
+      "howPowers": "Cách sức mạnh này vận hành Vitaa",
+      "howPowersBody": "Chúng tôi kết hợp các mô hình với logic miền để tạo phân tích, kế hoạch và phản hồi chat."
+    }
+  },
+  "FOOTER": {
+    "ai": "Đặc tả AI",
+    "resources": "Tài nguyên",
+    "sdg3": "SDG 3",
+    "about": "Giới thiệu",
+    "byTeam": "bởi Six Minus One"
+  },
   "lang": {
     "english": "English",
     "malay": "Malay",
     "chinese": "中文",
     "vietnamese": "Tiếng Việt",
     "switch": "Chuyển ngôn ngữ"
+  },
+  "CHAT": {
+    "greeting": "Xin chào, mình là Vivi! Hôm nay mình có thể giúp gì cho bạn?",
+    "placeholder": "Nhập tin nhắn…",
+    "disclaimer": "AI có thể mắc lỗi. Với lời khuyên quan trọng, hãy tham khảo chuyên gia.",
+    "thinking": "Đang suy nghĩ…",
+    "showWhy": "Hiện lý do",
+    "showReasoning": "Hiện lập luận",
+    "copied": "Đã sao chép!",
+    "brand": {
+      "name": "Vivi",
+      "tagline": "Trợ lý AI của bạn"
+    },
+    "actions": {
+      "refresh": "Làm mới",
+      "resetConversation": "Đặt lại cuộc trò chuyện",
+      "collapse": "Thu gọn",
+      "expand": "Mở rộng",
+      "close": "Đóng",
+      "copy": "Sao chép",
+      "regenerate": "Tạo lại",
+      "send": "Gửi"
+    },
+    "chips": {
+      "findArticles": "Tôi có thể tìm bài viết NCD ở đâu?",
+      "startHealthPlan": "Làm sao bắt đầu Kế hoạch Sức khỏe?",
+      "whereHealthAnalysis": "Phân tích Sức khỏe ở đâu?",
+      "whatIsBMI": "BMI ở đây nghĩa là gì?",
+      "monthlyChallenges": "Thử thách hàng tháng hoạt động thế nào?"
+    },
+    "aria": {
+      "chatbot": "Chatbot Vivi"
+    }
   }
 }

@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
@@ -237,7 +236,7 @@ export default function NcdPage() {
     return (
         <main className="px-4 max-w-6xl mx-auto space-y-12">
             {/* Hero */}
-            <section className="relative overflow-hidden rounded-2xl bg-[url('/library-hero.jpg')] bg-cover bg-center">
+            <section className="relative overflow-hidden rounded-2xl bg-[url('/library-hero.jpg')] bg-cover bg-center mt-8">
                 <div className="backdrop-brightness-50 p-8 md:p-36 text-center">
                     <h1 className="text-3xl md:text-4xl font-bold text-white drop-shadow">
                         {t("title")}
@@ -312,7 +311,6 @@ export default function NcdPage() {
             <section className="mx-auto mt-12 max-w-6xl">
                 <h2 className="text-center text-2xl font-semibold">{t("typesTitle")}</h2>
                 <p className="mt-2 text-center text-sm text-muted-foreground">{t("typesSubtitle")}</p>
-
 
                 <div className="mt-6 grid gap-6 md:grid-cols-3">
                     {/* Diabetes */}
@@ -428,7 +426,7 @@ export default function NcdPage() {
                 )}
             </section>
 
-            <section className="mx-auto max-w-6xl">
+            <section className="mx-auto max-w-6xl mb-8">
                 <div className="mt-10 rounded-2xl bg-rose-50 p-6 md:p-8 relative">
                     {/* left accent line */}
                     <span className="absolute left-0 top-4 bottom-4 w-1 rounded-full bg-rose-500" />
@@ -454,7 +452,6 @@ export default function NcdPage() {
                     </div>
                 </div>
             </section>
-
 
         </main>
     );

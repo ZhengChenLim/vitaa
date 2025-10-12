@@ -30,7 +30,7 @@ type Activity = 'sedentary' | 'low' | 'medium' | 'high' | null;
 type Goal = 'loss' | 'muscle' | 'maintain' | null;
 type Diet = 'none' | 'vegan' | 'vegetarian' | null;
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8001';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? 'http://127.0.0.1:8000';
 
 export default function PlanPage() {
   const t = useTranslations('plan');

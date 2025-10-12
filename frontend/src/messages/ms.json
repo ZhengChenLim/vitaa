@@ -9,7 +9,8 @@
     "toggleMenuAria": "Togol menu",
     "section": {
       "ncd": "PTB",
-      "challenges": "Cabaran"
+      "challenges": "Cabaran",
+      "factors": "Faktor Risiko"
     },
     "ncd": {
       "diabetes": "Diabetes",
@@ -18,6 +19,9 @@
     },
     "challenges": {
       "monthlyQuiz": "Kuiz dan Activiti Cabaran"
+    },
+    "factors": {
+      "airPollution": "Pencemaran Udara"
     }
   },
   "home": {
@@ -455,10 +459,10 @@
     "diabetesPrev": "Prevalens di Malaysia: 3.9 juta orang dewasa",
     "hypertensionTitle": "Hipertensi",
     "hypertensionDesc": "Tekanan darah tinggi yang boleh membawa kepada komplikasi kesihatan serius jika tidak dirawat.",
-    "hypertensionPrev": "Prevalens di Malaysia: 6.4 juta orang dewasa",
+    "hypertensionPrev": "Prevalens di Malaysia: 6.7 juta orang dewasa",
     "strokeTitle": "Strok",
     "strokeDesc": "Keadaan serius yang berlaku apabila bekalan darah ke otak terganggu.",
-    "strokePrev": "Prevalens di Malaysia: 40,000 kes setiap tahun",
+    "strokePrev": "Prevalens di Malaysia: 50,000 kes setiap tahun",
     "learnMore": "Ketahui lebih lanjut",
     "globalStatsTitle": "Statistik Kematian NCD Global",
     "globalStatsSubtitle": "Memahami trend kematian akibat penyakit tidak berjangkit di seluruh dunia.",
@@ -511,8 +515,8 @@
       "adultsAffected": "Dewasa Terjejas",
       "totalDeaths": "Daripada Jumlah Kematian",
       "nhms": "NHMS 2019",
-      "estimate": "Anggaran 2023",
-      "moh": "KKM Malaysia 2021"
+      "estimate": "NHMS 2019",
+      "moh": "GHDx, 2021"
     },
     "type1": {
       "title": "Diabetes Jenis 1",
@@ -706,7 +710,7 @@
     "whatDesc": "Hipertensi, atau tekanan darah tinggi, adalah keadaan perubatan kronik di mana tekanan darah dalam arteri sentiasa tinggi. Ia sering dipanggil 'pembunuh senyap' kerana biasanya tiada gejala sehingga kerosakan serius berlaku.",
     "keyFacts": "Fakta Utama",
     "facts": [
-      "Lebih 6.4 juta orang dewasa di Malaysia mengalami hipertensi",
+      "Lebih 6.7 juta orang dewasa di Malaysia mengalami hipertensi",
       "Kadar prevalens dewasa ~30% (NHMS 2019)",
       "Faktor risiko utama untuk penyakit jantung dan strok",
       "Sering tidak didiagnosis kerana tiada gejala"
@@ -957,15 +961,15 @@
     "whatDesc": "Strok berlaku apabila aliran darah ke bahagian otak terhenti atau berkurang, menghalang tisu otak daripada mendapat oksigen dan nutrien. Sel otak mula mati dalam beberapa minit, menjadikan strok sebagai kecemasan perubatan yang memerlukan rawatan segera.",
     "keyFacts": "Fakta Utama",
     "facts": [
-      "40,000 kes strok berlaku setiap tahun di Malaysia",
+      "50,000 kes strok berlaku setiap tahun di Malaysia",
       "Punca kematian ketiga tertinggi di dunia",
       "Punca utama ketidakupayaan orang dewasa di seluruh dunia",
       "Kritis masa: “Masa itu otak” – setiap minit amat berharga"
     ],
     "stats": {
-      "cases": "40,000",
+      "cases": "50,000",
       "casesLabel": "Kes Tahunan",
-      "deathsPercent": "8.9%",
+      "deathsPercent": "10.7%",
       "deathsLabel": "Daripada Jumlah Kematian",
       "rank": "Ke-3",
       "rankLabel": "Punca Utama"
@@ -1230,11 +1234,247 @@
       "generalKnowledge": "Pengetahuan Umum"
     }
   },
+  "AIR": {
+    "title": "Pencemaran Udara",
+    "subtitle": "Udara bersih penting untuk kesihatan, kesejahteraan, dan kualiti hidup.",
+    "whyTitle": "Mengapa Kualiti Udara Penting?",
+    "whyHeading": "Udara memberi kesan kepada semua orang, terutamanya kanak-kanak, warga emas, dan mereka yang mempunyai masalah kesihatan.",
+    "whyP1": "Kualiti udara yang buruk boleh menyebabkan kesan jangka pendek seperti batuk, kerengsaan, dan keletihan.",
+    "whyP2": "Pendedahan jangka panjang meningkatkan risiko penyakit pernafasan dan kardiovaskular kronik.",
+    "whyKpi1Label": "Kesan jangka pendek",
+    "whyKpi1Value": "Batuk · Kerengsaan · Keletihan",
+    "whyKpi1Hint": "Gejala segera akibat pendedahan",
+    "whyKpi2Label": "Risiko jangka panjang",
+    "whyKpi2Value": "PPOK · Penyakit jantung · Strok",
+    "whyKpi2Hint": "Penyakit kronik berkaitan udara tercemar",
+    "ncdLinkTitle": "Bagaimana Kualiti Udara Menyebabkan NCD?",
+    "ncdMechanismsTitle": "Mekanisme",
+    "ncdPoint1": "Zarah dan gas halus masuk ke paru-paru dan aliran darah.",
+    "ncdPoint2": "Mencetuskan keradangan dan tekanan oksidatif.",
+    "ncdPoint3": "Kerosakan tisu dan organ dalam jangka panjang.",
+    "ncdPoint4": "Risiko penyakit kronik meningkat dengan pendedahan berterusan.",
+    "ncdExamplesTitle": "Keadaan Berkaitan",
+    "ncdExample1": "Asma dan penyakit paru-paru obstruktif kronik (PPOK)",
+    "ncdExample2": "Penyakit jantung iskemia",
+    "ncdExample3": "Strok",
+    "ncdExample4": "Penyakit pernafasan kronik lain",
+    "myRealityTitle": "Realiti Kualiti Udara di Malaysia",
+    "myRealitySubtitle": "Aktiviti industri, pelepasan kenderaan, dan jerebu bermusim meningkatkan tahap PM2.5.",
+    "loading": "Memuat data kualiti udara…",
+    "industryTitle": "Sumbangan Industri & Pengangkutan",
+    "industryP1": "Pembuatan dan pengangkutan merupakan sumber utama pencemaran bandar.",
+    "hazeTitle": "Fenomena Jerebu Bermusim",
+    "hazeP1": "Jerebu rentas sempadan boleh meningkatkan PM2.5 — pantau amaran semasa musim kering pertengahan tahun.",
+    "app": {
+      "title": "Aplikasi Pemantauan Kualiti Udara",
+      "f1Title": "AQI Masa Sebenar",
+      "f1Desc": "Semak tahap udara di bandar atau kawasan anda.",
+      "f2Title": "Amaran Peribadi",
+      "f2Desc": "Dapatkan notifikasi apabila kualiti udara tidak sihat.",
+      "f3Title": "Tip Kesihatan",
+      "f3Desc": "Cara praktikal mengurangkan pendedahan dan melindungi diri.",
+      "f4Title": "Sejarah & Trend",
+      "f4Desc": "Lihat corak untuk merancang aktiviti dan perjalanan.",
+      "ctaBlurb": "Ambil langkah proaktif untuk pilihan hidup lebih sihat.",
+      "ctaPrimary": "Buka Pemantauan",
+      "ctaSecondary": "Ketahui Lebih Lanjut"
+    },
+    "map": {
+      "title": "AQI Langsung Malaysia Mengikut Negeri",
+      "subtitle": "Pilih negeri untuk melihat AQI pada peta. Hanya negeri yang dipilih akan dipaparkan."
+    },
+    "table": {
+      "state": "Negeri",
+      "aqi": "AQI",
+      "category": "Kategori",
+      "updated": "Dikemas kini",
+      "noData": "Tiada data tersedia.",
+      "note": "Disusun mengikut AQI (tertinggi dahulu). Kategori dianggarkan jika tiada dalam API."
+    }
+  },
+  "DATA_SOURCES": {
+    "hero": {
+      "title": "Sumber Data",
+      "subtitle": "Dari Mana Datang Wawasan Kesihatan Anda",
+      "tagline": "Vitaa AI menggunakan sumber data yang dipercayai untuk memberikan panduan kesihatan yang diperibadikan dan berasaskan sains."
+    },
+    "table": {
+      "content": "Kandungan",
+      "link": "Pautan",
+      "notes": "Catatan",
+      "continued": "bersambung"
+    },
+    "food": {
+      "title": "Set data makanan",
+      "subtitle": "Set data multimodal berkualiti tinggi untuk ciri berasaskan pemakanan.",
+      "badge": "Set data",
+      "mmFood100k": "Codatta — MM-Food-100K",
+      "hint": "Imej • multi-label • pemakanan"
+    },
+    "exercise": {
+      "title": "Kompilasi senaman",
+      "subtitle": "Rujukan kos tenaga untuk menganggar intensiti aktiviti.",
+      "badge": "Aktiviti Fizikal",
+      "compAdult": "Adult Compendium of Physical Activities",
+      "hint": "METS • pengkodan aktiviti"
+    },
+    "myNcd": {
+      "title": "Statistik NCD Malaysia",
+      "subtitle": "Tinjauan dan helaian fakta kebangsaan untuk Malaysia.",
+      "badge": "Malaysia",
+      "pmc": "Beban Penyakit Tidak Berjangkit di Malaysia (2024, PMC)",
+      "nhms2019": "NHMS 2019 — Penyakit Tidak Berjangkit, Permintaan Penjagaan Kesihatan & Literasi Kesihatan",
+      "healthFacts2022": "Fakta Kesihatan 2022 — Kementerian Kesihatan Malaysia"
+    },
+    "globalNcd": {
+      "title": "Statistik NCD Global",
+      "subtitle": "Konteks global, faktor risiko dan anggaran perbandingan.",
+      "badge": "Global",
+      "whoFs": "Lembaran Fakta WHO — Penyakit Tidak Berjangkit",
+      "ihmeGbd": "IHME — Keputusan GBD (Viz Hub)"
+    },
+    "note": "Pautan dibuka dalam tab baharu. Sesetengah sumber mungkin dikemas kini oleh penerbit dari semasa ke semasa."
+  },
+  "AI_HOW": {
+    "subtitle": "Vitaa AI – Cara Kami Membantu Anda Kekal Sihat",
+    "badgeAiGuides": "Panduan AI",
+    "meet": {
+      "title": "1. Temui Pembantu AI Anda",
+      "desc": "Panduan peribadi untuk kesihatan, kecergasan dan gaya hidup — ringkas, selamat, dan disesuaikan.",
+      "p1": "AI Vitaa belajar daripada data yang anda pilih untuk kongsi bagi memberi pelan makan, idea senaman dan pandangan kesihatan yang diperibadikan.",
+      "li1": "Mengesan awal risiko kesihatan dan mencadangkan tindakan pencegahan.",
+      "li2": "Memberi panduan, menu/senaman dan saranan yang diperibadikan.",
+      "tipTitle": "Petua",
+      "tipBody": "Anda kekal mengawal — ubah keutamaan bila-bila masa. Penjelasan adalah mudah difahami."
+    },
+    "vivi": {
+      "title": "Vivi – Kotak Sembang AI",
+      "desc": "Tanya apa-apa tentang kesihatan, gaya hidup atau ciri kami.",
+      "step1": {
+        "h": "Buka Kotak Sembang AI:",
+        "p": "Klik ikon sembang di penjuru. Vivi akan menyapa anda."
+      },
+      "step2": {
+        "h": "Tanya soalan atau mulakan pelan:",
+        "p": "Tulis matlamat (cth. “Bantu saya rancang makan malam minggu ini.”) atau klik tindakan pantas **Mulakan Pelan Kesihatan**."
+      },
+      "step3": {
+        "h": "AI sediakan langkah seterusnya",
+        "p": "Vivi memaparkan kad pintar dengan pautan terus ke halaman Pelan Kesihatan."
+      },
+      "step4": {
+        "h": "Buka halaman Pelan Kesihatan",
+        "p": "Tekan **Health Plan** untuk pergi ke halaman Pelan Kesihatan, kemudian ikut langkah di skrin untuk jana pelan."
+      }
+    },
+    "how": {
+      "title": "2. Cara Ia Berfungsi",
+      "subtitle": "Tiga langkah mudah untuk hasil analisis kesihatan.",
+      "tabs": {
+        "how": "Maklumkan AI Tentang Anda",
+        "result": "Dapatkan Keputusan",
+        "understand": "Fahami Keputusan"
+      },
+      "how": {
+        "p": "Berikan maklumat asas dan konteks anda supaya analisis relevan:",
+        "fields": {
+          "age": "Umur",
+          "weight": "Berat",
+          "height": "Tinggi",
+          "waist": "Lilitan Pinggang",
+          "bp": "Tekanan Sistolik",
+          "lifestyle": "Gaya Hidup & Aktiviti",
+          "family": "Sejarah Keluarga"
+        }
+      },
+      "result": {
+        "p": "Klik “Jana Analisis Kesihatan” untuk profil risiko dan ringkasan semasa anda."
+      },
+      "understand": {
+        "p": "Vitaa AI menerangkan keputusan menggunakan amaran berwarna yang mudah."
+      },
+      "table": {
+        "h1": "Skor Kesihatan",
+        "h2": "Maksud",
+        "h3": "Apa Yang Boleh Anda Buat",
+        "low": "Risiko Rendah",
+        "lowMeaning": "Anda berada di landasan yang betul!",
+        "lowDo": "Teruskan pelan anda.",
+        "high": "Risiko Tinggi",
+        "highMeaning": "Perlu diberi perhatian.",
+        "highDo": "Rujuk doktor dan kemas kini gaya hidup."
+      }
+    },
+    "trust": {
+      "title": "3. Mengapa Anda Boleh Percaya",
+      "desc": "Keselamatan, privasi dan kejelasan — secara reka bentuk.",
+      "safe": {
+        "h": "Selamat & peribadi:",
+        "p": "Data anda kekal selamat. Kami tidak menyimpan data anda."
+      },
+      "clear": {
+        "h": "Jelas & mudah difahami:",
+        "p": "Penjelasan tanpa jargon mengelirukan."
+      },
+      "ethical": {
+        "h": "Beretika:",
+        "p": "Reka untuk keadilan merentas semua pengguna."
+      }
+    },
+    "models": {
+      "title": "Model Yang Kami Guna",
+      "desc": "LLM sumber terbuka di sebalik API kami.",
+      "learnMore": "Ketahui lanjut dalam kad model (luaran):",
+      "arxiv": "arXiv:2508.10925",
+      "howPowers": "Bagaimana ini menggerakkan Vitaa",
+      "howPowersBody": "Kami gabungkan model ini dengan logik domain kami untuk analisis, pelan dan respons sembang."
+    }
+  },
+  "FOOTER": {
+    "ai": "Spesifikasi AI",
+    "resources": "Sumber",
+    "sdg3": "SDG 3",
+    "about": "Tentang",
+    "byTeam": "oleh Six Minus One"
+  },
   "lang": {
     "english": "English",
     "malay": "Malay",
     "chinese": "中文",
     "vietnamese": "Tiếng Việt",
     "switch": "Tukar Bahasa"
+  },
+  "CHAT": {
+    "greeting": "Hai, saya Vivi! Bagaimana saya boleh bantu hari ini?",
+    "placeholder": "Taip mesej…",
+    "disclaimer": "AI boleh membuat kesilapan. Untuk nasihat kritikal, sila rujuk pakar manusia.",
+    "thinking": "Sedang berfikir…",
+    "showWhy": "Tunjukkan sebab",
+    "showReasoning": "Tunjukkan penjelasan",
+    "copied": "Disalin!",
+    "brand": {
+      "name": "Vivi",
+      "tagline": "Pembantu AI anda"
+    },
+    "actions": {
+      "refresh": "Muat semula",
+      "resetConversation": "Tetap semula perbualan",
+      "collapse": "Runtuhkan",
+      "expand": "Kembangkan",
+      "close": "Tutup",
+      "copy": "Salin",
+      "regenerate": "Jana semula",
+      "send": "Hantar"
+    },
+    "chips": {
+      "findArticles": "Di mana saya boleh cari artikel NCD?",
+      "startHealthPlan": "Bagaimana untuk mulakan Pelan Kesihatan?",
+      "whereHealthAnalysis": "Di manakah Analisis Kesihatan?",
+      "whatIsBMI": "Apa maksud BMI di sini?",
+      "monthlyChallenges": "Bagaimana cabaran bulanan berfungsi?"
+    },
+    "aria": {
+      "chatbot": "Chatbot Vivi"
+    }
   }
 }

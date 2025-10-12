@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { useEffect } from "react";
-
 import { useLocale, useTranslations } from "next-intl";
 import NextImage from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -28,7 +27,6 @@ import {
     DialogFooter,
 } from "@/components/ui/dialog";
 import { Calendar, HelpCircle, Timer, Award, Home } from "lucide-react";
-
 
 /** ---------- Types ---------- */
 type Challenge = {
@@ -134,7 +132,6 @@ export default function QuizAndChallengesPage() {
 
     const downloadCanvasRef = React.useRef<HTMLCanvasElement | null>(null);
 
-
     const [gradientIndex, setGradientIndex] = React.useState<number>(() =>
         Math.floor(Math.random() * GRADIENTS.length)
     );
@@ -158,7 +155,6 @@ export default function QuizAndChallengesPage() {
         ? `${process.env.NEXT_PUBLIC_API_BASE}/api/weekly-challenges/`
         : "http://127.0.0.1:8000/api/weekly-challenges/";
     
-
     useEffect(() => {
         const img = new window.Image();
         img.onload = () => setBadgeImage(img);
@@ -176,7 +172,6 @@ export default function QuizAndChallengesPage() {
             if (!cached) {
                 try {
                     const res = await fetch(API_URL, { cache: "no-store" });
-
                     if (!res.ok) throw new Error(`API ${res.status}`);
 
                     const apiData = (await res.json()) as ChallengeAPI;
@@ -267,7 +262,6 @@ export default function QuizAndChallengesPage() {
                         <BreadcrumbItem>
                             <BreadcrumbLink asChild>
                                 <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700">
-
                                     <Home className="h-4 w-4" />
                                     <span>{t("breadcrumbHome")}</span>
                                 </Link>
