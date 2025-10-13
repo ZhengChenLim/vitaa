@@ -9,7 +9,8 @@
     "toggleMenuAria": "切换菜单",
     "section": {
       "ncd": "非传染性疾病",
-      "challenges": "挑战"
+      "challenges": "挑战",
+      "factors": "风险因素"
     },
     "ncd": {
       "diabetes": "糖尿病",
@@ -18,6 +19,9 @@
     },
     "challenges": {
       "monthlyQuiz": "测验和挑战"
+    },
+    "factors": {
+      "airPollution": "空气污染"
     }
   },
   "home": {
@@ -39,7 +43,18 @@
     "ctaAnalysisBtn": "开始分析",
     "whyTitle": "为什么选择 Vitaa？",
     "whyAi": "AI 预防性健康分析",
-    "whyPersonalised": "个性化的饮食与运动建议"
+    "whyPersonalised": "个性化的饮食与运动建议",
+    "whySubtitle": "为马来西亚医疗需求量身打造的一体化健康管理平台。",
+    "why": {
+      "aiTitle": "AI 预防性健康分析",
+      "aiDesc": "先进算法分析您的健康数据，在问题出现前进行预测与预防。",
+      "planTitle": "个性化健康方案",
+      "planDesc": "根据您的健康档案与文化偏好，定制饮食与运动建议。",
+      "libraryTitle": "慢性病知识库",
+      "libraryDesc": "关于非传染性疾病的系统性教育资源，结合马来西亚本地统计与预防策略。",
+      "quizTitle": "互动健康测验",
+      "quizDesc": "有趣的测验帮助评估您的健康知识，并基于回答提供个性化建议。"
+    }
   },
   "plan": {
     "validation": {
@@ -312,13 +327,15 @@
         "fri": "初学者瑜伽",
         "sat": "轻度家务活动",
         "sun": "休息日（轻柔拉伸）"
-      }
+      },
+      "empty": "该日无运动安排"
     },
     "cta": {
       "title": "准备好改善健康了吗？",
       "subtitle": "获取你的个性化营养与运动计划，今天就开始更健康的旅程！",
       "download": "下载完整计划"
-    }
+    },
+    "loading": "加载中..."
   },
   "analysisResult": {
     "breadcrumbs": {
@@ -455,10 +472,10 @@
     "diabetesPrev": "马来西亚患病率：390 万成年人",
     "hypertensionTitle": "高血压",
     "hypertensionDesc": "血压升高，如不治疗可能导致严重健康并发症。",
-    "hypertensionPrev": "马来西亚患病率：640 万成年人",
+    "hypertensionPrev": "马来西亚患病率：670 万成年人",
     "strokeTitle": "中风",
     "strokeDesc": "当大脑的供血中断时发生的严重情况。",
-    "strokePrev": "马来西亚患病率：每年 40,000 例",
+    "strokePrev": "马来西亚患病率：每年 50,000 例",
     "learnMore": "了解更多",
     "globalStatsTitle": "全球 NCD 死亡统计",
     "globalStatsSubtitle": "了解全球非传染性疾病的死亡趋势。",
@@ -511,8 +528,8 @@
       "adultsAffected": "受影响的成年人",
       "totalDeaths": "占总死亡人数",
       "nhms": "NHMS 2019",
-      "estimate": "2023 年估计",
-      "moh": "马来西亚卫生部 2021"
+      "estimate": "NHMS 2019",
+      "moh": "GHDx, 2021"
     },
     "type1": {
       "title": "1 型糖尿病",
@@ -706,7 +723,7 @@
     "whatDesc": "高血压是一种慢性疾病，动脉中的血压持续升高。它常被称为“无声的杀手”，因为通常没有明显症状，直到造成严重损害。",
     "keyFacts": "关键事实",
     "facts": [
-      "超过 640 万马来西亚成年人患有高血压",
+      "超过 670 万马来西亚成年人患有高血压",
       "成年人患病率约为 30%（NHMS 2019）",
       "是心脏病和中风的主要危险因素",
       "由于缺乏症状，经常未被诊断"
@@ -957,15 +974,15 @@
     "whatDesc": "当部分大脑的血流被中断或减少时，大脑组织无法获得氧气和营养。数分钟内脑细胞就会开始死亡，因此中风是需要立即治疗的医疗急症。",
     "keyFacts": "关键事实",
     "facts": [
-      "马来西亚每年约有 40,000 例中风",
+      "马来西亚每年约有 50,000 例中风",
       "全球第三大死亡原因",
       "成年致残的主要原因",
       "分秒必争：“时间就是大脑”"
     ],
     "stats": {
-      "cases": "40,000",
+      "cases": "50,000",
       "casesLabel": "年度病例数",
-      "deathsPercent": "8.9%",
+      "deathsPercent": "10.7%",
       "deathsLabel": "占总死亡",
       "rank": "第 3",
       "rankLabel": "主要死因排名"
@@ -1230,11 +1247,247 @@
       "generalKnowledge": "通用知识"
     }
   },
+  "AIR": {
+    "title": "空气污染",
+    "subtitle": "清洁的空气对健康、福祉和生活质量至关重要。",
+    "whyTitle": "空气质量为何重要？",
+    "whyHeading": "空气影响所有人，尤其是儿童、老人和患病者。",
+    "whyP1": "空气质量差会引起短期症状，如咳嗽、刺激和疲劳。",
+    "whyP2": "长期暴露会增加慢性呼吸道和心血管疾病的风险。",
+    "whyKpi1Label": "短期影响",
+    "whyKpi1Value": "咳嗽 · 刺激 · 疲劳",
+    "whyKpi1Hint": "暴露后的常见即时症状",
+    "whyKpi2Label": "长期风险",
+    "whyKpi2Value": "慢阻肺 · 心脏病 · 中风",
+    "whyKpi2Hint": "与空气污染有关的慢性疾病",
+    "ncdLinkTitle": "空气质量如何导致慢性疾病？",
+    "ncdMechanismsTitle": "作用机制",
+    "ncdPoint1": "微小颗粒和气体进入肺部和血液。",
+    "ncdPoint2": "引发炎症和氧化应激反应。",
+    "ncdPoint3": "长期损伤组织和器官。",
+    "ncdPoint4": "持续暴露会增加慢性疾病风险。",
+    "ncdExamplesTitle": "相关疾病",
+    "ncdExample1": "哮喘和慢性阻塞性肺病（COPD）",
+    "ncdExample2": "缺血性心脏病",
+    "ncdExample3": "中风",
+    "ncdExample4": "其他慢性呼吸系统疾病",
+    "myRealityTitle": "马来西亚空气质量现状",
+    "myRealitySubtitle": "工业活动、交通排放和季节性烟霾导致PM2.5水平升高。",
+    "loading": "正在加载空气质量数据…",
+    "industryTitle": "工业与交通排放贡献",
+    "industryP1": "制造业和交通运输是城市污染的重要来源。",
+    "hazeTitle": "季节性烟霾事件",
+    "hazeP1": "跨境烟霾会使PM2.5上升——请关注年中干季的空气预警。",
+    "app": {
+      "title": "空气质量监测应用",
+      "f1Title": "实时AQI",
+      "f1Desc": "查看您所在城市或社区的空气质量。",
+      "f2Title": "个性化提醒",
+      "f2Desc": "当空气质量变差时接收通知。",
+      "f3Title": "健康提示",
+      "f3Desc": "减少暴露并保护自己的实用方法。",
+      "f4Title": "历史与趋势",
+      "f4Desc": "查看空气质量变化趋势，合理安排活动和出行。",
+      "ctaBlurb": "主动了解空气状况，做出更健康的选择。",
+      "ctaPrimary": "打开监测",
+      "ctaSecondary": "了解更多"
+    },
+    "map": {
+      "title": "马来西亚各州实时AQI",
+      "subtitle": "选择州即可在地图上查看其AQI，仅显示所选州。"
+    },
+    "table": {
+      "state": "州属",
+      "aqi": "AQI",
+      "category": "类别",
+      "updated": "更新时间",
+      "noData": "暂无数据。",
+      "note": "按AQI从高到低排序。如API未提供类别，则为推测值。"
+    }
+  },
+  "DATA_SOURCES": {
+    "hero": {
+      "title": "数据来源",
+      "subtitle": "您的健康洞察从何而来",
+      "tagline": "Vitaa AI 使用可信的数据来源，提供个性化、以科学为依据的健康指导。"
+    },
+    "table": {
+      "content": "内容",
+      "link": "链接",
+      "notes": "备注",
+      "continued": "续"
+    },
+    "food": {
+      "title": "食物数据集",
+      "subtitle": "高质量、多模态数据集，用于营养相关功能。",
+      "badge": "数据集",
+      "mmFood100k": "Codatta — MM-Food-100K",
+      "hint": "图像 • 多标签 • 营养"
+    },
+    "exercise": {
+      "title": "运动代谢当量对照表",
+      "subtitle": "用于估算活动强度的能量消耗参考。",
+      "badge": "身体活动",
+      "compAdult": "成人体力活动对照表（Adult Compendium of Physical Activities）",
+      "hint": "METS • 活动编码"
+    },
+    "myNcd": {
+      "title": "马来西亚 NCD 统计",
+      "subtitle": "马来西亚的全国调查与事实表。",
+      "badge": "马来西亚",
+      "pmc": "马来西亚非传染性疾病负担（2024，PMC）",
+      "nhms2019": "NHMS 2019 — 非传染性疾病、医疗服务需求与健康素养",
+      "healthFacts2022": "Health Facts 2022 — 马来西亚卫生部"
+    },
+    "globalNcd": {
+      "title": "全球 NCD 统计",
+      "subtitle": "全球背景、风险因素与对比性估计。",
+      "badge": "全球",
+      "whoFs": "世卫组织资料页 — 非传染性疾病",
+      "ihmeGbd": "IHME — 全球疾病负担（GBD）结果（Viz Hub）"
+    },
+    "note": "链接将在新标签页打开。部分来源可能会由发布方不定期更新。"
+  },
+  "AI_HOW": {
+    "subtitle": "Vitaa AI —— 我们如何帮助你保持健康",
+    "badgeAiGuides": "AI 指南",
+    "meet": {
+      "title": "1. 认识你的 AI 助手",
+      "desc": "为健康、健身与生活方式提供个性化指引——简单、安全、可理解。",
+      "p1": "Vitaa 的 AI 基于你自愿提供的数据，生成个性化的饮食计划、运动建议和健康洞见。",
+      "li1": "及早发现健康风险并提出预防行动。",
+      "li2": "提供指导、餐食/运动与个性化推荐。",
+      "tipTitle": "提示",
+      "tipBody": "你始终掌控数据与偏好设置；解释使用通俗语言。"
+    },
+    "vivi": {
+      "title": "Vivi —— AI 聊天",
+      "desc": "可询问健康、生活方式或平台功能。",
+      "step1": {
+        "h": "打开 AI 聊天：",
+        "p": "点击角落的聊天图标，Vivi 会向你问好。"
+      },
+      "step2": {
+        "h": "提问或开始一个计划：",
+        "p": "输入你的目标（例如“帮我规划本周晚餐”），或点击快捷操作 **开始健康计划**。"
+      },
+      "step3": {
+        "h": "AI 准备你的下一步",
+        "p": "Vivi 会返回一张智能卡片，附有前往健康计划页面的深度链接。"
+      },
+      "step4": {
+        "h": "打开健康计划页面",
+        "p": "点击 **Health Plan** 跳转到健康计划页面，并按页面步骤生成你的计划。"
+      }
+    },
+    "how": {
+      "title": "2. 工作原理",
+      "subtitle": "三步生成你的健康分析。",
+      "tabs": {
+        "how": "告诉 AI 关于你",
+        "result": "获取结果",
+        "understand": "理解结果"
+      },
+      "how": {
+        "p": "提供基础信息与个人背景，以获得更相关的分析：",
+        "fields": {
+          "age": "年龄",
+          "weight": "体重",
+          "height": "身高",
+          "waist": "腰围",
+          "bp": "收缩压",
+          "lifestyle": "生活方式与活动水平",
+          "family": "家族史"
+        }
+      },
+      "result": {
+        "p": "点击“生成健康分析”，计算当前风险概况与摘要。"
+      },
+      "understand": {
+        "p": "Vitaa AI 使用简明的颜色提示解释结果。"
+      },
+      "table": {
+        "h1": "健康分数",
+        "h2": "含义",
+        "h3": "你可以做什么",
+        "low": "低风险",
+        "lowMeaning": "保持良好状态！",
+        "lowDo": "继续执行你的计划。",
+        "high": "高风险",
+        "highMeaning": "需要关注。",
+        "highDo": "咨询医生并调整生活方式。"
+      }
+    },
+    "trust": {
+      "title": "3. 为什么值得信任",
+      "desc": "安全、隐私与清晰 —— 从设计之初。",
+      "safe": {
+        "h": "安全与私密：",
+        "p": "你的数据保持安全；我们不存储你的数据。"
+      },
+      "clear": {
+        "h": "清晰易懂：",
+        "p": "没有晦涩术语的解释。"
+      },
+      "ethical": {
+        "h": "合乎伦理：",
+        "p": "面向所有用户的公平性设计。"
+      }
+    },
+    "models": {
+      "title": "我们使用的模型",
+      "desc": "在我们 API 后的开源 LLM。",
+      "learnMore": "在模型卡（外部）了解更多：",
+      "arxiv": "arXiv:2508.10925",
+      "howPowers": "如何支持 Vitaa",
+      "howPowersBody": "我们将这些模型与领域逻辑结合，生成分析、计划与聊天回复。"
+    }
+  },
+  "FOOTER": {
+    "ai": "AI 规范",
+    "resources": "资源",
+    "sdg3": "SDG 3",
+    "about": "关于",
+    "byTeam": "由 Six Minus One"
+  },
   "lang": {
     "english": "English",
     "malay": "Malay",
     "chinese": "中文",
     "vietnamese": "Tiếng Việt",
     "switch": "切换语言"
+  },
+  "CHAT": {
+    "greeting": "你好，我是 Vivi！今天我能帮你做什么？",
+    "placeholder": "输入消息…",
+    "disclaimer": "AI 可能会出错。涉及重要建议时，请咨询专业人士。",
+    "thinking": "思考中…",
+    "showWhy": "显示原因",
+    "showReasoning": "显示推理过程",
+    "copied": "已复制！",
+    "brand": {
+      "name": "Vivi",
+      "tagline": "你的 AI 助手"
+    },
+    "actions": {
+      "refresh": "刷新",
+      "resetConversation": "重置对话",
+      "collapse": "收起",
+      "expand": "展开",
+      "close": "关闭",
+      "copy": "复制",
+      "regenerate": "重新生成",
+      "send": "发送"
+    },
+    "chips": {
+      "findArticles": "在哪可以找到慢性病（NCD）文章？",
+      "startHealthPlan": "如何开始健康计划？",
+      "whereHealthAnalysis": "健康分析在哪里？",
+      "whatIsBMI": "这里的 BMI 是什么意思？",
+      "monthlyChallenges": "每月挑战如何运作？"
+    },
+    "aria": {
+      "chatbot": "Vivi 聊天机器人"
+    }
   }
 }

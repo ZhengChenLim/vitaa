@@ -1,6 +1,7 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from vitaa_app import views
+from vitaa_app.views import GenerateActivityPlanView, NCDQuizGetQuestionsView, NCDQuizGradeView, NCDDeathSeriesView, WeeklyChallengePlanView, AQIView, MalaysiaAQIView 
 from vitaa_app.views import (
     GenerateActivityPlanView,
     NCDQuizGetQuestionsView,

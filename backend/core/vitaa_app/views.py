@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
-import json, random, requests
+import json, random, requests, requests
 from requests import RequestException, HTTPError
 from rest_framework.views import APIView
 from rest_framework.response import Response

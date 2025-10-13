@@ -5,6 +5,9 @@ import {notFound} from 'next/navigation';
 import Header from '@/components/Header';
 import '../globals.css';
 import CookieConsent from '@/components/CookieConsent';
+import ChatMount from '@/components/ChatMount';
+import Footer from '@/components/Footer';
+import 'leaflet/dist/leaflet.css';
 type Locale = 'en' | 'ms' | 'zh';
 
 export const metadata: Metadata = { title: 'Vitaa', description: 'Health planning & analysis' };
@@ -32,7 +35,8 @@ export default async function RootLayout({
           <Header />
           {children}
           <CookieConsent />
-
+          <ChatMount />
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

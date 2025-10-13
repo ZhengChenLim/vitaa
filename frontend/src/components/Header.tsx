@@ -68,9 +68,10 @@ export default function Header() {
 
             <DropdownMenuContent
               align="end"
-              className="min-w-80 p-4 bg-white shadow-lg rounded-xl"
+              className="min-w-96 p-4 bg-white shadow-lg rounded-xl"
             >
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {/* ⬇️ now 3 columns to include Factors */}
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                 {/* Column 1: NCD */}
                 <div>
                   <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-purple-600">
@@ -112,6 +113,24 @@ export default function Header() {
                         className="rounded-md px-2 py-1.5 hover:bg-emerald-50"
                       >
                         {t("nav.challenges.monthlyQuiz")}
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                </div>
+
+                {/* Column 3: NCD Factors (Air Pollution) */}
+                <div>
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-sky-600">
+                    {t("nav.section.factors")}
+                  </p>
+                  <DropdownMenuGroup className="space-y-1">
+                    <DropdownMenuItem asChild>
+                      {/* Update href if your route differs, e.g. /air-quality */}
+                      <Link
+                        href="/airpollution"
+                        className="rounded-md px-2 py-1.5 hover:bg-sky-50"
+                      >
+                        {t("nav.factors.airPollution")}
                       </Link>
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
@@ -179,6 +198,12 @@ export default function Header() {
                 <div className="px-3 pt-2 text-xs font-medium text-slate-500">{t('nav.section.challenges')}</div>
                 <Link href="/challenges" className="rounded-lg px-3 py-2 text-sm hover:bg-gray-100" onClick={() => setOpen(false)}>
                   {t('nav.challenges.monthlyQuiz')}
+                </Link>
+
+                {/* Mobile: NCD Factors */}
+                <div className="px-3 pt-2 text-xs font-medium text-slate-500">{t('nav.section.factors')}</div>
+                <Link href="/airpollution" className="rounded-lg px-3 py-2 text-sm hover:bg-gray-100" onClick={() => setOpen(false)}>
+                  {t('nav.factors.airPollution')}
                 </Link>
               </div>
             )}

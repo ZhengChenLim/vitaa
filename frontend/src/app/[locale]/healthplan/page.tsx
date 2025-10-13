@@ -52,10 +52,10 @@ type ApiDishName = {
 
 type ApiMeal = {
     Meal: string;
-    Dishes: ApiDishName[];                 
+    Dishes: ApiDishName[];
     Ingredients: Record<string, string[]>;
     Images: Record<string, string>;
-    PerDish: ApiDish[];                    
+    PerDish: ApiDish[];
     Calories: number;
     Protein_g: number;
     Fat_g: number;
@@ -91,6 +91,37 @@ type UserProfile = {
     fitness_goal: 'Weight Loss' | 'Muscle Gain' | 'Maintain' | null; // label form
 };
 
+/* -------------------- Activity Plan API -------------------- */
+type ActivityPlanRequest = {
+    Age: number;                       // e.g., 25
+    Sex: 'Male' | 'Female';            // Title case
+    WeightKg: number;                  // e.g., 120
+    HeightCm: number;                  // e.g., 180
+    WaistCircumferenceCm?: number;     // optional
+    ActivityLevel: 'Sedentary' | 'Low' | 'Medium' | 'High';
+    FavoriteActivities?: string[];     // optional
+    goal: 'weight loss' | 'muscle gain' | 'maintain health';
+    seed?: number;                     // optional
+};
+
+// Shape is flexible; adapt to your backend response
+type ActivityPlanDay = { day: string; items: string[] };
+type ActivityPlanResponse = { week: ActivityPlanDay[] } | { schedule: ActivityPlanDay[] } | any;
+
+// Map your internal keys → API keys
+const AL_MAP: Record<'sedentary' | 'low' | 'medium' | 'high', ActivityPlanRequest['ActivityLevel']> = {
+    sedentary: 'Sedentary',
+    low: 'Low',
+    medium: 'Medium',
+    high: 'High',
+};
+
+const GOAL_OUT_MAP: Record<'loss' | 'muscle' | 'maintain', ActivityPlanRequest['goal']> = {
+    loss: 'weight loss',
+    muscle: 'muscle gain',
+    maintain: 'maintain health',
+};
+
 /* -------------------- Utils -------------------- */
 function getCookie(name: string) {
     if (typeof document === 'undefined') return null;
@@ -115,6 +146,11 @@ export default function HealthPlanPage() {
 
     const [apiData, setApiData] = useState<ApiResult | null>(null);
     const [loading, setLoading] = useState(true);
+
+    /* -------------------- Exercise Plan state -------------------- */
+    const [exercisePlan, setExercisePlan] = useState<ActivityPlanResponse | null>(null);
+    const [exerciseLoading, setExerciseLoading] = useState(false);
+    const [exerciseError, setExerciseError] = useState<string | null>(null);
 
     // Editable profile state (same shape as your Plan form, hydrated from storage)
     type Sex = 'male' | 'female' | null;
@@ -187,6 +223,84 @@ export default function HealthPlanPage() {
     useEffect(() => setFieldErrors(p => ({ ...p, height: validateHeight(height) })), [height]);
     useEffect(() => setFieldErrors(p => ({ ...p, weight: validateWeight(weight) })), [weight]);
     useEffect(() => setFieldErrors(p => ({ ...p, waist: validateWaist(waist) })), [waist]);
+
+    function buildActivityPayload(): ActivityPlanRequest | null {
+        // Ensure required fields exist before calling the API
+        if (!age || !sex || !height || !weight || !activity || !goal) return null;
+
+        return {
+            Age: Number(age),
+            Sex: (sex === 'male' ? 'Male' : 'Female'),
+            WeightKg: Number(weight),
+            HeightCm: Number(height),
+            WaistCircumferenceCm: waist ? Number(waist) : undefined,
+            ActivityLevel: AL_MAP[activity],
+            // If you later add UI for favorites, pass them here:
+            FavoriteActivities: [],                          // e.g., ['cycling','walking']
+            goal: GOAL_OUT_MAP[goal],
+            seed: 33,                                        // keep deterministic results for now
+        };
+    }
+
+    async function fetchActivityPlan(payload: ActivityPlanRequest) {
+        setExerciseLoading(true);
+        setExerciseError(null);
+        try {
+            const res = await fetch(`${API_BASE}/api/activity-plan/`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+                cache: 'no-store',
+            });
+            if (!res.ok) {
+                const text = await res.text().catch(() => '');
+                throw new Error(text || `Request failed with ${res.status}`);
+            }
+
+            const data = await res.json();
+
+            // 👇 NEW: normalize various shapes into { week: ActivityPlanDay[] }
+            const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            const orderIdx = (d: string) => DAY_ORDER.indexOf(String(d));
+
+            let normalized: { week: ActivityPlanDay[] };
+
+            if (Array.isArray(data)) {
+                // Your provided shape
+                normalized = {
+                    week: data
+                        .slice()
+                        .sort((a, b) => orderIdx(a.day) - orderIdx(b.day))
+                        .map((e: { day: string; recommendation: string; duration: number }) => ({
+                            day: e.day,
+                            items: [
+                                e.duration && e.duration > 0
+                                    ? `${e.recommendation} (${e.duration} min)`
+                                    : e.recommendation || 'Rest',
+                            ],
+                        })),
+                };
+            } else if (Array.isArray(data?.week)) {
+                normalized = { week: data.week as ActivityPlanDay[] };
+            } else if (Array.isArray(data?.schedule)) {
+                normalized = { week: data.schedule as ActivityPlanDay[] };
+            } else if (Array.isArray(data?.days)) {
+                normalized = { week: data.days as ActivityPlanDay[] };
+            } else if (Array.isArray(data?.plan)) {
+                normalized = { week: data.plan as ActivityPlanDay[] };
+            } else {
+                normalized = { week: [] };
+            }
+
+            setExercisePlan(normalized);
+        } catch (err: any) {
+            setExerciseError(err?.message ?? 'Failed to load activity plan.');
+            setExercisePlan(null);
+        } finally {
+            setExerciseLoading(false);
+        }
+    }
+
     // mappings (same as your Plan form)
     const toTitle = (s: string) =>
         s.replace(/([A-Z])/g, ' $1')
@@ -215,6 +329,25 @@ export default function HealthPlanPage() {
             default: return item.dish_name; // 'en'
         }
     };
+
+    useEffect(() => {
+        if (exerciseLoading || exercisePlan) return; // avoid double calls
+        if (!age || !sex || !height || !weight || !activity || !goal) return;
+
+        const payload: ActivityPlanRequest = {
+            Age: Number(age),
+            Sex: sex === 'male' ? 'Male' : 'Female',
+            WeightKg: Number(weight),
+            HeightCm: Number(height),
+            WaistCircumferenceCm: waist ? Number(waist) : undefined,
+            ActivityLevel: AL_MAP[activity],
+            FavoriteActivities: [],
+            goal: GOAL_OUT_MAP[goal],
+            seed: 33,
+        };
+        fetchActivityPlan(payload);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [age, sex, height, weight, activity, goal]);
 
     // Load stored result + profile (sessionStorage preferred, cookies fallback)
     useEffect(() => {
@@ -260,6 +393,11 @@ export default function HealthPlanPage() {
                 const next: Record<string, boolean> = {};
                 allergyKeys.forEach(k => { next[k] = titles.includes(toTitle(k)); });
                 setAllergiesMap(next);
+                const candidate = buildActivityPayload();
+                if (candidate) {
+                    // Fire and forget; user will see spinner in the section below
+                    fetchActivityPlan(candidate);
+                }
             }
         } catch (e) {
             // ignore malformed storage
@@ -394,6 +532,10 @@ export default function HealthPlanPage() {
 
             // persist for next visits
             sessionStorage.setItem('healthplan:result', JSON.stringify(data));
+            const nextActivityPayload = buildActivityPayload();
+            if (nextActivityPayload) {
+                await fetchActivityPlan(nextActivityPayload);
+            }
 
             const userProfileData: UserProfile = {
                 age: payload.age,
@@ -793,9 +935,68 @@ export default function HealthPlanPage() {
                     </CardContent>
                 </Card>
             </section>
+            {/* <section className="mx-auto mt-10 max-w-6xl px-4">
+                <h4 className="mb-3 text-3xl text-center font-semibold text-slate-700">{t('exercise.title')}</h4>
+
+                <Card className="overflow-hidden bg-[linear-gradient(270deg,#129D6A_0%,#40BFA6_100%)]">
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-white">{t('exercise.scheduleTitle')}</CardTitle>
+                    </CardHeader>
+
+                    <CardContent className="pt-0 bg-white">
+                        {exerciseLoading && (
+                            <div className="flex items-center justify-center py-6 text-slate-600">
+                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                {t('loading') ?? 'Loading your exercise plan...'}
+                            </div>
+                        )}
+
+                        {exerciseError && (
+                            <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+                                {exerciseError}
+                            </div>
+                        )}
+
+                        {!exerciseLoading && !exerciseError && (
+                            <>
+                                
+                                {(() => {
+                                    const week: ActivityPlanDay[] =
+                                        (exercisePlan?.week as ActivityPlanDay[])
+                                        ?? (exercisePlan?.schedule as ActivityPlanDay[])
+                                        ?? [];
+
+                                    if (!Array.isArray(week) || week.length === 0) {
+                                        return (
+                                            <div className="py-6 text-center text-slate-600">
+                                                {t('exercise.empty') ?? 'No exercise plan available for the current profile.'}
+                                            </div>
+                                        );
+                                    }
+
+                                    return (
+                                        <ul className="divide-y">
+                                            {week.map((d, i) => (
+                                                <li key={i} className="py-3">
+                                                    <div className="flex items-center justify-between">
+                                                        <span className="font-medium text-slate-800">{d.day}</span>
+                                                        <span className="text-slate-600">
+                                                            {Array.isArray(d.items) ? d.items.join(' · ') : String(d.items ?? '')}
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    );
+                                })()}
+                            </>
+                        )}
+                    </CardContent>
+                </Card>
+            </section> */}
 
             {/* CTA */}
-            <section className="mx-auto mt-10 max-w-5xl px-4">
+            {/* <section className="mx-auto mt-10 max-w-5xl px-4">
                 <Card>
                     <CardContent className="py-8 text-center">
                         <h5 className="text-lg font-semibold">{t('cta.title')}</h5>
@@ -806,80 +1007,80 @@ export default function HealthPlanPage() {
                         </Button>
                     </CardContent>
                 </Card>
-            </section>
+            </section> */}
         </main>
     );
 }
 
 /* -------------------- Small helpers -------------------- */
 function LabeledInput(props: {
-  label: string;
-  type?: string;
-  value: string;
-  onChange: (v: string) => void;
-  placeholder?: string;
-  required?: boolean;
-  error?: string;
-  inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
-  min?: number;
-  max?: number;
-  step?: string | number;
+    label: string;
+    type?: string;
+    value: string;
+    onChange: (v: string) => void;
+    placeholder?: string;
+    required?: boolean;
+    error?: string;
+    inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
+    min?: number;
+    max?: number;
+    step?: string | number;
 }) {
-  const { label, type = 'text', value, onChange, placeholder, required, error, inputMode, min, max, step } = props;
-  const id = useMemo(() => label.replace(/\s+/g, '-').toLowerCase(), [label]);
-  return (
-    <div>
-      <label htmlFor={id} className="mb-1 block text-sm font-medium text-gray-700">
-        {label} {required && <span className="text-red-600">*</span>}
-      </label>
-      <input
-        id={id}
-        type={type}
-        value={value}
-        required={required}
-        placeholder={placeholder}
-        onChange={e => onChange(e.target.value)}
-        inputMode={inputMode}
-        min={min as any}
-        max={max as any}
-        step={step as any}
-        aria-invalid={!!error}
-        aria-describedby={error ? `${id}-error` : undefined}
-        className={`w-full rounded-md border px-3 py-3 outline-none transition focus:border-sky-500
+    const { label, type = 'text', value, onChange, placeholder, required, error, inputMode, min, max, step } = props;
+    const id = useMemo(() => label.replace(/\s+/g, '-').toLowerCase(), [label]);
+    return (
+        <div>
+            <label htmlFor={id} className="mb-1 block text-sm font-medium text-gray-700">
+                {label} {required && <span className="text-red-600">*</span>}
+            </label>
+            <input
+                id={id}
+                type={type}
+                value={value}
+                required={required}
+                placeholder={placeholder}
+                onChange={e => onChange(e.target.value)}
+                inputMode={inputMode}
+                min={min as any}
+                max={max as any}
+                step={step as any}
+                aria-invalid={!!error}
+                aria-describedby={error ? `${id}-error` : undefined}
+                className={`w-full rounded-md border px-3 py-3 outline-none transition focus:border-sky-500
           ${error ? 'border-red-400 focus:border-red-500' : 'border-gray-300'}
         `}
-      />
-      {error && (
-        <p id={`${id}-error`} className="mt-1 text-xs text-red-600">
-          {error}
-        </p>
-      )}
-    </div>
-  );
+            />
+            {error && (
+                <p id={`${id}-error`} className="mt-1 text-xs text-red-600">
+                    {error}
+                </p>
+            )}
+        </div>
+    );
 }
 
 
 function ToggleBtn(props: {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-  ariaInvalid?: boolean;
+    active: boolean;
+    onClick: () => void;
+    children: React.ReactNode;
+    ariaInvalid?: boolean;
 }) {
-  const { active, onClick, children, ariaInvalid } = props;
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      aria-invalid={ariaInvalid || undefined}
-      className={`rounded-md border px-3 py-3 text-sm font-medium transition
+    const { active, onClick, children, ariaInvalid } = props;
+    return (
+        <button
+            type="button"
+            onClick={onClick}
+            aria-pressed={active}
+            aria-invalid={ariaInvalid || undefined}
+            className={`rounded-md border px-3 py-3 text-sm font-medium transition
         ${active ? 'border-green-600 bg-green-50 text-green-700'
-                 : 'border-gray-300 text-gray-700 active:bg-gray-100'}
+                    : 'border-gray-300 text-gray-700 active:bg-gray-100'}
       `}
-    >
-      {children}
-    </button>
-  );
+        >
+            {children}
+        </button>
+    );
 }
 
 
