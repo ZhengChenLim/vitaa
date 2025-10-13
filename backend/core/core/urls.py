@@ -1,57 +1,45 @@
-"""
-URL configuration for core project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path, include
 from vitaa_app import views
 from vitaa_app.views import GenerateActivityPlanView, NCDQuizGetQuestionsView, NCDQuizGradeView, NCDDeathSeriesView, WeeklyChallengePlanView, AQIView, MalaysiaAQIView 
+from vitaa_app.views import (
+    GenerateActivityPlanView,
+    NCDQuizGetQuestionsView,
+    NCDQuizGradeView,
+    NCDDeathSeriesView,
+    WeeklyChallengePlanView,
+    AQIView,
+    MalaysiaAQIView,
+    HealthAnalysisProxyView,
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
 
     # Nutrition API
     path("api/nutrition/targets/", views.nutrition_targets, name="nutrition_targets"),
-    
-    # Meal Planner API
-    path("api/mealplan/", views.meal_plan_view, name="meal_plan"),
 
-    # Health Plan Meals API
-    path("api/plan/health/", views.health_plan_meal, name="health_plan_meal"),
+    # Meal Planner API (pick one)
+    path("api/mealplan/", views.health_plan_meal, name="meal_plan"),
+    # path("api/plan/health/", views.health_plan_meal, name="health_plan_meal"),
 
-    #n8n Health Analysis API
-    path("api/webhooks/user-profile/", views.n8n_health_analysis_view, name="n8n_health_analysis"),
+    # n8n Health Analysis API
+    path("api/health-analysis/", HealthAnalysisProxyView.as_view(), name="health-analysis"),
 
     # Activity Planner API
     path("api/activity-plan/", GenerateActivityPlanView.as_view(), name="activity-plan"),
 
     # NCD Statistics API
-    path("api/ncd/stats-series", NCDDeathSeriesView.as_view(), name="ncd-stats-series"),
+    path("api/ncd/stats-series/", NCDDeathSeriesView.as_view(), name="ncd-stats-series"),
 
-    # NCD Quiz Fetch Questions API
-    path("api/ncd-quiz/questions", NCDQuizGetQuestionsView.as_view(), name="ncd-quiz-questions"),
-
-    # NCD Quiz Grade API
-    path("api/ncd-quiz/grade", NCDQuizGradeView.as_view(), name="ncd-quiz-grade"),
+    # NCD Quiz APIs
+    path("api/ncd-quiz/questions/", NCDQuizGetQuestionsView.as_view(), name="ncd-quiz-questions"),
+    path("api/ncd-quiz/grade/", NCDQuizGradeView.as_view(), name="ncd-quiz-grade"),
 
     # Weekly Challenges API
     path("api/weekly-challenges/", WeeklyChallengePlanView.as_view(), name="weekly-challenges"),
 
-    #Air Quality Index API
-    path("api/aqi", AQIView.as_view(), name="aqi"),
-
-    # Malaysia AQI API
-    path("api/aqi/all-states", MalaysiaAQIView.as_view(), name="aqi-all-states"),
+    # Air Quality Index APIs
+    path("api/aqi/", AQIView.as_view(), name="aqi"),
+    path("api/aqi/all-states/", MalaysiaAQIView.as_view(), name="aqi-all-states"),
 ]
