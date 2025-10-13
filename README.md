@@ -11,14 +11,13 @@ It provides a modern, scalable foundation for building interactive web platforms
 
 ```
 vitaa/
-├─ backend/        # Django REST Framework backend
-│  ├─ core/        # Django project files
+├─ backend/
+│  ├─ core/        
 │  ├─ manage.py
 │  └─ requirements.txt
-├─ frontend/       # Next.js frontend
+├─ frontend/
 │  ├─ package.json
 │  ├─ next.config.js
-│  └─ (app/ or pages/)
 ├─ .gitignore
 └─ README.md
 ```
@@ -36,15 +35,8 @@ vitaa/
 
   * Server-side rendering (SSR) & static site generation (SSG)
   * API integration with Django backend
-  * TailwindCSS for styling (optional)
-* **Monorepo setup**
+  * TailwindCSS and Shadcn for styling 
 
-  * One Git repo for both frontend & backend
-  * Shared environment configuration
-* **Optional**
-
-  * Docker support for containerized development
-  * GitHub Actions CI/CD
 
 ---
 
@@ -134,8 +126,8 @@ rewrites: async () => [
 
 You can deploy:
 
-* Backend (Django) → Any server (Gunicorn, Nginx, Docker, etc.)
-* Frontend (Next.js) → Vercel, Netlify, or served via Node.js
+* Backend (Django) → Any server (Gunicorn, Nginx, etc.)
+* Frontend (Next.js) →  served via Node.js
 
 Optional: use Docker Compose for full-stack deployment.
 
@@ -145,13 +137,16 @@ Optional: use Docker Compose for full-stack deployment.
 
 * **Project Name:** Vitaa
 * **Stack:** Django (REST API) + Next.js (React frontend)
-* **Maintainers:** \[Your team members]
+* **Maintainers:** Six Minus One
 
 ---
 
 ## 📜 License
 
-This project is licensed under the [MIT License](LICENSE).
+**Intellectual Property Notice**
+
+This repository contains work completed as part of a Monash University project.
+All IP belongs to Monash University and is used here for academic purposes only.
 
 ---
 
