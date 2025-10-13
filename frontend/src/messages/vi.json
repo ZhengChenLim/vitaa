@@ -43,7 +43,18 @@
     "ctaAnalysisBtn": "Bắt đầu phân tích",
     "whyTitle": "Tại sao chọn Vitaa?",
     "whyAi": "Phân tích sức khỏe dự phòng bằng AI",
-    "whyPersonalised": "Khuyến nghị ăn uống và luyện tập cá nhân hóa"
+    "whyPersonalised": "Khuyến nghị ăn uống và luyện tập cá nhân hóa",
+    "whySubtitle": "Nền tảng quản lý sức khỏe toàn diện được thiết kế riêng cho nhu cầu y tế tại Malaysia.",
+    "why": {
+      "aiTitle": "Phân tích Phòng ngừa Sức khỏe bằng AI",
+      "aiDesc": "Thuật toán nâng cao phân tích dữ liệu sức khỏe của bạn để dự đoán và phòng ngừa vấn đề trước khi xảy ra.",
+      "planTitle": "Kế hoạch Sức khỏe Cá nhân hóa",
+      "planDesc": "Gợi ý chế độ ăn và tập luyện phù hợp với hồ sơ sức khỏe và sở thích văn hóa của bạn.",
+      "libraryTitle": "Thư viện Kiến thức NCD",
+      "libraryDesc": "Nguồn tài liệu giáo dục toàn diện về bệnh không lây nhiễm với số liệu và chiến lược phòng ngừa theo bối cảnh Malaysia.",
+      "quizTitle": "Bài kiểm tra Sức khỏe Tương tác",
+      "quizDesc": "Bài kiểm tra thú vị để đánh giá hiểu biết sức khỏe và nhận khuyến nghị cá nhân hóa dựa trên câu trả lời của bạn."
+    }
   },
   "plan": {
     "validation": {

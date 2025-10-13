@@ -43,7 +43,18 @@
     "ctaAnalysisBtn": "开始分析",
     "whyTitle": "为什么选择 Vitaa？",
     "whyAi": "AI 预防性健康分析",
-    "whyPersonalised": "个性化的饮食与运动建议"
+    "whyPersonalised": "个性化的饮食与运动建议",
+    "whySubtitle": "为马来西亚医疗需求量身打造的一体化健康管理平台。",
+    "why": {
+      "aiTitle": "AI 预防性健康分析",
+      "aiDesc": "先进算法分析您的健康数据，在问题出现前进行预测与预防。",
+      "planTitle": "个性化健康方案",
+      "planDesc": "根据您的健康档案与文化偏好，定制饮食与运动建议。",
+      "libraryTitle": "慢性病知识库",
+      "libraryDesc": "关于非传染性疾病的系统性教育资源，结合马来西亚本地统计与预防策略。",
+      "quizTitle": "互动健康测验",
+      "quizDesc": "有趣的测验帮助评估您的健康知识，并基于回答提供个性化建议。"
+    }
   },
   "plan": {
     "validation": {

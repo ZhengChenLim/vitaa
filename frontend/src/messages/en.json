@@ -43,7 +43,18 @@
     "ctaAnalysisBtn": "Start Analysis",
     "whyTitle": "Why Vitaa?",
     "whyAi": "AI Preventive Health Analytics",
-    "whyPersonalised": "Personalised recommendations for diet and exercise"
+    "whyPersonalised": "Personalised recommendations for diet and exercise",
+    "whySubtitle": "Comprehensive health management platform designed specifically for Malaysian healthcare needs.",
+    "why": {
+      "aiTitle": "AI Preventive Health Analytics",
+      "aiDesc": "Advanced algorithms analyze your health data to predict and prevent potential health issues before they develop.",
+      "planTitle": "Personalised Health Plans",
+      "planDesc": "Customized diet and exercise recommendations tailored to your specific health profile and cultural preferences.",
+      "libraryTitle": "NCD Knowledge Library",
+      "libraryDesc": "Comprehensive educational resources about non-communicable diseases with Malaysian-specific statistics and prevention strategies.",
+      "quizTitle": "Interactive Health Quiz",
+      "quizDesc": "Engaging quizzes to test your health knowledge and receive personalized recommendations based on your responses."
+    }
   },
   "plan": {
     "validation": {
@@ -1432,7 +1443,6 @@
       "howPowersBody": "We combine these models with our domain logic to generate analyses, plans, and chat responses."
     }
   },
-  
   "FOOTER": {
     "ai": "AI Specs",
     "resources": "Resources",
