@@ -39,6 +39,10 @@ class CalcTargetsTests(TestCase):
         total_pct = split["protein"] + split["fat"] + split["carbs"]
         self.assertTrue(98 <= total_pct <= 102)
 
+        # Per-test output
+        print(f"[✓] {self._testMethodName} — kcal={result['targets']['calories_kcal']}, "
+              f"protein_g={result['targets']['protein_g']}, macro_total~={round(total_pct,1)}%")
+
 
 # --------------------------
 # nutrition_targets endpoint
@@ -56,10 +60,14 @@ class NutritionTargetsAPITests(APITestCase):
         data = resp.json()
         self.assertIn("targets", data)
 
+        print(f"[✓] {self._testMethodName} — status={resp.status_code}, keys={list(data.keys())}")
+
     def test_wrong_method(self):
         url = reverse("nutrition_targets")
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+
+        print(f"[✓] {self._testMethodName} — status={resp.status_code} (method not allowed as expected)")
 
 
 # --------------------------
@@ -85,6 +93,8 @@ class HealthAnalysisProxyViewTests(APITestCase):
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         self.assertTrue(resp.json().get("forwarded"))
 
+        print(f"[✓] {self._testMethodName} — status={resp.status_code}, forwarded={resp.json().get('forwarded')}")
+
     @patch("vitaa_app.views.requests.post")
     def test_health_analysis_webhook_error(self, mock_post):
         url = reverse("health-analysis")
@@ -100,6 +110,8 @@ class HealthAnalysisProxyViewTests(APITestCase):
         resp = self.client.post(url, req_payload, format="json")
         self.assertEqual(resp.status_code, status.HTTP_502_BAD_GATEWAY)
 
+        print(f"[✓] {self._testMethodName} — status={resp.status_code} (webhook error simulated)")
+
     @patch("vitaa_app.views.requests.post")
     def test_health_analysis_timeout(self, mock_post):
         url = reverse("health-analysis")
@@ -108,6 +120,8 @@ class HealthAnalysisProxyViewTests(APITestCase):
         mock_post.side_effect = Timeout("timeout")
         resp = self.client.post(url, req_payload, format="json")
         self.assertEqual(resp.status_code, status.HTTP_504_GATEWAY_TIMEOUT)
+
+        print(f"[✓] {self._testMethodName} — status={resp.status_code} (timeout simulated)")
 
 
 # --------------------------
@@ -146,10 +160,15 @@ class ActivityPlanAPITests(APITestCase):
         self.assertIn("recommendation", data[0])
         self.assertIn("duration", data[0])
 
+        print(f"[✓] {self._testMethodName} — status={resp.status_code}, days={len(data)}, "
+              f"sample={data[0].get('day','?')}")
+
     def test_plan_endpoint_bad_payload(self):
         url = reverse("activity-plan")
         resp = self.client.post(url, {"Age": 1}, format="json")
         self.assertEqual(resp.status_code, status.HTTP_400_BAD_REQUEST)
+
+        print(f"[✓] {self._testMethodName} — status={resp.status_code} (bad payload as expected)")
 
 
 # --------------------------
@@ -174,6 +193,9 @@ class NCDDeathSeriesTests(APITestCase):
         self.assertIn("Malaysia", data["series"])
         self.assertIn("years", data)
 
+        print(f"[✓] {self._testMethodName} — status={resp.status_code}, "
+              f"locations={list(data['series'].keys())}, years={data.get('years')}")
+
     def test_series_filters(self):
         url = reverse("ncd-stats-series")
         resp = self.client.get(url, {"locations": "Malaysia", "causes": "diab", "years": "2021"})
@@ -183,6 +205,9 @@ class NCDDeathSeriesTests(APITestCase):
         # Should only include Diabetes for 2021 in Malaysia
         self.assertIn("Malaysia", data["series"])
         self.assertTrue(any("Diabetes" in k for k in data["series"]["Malaysia"].keys()))
+
+        print(f"[✓] {self._testMethodName} — status={resp.status_code}, "
+              f"locations={data['locations']}, series_keys={list(data['series']['Malaysia'].keys())}")
 
 
 # --------------------------
@@ -225,6 +250,9 @@ class NCDQuizAPITests(APITestCase):
             if t in counts:
                 self.assertEqual(counts[t], 5)
 
+        print(f"[✓] {self._testMethodName} — status={resp.status_code}, "
+              f"total={data['total']}, per_topic={counts}")
+
     def test_grade_endpoint_ok(self):
         sample_ids = list(
             NCDQuizQuestion.objects.values_list("pk", flat=True).order_by("pk")[:5]
@@ -241,10 +269,15 @@ class NCDQuizAPITests(APITestCase):
         self.assertEqual(data["score"], 3)
         self.assertEqual(len(data["results"]), 5)
 
+        print(f"[✓] {self._testMethodName} — status={resp.status_code}, "
+              f"total={data['total']}, score={data['score']}")
+
     def test_grade_endpoint_bad_payload(self):
         url = reverse("ncd-quiz-grade")
         resp = self.client.post(url, {"answers": []}, format="json")
         self.assertEqual(resp.status_code, status.HTTP_400_BAD_REQUEST)
+
+        print(f"[✓] {self._testMethodName} — status={resp.status_code} (bad payload as expected)")
 
 
 # --------------------------
@@ -301,10 +334,15 @@ class MealPlanAPITests(APITestCase):
         self.assertTrue(isinstance(data["plan"], list))
         self.assertEqual(len(data["plan"]), 3)  # Breakfast, Lunch, Dinner
 
+        print(f"[✓] {self._testMethodName} — status={resp.status_code}, meals={len(data['plan'])}, "
+              f"meal_names={[m.get('meal','?') for m in data['plan']]}")
+
     def test_meal_plan_bad_payload(self):
         url = reverse("meal_plan")
         resp = self.client.post(url, {"age": 30}, format="json")
         self.assertEqual(resp.status_code, status.HTTP_400_BAD_REQUEST)
+
+        print(f"[✓] {self._testMethodName} — status={resp.status_code} (bad payload as expected)")
 
     def test_meal_plan_no_dishes(self):
         # wipe dishes and try
@@ -318,6 +356,8 @@ class MealPlanAPITests(APITestCase):
         }
         resp = self.client.post(url, payload, format="json")
         self.assertEqual(resp.status_code, status.HTTP_400_BAD_REQUEST)  # ValueError bubbled as 400
+
+        print(f"[✓] {self._testMethodName} — status={resp.status_code} (no dishes available as expected)")
 
 
 # --------------------------
@@ -337,6 +377,8 @@ class AQIViewTests(APITestCase):
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(resp.json()["status"], "ok")
 
+        print(f"[✓] {self._testMethodName} — status={resp.status_code}, data={resp.json()}")
+
     @override_settings(WAQI_TOKEN="test-token", WAQI_BASE_URL="https://example.com/feed")
     @patch("vitaa_app.views.requests.get")
     def test_aqi_geo_ok(self, mock_get):
@@ -348,6 +390,8 @@ class AQIViewTests(APITestCase):
         mock_get.return_value = mock_resp
         resp = self.client.get(url, payload)
         self.assertEqual(resp.status_code, 200)
+
+        print(f"[✓] {self._testMethodName} — status={resp.status_code}, data={resp.json()}")
 
     @override_settings(WAQI_TOKEN="test-token", WAQI_BASE_URL="https://example.com/feed")
     @patch("vitaa_app.views.requests.get")
@@ -361,12 +405,16 @@ class AQIViewTests(APITestCase):
         resp = self.client.get(url, payload)
         self.assertEqual(resp.status_code, 200)
 
+        print(f"[✓] {self._testMethodName} — status={resp.status_code}, data={resp.json()}")
+
     @override_settings(WAQI_TOKEN="test-token")
     def test_aqi_invalid_combination(self):
         url = reverse("aqi")
         # both city and here -> 400
         resp = self.client.get(url, {"city": "kl", "here": True})
         self.assertEqual(resp.status_code, status.HTTP_400_BAD_REQUEST)
+
+        print(f"[✓] {self._testMethodName} — status={resp.status_code} (invalid params as expected)")
 
 
 class MalaysiaAQIViewTests(APITestCase):
@@ -386,3 +434,4 @@ class MalaysiaAQIViewTests(APITestCase):
         self.assertEqual(data["status"], "ok")
         self.assertEqual(len(data["results"]), 14)  # 14 states
 
+        print(f"[✓] {self._testMethodName} — status={resp.status_code}, results={len(data['results'])}")
