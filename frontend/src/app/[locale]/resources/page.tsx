@@ -144,7 +144,7 @@ function ResourceTable({
               {r.label}
             </TableCell>
 
-            {/* Link (wrap to new lines, show “continued”) */}
+            {/* Link */}
             <TableCell className="whitespace-pre-wrap break-words align-top">
               <a
                 href={r.href}

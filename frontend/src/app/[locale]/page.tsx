@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Link } from '@/i18n/navigation';
+import { Activity, HeartPulse, BookOpenCheck, Edit } from "lucide-react";
 export default async function HomePage() {
   const t = await getTranslations('home');
   const title = t.rich('heroTitle', {
@@ -87,7 +88,7 @@ export default async function HomePage() {
             <div className="relative">
               {/* bottom card */}
               <img
-                src="/cta-bottom.png" /* replace with your asset */
+                src="/cta-bottom.png" 
                 alt="Health profile cards"
                 width="300"
                 height="200"
@@ -95,7 +96,7 @@ export default async function HomePage() {
               />
               {/* top card */}
               <img
-                src="/cta-top.png" /* replace with your asset */
+                src="/cta-top.png" 
                 alt="Risk widgets"
                 width="400"
                 height="300"
@@ -124,50 +125,116 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="w-full py-16">
+      {/* SECTION 3: Why Vitaa */}
+      <section className="w-full bg-white py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <h3 className="text-center text-3xl font-extrabold">{t('whyTitle')}</h3>
+          <h3 className="text-center text-3xl font-extrabold">
+            {t('whyTitle')}
+          </h3>
+          <p className="mt-2 text-center text-gray-600">
+            {t('whySubtitle')}
+          </p>
 
-          {/* ↓ reduce gap-y so overlap shows */}
-          <div className="relative mt-10 grid grid-cols-12 gap-x-8 gap-y-6 md:auto-rows-min">
-            {/* Top-left image */}
-            <div className="col-span-12 md:col-span-7 md:row-start-1 md:z-0">
-              <div className="overflow-hidden rounded-[20px] shadow-xl ring-1 ring-black/5">
-                <img src="/why-ai.jpg" alt="AI analytics" className="h-56 w-full object-cover md:h-72" />
+          <div className="mt-12 flex flex-col space-y-10">
+            {/* 1️⃣ AI Preventive Health Analytics */}
+            <div className="flex flex-col md:flex-row items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md transition">
+              <div className="w-full md:w-1/2 overflow-hidden rounded-xl">
+                <img
+                  src="/why-ai.jpg"
+                  alt="AI Preventive Health Analytics"
+                  className="h-56 w-full object-cover md:h-64"
+                />
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 flex items-center justify-center rounded-full bg-emerald-600">
+                    <Activity className="h-5 w-5 text-white" />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900">
+                    {t('why.aiTitle')}
+                  </h4>
+                </div>
+                <p className="mt-4 text-gray-600 text-sm">
+                  {t('why.aiDesc')}
+                </p>
               </div>
             </div>
 
-            {/* Top-right bullet */}
-            {/* Top-right bullet (same spacing & width as left) */}
-            <div className="col-span-12 md:col-span-5 md:row-start-1 md:flex md:items-center md:pl-10 relative z-20">
-              <p className="relative text-lg font-semibold leading-snug pl-6 text-left md:max-w-[32ch]">
-                <span className="absolute left-0 top-0">·</span>
-                {t('whyAi')}
-              </p>
+            {/* 2️⃣ Personalised Health Plans */}
+            <div className="flex flex-col md:flex-row-reverse items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md transition">
+              <div className="w-full md:w-1/2 overflow-hidden rounded-xl">
+                <img
+                  src="/why-kitchen.jpg"
+                  alt="Personalised Health Plans"
+                  className="h-56 w-full object-cover md:h-64"
+                />
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 flex items-center justify-center rounded-full bg-emerald-600">
+                    <HeartPulse className="h-5 w-5 text-white" />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900">
+                    {t('why.planTitle')}
+                  </h4>
+                </div>
+                <p className="mt-4 text-gray-600 text-sm">
+                  {t('why.planDesc')}
+                </p>
+              </div>
             </div>
 
-            {/* Bottom-left bullet (hanging indent, above image) */}
-            <div className="col-span-12 md:col-span-5 md:row-start-2 md:flex md:items-center md:justify-end md:pr-10">
-              <p className="relative text-lg font-semibold leading-snug pl-6 text-left md:max-w-[32ch]">
-                <span className="absolute left-0 top-0">·</span>
-                {t('whyPersonalised')}
-              </p>
+            {/* 3️⃣ NCD Knowledge Library */}
+            <div className="flex flex-col md:flex-row items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md transition">
+              <div className="w-full md:w-1/2 overflow-hidden rounded-xl">
+                <img
+                  src="/why-library.jpg"
+                  alt="NCD Knowledge Library"
+                  className="h-56 w-full object-cover md:h-64"
+                />
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 flex items-center justify-center rounded-full bg-emerald-600">
+                    <BookOpenCheck className="h-5 w-5 text-white" />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900">
+                    {t('why.libraryTitle')}
+                  </h4>
+                </div>
+                <p className="mt-4 text-gray-600 text-sm">
+                  {t('why.libraryDesc')}
+                </p>
+              </div>
             </div>
 
-            {/* Bottom-right image — force overlap */}
-            <div
-              className="
-          col-span-12 md:col-span-7 md:col-start-7 md:row-start-2
-          md:relative md:-mt-16 md:z-10
-        "
-            >
-              <div className="overflow-hidden rounded-[20px] shadow-xl ring-1 ring-black/5">
-                <img src="/why-kitchen.jpg" alt="Healthy cooking" className="h-56 w-full object-cover md:h-72" />
+            {/* 4️⃣ Interactive Health Quiz */}
+            <div className="flex flex-col md:flex-row-reverse items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md transition">
+              <div className="w-full md:w-1/2 overflow-hidden rounded-xl">
+                <img
+                  src="/why-quiz.jpg"
+                  alt="Interactive Health Quiz"
+                  className="h-56 w-full object-cover md:h-64"
+                />
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 flex items-center justify-center rounded-full bg-emerald-600">
+                    <Edit className="h-5 w-5 text-white" />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900">
+                    {t('why.quizTitle')}
+                  </h4>
+                </div>
+                <p className="mt-4 text-gray-600 text-sm">
+                  {t('why.quizDesc')}
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
     </main>
   );

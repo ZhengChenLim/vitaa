@@ -43,7 +43,18 @@
     "ctaAnalysisBtn": "Mulakan Analisis",
     "whyTitle": "Mengapa Vitaa?",
     "whyAi": "Analitik AI untuk Kesihatan Pencegahan",
-    "whyPersonalised": "Cadangan pemakanan dan senaman yang diperibadikan"
+    "whyPersonalised": "Cadangan pemakanan dan senaman yang diperibadikan",
+    "whySubtitle": "Platform pengurusan kesihatan menyeluruh yang direka khusus untuk keperluan penjagaan kesihatan Malaysia.",
+    "why": {
+      "aiTitle": "Analitik Pencegahan Kesihatan Berasaskan AI",
+      "aiDesc": "Algoritma lanjutan menganalisis data kesihatan anda untuk meramal dan mencegah isu kesihatan sebelum ia berlaku.",
+      "planTitle": "Pelan Kesihatan Dipersonalisasi",
+      "planDesc": "Cadangan diet dan senaman yang disesuaikan dengan profil kesihatan serta keutamaan budaya anda.",
+      "libraryTitle": "Perpustakaan Pengetahuan NCD",
+      "libraryDesc": "Sumber pendidikan komprehensif tentang penyakit tidak berjangkit dengan statistik dan strategi pencegahan khusus Malaysia.",
+      "quizTitle": "Kuiz Kesihatan Interaktif",
+      "quizDesc": "Kuiz yang menarik untuk menguji pengetahuan kesihatan anda dan menerima cadangan peribadi berdasarkan respons anda."
+    }
   },
   "plan": {
     "validation": {

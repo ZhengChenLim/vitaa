@@ -43,7 +43,18 @@
     "ctaAnalysisBtn": "Bắt đầu phân tích",
     "whyTitle": "Tại sao chọn Vitaa?",
     "whyAi": "Phân tích sức khỏe dự phòng bằng AI",
-    "whyPersonalised": "Khuyến nghị ăn uống và luyện tập cá nhân hóa"
+    "whyPersonalised": "Khuyến nghị ăn uống và luyện tập cá nhân hóa",
+    "whySubtitle": "Nền tảng quản lý sức khỏe toàn diện được thiết kế riêng cho nhu cầu y tế tại Malaysia.",
+    "why": {
+      "aiTitle": "Phân tích Phòng ngừa Sức khỏe bằng AI",
+      "aiDesc": "Thuật toán nâng cao phân tích dữ liệu sức khỏe của bạn để dự đoán và phòng ngừa vấn đề trước khi xảy ra.",
+      "planTitle": "Kế hoạch Sức khỏe Cá nhân hóa",
+      "planDesc": "Gợi ý chế độ ăn và tập luyện phù hợp với hồ sơ sức khỏe và sở thích văn hóa của bạn.",
+      "libraryTitle": "Thư viện Kiến thức NCD",
+      "libraryDesc": "Nguồn tài liệu giáo dục toàn diện về bệnh không lây nhiễm với số liệu và chiến lược phòng ngừa theo bối cảnh Malaysia.",
+      "quizTitle": "Bài kiểm tra Sức khỏe Tương tác",
+      "quizDesc": "Bài kiểm tra thú vị để đánh giá hiểu biết sức khỏe và nhận khuyến nghị cá nhân hóa dựa trên câu trả lời của bạn."
+    }
   },
   "plan": {
     "validation": {
@@ -1350,7 +1361,10 @@
     "vivi": {
       "title": "Vivi – Trò chuyện AI",
       "desc": "Hỏi về sức khỏe, lối sống hoặc tính năng của chúng tôi.",
-      "step1": { "h": "Mở hộp chat AI:", "p": "Nhấn biểu tượng chat ở góc; Vivi sẽ chào bạn." },
+      "step1": {
+        "h": "Mở hộp chat AI:",
+        "p": "Nhấn biểu tượng chat ở góc; Vivi sẽ chào bạn."
+      },
       "step2": {
         "h": "Đặt câu hỏi hoặc bắt đầu kế hoạch:",
         "p": "Nhập mục tiêu (ví dụ: “Giúp tôi lên thực đơn tối tuần này”) hoặc nhấn hành động nhanh **Bắt đầu Kế hoạch Sức khỏe**."
@@ -1367,7 +1381,11 @@
     "how": {
       "title": "2. Cách hoạt động",
       "subtitle": "Ba bước đơn giản để tạo phân tích sức khỏe.",
-      "tabs": { "how": "Khai báo thông tin", "result": "Nhận kết quả", "understand": "Hiểu kết quả" },
+      "tabs": {
+        "how": "Khai báo thông tin",
+        "result": "Nhận kết quả",
+        "understand": "Hiểu kết quả"
+      },
       "how": {
         "p": "Cung cấp thông tin cơ bản và bối cảnh để phân tích phù hợp:",
         "fields": {
@@ -1380,8 +1398,12 @@
           "family": "Tiền sử gia đình"
         }
       },
-      "result": { "p": "Nhấn “Tạo phân tích sức khỏe” để tính hồ sơ rủi ro hiện tại." },
-      "understand": { "p": "Vitaa AI giải thích bằng tín hiệu màu dễ hiểu." },
+      "result": {
+        "p": "Nhấn “Tạo phân tích sức khỏe” để tính hồ sơ rủi ro hiện tại."
+      },
+      "understand": {
+        "p": "Vitaa AI giải thích bằng tín hiệu màu dễ hiểu."
+      },
       "table": {
         "h1": "Điểm sức khỏe",
         "h2": "Ý nghĩa",
@@ -1397,9 +1419,18 @@
     "trust": {
       "title": "3. Vì sao đáng tin",
       "desc": "An toàn, riêng tư và rõ ràng — ngay từ thiết kế.",
-      "safe": { "h": "An toàn & riêng tư:", "p": "Dữ liệu của bạn được bảo vệ. Chúng tôi không lưu trữ dữ liệu của bạn." },
-      "clear": { "h": "Rõ ràng & dễ hiểu:", "p": "Giải thích không dùng thuật ngữ rối rắm." },
-      "ethical": { "h": "Đạo đức:", "p": "Thiết kế công bằng cho mọi người dùng." }
+      "safe": {
+        "h": "An toàn & riêng tư:",
+        "p": "Dữ liệu của bạn được bảo vệ. Chúng tôi không lưu trữ dữ liệu của bạn."
+      },
+      "clear": {
+        "h": "Rõ ràng & dễ hiểu:",
+        "p": "Giải thích không dùng thuật ngữ rối rắm."
+      },
+      "ethical": {
+        "h": "Đạo đức:",
+        "p": "Thiết kế công bằng cho mọi người dùng."
+      }
     },
     "models": {
       "title": "Mô hình sử dụng",
