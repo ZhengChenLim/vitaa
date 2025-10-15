@@ -80,7 +80,7 @@ export default function Header() {
                   <DropdownMenuGroup className="space-y-1">
                     <DropdownMenuItem asChild>
                       <Link href="/ncd" className="rounded-md px-2 py-1.5 hover:bg-purple-50">
-                        {t("nav.section.ncd")}
+                        {t("nav.section.ncds")}
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>

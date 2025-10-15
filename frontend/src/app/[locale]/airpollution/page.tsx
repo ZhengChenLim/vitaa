@@ -4,7 +4,20 @@ import { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Wind, CloudFog, Shield, Factory } from "lucide-react";
+import {  Wind,
+  CloudFog,
+  Shield,
+  Factory,
+  Leaf,
+  AlertTriangle,
+  Home,
+  AirVent,
+  Flame,
+  Megaphone,
+  Recycle,
+  Bike,
+  Bus,
+  ShieldCheck, } from "lucide-react";
 
 // recharts (client-side)
 import {
@@ -82,37 +95,37 @@ export default function AirQualityPage() {
 
 
   useEffect(() => {
-  (async () => {
-    setAqiLoading(true);
-    setAqiErr(null);
-    try {
-      const res = await fetch(apiJoin(API_BASE, "/api/aqi/all-states"), { cache: "no-store" });
-      if (!res.ok) throw new Error("Failed to load states AQI");
-      const j = await res.json();
+    (async () => {
+      setAqiLoading(true);
+      setAqiErr(null);
+      try {
+        const res = await fetch(apiJoin(API_BASE, "/api/aqi/all-states"), { cache: "no-store" });
+        if (!res.ok) throw new Error("Failed to load states AQI");
+        const j = await res.json();
 
-      // Match the map's expected structure
-      if (j.status === 'ok' && Array.isArray(j.results)) {
-        const rows: AqiStateRow[] = j.results.map((r: any) => ({
-          state: r.state ?? "Unknown",
-          aqi: Number(r.aqi ?? NaN),
-          category: undefined, // Will be derived from AQI
-          updated: r.time ?? undefined,
-        }));
-        
-        // Filter invalid numbers, sort by AQI desc
-        const validRows = rows.filter(r => Number.isFinite(r.aqi)).sort((a, b) => b.aqi - a.aqi);
-        setAqiRows(validRows);
-      } else {
-        throw new Error("Unexpected API response structure");
+        // Match the map's expected structure
+        if (j.status === 'ok' && Array.isArray(j.results)) {
+          const rows: AqiStateRow[] = j.results.map((r: any) => ({
+            state: r.state ?? "Unknown",
+            aqi: Number(r.aqi ?? NaN),
+            category: undefined, // Will be derived from AQI
+            updated: r.time ?? undefined,
+          }));
+
+          // Filter invalid numbers, sort by AQI desc
+          const validRows = rows.filter(r => Number.isFinite(r.aqi)).sort((a, b) => b.aqi - a.aqi);
+          setAqiRows(validRows);
+        } else {
+          throw new Error("Unexpected API response structure");
+        }
+      } catch (e: any) {
+        setAqiErr(e?.message ?? "Error");
+        setAqiRows(null);
+      } finally {
+        setAqiLoading(false);
       }
-    } catch (e: any) {
-      setAqiErr(e?.message ?? "Error");
-      setAqiRows(null);
-    } finally {
-      setAqiLoading(false);
-    }
-  })();
-}, [API_BASE]);
+    })();
+  }, [API_BASE]);
 
 
   return (
@@ -310,6 +323,138 @@ export default function AirQualityPage() {
                   "Sorted by AQI (highest first). Categories are inferred if not provided by the API.",
               })}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* How to Improve Air Quality */}
+      <section className="mx-auto mt-8 max-w-6xl">
+        <h2 className="text-center text-2xl font-semibold">{t("improve.title")}</h2>
+        <p className="mt-1 text-center text-sm text-muted-foreground">{t("improve.subtitle")}</p>
+
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          {/* Personal habits */}
+          <Card className="border-slate-200/70">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base flex items-center gap-2">
+                <Leaf className="h-4 w-4 text-green-500" />
+                {t("improve.personalTitle")}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0 text-sm text-muted-foreground leading-relaxed">
+              <ul className="list-disc list-inside space-y-2">
+                <li>{t("improve.personal1")}</li>
+                <li>{t("improve.personal2")}</li>
+                <li>{t("improve.personal3")}</li>
+                <li>{t("improve.personal4")}</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Indoor air */}
+          <Card className="border-slate-200/70">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base flex items-center gap-2">
+                <Home className="h-4 w-4 text-orange-500" />
+                {t("improve.indoorTitle")}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0 text-sm text-muted-foreground leading-relaxed">
+              <ul className="list-disc list-inside space-y-2">
+                <li>{t("improve.indoor1")}</li>
+                <li>{t("improve.indoor2")}</li>
+                <li>{t("improve.indoor3")}</li>
+                <li>{t("improve.indoor4")}</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Travel & energy choices */}
+          <Card className="border-slate-200/70">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base flex items-center gap-2">
+                <Bus className="h-4 w-4 text-blue-500" />
+                {t("improve.travelTitle")}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0 text-sm text-muted-foreground leading-relaxed">
+              <ul className="list-disc list-inside space-y-2">
+                <li>{t("improve.travel1")}</li>
+                <li>{t("improve.travel2")}</li>
+                <li>{t("improve.travel3")}</li>
+                <li>{t("improve.travel4")}</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* What Malaysians Can Do (Haze-season ready) */}
+      <section className="mx-auto mt-8 max-w-6xl">
+        <h2 className="text-center text-2xl font-semibold">{t("myActions.title")}</h2>
+        <p className="mt-1 text-center text-sm text-muted-foreground">{t("myActions.subtitle")}</p>
+
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          {/* Haze-season prep */}
+          <Card className="border-slate-200/70">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base flex items-center gap-2">
+                <AlertTriangle className="h-4 w-4 text-red-500" />
+                {t("myActions.hazeTitle")}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0 text-sm text-muted-foreground leading-relaxed">
+              <ul className="list-disc list-inside space-y-2">
+                <li>{t("myActions.haze1")}</li>
+                <li>{t("myActions.haze2")}</li>
+                <li>{t("myActions.haze3")}</li>
+                <li>{t("myActions.haze4")}</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Community & reporting */}
+          <Card className="border-slate-200/70">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base flex items-center gap-2">
+                <Megaphone className="h-4 w-4 text-yellow-500" />
+                {t("myActions.communityTitle")}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0 text-sm text-muted-foreground leading-relaxed">
+              <ul className="list-disc list-inside space-y-2">
+                <li>{t("myActions.community1")}</li>
+                <li>{t("myActions.community2")}</li>
+                <li>{t("myActions.community3")}</li>
+                <li>{t("myActions.community4")}</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Work/School policies */}
+          <Card className="border-slate-200/70">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base flex items-center gap-2">
+                <ShieldCheck className="h-4 w-4 text-green-500" />
+                {t("myActions.orgTitle")}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0 text-sm text-muted-foreground leading-relaxed">
+              <ul className="list-disc list-inside space-y-2">
+                <li>{t("myActions.org1")}</li>
+                <li>{t("myActions.org2")}</li>
+                <li>{t("myActions.org3")}</li>
+                <li>{t("myActions.org4")}</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Tiny banner tip */}
+        <div className="mt-6 mb-5 rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+          <div className="flex items-start gap-2">
+            <AirVent className="mt-0.5 h-4 w-4" />
+            <p>{t("myActions.banner")}</p>
           </div>
         </div>
       </section>
