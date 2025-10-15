@@ -9,6 +9,7 @@
     "toggleMenuAria": "Toggle menu",
     "section": {
       "ncd": "NCDs",
+      "ncds": "NCDs Library",
       "challenges": "Challenges",
       "factors": "NCD Factors"
     },
@@ -21,7 +22,7 @@
       "monthlyQuiz": "Quiz & Challenges"
     },
     "factors": {
-      "airPollution": "Air Pollution"
+      "airPollution": "Air Quality"
     }
   },
   "home": {
@@ -53,7 +54,9 @@
       "libraryTitle": "NCD Knowledge Library",
       "libraryDesc": "Comprehensive educational resources about non-communicable diseases with Malaysian-specific statistics and prevention strategies.",
       "quizTitle": "Interactive Health Quiz",
-      "quizDesc": "Engaging quizzes to test your health knowledge and receive personalized recommendations based on your responses."
+      "quizDesc": "Engaging quizzes to test your health knowledge and receive personalized recommendations based on your responses.",
+      "airTitle": "Air Quality Insights",
+      "airDesc": "Track air pollution levels, understand health impacts, and learn practical ways to stay safe during haze and pollution events."
     }
   },
   "plan": {
@@ -262,7 +265,7 @@
     },
     "overview": {
       "title": "Your Health Plan",
-      "macroTitle": "Macro Distribution",
+      "macroTitle": "Daily Nutrient Breakdown",
       "protein": "Protein",
       "carbs": "Carbs",
       "fat": "Fat",
@@ -1248,7 +1251,7 @@
     }
   },
   "AIR": {
-    "title": "Air Pollution",
+    "title": "Air Quality",
     "subtitle": "Clean air is essential for health, wellbeing, and quality of life.",
     "whyTitle": "Why Does Air Quality Matter?",
     "whyHeading": "Air affects everyone, especially children, the elderly, and those with conditions.",
@@ -1303,6 +1306,45 @@
       "updated": "Updated",
       "noData": "No data available.",
       "note": "Sorted by AQI (highest first). Categories are inferred if not provided by the API."
+    },
+    "improve": {
+      "title": "How to Improve Air Quality",
+      "subtitle": "Small changes at home, on the road, and in our community add up.",
+      "personalTitle": "Personal Habits",
+      "personal1": "Avoid open burning and dispose of waste properly.",
+      "personal2": "Choose low-smoke cooking methods; keep gas stoves well-ventilated.",
+      "personal3": "Quit or avoid smoking/vaping indoors; don’t idle engines unnecessarily.",
+      "personal4": "Schedule outdoor exercise when AQI is lower (morning/evening on clear days).",
+      "indoorTitle": "Improve Indoor Air",
+      "indoor1": "Use HEPA air purifiers in rooms where you spend the most time.",
+      "indoor2": "Seal gaps and keep windows closed during haze events; ventilate on good-AQI days.",
+      "indoor3": "Maintain air-cond filters and service units regularly.",
+      "indoor4": "Reduce indoor pollutants: incense, mosquito coils, aerosol sprays, and dust build-up.",
+      "travelTitle": "Travel & Energy Choices",
+      "travel1": "Use public transport, carpool, walk, or cycle for short trips when air is clear.",
+      "travel2": "Maintain vehicles (tyres, filters) to cut emissions.",
+      "travel3": "Plan commutes to avoid peak congestion where possible.",
+      "travel4": "Conserve electricity at home; efficient energy use reduces upstream emissions."
+    },
+    "myActions": {
+      "title": "What Malaysians Can Do",
+      "subtitle": "Be haze-season ready and support cleaner air year-round.",
+      "hazeTitle": "Haze-Season Prep",
+      "haze1": "Check AQI daily and follow MOH/DOE advisories.",
+      "haze2": "Use well-fitting respirators (e.g., KN95) outdoors during unhealthy AQI.",
+      "haze3": "Create a clean-air room with a HEPA purifier; limit outdoor activity for kids/elderly.",
+      "haze4": "Keep medications/relievers (asthma, COPD) accessible and updated.",
+      "communityTitle": "Community & Reporting",
+      "community1": "Report illegal open burning or industrial smoke to local authorities.",
+      "community2": "Support recycling and reduce waste that ends up burned.",
+      "community3": "Join local tree-planting/greening and anti-burning campaigns.",
+      "community4": "Share AQI info with neighbours, schools, and community groups.",
+      "orgTitle": "At Work & School",
+      "org1": "Adopt AQI-based policies (postpone outdoor events/classes when AQI is unhealthy).",
+      "org2": "Provide indoor clean-air spaces and maintain HVAC filters.",
+      "org3": "Enable flexible/remote work or staggered hours on severe haze days.",
+      "org4": "Encourage low-emission commuting and on-site EV/charging where feasible.",
+      "banner": "Tip: During unhealthy AQI, keep windows closed and run a HEPA purifier; air out your home only when AQI improves."
     }
   },
   "DATA_SOURCES": {

@@ -8,6 +8,7 @@
     "exploreAria": "Khám phá các chủ đề sức khỏe",
     "toggleMenuAria": "Chuyển đổi menu điều hướng",
     "section": {
+      "ncds": "Thư viện NCD",
       "ncd": "Bệnh Không Lây Nhiễm",
       "challenges": "Thách Thức",
       "factors": "Yếu Tố Nguy Cơ"
@@ -21,7 +22,7 @@
       "monthlyQuiz": "Câu đố & Thử thách"
     },
     "factors": {
-      "airPollution": "Ô Nhiễm Không Khí"
+      "airPollution": "Chất Lượng Không Khí"
     }
   },
   "home": {
@@ -53,7 +54,9 @@
       "libraryTitle": "Thư viện Kiến thức NCD",
       "libraryDesc": "Nguồn tài liệu giáo dục toàn diện về bệnh không lây nhiễm với số liệu và chiến lược phòng ngừa theo bối cảnh Malaysia.",
       "quizTitle": "Bài kiểm tra Sức khỏe Tương tác",
-      "quizDesc": "Bài kiểm tra thú vị để đánh giá hiểu biết sức khỏe và nhận khuyến nghị cá nhân hóa dựa trên câu trả lời của bạn."
+      "quizDesc": "Bài kiểm tra thú vị để đánh giá hiểu biết sức khỏe và nhận khuyến nghị cá nhân hóa dựa trên câu trả lời của bạn.",
+      "airTitle": "Thông tin Chất lượng Không khí",
+      "airDesc": "Theo dõi mức độ ô nhiễm không khí, hiểu tác động sức khỏe và học cách giữ an toàn trong các sự kiện khói mù và ô nhiễm."
     }
   },
   "plan": {
@@ -262,7 +265,7 @@
     },
     "overview": {
       "title": "Kế hoạch Sức khỏe của bạn",
-      "macroTitle": "Phân bổ Đạm - Béo - Tinh bột",
+      "macroTitle": "Phân bổ Dinh dưỡng Hàng ngày",
       "protein": "Protein",
       "carbs": "Cacbohydrat",
       "fat": "Chất béo",
@@ -1301,6 +1304,45 @@
       "updated": "Cập nhật",
       "noData": "Không có dữ liệu.",
       "note": "Sắp xếp theo AQI (cao nhất trước). Phân loại được ước tính nếu API không cung cấp."
+    },
+    "improve": {
+      "title": "Cách Cải Thiện Chất Lượng Không Khí",
+      "subtitle": "Những thay đổi nhỏ trong gia đình, di chuyển và cộng đồng có thể tạo nên khác biệt lớn.",
+      "personalTitle": "Thói Quen Cá Nhân",
+      "personal1": "Tránh đốt rác ngoài trời và xử lý chất thải đúng cách.",
+      "personal2": "Chọn phương pháp nấu ít khói và đảm bảo nhà bếp thông thoáng.",
+      "personal3": "Không hút thuốc hoặc vape trong nhà; không để động cơ xe nổ máy khi dừng lâu.",
+      "personal4": "Tập thể dục ngoài trời vào sáng sớm hoặc chiều muộn khi AQI thấp.",
+      "indoorTitle": "Cải Thiện Không Khí Trong Nhà",
+      "indoor1": "Sử dụng máy lọc không khí HEPA trong phòng thường sử dụng.",
+      "indoor2": "Đóng cửa sổ trong thời kỳ khói bụi; mở cửa thông gió khi AQI tốt.",
+      "indoor3": "Vệ sinh và bảo dưỡng điều hòa định kỳ.",
+      "indoor4": "Giảm ô nhiễm trong nhà như nhang, bình xịt, muỗi coil, và bụi bẩn.",
+      "travelTitle": "Di Chuyển & Năng Lượng",
+      "travel1": "Sử dụng giao thông công cộng, đi bộ, đạp xe hoặc đi chung xe cho quãng đường ngắn.",
+      "travel2": "Bảo dưỡng xe thường xuyên để giảm khí thải.",
+      "travel3": "Tránh giờ cao điểm và ùn tắc giao thông khi có thể.",
+      "travel4": "Tiết kiệm điện để giảm khí thải từ các nhà máy điện."
+    },
+    "myActions": {
+      "title": "Người Dân Malaysia Có Thể Làm Gì",
+      "subtitle": "Chủ động chuẩn bị cho mùa khói bụi và duy trì không khí trong lành quanh năm.",
+      "hazeTitle": "Chuẩn Bị Mùa Khói Bụi",
+      "haze1": "Theo dõi AQI hàng ngày và làm theo hướng dẫn từ Bộ Y tế hoặc Cục Môi trường.",
+      "haze2": "Đeo khẩu trang bảo hộ (ví dụ KN95) khi AQI ở mức không lành mạnh.",
+      "haze3": "Tạo không gian không khí sạch trong nhà và hạn chế hoạt động ngoài trời cho trẻ em và người già.",
+      "haze4": "Giữ sẵn thuốc hô hấp (hen suyễn, COPD) và kiểm tra hạn sử dụng.",
+      "communityTitle": "Cộng Đồng & Báo Cáo",
+      "community1": "Báo cáo hành vi đốt rác hoặc khói công nghiệp đến chính quyền địa phương.",
+      "community2": "Tham gia tái chế và giảm rác thải để hạn chế việc đốt rác.",
+      "community3": "Tham gia trồng cây và các chiến dịch bảo vệ môi trường.",
+      "community4": "Chia sẻ thông tin AQI với hàng xóm, trường học và cộng đồng.",
+      "orgTitle": "Tại Nơi Làm Việc & Trường Học",
+      "org1": "Áp dụng chính sách dựa trên AQI — hoãn hoạt động ngoài trời khi AQI không tốt.",
+      "org2": "Giữ môi trường trong nhà sạch và bảo dưỡng hệ thống điều hòa.",
+      "org3": "Cho phép làm việc linh hoạt hoặc từ xa trong những ngày khói bụi nghiêm trọng.",
+      "org4": "Khuyến khích di chuyển ít phát thải và lắp đặt trạm sạc xe điện.",
+      "banner": "Mẹo: Khi AQI không lành mạnh, hãy đóng cửa sổ và bật máy lọc không khí HEPA; chỉ mở cửa khi không khí cải thiện."
     }
   },
   "DATA_SOURCES": {
@@ -1361,7 +1403,10 @@
     "vivi": {
       "title": "Vivi – Trò chuyện AI",
       "desc": "Hỏi về sức khỏe, lối sống hoặc tính năng của chúng tôi.",
-      "step1": { "h": "Mở hộp chat AI:", "p": "Nhấn biểu tượng chat ở góc; Vivi sẽ chào bạn." },
+      "step1": {
+        "h": "Mở hộp chat AI:",
+        "p": "Nhấn biểu tượng chat ở góc; Vivi sẽ chào bạn."
+      },
       "step2": {
         "h": "Đặt câu hỏi hoặc bắt đầu kế hoạch:",
         "p": "Nhập mục tiêu (ví dụ: “Giúp tôi lên thực đơn tối tuần này”) hoặc nhấn hành động nhanh **Bắt đầu Kế hoạch Sức khỏe**."
@@ -1378,7 +1423,11 @@
     "how": {
       "title": "2. Cách hoạt động",
       "subtitle": "Ba bước đơn giản để tạo phân tích sức khỏe.",
-      "tabs": { "how": "Khai báo thông tin", "result": "Nhận kết quả", "understand": "Hiểu kết quả" },
+      "tabs": {
+        "how": "Khai báo thông tin",
+        "result": "Nhận kết quả",
+        "understand": "Hiểu kết quả"
+      },
       "how": {
         "p": "Cung cấp thông tin cơ bản và bối cảnh để phân tích phù hợp:",
         "fields": {
@@ -1391,8 +1440,12 @@
           "family": "Tiền sử gia đình"
         }
       },
-      "result": { "p": "Nhấn “Tạo phân tích sức khỏe” để tính hồ sơ rủi ro hiện tại." },
-      "understand": { "p": "Vitaa AI giải thích bằng tín hiệu màu dễ hiểu." },
+      "result": {
+        "p": "Nhấn “Tạo phân tích sức khỏe” để tính hồ sơ rủi ro hiện tại."
+      },
+      "understand": {
+        "p": "Vitaa AI giải thích bằng tín hiệu màu dễ hiểu."
+      },
       "table": {
         "h1": "Điểm sức khỏe",
         "h2": "Ý nghĩa",
@@ -1408,9 +1461,18 @@
     "trust": {
       "title": "3. Vì sao đáng tin",
       "desc": "An toàn, riêng tư và rõ ràng — ngay từ thiết kế.",
-      "safe": { "h": "An toàn & riêng tư:", "p": "Dữ liệu của bạn được bảo vệ. Chúng tôi không lưu trữ dữ liệu của bạn." },
-      "clear": { "h": "Rõ ràng & dễ hiểu:", "p": "Giải thích không dùng thuật ngữ rối rắm." },
-      "ethical": { "h": "Đạo đức:", "p": "Thiết kế công bằng cho mọi người dùng." }
+      "safe": {
+        "h": "An toàn & riêng tư:",
+        "p": "Dữ liệu của bạn được bảo vệ. Chúng tôi không lưu trữ dữ liệu của bạn."
+      },
+      "clear": {
+        "h": "Rõ ràng & dễ hiểu:",
+        "p": "Giải thích không dùng thuật ngữ rối rắm."
+      },
+      "ethical": {
+        "h": "Đạo đức:",
+        "p": "Thiết kế công bằng cho mọi người dùng."
+      }
     },
     "models": {
       "title": "Mô hình sử dụng",

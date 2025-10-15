@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Link } from '@/i18n/navigation';
-import { Activity, HeartPulse, BookOpenCheck, Edit } from "lucide-react";
+import { Activity, HeartPulse, BookOpenCheck, Edit, Wind } from "lucide-react";
 export default async function HomePage() {
   const t = await getTranslations('home');
   const title = t.rich('heroTitle', {
@@ -88,7 +88,7 @@ export default async function HomePage() {
             <div className="relative">
               {/* bottom card */}
               <img
-                src="/cta-bottom.png" 
+                src="/cta-bottom.png"
                 alt="Health profile cards"
                 width="300"
                 height="200"
@@ -96,7 +96,7 @@ export default async function HomePage() {
               />
               {/* top card */}
               <img
-                src="/cta-top.png" 
+                src="/cta-top.png"
                 alt="Risk widgets"
                 width="400"
                 height="300"
@@ -136,13 +136,17 @@ export default async function HomePage() {
           </p>
 
           <div className="mt-12 flex flex-col space-y-10">
-            {/* 1️⃣ AI Preventive Health Analytics */}
-            <div className="flex flex-col md:flex-row items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md transition">
+
+            {/* AI Preventive Health Analytics */}
+            <Link
+              href="/analysisform"
+              className="group flex flex-col md:flex-row items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md hover:bg-green-100 transition cursor-pointer"
+            >
               <div className="w-full md:w-1/2 overflow-hidden rounded-xl">
                 <img
                   src="/why-ai.jpg"
                   alt="AI Preventive Health Analytics"
-                  className="h-56 w-full object-cover md:h-64"
+                  className="h-56 w-full object-cover md:h-64 group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="w-full md:w-1/2">
@@ -154,19 +158,20 @@ export default async function HomePage() {
                     {t('why.aiTitle')}
                   </h4>
                 </div>
-                <p className="mt-4 text-gray-600 text-sm">
-                  {t('why.aiDesc')}
-                </p>
+                <p className="mt-4 text-gray-600 text-sm">{t('why.aiDesc')}</p>
               </div>
-            </div>
+            </Link>
 
-            {/* 2️⃣ Personalised Health Plans */}
-            <div className="flex flex-col md:flex-row-reverse items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md transition">
+            {/* Personalised Health Plans */}
+            <Link
+              href="/planform"
+              className="group flex flex-col md:flex-row-reverse items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md hover:bg-green-100 transition cursor-pointer"
+            >
               <div className="w-full md:w-1/2 overflow-hidden rounded-xl">
                 <img
                   src="/why-kitchen.jpg"
                   alt="Personalised Health Plans"
-                  className="h-56 w-full object-cover md:h-64"
+                  className="h-56 w-full object-cover md:h-64 group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="w-full md:w-1/2">
@@ -178,19 +183,20 @@ export default async function HomePage() {
                     {t('why.planTitle')}
                   </h4>
                 </div>
-                <p className="mt-4 text-gray-600 text-sm">
-                  {t('why.planDesc')}
-                </p>
+                <p className="mt-4 text-gray-600 text-sm">{t('why.planDesc')}</p>
               </div>
-            </div>
+            </Link>
 
-            {/* 3️⃣ NCD Knowledge Library */}
-            <div className="flex flex-col md:flex-row items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md transition">
+            {/* NCD Knowledge Library */}
+            <Link
+              href="/ncd"
+              className="group flex flex-col md:flex-row items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md hover:bg-green-100 transition cursor-pointer"
+            >
               <div className="w-full md:w-1/2 overflow-hidden rounded-xl">
                 <img
                   src="/why-library.jpg"
                   alt="NCD Knowledge Library"
-                  className="h-56 w-full object-cover md:h-64"
+                  className="h-56 w-full object-cover md:h-64 group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="w-full md:w-1/2">
@@ -202,19 +208,20 @@ export default async function HomePage() {
                     {t('why.libraryTitle')}
                   </h4>
                 </div>
-                <p className="mt-4 text-gray-600 text-sm">
-                  {t('why.libraryDesc')}
-                </p>
+                <p className="mt-4 text-gray-600 text-sm">{t('why.libraryDesc')}</p>
               </div>
-            </div>
+            </Link>
 
-            {/* 4️⃣ Interactive Health Quiz */}
-            <div className="flex flex-col md:flex-row-reverse items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md transition">
+            {/* Interactive Health Quiz */}
+            <Link
+              href="/challenges"
+              className="group flex flex-col md:flex-row-reverse items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md hover:bg-green-100 transition cursor-pointer"
+            >
               <div className="w-full md:w-1/2 overflow-hidden rounded-xl">
                 <img
                   src="/why-quiz.jpg"
                   alt="Interactive Health Quiz"
-                  className="h-56 w-full object-cover md:h-64"
+                  className="h-56 w-full object-cover md:h-64 group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="w-full md:w-1/2">
@@ -226,14 +233,38 @@ export default async function HomePage() {
                     {t('why.quizTitle')}
                   </h4>
                 </div>
-                <p className="mt-4 text-gray-600 text-sm">
-                  {t('why.quizDesc')}
-                </p>
+                <p className="mt-4 text-gray-600 text-sm">{t('why.quizDesc')}</p>
               </div>
-            </div>
+            </Link>
+
+            {/* Air Quality Insights */}
+            <Link
+              href="/airpollution"
+              className="group flex flex-col md:flex-row items-center gap-6 rounded-2xl bg-green-50 p-6 shadow-sm hover:shadow-md hover:bg-green-100 transition cursor-pointer"
+            >
+              <div className="w-full md:w-1/2 overflow-hidden rounded-xl">
+                <img
+                  src="/why-air.jpg"
+                  alt="Air Quality Insights"
+                  className="h-56 w-full object-cover md:h-64 group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 flex items-center justify-center rounded-full bg-emerald-600">
+                    <Wind className="h-5 w-5 text-white" />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900">
+                    {t('why.airTitle')}
+                  </h4>
+                </div>
+                <p className="mt-4 text-gray-600 text-sm">{t('why.airDesc')}</p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
+
 
 
     </main>

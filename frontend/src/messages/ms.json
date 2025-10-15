@@ -8,6 +8,7 @@
     "exploreAria": "Menu NCDs",
     "toggleMenuAria": "Togol menu",
     "section": {
+      "ncds": "Perpustakaan NCD",
       "ncd": "PTB",
       "challenges": "Cabaran",
       "factors": "Faktor Risiko"
@@ -21,7 +22,7 @@
       "monthlyQuiz": "Kuiz dan Activiti Cabaran"
     },
     "factors": {
-      "airPollution": "Pencemaran Udara"
+      "airPollution": "Kualiti Udara"
     }
   },
   "home": {
@@ -53,7 +54,9 @@
       "libraryTitle": "Perpustakaan Pengetahuan NCD",
       "libraryDesc": "Sumber pendidikan komprehensif tentang penyakit tidak berjangkit dengan statistik dan strategi pencegahan khusus Malaysia.",
       "quizTitle": "Kuiz Kesihatan Interaktif",
-      "quizDesc": "Kuiz yang menarik untuk menguji pengetahuan kesihatan anda dan menerima cadangan peribadi berdasarkan respons anda."
+      "quizDesc": "Kuiz yang menarik untuk menguji pengetahuan kesihatan anda dan menerima cadangan peribadi berdasarkan respons anda.",
+      "airTitle": "Cerapan Kualiti Udara",
+      "airDesc": "Jejaki tahap pencemaran udara, fahami kesan kesihatan, dan pelajari cara praktikal untuk kekal selamat semasa kejadian jerebu dan pencemaran."
     }
   },
   "plan": {
@@ -262,7 +265,7 @@
     },
     "overview": {
       "title": "Pelan Kesihatan Anda",
-      "macroTitle": "Pengagihan Makro",
+      "macroTitle": "Pecahan Nutrien Harian",
       "protein": "Protein",
       "carbs": "Karbohidrat",
       "fat": "Lemak",
@@ -1301,6 +1304,45 @@
       "updated": "Dikemas kini",
       "noData": "Tiada data tersedia.",
       "note": "Disusun mengikut AQI (tertinggi dahulu). Kategori dianggarkan jika tiada dalam API."
+    },
+    "improve": {
+      "title": "Cara Meningkatkan Kualiti Udara",
+      "subtitle": "Perubahan kecil di rumah, di jalan raya, dan dalam komuniti boleh memberi kesan besar.",
+      "personalTitle": "Tabiat Peribadi",
+      "personal1": "Elakkan pembakaran terbuka dan buang sisa dengan betul.",
+      "personal2": "Gunakan kaedah memasak rendah asap dan pastikan dapur mempunyai pengudaraan yang baik.",
+      "personal3": "Berhenti atau elakkan merokok/vape di dalam rumah; jangan biarkan enjin hidup tanpa sebab.",
+      "personal4": "Rancang aktiviti luar apabila AQI rendah (pagi atau petang pada hari yang cerah).",
+      "indoorTitle": "Tingkatkan Kualiti Udara Dalam Rumah",
+      "indoor1": "Gunakan penapis udara HEPA di bilik yang sering digunakan.",
+      "indoor2": "Tutup tingkap semasa jerebu; buka untuk pengudaraan pada hari dengan AQI baik.",
+      "indoor3": "Servis dan bersihkan penapis penghawa dingin secara berkala.",
+      "indoor4": "Kurangkan pencemar dalaman seperti colok, gegelung nyamuk, semburan aerosol, dan habuk.",
+      "travelTitle": "Pilihan Perjalanan & Tenaga",
+      "travel1": "Gunakan pengangkutan awam, kongsi kereta, berjalan kaki, atau berbasikal untuk jarak dekat.",
+      "travel2": "Selenggara kenderaan anda untuk kurangkan pelepasan asap.",
+      "travel3": "Elakkan kesesakan lalu lintas pada waktu puncak jika boleh.",
+      "travel4": "Jimatan tenaga elektrik membantu kurangkan pelepasan di peringkat loji tenaga."
+    },
+    "myActions": {
+      "title": "Apa yang Boleh Dilakukan oleh Rakyat Malaysia",
+      "subtitle": "Bersedia menghadapi musim jerebu dan sokong udara bersih sepanjang tahun.",
+      "hazeTitle": "Persediaan Musim Jerebu",
+      "haze1": "Periksa AQI harian dan ikut nasihat KKM/JAS.",
+      "haze2": "Gunakan pelitup muka seperti KN95 semasa AQI tidak sihat.",
+      "haze3": "Gunakan penapis udara HEPA dan kurangkan aktiviti luar untuk kanak-kanak serta warga emas.",
+      "haze4": "Pastikan ubat-ubatan (asma, COPD) mudah dicapai dan tidak luput.",
+      "communityTitle": "Komuniti & Laporan",
+      "community1": "Laporkan pembakaran terbuka atau pelepasan asap kepada pihak berkuasa tempatan.",
+      "community2": "Sokong kitar semula dan kurangkan pembaziran yang dibakar.",
+      "community3": "Sertai kempen penanaman pokok dan anti-pembakaran di komuniti.",
+      "community4": "Kongsi maklumat AQI dengan jiran, sekolah, dan komuniti setempat.",
+      "orgTitle": "Di Tempat Kerja & Sekolah",
+      "org1": "Gunakan dasar berdasarkan AQI — tunda aktiviti luar apabila AQI tidak sihat.",
+      "org2": "Sediakan ruang udara bersih dalaman dan selenggara penapis penghawa dingin.",
+      "org3": "Benarkan kerja dari rumah atau waktu fleksibel semasa jerebu teruk.",
+      "org4": "Galakkan perjalanan rendah pelepasan dan kemudahan pengecas EV.",
+      "banner": "Petua: Semasa AQI tidak sihat, tutup tingkap dan gunakan penapis udara HEPA; buka semula bila AQI bertambah baik."
     }
   },
   "DATA_SOURCES": {
