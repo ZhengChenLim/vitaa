@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Link } from '@/i18n/navigation';
 import { Activity, HeartPulse, BookOpenCheck, Edit, Wind } from "lucide-react";
+
 export default async function HomePage() {
   const t = await getTranslations('home');
   const title = t.rich('heroTitle', {
